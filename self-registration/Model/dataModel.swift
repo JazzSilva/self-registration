@@ -19,6 +19,7 @@ class user {
     }
     
     var testVariableJazz: String?
+    var testVariableLaptop: String?
 }
 
 
