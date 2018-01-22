@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DD220A0720111B7A00F19AC9 /* dataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD220A0620111B7A00F19AC9 /* dataModel.swift */; };
+		DD220A0920111C6700F19AC9 /* dataObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD220A0820111C6700F19AC9 /* dataObjects.swift */; };
+		DD220A0B20111DF200F19AC9 /* dataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD220A0A20111DF200F19AC9 /* dataManager.swift */; };
+		DD220A0D2011200400F19AC9 /* dataManagerDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD220A0C2011200400F19AC9 /* dataManagerDelegates.swift */; };
+		DD220A0F2011247600F19AC9 /* viewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD220A0E2011247600F19AC9 /* viewModel.swift */; };
+		DD220A11201124A300F19AC9 /* router.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD220A10201124A300F19AC9 /* router.swift */; };
+		DD220A132011261600F19AC9 /* viewModelBindings.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD220A122011261600F19AC9 /* viewModelBindings.swift */; };
+		DD220A15201126B700F19AC9 /* validationFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD220A14201126B700F19AC9 /* validationFunctions.swift */; };
 		DD580D481FE970FA00A254B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD580D471FE970FA00A254B4 /* AppDelegate.swift */; };
 		DD580D4A1FE970FA00A254B4 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD580D491FE970FA00A254B4 /* FirstViewController.swift */; };
 		DD580D4C1FE970FA00A254B4 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD580D4B1FE970FA00A254B4 /* SecondViewController.swift */; };
@@ -35,6 +43,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DD220A0620111B7A00F19AC9 /* dataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dataModel.swift; sourceTree = "<group>"; };
+		DD220A0820111C6700F19AC9 /* dataObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dataObjects.swift; sourceTree = "<group>"; };
+		DD220A0A20111DF200F19AC9 /* dataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dataManager.swift; sourceTree = "<group>"; };
+		DD220A0C2011200400F19AC9 /* dataManagerDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dataManagerDelegates.swift; sourceTree = "<group>"; };
+		DD220A0E2011247600F19AC9 /* viewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewModel.swift; sourceTree = "<group>"; };
+		DD220A10201124A300F19AC9 /* router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = router.swift; sourceTree = "<group>"; };
+		DD220A122011261600F19AC9 /* viewModelBindings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewModelBindings.swift; sourceTree = "<group>"; };
+		DD220A14201126B700F19AC9 /* validationFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = validationFunctions.swift; sourceTree = "<group>"; };
 		DD580D441FE970FA00A254B4 /* self-registration.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "self-registration.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD580D471FE970FA00A254B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD580D491FE970FA00A254B4 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -76,6 +92,49 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DD0A587A200671080035AD1F /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DD0A587B2006711B0035AD1F /* Data Manager */ = {
+			isa = PBXGroup;
+			children = (
+				DD220A0A20111DF200F19AC9 /* dataManager.swift */,
+				DD220A0C2011200400F19AC9 /* dataManagerDelegates.swift */,
+			);
+			path = "Data Manager";
+			sourceTree = "<group>";
+		};
+		DD0A587C200671250035AD1F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DD220A0620111B7A00F19AC9 /* dataModel.swift */,
+				DD220A0820111C6700F19AC9 /* dataObjects.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DD0A587D2006713A0035AD1F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				DD220A10201124A300F19AC9 /* router.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		DD0A587E200671590035AD1F /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+				DD220A0E2011247600F19AC9 /* viewModel.swift */,
+				DD220A122011261600F19AC9 /* viewModelBindings.swift */,
+				DD220A14201126B700F19AC9 /* validationFunctions.swift */,
+			);
+			path = "View Model";
+			sourceTree = "<group>";
+		};
 		DD580D3B1FE970FA00A254B4 = {
 			isa = PBXGroup;
 			children = (
@@ -99,6 +158,11 @@
 		DD580D461FE970FA00A254B4 /* self-registration */ = {
 			isa = PBXGroup;
 			children = (
+				DD0A587E200671590035AD1F /* View Model */,
+				DD0A587D2006713A0035AD1F /* Controller */,
+				DD0A587C200671250035AD1F /* Model */,
+				DD0A587B2006711B0035AD1F /* Data Manager */,
+				DD0A587A200671080035AD1F /* View */,
 				DD580D471FE970FA00A254B4 /* AppDelegate.swift */,
 				DD580D491FE970FA00A254B4 /* FirstViewController.swift */,
 				DD580D4B1FE970FA00A254B4 /* SecondViewController.swift */,
@@ -263,8 +327,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD580D4C1FE970FA00A254B4 /* SecondViewController.swift in Sources */,
+				DD220A0D2011200400F19AC9 /* dataManagerDelegates.swift in Sources */,
+				DD220A132011261600F19AC9 /* viewModelBindings.swift in Sources */,
 				DD580D481FE970FA00A254B4 /* AppDelegate.swift in Sources */,
 				DD580D4A1FE970FA00A254B4 /* FirstViewController.swift in Sources */,
+				DD220A15201126B700F19AC9 /* validationFunctions.swift in Sources */,
+				DD220A0920111C6700F19AC9 /* dataObjects.swift in Sources */,
+				DD220A0720111B7A00F19AC9 /* dataModel.swift in Sources */,
+				DD220A0F2011247600F19AC9 /* viewModel.swift in Sources */,
+				DD220A0B20111DF200F19AC9 /* dataManager.swift in Sources */,
+				DD220A11201124A300F19AC9 /* router.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -431,13 +503,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = YAKDMK2B7A;
+				DEVELOPMENT_TEAM = RZZ2SRNCGK;
 				INFOPLIST_FILE = "self-registration/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.self-registration";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.hcpl.self-registration";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
 		};
@@ -446,13 +519,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = YAKDMK2B7A;
+				DEVELOPMENT_TEAM = RZZ2SRNCGK;
 				INFOPLIST_FILE = "self-registration/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.self-registration";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.hcpl.self-registration";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
 		};
