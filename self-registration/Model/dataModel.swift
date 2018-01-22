@@ -17,6 +17,8 @@ class user {
     deinit {
         print("\(self) is being deinitialized")
     }
+    
+    var testVariableJazz: String?
 }
 
 
