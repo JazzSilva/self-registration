@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B0400E8120168C940026CA09 /* RxCocoa.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B0400E7C20168C940026CA09 /* RxCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B0400E8320168C940026CA09 /* RxSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B0400E7D20168C940026CA09 /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B0400E8520168C940026CA09 /* RxBlocking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B0400E7E20168C940026CA09 /* RxBlocking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B0400E8720168C940026CA09 /* RxTest.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B0400E7F20168C940026CA09 /* RxTest.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B0639EFC20178BE100DD7FA4 /* registerNowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0639EFB20178BE100DD7FA4 /* registerNowViewController.swift */; };
+		B0639EFE2017A5C200DD7FA4 /* nameView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0639EFD2017A5C200DD7FA4 /* nameView.xib */; };
+		B0639F002017A83800DD7FA4 /* viewXibClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0639EFF2017A83800DD7FA4 /* viewXibClasses.swift */; };
+		B0639F022017C6EB00DD7FA4 /* addressView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0639F012017C6EB00DD7FA4 /* addressView.xib */; };
+		B0639F042017C71A00DD7FA4 /* addressXibClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0639F032017C71A00DD7FA4 /* addressXibClass.swift */; };
 		DD220A0720111B7A00F19AC9 /* dataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD220A0620111B7A00F19AC9 /* dataModel.swift */; };
 		DD220A0920111C6700F19AC9 /* dataObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD220A0820111C6700F19AC9 /* dataObjects.swift */; };
 		DD220A0B20111DF200F19AC9 /* dataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD220A0A20111DF200F19AC9 /* dataManager.swift */; };
@@ -42,7 +51,37 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		B0400E8820168C950026CA09 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				B0400E8320168C940026CA09 /* RxSwift.framework in Embed Frameworks */,
+				B0400E8120168C940026CA09 /* RxCocoa.framework in Embed Frameworks */,
+				B0400E8720168C940026CA09 /* RxTest.framework in Embed Frameworks */,
+				B0400E8520168C940026CA09 /* RxBlocking.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		B0400E73201688720026CA09 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
+		B0400E74201688720026CA09 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
+		B0400E75201688720026CA09 /* RxTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxTest.framework; path = Carthage/Build/iOS/RxTest.framework; sourceTree = "<group>"; };
+		B0400E76201688720026CA09 /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = Carthage/Build/iOS/RxBlocking.framework; sourceTree = "<group>"; };
+		B0400E7C20168C940026CA09 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
+		B0400E7D20168C940026CA09 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
+		B0400E7E20168C940026CA09 /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = Carthage/Build/iOS/RxBlocking.framework; sourceTree = "<group>"; };
+		B0400E7F20168C940026CA09 /* RxTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxTest.framework; path = Carthage/Build/iOS/RxTest.framework; sourceTree = "<group>"; };
+		B0639EFB20178BE100DD7FA4 /* registerNowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = registerNowViewController.swift; sourceTree = "<group>"; };
+		B0639EFD2017A5C200DD7FA4 /* nameView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = nameView.xib; sourceTree = "<group>"; };
+		B0639EFF2017A83800DD7FA4 /* viewXibClasses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewXibClasses.swift; sourceTree = "<group>"; };
+		B0639F012017C6EB00DD7FA4 /* addressView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = addressView.xib; sourceTree = "<group>"; };
+		B0639F032017C71A00DD7FA4 /* addressXibClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addressXibClass.swift; sourceTree = "<group>"; };
 		DD220A0620111B7A00F19AC9 /* dataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dataModel.swift; sourceTree = "<group>"; };
 		DD220A0820111C6700F19AC9 /* dataObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dataObjects.swift; sourceTree = "<group>"; };
 		DD220A0A20111DF200F19AC9 /* dataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dataManager.swift; sourceTree = "<group>"; };
@@ -92,11 +131,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		DD0A587A200671080035AD1F /* View */ = {
+		B0400E72201688720026CA09 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B0400E76201688720026CA09 /* RxBlocking.framework */,
+				B0400E74201688720026CA09 /* RxCocoa.framework */,
+				B0400E73201688720026CA09 /* RxSwift.framework */,
+				B0400E75201688720026CA09 /* RxTest.framework */,
 			);
-			path = View;
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B0639EF82017877900DD7FA4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B0639EFD2017A5C200DD7FA4 /* nameView.xib */,
+				B0639EFF2017A83800DD7FA4 /* viewXibClasses.swift */,
+				B0639F012017C6EB00DD7FA4 /* addressView.xib */,
+				B0639F032017C71A00DD7FA4 /* addressXibClass.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		DD0A587B2006711B0035AD1F /* Data Manager */ = {
@@ -121,6 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				DD220A10201124A300F19AC9 /* router.swift */,
+				B0639EFB20178BE100DD7FA4 /* registerNowViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -138,10 +193,15 @@
 		DD580D3B1FE970FA00A254B4 = {
 			isa = PBXGroup;
 			children = (
+				B0400E7E20168C940026CA09 /* RxBlocking.framework */,
+				B0400E7C20168C940026CA09 /* RxCocoa.framework */,
+				B0400E7D20168C940026CA09 /* RxSwift.framework */,
+				B0400E7F20168C940026CA09 /* RxTest.framework */,
 				DD580D461FE970FA00A254B4 /* self-registration */,
 				DD580D5D1FE970FA00A254B4 /* self-registrationTests */,
 				DD580D681FE970FA00A254B4 /* self-registrationUITests */,
 				DD580D451FE970FA00A254B4 /* Products */,
+				B0400E72201688720026CA09 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -158,11 +218,11 @@
 		DD580D461FE970FA00A254B4 /* self-registration */ = {
 			isa = PBXGroup;
 			children = (
+				B0639EF82017877900DD7FA4 /* Views */,
 				DD0A587E200671590035AD1F /* View Model */,
 				DD0A587D2006713A0035AD1F /* Controller */,
 				DD0A587C200671250035AD1F /* Model */,
 				DD0A587B2006711B0035AD1F /* Data Manager */,
-				DD0A587A200671080035AD1F /* View */,
 				DD580D471FE970FA00A254B4 /* AppDelegate.swift */,
 				DD580D491FE970FA00A254B4 /* FirstViewController.swift */,
 				DD580D4B1FE970FA00A254B4 /* SecondViewController.swift */,
@@ -202,6 +262,8 @@
 				DD580D401FE970FA00A254B4 /* Sources */,
 				DD580D411FE970FA00A254B4 /* Frameworks */,
 				DD580D421FE970FA00A254B4 /* Resources */,
+				B0400E7B2016888A0026CA09 /* ShellScript */,
+				B0400E8820168C950026CA09 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -300,6 +362,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD580D541FE970FA00A254B4 /* LaunchScreen.storyboard in Resources */,
+				B0639F022017C6EB00DD7FA4 /* addressView.xib in Resources */,
+				B0639EFE2017A5C200DD7FA4 /* nameView.xib in Resources */,
 				DD580D511FE970FA00A254B4 /* Assets.xcassets in Resources */,
 				DD580D4F1FE970FA00A254B4 /* Main.storyboard in Resources */,
 			);
@@ -321,17 +385,40 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		B0400E7B2016888A0026CA09 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 8;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxBlocking.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxTest.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+			shellPath = "/usr/local/bin/carthage copy-frameworks";
+			shellScript = "";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		DD580D401FE970FA00A254B4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				DD580D4C1FE970FA00A254B4 /* SecondViewController.swift in Sources */,
+				B0639F002017A83800DD7FA4 /* viewXibClasses.swift in Sources */,
 				DD220A0D2011200400F19AC9 /* dataManagerDelegates.swift in Sources */,
+				B0639F042017C71A00DD7FA4 /* addressXibClass.swift in Sources */,
 				DD220A132011261600F19AC9 /* viewModelBindings.swift in Sources */,
 				DD580D481FE970FA00A254B4 /* AppDelegate.swift in Sources */,
 				DD580D4A1FE970FA00A254B4 /* FirstViewController.swift in Sources */,
 				DD220A15201126B700F19AC9 /* validationFunctions.swift in Sources */,
+				B0639EFC20178BE100DD7FA4 /* registerNowViewController.swift in Sources */,
 				DD220A0920111C6700F19AC9 /* dataObjects.swift in Sources */,
 				DD220A0720111B7A00F19AC9 /* dataModel.swift in Sources */,
 				DD220A0F2011247600F19AC9 /* viewModel.swift in Sources */,
@@ -504,6 +591,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = RZZ2SRNCGK;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "self-registration/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -520,6 +611,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = RZZ2SRNCGK;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "self-registration/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

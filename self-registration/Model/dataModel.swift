@@ -18,8 +18,6 @@ class user {
         print("\(self) is being deinitialized")
     }
     
-    var testVariableJazz: String?
-    var testVariableLaptop: String?
 }
 
 
