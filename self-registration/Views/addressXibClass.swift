@@ -31,4 +31,6 @@ class addressView: UIView {
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
     }
 
+    
+    
 }

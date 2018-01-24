@@ -22,7 +22,6 @@
 		DD220A0D2011200400F19AC9 /* dataManagerDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD220A0C2011200400F19AC9 /* dataManagerDelegates.swift */; };
 		DD220A0F2011247600F19AC9 /* viewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD220A0E2011247600F19AC9 /* viewModel.swift */; };
 		DD220A11201124A300F19AC9 /* router.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD220A10201124A300F19AC9 /* router.swift */; };
-		DD220A132011261600F19AC9 /* viewModelBindings.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD220A122011261600F19AC9 /* viewModelBindings.swift */; };
 		DD220A15201126B700F19AC9 /* validationFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD220A14201126B700F19AC9 /* validationFunctions.swift */; };
 		DD580D481FE970FA00A254B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD580D471FE970FA00A254B4 /* AppDelegate.swift */; };
 		DD580D4A1FE970FA00A254B4 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD580D491FE970FA00A254B4 /* FirstViewController.swift */; };
@@ -88,7 +87,6 @@
 		DD220A0C2011200400F19AC9 /* dataManagerDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dataManagerDelegates.swift; sourceTree = "<group>"; };
 		DD220A0E2011247600F19AC9 /* viewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewModel.swift; sourceTree = "<group>"; };
 		DD220A10201124A300F19AC9 /* router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = router.swift; sourceTree = "<group>"; };
-		DD220A122011261600F19AC9 /* viewModelBindings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewModelBindings.swift; sourceTree = "<group>"; };
 		DD220A14201126B700F19AC9 /* validationFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = validationFunctions.swift; sourceTree = "<group>"; };
 		DD580D441FE970FA00A254B4 /* self-registration.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "self-registration.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD580D471FE970FA00A254B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -184,7 +182,6 @@
 			isa = PBXGroup;
 			children = (
 				DD220A0E2011247600F19AC9 /* viewModel.swift */,
-				DD220A122011261600F19AC9 /* viewModelBindings.swift */,
 				DD220A14201126B700F19AC9 /* validationFunctions.swift */,
 			);
 			path = "View Model";
@@ -414,7 +411,6 @@
 				B0639F002017A83800DD7FA4 /* viewXibClasses.swift in Sources */,
 				DD220A0D2011200400F19AC9 /* dataManagerDelegates.swift in Sources */,
 				B0639F042017C71A00DD7FA4 /* addressXibClass.swift in Sources */,
-				DD220A132011261600F19AC9 /* viewModelBindings.swift in Sources */,
 				DD580D481FE970FA00A254B4 /* AppDelegate.swift in Sources */,
 				DD580D4A1FE970FA00A254B4 /* FirstViewController.swift in Sources */,
 				DD220A15201126B700F19AC9 /* validationFunctions.swift in Sources */,

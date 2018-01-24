@@ -8,7 +8,8 @@
 
 import Foundation
 import UIKit
-
+import RxSwift
+import RxCocoa
 
 class registerNowVC: UIViewController {
     
@@ -28,9 +29,10 @@ class registerNowVC: UIViewController {
         //Create Stack View and add contraints
         stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.axis = .vertical
+        stackView.axis = .horizontal
+        stackView.distribution = .fillProportionally
         stackView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        stackView.spacing = 0.50
+        stackView.spacing = 0.20
         
         //Add the stack view to the scroll view
         scrollView.addSubview(stackView)
@@ -38,43 +40,55 @@ class registerNowVC: UIViewController {
         scrollView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[stackView]", options: NSLayoutFormatOptions.alignAllCenterX, metrics: nil, views: ["stackView": stackView]))
         
         //Add custom views to the stack
-        for item in createViews(UIColor.blue, UIColor.red, UIColor.green, UIColor.gray, UIColor.yellow) {
+        for item in createViews(UIColor.blue) {
             stackView.addArrangedSubview(item)
         }
     
-        //FIXME: Figure out why scroll view wont scroll when I remove this button
+        //Buttons to add another Xib Screen
         let name = UIButton(type: UIButtonType.system)
         name.setTitle("name", for: .normal)
-        ///name.addTarget(self, action: #selector(insertArrangedSubview(view: customName())), for: .touchUpInside)
+        name.addTarget(self, action: #selector(insertArrangedName(sender:)), for: .touchUpInside)
+        stackView.addArrangedSubview(name)
         
         let address = UIButton(type: UIButtonType.system)
         address.setTitle("address", for: .normal)
-        ///name.addTarget(self, action: <#T##Selector#>, for: .touchUpInside)
-        stackView.addArrangedSubview(name)
+        address.addTarget(self, action: #selector(insertArrangedAddress(sender:)), for: .touchUpInside)
+        stackView.addArrangedSubview(address)
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        scrollView.contentSize = CGSize(width: stackView.frame.width, height: stackView.frame.height)
+        updateScrollContentSize()
     }
     
     private func createViews(_ named: UIColor...) -> [UIView] {
         return named.map { name in
             let view = customName()
-            view.translatesAutoresizingMaskIntoConstraints = false
-            view.heightAnchor.constraint(equalToConstant: 200).isActive = true
-            view.widthAnchor.constraint(equalToConstant: 200).isActive = true
+            view.heightAnchor.constraint(equalToConstant: 600).isActive = true
+            view.widthAnchor.constraint(equalToConstant: 1000).isActive = true
             view.contentView.backgroundColor = name
             return view
         }
     }
     
-    func insertArrangedSubview(view: UIView) {
-        let view = customName()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.heightAnchor.constraint(equalToConstant: 200).isActive = true
-        view.widthAnchor.constraint(equalToConstant: 200).isActive = true
-        stackView.insertArrangedSubview(view, at: stackView.arrangedSubviews.count - 1)
+    private func updateScrollContentSize() {
+        var contentRect = CGRect.zero
+        for view in scrollView.subviews { contentRect = contentRect.union(view.frame) }
+        scrollView.contentSize = CGSize(width: contentRect.width, height: contentRect.origin.y + contentRect.height)
+        scrollView.setContentOffset(CGPoint(x: contentRect.width, y: 0), animated: true)
     }
     
+    @objc func insertArrangedAddress(sender: AnyObject) {
+        let view = addressView()
+        view.heightAnchor.constraint(equalToConstant: 600).isActive = true
+        view.widthAnchor.constraint(equalToConstant: 1000).isActive = true
+        stackView.addArrangedSubview(view)
+    }
+    
+    @objc func insertArrangedName(sender: AnyObject) {
+        let view = customName()
+        view.heightAnchor.constraint(equalToConstant: 600).isActive = true
+        view.widthAnchor.constraint(equalToConstant: 1000).isActive = true
+        stackView.addArrangedSubview(view)
+    }
 }

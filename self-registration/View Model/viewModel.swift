@@ -7,14 +7,28 @@
 //
 
 import Foundation
+import RxSwift
 
 class userViewModel {
     
-    weak var dataManger: dataManager?
-    var rawPersonalInformation: personalInformation?
-    var rawSecurityInformation: securityInformation?
-    var rawAddressInformation: addressInformation?
-    var rawLibraryCardInformation: libraryCard?
+    var firstName = Variable<String>("")
+    var middleName = Variable<String>("")
+    var lastName = Variable<String>("")
+    
+    var address1 = Variable<String>("")
+    var city = Variable<String>("")
+    var state = Variable<String>("")
+    var zip = Variable<String>("")
+    
+    var code = Variable<String>("")
+    var pin = Variable<String>("")
+    var holds = Variable<String>("")
+    
+    var isNameValid: Observable<Bool> {
+        return Observable.combineLatest(firstName.asObservable(), middleName.asObservable(), lastName.asObservable()) {
+            first, middle, last in first.isEmpty == false && middle.isEmpty == false && last.isEmpty == false
+        }
+    }
     
 }
 
