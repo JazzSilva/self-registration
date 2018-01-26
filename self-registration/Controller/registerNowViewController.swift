@@ -61,6 +61,7 @@ class registerNowVC: UIViewController {
         updateScrollContentSize()
     }
     
+    //create views mapped to a specific color
     private func createViews(_ named: UIColor...) -> [UIView] {
         return named.map { name in
             let view = customName()
@@ -71,6 +72,7 @@ class registerNowVC: UIViewController {
         }
     }
     
+    //adjust scroll view to fit new stack view content
     private func updateScrollContentSize() {
         var contentRect = CGRect.zero
         for view in scrollView.subviews { contentRect = contentRect.union(view.frame) }
@@ -78,6 +80,7 @@ class registerNowVC: UIViewController {
         scrollView.setContentOffset(CGPoint(x: contentRect.width, y: 0), animated: true)
     }
     
+    //insert address view
     @objc func insertArrangedAddress(sender: AnyObject) {
         let view = addressView()
         view.heightAnchor.constraint(equalToConstant: 600).isActive = true
@@ -91,4 +94,8 @@ class registerNowVC: UIViewController {
         view.widthAnchor.constraint(equalToConstant: 1000).isActive = true
         stackView.addArrangedSubview(view)
     }
+    
+    //ViewModel Test with RX Swift
+    var viewModel = userViewModel()
+
 }

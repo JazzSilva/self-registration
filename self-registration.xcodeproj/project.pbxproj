@@ -11,13 +11,17 @@
 		B0400E8320168C940026CA09 /* RxSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B0400E7D20168C940026CA09 /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B0400E8520168C940026CA09 /* RxBlocking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B0400E7E20168C940026CA09 /* RxBlocking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B0400E8720168C940026CA09 /* RxTest.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B0400E7F20168C940026CA09 /* RxTest.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B057BDA1201BAF0C00BCDF95 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B057BD9F201BAF0C00BCDF95 /* RealmSwift.framework */; };
+		B057BDA2201BAF0C00BCDF95 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B057BD9F201BAF0C00BCDF95 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B057BDA3201BAF0C00BCDF95 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B057BDA0201BAF0C00BCDF95 /* Realm.framework */; };
+		B057BDA4201BAF0C00BCDF95 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B057BDA0201BAF0C00BCDF95 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B0639EFC20178BE100DD7FA4 /* registerNowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0639EFB20178BE100DD7FA4 /* registerNowViewController.swift */; };
 		B0639EFE2017A5C200DD7FA4 /* nameView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0639EFD2017A5C200DD7FA4 /* nameView.xib */; };
 		B0639F002017A83800DD7FA4 /* viewXibClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0639EFF2017A83800DD7FA4 /* viewXibClasses.swift */; };
 		B0639F022017C6EB00DD7FA4 /* addressView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0639F012017C6EB00DD7FA4 /* addressView.xib */; };
 		B0639F042017C71A00DD7FA4 /* addressXibClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0639F032017C71A00DD7FA4 /* addressXibClass.swift */; };
 		DD220A0720111B7A00F19AC9 /* dataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD220A0620111B7A00F19AC9 /* dataModel.swift */; };
-		DD220A0920111C6700F19AC9 /* dataObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD220A0820111C6700F19AC9 /* dataObjects.swift */; };
+		DD220A0920111C6700F19AC9 /* databaseClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD220A0820111C6700F19AC9 /* databaseClass.swift */; };
 		DD220A0B20111DF200F19AC9 /* dataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD220A0A20111DF200F19AC9 /* dataManager.swift */; };
 		DD220A0D2011200400F19AC9 /* dataManagerDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD220A0C2011200400F19AC9 /* dataManagerDelegates.swift */; };
 		DD220A0F2011247600F19AC9 /* viewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD220A0E2011247600F19AC9 /* viewModel.swift */; };
@@ -57,7 +61,9 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				B057BDA4201BAF0C00BCDF95 /* Realm.framework in Embed Frameworks */,
 				B0400E8320168C940026CA09 /* RxSwift.framework in Embed Frameworks */,
+				B057BDA2201BAF0C00BCDF95 /* RealmSwift.framework in Embed Frameworks */,
 				B0400E8120168C940026CA09 /* RxCocoa.framework in Embed Frameworks */,
 				B0400E8720168C940026CA09 /* RxTest.framework in Embed Frameworks */,
 				B0400E8520168C940026CA09 /* RxBlocking.framework in Embed Frameworks */,
@@ -76,13 +82,15 @@
 		B0400E7D20168C940026CA09 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
 		B0400E7E20168C940026CA09 /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = Carthage/Build/iOS/RxBlocking.framework; sourceTree = "<group>"; };
 		B0400E7F20168C940026CA09 /* RxTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxTest.framework; path = Carthage/Build/iOS/RxTest.framework; sourceTree = "<group>"; };
+		B057BD9F201BAF0C00BCDF95 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
+		B057BDA0201BAF0C00BCDF95 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		B0639EFB20178BE100DD7FA4 /* registerNowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = registerNowViewController.swift; sourceTree = "<group>"; };
 		B0639EFD2017A5C200DD7FA4 /* nameView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = nameView.xib; sourceTree = "<group>"; };
 		B0639EFF2017A83800DD7FA4 /* viewXibClasses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewXibClasses.swift; sourceTree = "<group>"; };
 		B0639F012017C6EB00DD7FA4 /* addressView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = addressView.xib; sourceTree = "<group>"; };
 		B0639F032017C71A00DD7FA4 /* addressXibClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addressXibClass.swift; sourceTree = "<group>"; };
 		DD220A0620111B7A00F19AC9 /* dataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dataModel.swift; sourceTree = "<group>"; };
-		DD220A0820111C6700F19AC9 /* dataObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dataObjects.swift; sourceTree = "<group>"; };
+		DD220A0820111C6700F19AC9 /* databaseClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = databaseClass.swift; sourceTree = "<group>"; };
 		DD220A0A20111DF200F19AC9 /* dataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dataManager.swift; sourceTree = "<group>"; };
 		DD220A0C2011200400F19AC9 /* dataManagerDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dataManagerDelegates.swift; sourceTree = "<group>"; };
 		DD220A0E2011247600F19AC9 /* viewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewModel.swift; sourceTree = "<group>"; };
@@ -109,6 +117,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B057BDA3201BAF0C00BCDF95 /* Realm.framework in Frameworks */,
+				B057BDA1201BAF0C00BCDF95 /* RealmSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -164,7 +174,7 @@
 			isa = PBXGroup;
 			children = (
 				DD220A0620111B7A00F19AC9 /* dataModel.swift */,
-				DD220A0820111C6700F19AC9 /* dataObjects.swift */,
+				DD220A0820111C6700F19AC9 /* databaseClass.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -190,6 +200,8 @@
 		DD580D3B1FE970FA00A254B4 = {
 			isa = PBXGroup;
 			children = (
+				B057BDA0201BAF0C00BCDF95 /* Realm.framework */,
+				B057BD9F201BAF0C00BCDF95 /* RealmSwift.framework */,
 				B0400E7E20168C940026CA09 /* RxBlocking.framework */,
 				B0400E7C20168C940026CA09 /* RxCocoa.framework */,
 				B0400E7D20168C940026CA09 /* RxSwift.framework */,
@@ -393,6 +405,8 @@
 				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxBlocking.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxTest.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Realm.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
 			);
 			outputPaths = (
 			);
@@ -415,7 +429,7 @@
 				DD580D4A1FE970FA00A254B4 /* FirstViewController.swift in Sources */,
 				DD220A15201126B700F19AC9 /* validationFunctions.swift in Sources */,
 				B0639EFC20178BE100DD7FA4 /* registerNowViewController.swift in Sources */,
-				DD220A0920111C6700F19AC9 /* dataObjects.swift in Sources */,
+				DD220A0920111C6700F19AC9 /* databaseClass.swift in Sources */,
 				DD220A0720111B7A00F19AC9 /* dataModel.swift in Sources */,
 				DD220A0F2011247600F19AC9 /* viewModel.swift in Sources */,
 				DD220A0B20111DF200F19AC9 /* dataManager.swift in Sources */,
