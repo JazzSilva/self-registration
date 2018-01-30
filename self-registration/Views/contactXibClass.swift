@@ -1,18 +1,22 @@
 //
-//  nameView.swift
+//  contactXibClass.swift
 //  self-registration
 //
-//  Created by Jasmin Silva on 1/23/18.
+//  Created by Jasmin Silva on 1/30/18.
 //  Copyright © 2018 Makina. All rights reserved.
 //
 
 import Foundation
 import UIKit
 
-class customName: UIView {
+class contactXib: UIView {
     
     @IBOutlet var contentView: UIView!
-    @IBOutlet weak var firstName: UITextField!
+    
+    @IBOutlet weak var phone: UITextField!
+    @IBOutlet weak var email: UITextField!
+    
+    @IBOutlet weak var isValid: UIButton!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -25,7 +29,7 @@ class customName: UIView {
     }
     
     private func commonInit() {
-        Bundle.main.loadNibNamed("nameView", owner: self, options: nil)
+        Bundle.main.loadNibNamed("contactView", owner: self, options: nil)
         addSubview(contentView)
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]

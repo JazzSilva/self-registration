@@ -18,43 +18,52 @@ class userViewModel {
         database = Database.singleton
     }
     
-    var firstName = Variable<String?>("")
-    var middleName = Variable<String?>("")
-    var lastName = Variable<String?>("")
+    let firstName = Variable<String>("")
+    let middleName = Variable<String>("")
+    let lastName = Variable<String>("")
     
-    var address1 = Variable<String>("")
-    var city = Variable<String>("")
-    var state = Variable<String>("")
-    var zip = Variable<String>("")
+    let address1 = Variable<String>("")
+    let city = Variable<String>("")
+    let state = Variable<String>("")
+    let zip = Variable<String>("")
     
-    var mothersMaidenName = Variable<String>("")
-    var pin = Variable<String>("")
-    var holds = Variable<String>("")
+    let mothersMaidenName = Variable<String>("")
+    let pin = Variable<String>("")
+    let holds = Variable<String>("")
     
-    var phone = Variable<String>("")
-    var email = Variable<String>("")
+    let phone = Variable<String>("")
+    let email = Variable<String>("")
     
     var isNameValid: Observable<Bool> {
         return Observable.combineLatest(firstName.asObservable(), middleName.asObservable(), lastName.asObservable()) {
-            first, middle, last in first!.isEmpty == false && middle!.isEmpty == false && last!.isEmpty == false
+            first, middle, last in first.count > 0 && middle.count > 0 && last.count > 0
         }
     }
     
-    //Just for test purposes: dont want to do more than once. try to load realm database
-    var realm = try! Realm()
-    
-    func addUser() {
-        //add new user to the realm database
-        //let newUser = user()
-        //newUser.firstName = self.firstName
-        //newUser.middleName = self.middleName
-        //newUser.lastName = self.lastName
+    var isAddressValid: Observable<Bool> {
+        return Observable.combineLatest(address1.asObservable(), city.asObservable(), state.asObservable(), zip.asObservable()) {
+            address1, city, state, zip in address1.count > 0 && city.count > 0 && state.count == 2 && zip.count == 5
+        }
     }
     
-    func displayUsers() -> Results<user> {
-        //display users in currect database
-        return realm.objects(user.self)
+    var isSecurityValid: Observable<Bool> {
+        return Observable.combineLatest(mothersMaidenName.asObservable(), pin.asObservable(), holds.asObservable()) {
+            mothersMaidenName, pin, holds in mothersMaidenName.count > 0 && pin.count == 4 && holds.count >= 0
+        }
     }
+    
+    var isContactValid: Observable<Bool> {
+        return Observable.combineLatest(phone.asObservable(), email.asObservable()) {
+            phone, email in phone.count > 0 && email.count > 0
+        }
+    }
+    
+    var isFormComplete: Observable<Bool> {
+        return Observable.combineLatest(isNameValid, isAddressValid, isSecurityValid, isContactValid) {
+            name, address, security, contact in name && address && security && contact
+        }
+    }
+    
     
 }
 

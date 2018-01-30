@@ -26,12 +26,6 @@ class Database {
         }
     }
     
-    func updateUser(userEdited: user, userValue: String) -> Void {
-        let realm = try! Realm()
-        userEdited.firstName = userValue
-        realm.add(userEdited, update: true)
-    }
-    
     func fetch() -> Results<user> {
         let realm = try! Realm()
         return realm.objects(user.self)

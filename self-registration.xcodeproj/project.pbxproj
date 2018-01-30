@@ -15,17 +15,21 @@
 		B057BDA2201BAF0C00BCDF95 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B057BD9F201BAF0C00BCDF95 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B057BDA3201BAF0C00BCDF95 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B057BDA0201BAF0C00BCDF95 /* Realm.framework */; };
 		B057BDA4201BAF0C00BCDF95 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B057BDA0201BAF0C00BCDF95 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		B0639EFC20178BE100DD7FA4 /* registerNowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0639EFB20178BE100DD7FA4 /* registerNowViewController.swift */; };
 		B0639EFE2017A5C200DD7FA4 /* nameView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0639EFD2017A5C200DD7FA4 /* nameView.xib */; };
-		B0639F002017A83800DD7FA4 /* viewXibClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0639EFF2017A83800DD7FA4 /* viewXibClasses.swift */; };
+		B0639F002017A83800DD7FA4 /* nameXibClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0639EFF2017A83800DD7FA4 /* nameXibClass.swift */; };
 		B0639F022017C6EB00DD7FA4 /* addressView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0639F012017C6EB00DD7FA4 /* addressView.xib */; };
 		B0639F042017C71A00DD7FA4 /* addressXibClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0639F032017C71A00DD7FA4 /* addressXibClass.swift */; };
+		B07313A72020F83C002A6DED /* securityView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B07313A62020F83C002A6DED /* securityView.xib */; };
+		B07313A92020F84C002A6DED /* contactView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B07313A82020F84C002A6DED /* contactView.xib */; };
+		B07313AB2020F86B002A6DED /* submitView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B07313AA2020F86B002A6DED /* submitView.xib */; };
+		B07313AD2020F8E0002A6DED /* securityXibClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07313AC2020F8E0002A6DED /* securityXibClass.swift */; };
+		B07313AF2020F8F6002A6DED /* contactXibClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07313AE2020F8F6002A6DED /* contactXibClass.swift */; };
+		B07313B12020F904002A6DED /* submitXibClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07313B02020F904002A6DED /* submitXibClass.swift */; };
 		DD220A0720111B7A00F19AC9 /* dataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD220A0620111B7A00F19AC9 /* dataModel.swift */; };
 		DD220A0920111C6700F19AC9 /* databaseClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD220A0820111C6700F19AC9 /* databaseClass.swift */; };
 		DD220A0B20111DF200F19AC9 /* dataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD220A0A20111DF200F19AC9 /* dataManager.swift */; };
 		DD220A0D2011200400F19AC9 /* dataManagerDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD220A0C2011200400F19AC9 /* dataManagerDelegates.swift */; };
 		DD220A0F2011247600F19AC9 /* viewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD220A0E2011247600F19AC9 /* viewModel.swift */; };
-		DD220A11201124A300F19AC9 /* router.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD220A10201124A300F19AC9 /* router.swift */; };
 		DD220A15201126B700F19AC9 /* validationFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD220A14201126B700F19AC9 /* validationFunctions.swift */; };
 		DD580D481FE970FA00A254B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD580D471FE970FA00A254B4 /* AppDelegate.swift */; };
 		DD580D4A1FE970FA00A254B4 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD580D491FE970FA00A254B4 /* FirstViewController.swift */; };
@@ -84,17 +88,21 @@
 		B0400E7F20168C940026CA09 /* RxTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxTest.framework; path = Carthage/Build/iOS/RxTest.framework; sourceTree = "<group>"; };
 		B057BD9F201BAF0C00BCDF95 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		B057BDA0201BAF0C00BCDF95 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
-		B0639EFB20178BE100DD7FA4 /* registerNowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = registerNowViewController.swift; sourceTree = "<group>"; };
 		B0639EFD2017A5C200DD7FA4 /* nameView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = nameView.xib; sourceTree = "<group>"; };
-		B0639EFF2017A83800DD7FA4 /* viewXibClasses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewXibClasses.swift; sourceTree = "<group>"; };
+		B0639EFF2017A83800DD7FA4 /* nameXibClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nameXibClass.swift; sourceTree = "<group>"; };
 		B0639F012017C6EB00DD7FA4 /* addressView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = addressView.xib; sourceTree = "<group>"; };
 		B0639F032017C71A00DD7FA4 /* addressXibClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addressXibClass.swift; sourceTree = "<group>"; };
+		B07313A62020F83C002A6DED /* securityView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = securityView.xib; sourceTree = "<group>"; };
+		B07313A82020F84C002A6DED /* contactView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = contactView.xib; sourceTree = "<group>"; };
+		B07313AA2020F86B002A6DED /* submitView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = submitView.xib; sourceTree = "<group>"; };
+		B07313AC2020F8E0002A6DED /* securityXibClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = securityXibClass.swift; sourceTree = "<group>"; };
+		B07313AE2020F8F6002A6DED /* contactXibClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = contactXibClass.swift; sourceTree = "<group>"; };
+		B07313B02020F904002A6DED /* submitXibClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = submitXibClass.swift; sourceTree = "<group>"; };
 		DD220A0620111B7A00F19AC9 /* dataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dataModel.swift; sourceTree = "<group>"; };
 		DD220A0820111C6700F19AC9 /* databaseClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = databaseClass.swift; sourceTree = "<group>"; };
 		DD220A0A20111DF200F19AC9 /* dataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dataManager.swift; sourceTree = "<group>"; };
 		DD220A0C2011200400F19AC9 /* dataManagerDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dataManagerDelegates.swift; sourceTree = "<group>"; };
 		DD220A0E2011247600F19AC9 /* viewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewModel.swift; sourceTree = "<group>"; };
-		DD220A10201124A300F19AC9 /* router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = router.swift; sourceTree = "<group>"; };
 		DD220A14201126B700F19AC9 /* validationFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = validationFunctions.swift; sourceTree = "<group>"; };
 		DD580D441FE970FA00A254B4 /* self-registration.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "self-registration.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD580D471FE970FA00A254B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -154,9 +162,15 @@
 			isa = PBXGroup;
 			children = (
 				B0639EFD2017A5C200DD7FA4 /* nameView.xib */,
-				B0639EFF2017A83800DD7FA4 /* viewXibClasses.swift */,
+				B0639EFF2017A83800DD7FA4 /* nameXibClass.swift */,
 				B0639F012017C6EB00DD7FA4 /* addressView.xib */,
 				B0639F032017C71A00DD7FA4 /* addressXibClass.swift */,
+				B07313A62020F83C002A6DED /* securityView.xib */,
+				B07313AC2020F8E0002A6DED /* securityXibClass.swift */,
+				B07313A82020F84C002A6DED /* contactView.xib */,
+				B07313AE2020F8F6002A6DED /* contactXibClass.swift */,
+				B07313AA2020F86B002A6DED /* submitView.xib */,
+				B07313B02020F904002A6DED /* submitXibClass.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -182,8 +196,7 @@
 		DD0A587D2006713A0035AD1F /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				DD220A10201124A300F19AC9 /* router.swift */,
-				B0639EFB20178BE100DD7FA4 /* registerNowViewController.swift */,
+				DD580D491FE970FA00A254B4 /* FirstViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -233,7 +246,6 @@
 				DD0A587C200671250035AD1F /* Model */,
 				DD0A587B2006711B0035AD1F /* Data Manager */,
 				DD580D471FE970FA00A254B4 /* AppDelegate.swift */,
-				DD580D491FE970FA00A254B4 /* FirstViewController.swift */,
 				DD580D4B1FE970FA00A254B4 /* SecondViewController.swift */,
 				DD580D4D1FE970FA00A254B4 /* Main.storyboard */,
 				DD580D501FE970FA00A254B4 /* Assets.xcassets */,
@@ -374,6 +386,9 @@
 				B0639F022017C6EB00DD7FA4 /* addressView.xib in Resources */,
 				B0639EFE2017A5C200DD7FA4 /* nameView.xib in Resources */,
 				DD580D511FE970FA00A254B4 /* Assets.xcassets in Resources */,
+				B07313A92020F84C002A6DED /* contactView.xib in Resources */,
+				B07313A72020F83C002A6DED /* securityView.xib in Resources */,
+				B07313AB2020F86B002A6DED /* submitView.xib in Resources */,
 				DD580D4F1FE970FA00A254B4 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -422,18 +437,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD580D4C1FE970FA00A254B4 /* SecondViewController.swift in Sources */,
-				B0639F002017A83800DD7FA4 /* viewXibClasses.swift in Sources */,
+				B0639F002017A83800DD7FA4 /* nameXibClass.swift in Sources */,
 				DD220A0D2011200400F19AC9 /* dataManagerDelegates.swift in Sources */,
 				B0639F042017C71A00DD7FA4 /* addressXibClass.swift in Sources */,
 				DD580D481FE970FA00A254B4 /* AppDelegate.swift in Sources */,
+				B07313AF2020F8F6002A6DED /* contactXibClass.swift in Sources */,
 				DD580D4A1FE970FA00A254B4 /* FirstViewController.swift in Sources */,
 				DD220A15201126B700F19AC9 /* validationFunctions.swift in Sources */,
-				B0639EFC20178BE100DD7FA4 /* registerNowViewController.swift in Sources */,
 				DD220A0920111C6700F19AC9 /* databaseClass.swift in Sources */,
 				DD220A0720111B7A00F19AC9 /* dataModel.swift in Sources */,
+				B07313AD2020F8E0002A6DED /* securityXibClass.swift in Sources */,
+				B07313B12020F904002A6DED /* submitXibClass.swift in Sources */,
 				DD220A0F2011247600F19AC9 /* viewModel.swift in Sources */,
 				DD220A0B20111DF200F19AC9 /* dataManager.swift in Sources */,
-				DD220A11201124A300F19AC9 /* router.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,23 +1,24 @@
 //
-//  addressXibClass.swift
+//  securityXibClass.swift
 //  self-registration
 //
-//  Created by Jasmin Silva on 1/23/18.
+//  Created by Jasmin Silva on 1/30/18.
 //  Copyright © 2018 Makina. All rights reserved.
 //
 
 import Foundation
 import UIKit
 
-class addressXib: UIView {
+class securityXib: UIView {
     
     @IBOutlet var contentView: UIView!
-    @IBOutlet weak var city: UITextField!
-    @IBOutlet weak var address1: UITextField!
-    @IBOutlet weak var state: UITextField!
-    @IBOutlet weak var zipCode: UITextField!
+    
+    @IBOutlet weak var pin: UITextField!
+    @IBOutlet weak var mothersMaidenName: UITextField!
+    @IBOutlet weak var holds: UITextField!
     
     @IBOutlet weak var isValid: UIButton!
+    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -30,10 +31,10 @@ class addressXib: UIView {
     }
     
     private func commonInit() {
-        Bundle.main.loadNibNamed("addressView", owner: self, options: nil)
+        Bundle.main.loadNibNamed("securityView", owner: self, options: nil)
         addSubview(contentView)
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
     }
-
+    
 }

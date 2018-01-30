@@ -1,5 +1,5 @@
 //
-//  addressXibClass.swift
+//  nameView.swift
 //  self-registration
 //
 //  Created by Jasmin Silva on 1/23/18.
@@ -9,14 +9,13 @@
 import Foundation
 import UIKit
 
-class addressXib: UIView {
+class nameXib: UIView {
     
     @IBOutlet var contentView: UIView!
-    @IBOutlet weak var city: UITextField!
-    @IBOutlet weak var address1: UITextField!
-    @IBOutlet weak var state: UITextField!
-    @IBOutlet weak var zipCode: UITextField!
+    @IBOutlet weak var firstName: UITextField!
+    @IBOutlet weak var middleName: UITextField!
     
+    @IBOutlet weak var lastName: UITextField!
     @IBOutlet weak var isValid: UIButton!
     
     override init(frame: CGRect) {
@@ -30,10 +29,10 @@ class addressXib: UIView {
     }
     
     private func commonInit() {
-        Bundle.main.loadNibNamed("addressView", owner: self, options: nil)
+        Bundle.main.loadNibNamed("nameView", owner: self, options: nil)
         addSubview(contentView)
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
     }
-
+    
 }
