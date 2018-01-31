@@ -12,10 +12,11 @@ import RealmSwift
 
 class userViewModel {
     
-    var database: Database?
+    var realm: Realm?
     
+    //This is a singleton
     init() {
-        database = Database.singleton
+        realm = Database.shared.realm
     }
     
     let firstName = Variable<String>("")
@@ -64,6 +65,12 @@ class userViewModel {
         }
     }
     
+    @objc func createUser(sender: AnyObject) {
+        //This references the convenience user init in the Database class
+        let newUser = user(firstName: firstName.value, middleName: middleName.value, lastName: lastName.value, address1: address1.value, city: city.value, state: state.value, zip: zip.value, phone: phone.value, email: email.value, mothersMaidenName: mothersMaidenName.value, pin: pin.value, holds: holds.value)
+        //Actually save the user to the shared realm
+        Database.shared.create(newUser)
+    }
     
 }
 

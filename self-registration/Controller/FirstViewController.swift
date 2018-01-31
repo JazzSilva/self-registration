@@ -14,8 +14,8 @@ class FirstViewController: UIViewController {
 
     var scrollView: UIScrollView!
     var stackView: UIStackView!
-    var viewModel = userViewModel()
-    var disposeBag = DisposeBag()
+    var viewModel = userViewModel() //should this be optional? weak
+    var disposeBag = DisposeBag() //should this be optional? weak
     
     override func viewWillAppear(_ animated: Bool) {
         viewModel = userViewModel()
@@ -134,6 +134,7 @@ class FirstViewController: UIViewController {
         let view = submitXib()
         
         _ = viewModel.isFormComplete.bind(to: view.submitButton.rx.isEnabled)
+        view.submitButton.addTarget(viewModel, action: #selector(viewModel.createUser(sender:)), for: .touchUpInside)
         
         view.heightAnchor.constraint(equalToConstant: 600).isActive = true
         view.widthAnchor.constraint(equalToConstant: 1000).isActive = true

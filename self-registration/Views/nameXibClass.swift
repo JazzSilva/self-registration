@@ -11,7 +11,7 @@ import UIKit
 
 class nameXib: UIView {
     
-    @IBOutlet var contentView: UIView!
+    @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var firstName: UITextField!
     @IBOutlet weak var middleName: UITextField!
     

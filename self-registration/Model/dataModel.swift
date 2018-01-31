@@ -12,7 +12,7 @@ import RealmSwift
 class user: Object {
     
     @objc dynamic var dateCreated = NSDate()
-    @objc dynamic var id = ""
+    //@objc dynamic var id = ""
     
     @objc dynamic var firstName: String? = nil
     @objc dynamic var middleName: String? = nil
@@ -35,8 +35,25 @@ class user: Object {
     @objc dynamic var libraryCardNumber: String? = nil
     @objc dynamic var licenseNumber: String? = nil
     
-    override static func primaryKey() -> String? {
+    /*override static func primaryKey() -> String? {
         return "id"
+    }*/
+    
+    //May not be necessary. Need to add other fields
+    convenience init(firstName: String?, middleName: String?, lastName: String?, address1: String?, city: String?, state: String?, zip: String?, phone: String?, email: String?, mothersMaidenName: String?, pin: String?, holds: String?) {
+        self.init()
+        self.firstName = firstName
+        self.middleName = middleName
+        self.lastName = lastName
+        self.address1 = address1
+        self.city = city
+        self.state = state
+        self.zip = zip
+        self.phone = phone
+        self.email = email
+        self.mothersMaidenName = mothersMaidenName
+        self.pin = pin
+        self.holds = holds
     }
     
 }
