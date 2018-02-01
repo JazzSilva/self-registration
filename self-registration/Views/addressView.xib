@@ -18,7 +18,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="addressXib" customModule="self_registration" customModuleProvider="target">
             <connections>
                 <outlet property="address1" destination="anj-OB-kZx" id="57d-dj-o8z"/>
-                <outlet property="city" destination="anj-OB-kZx" id="YKn-Yr-L7M"/>
+                <outlet property="city" destination="TJP-C5-gS7" id="sDW-2Q-uPU"/>
                 <outlet property="contentView" destination="iN0-l3-epB" id="H2b-R1-TTV"/>
                 <outlet property="isValid" destination="lsQ-ud-RCY" id="pY4-4J-6D4"/>
                 <outlet property="state" destination="cXe-zq-6eT" id="sMm-RZ-gfQ"/>
