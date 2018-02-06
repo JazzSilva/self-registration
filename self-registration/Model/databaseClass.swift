@@ -33,31 +33,8 @@ class Database {
                     syncConfiguration: SyncConfiguration(user: user, realmURL: URL(string: "realm://127.0.0.1:9080")!)
                 )
                 
-                print("user all sessions: ",configuration.syncConfiguration?.user.allSessions())
-                print("user is admin: ", configuration.syncConfiguration?.user.isAdmin)
-                print("user authentication server: ", configuration.syncConfiguration?.user.authenticationServer)
-                print("user identity: ",configuration.syncConfiguration?.user.identity)
-                print("sync configuration realm url: ",configuration.syncConfiguration?.realmURL)
-                print("configuration encryption key: ",configuration.encryptionKey)
-                print("configuration file url: ", configuration.fileURL)
-                print("configuration sync configuration: ", configuration.syncConfiguration)
                 self.realm = try! Realm(configuration: configuration)
                 
-                print("2 user all sessions: ",configuration.syncConfiguration?.user.allSessions())
-                print("2 user is admin: ", configuration.syncConfiguration?.user.isAdmin)
-                print("2 user authentication server: ", configuration.syncConfiguration?.user.authenticationServer)
-                print("2 sync configuration realm url: ",configuration.syncConfiguration?.realmURL)
-                print("2 configuration encryption key: ",configuration.encryptionKey)
-                print("2 configuration file url: ", configuration.fileURL)
-                print("2 configuration sync configuration: ", configuration.syncConfiguration)
-                print("2 schema", self.realm.schema)
-                print("2 realm", self.realm)
-                print("2 object types", configuration.objectTypes)
-                print("2 in memory identifier", configuration.inMemoryIdentifier)
-                
-                
-                
-
                 // Set realm notification block
                 self.notificationToken = self.realm.observe( { _,_  in self.updateUsersList() } )
                 
