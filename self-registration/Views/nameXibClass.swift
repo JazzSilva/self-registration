@@ -12,10 +12,12 @@ import UIKit
 class nameXib: UIView {
     
     @IBOutlet weak var contentView: UIView!
+    
     @IBOutlet weak var firstName: UITextField!
     @IBOutlet weak var middleName: UITextField!
-    
     @IBOutlet weak var lastName: UITextField!
+    
+    @IBOutlet weak var topLabel: UILabel!
     @IBOutlet weak var isValid: UIButton!
     
     override init(frame: CGRect) {
@@ -31,8 +33,16 @@ class nameXib: UIView {
     private func commonInit() {
         Bundle.main.loadNibNamed("nameView", owner: self, options: nil)
         addSubview(contentView)
-        contentView.frame = self.bounds
-        contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        contentView.clipsToBounds = false
+        contentView.frame = .init(x: 0, y: 0, width: 800, height: 500)
+        contentView.shadowColor = .black
+        contentView.shadowOpacity = 0.20
+        contentView.shadowOffset = CGPoint(x: 0, y: 0)
+        contentView.shadowRadius = 14
+    }
+    
+    @objc func removeButton(sender: AnyObject) {
+        self.isValid.removeFromSuperview()
     }
     
 }

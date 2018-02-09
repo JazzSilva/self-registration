@@ -17,6 +17,7 @@ class securityXib: UIView {
     @IBOutlet weak var mothersMaidenName: UITextField!
     @IBOutlet weak var holds: UITextField!
     
+    @IBOutlet weak var topLabel: UILabel!
     @IBOutlet weak var isValid: UIButton!
     
     
@@ -33,8 +34,15 @@ class securityXib: UIView {
     private func commonInit() {
         Bundle.main.loadNibNamed("securityView", owner: self, options: nil)
         addSubview(contentView)
-        contentView.frame = self.bounds
-        contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        contentView.frame = .init(x: 0, y: 0, width: 800, height: 500)
+        contentView.clipsToBounds = false
+        contentView.shadowColor = .black
+        contentView.shadowOpacity = 0.20
+        contentView.shadowOffset = CGPoint(x: 0, y: 0)
+        contentView.shadowRadius = 14
     }
     
+    @objc func removeButton(sender: AnyObject) {
+        self.isValid.removeFromSuperview()
+    }
 }

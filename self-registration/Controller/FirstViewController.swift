@@ -18,12 +18,17 @@ class FirstViewController: UIViewController {
     var disposeBag = DisposeBag() //should this be optional? weak
     
     override func viewWillAppear(_ animated: Bool) {
-        viewModel = userViewModel()
-        disposeBag = DisposeBag()
         setInitialScene(view: self.view)
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        for all in stackView.arrangedSubviews {all.removeFromSuperview()}
+        for all in self.view.subviews { all.removeFromSuperview()}
+    }
+    
     private func setInitialScene(view: UIView) {
+        viewModel = userViewModel()
+        disposeBag = DisposeBag()
         //Create Scroll View and add it as a subview to RegisterNow VC
         scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -36,9 +41,9 @@ class FirstViewController: UIViewController {
         stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .horizontal
-        stackView.distribution = .fillProportionally
+        stackView.distribution = .fill
         stackView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        stackView.spacing = 0.20
+        stackView.spacing = 0
         
         //Add the stack view to the scroll view
         scrollView.addSubview(stackView)
@@ -59,10 +64,40 @@ class FirstViewController: UIViewController {
         var contentRect = CGRect.zero
         for view in scrollView.subviews { contentRect = contentRect.union(view.frame) }
         scrollView.contentSize = CGSize(width: contentRect.width, height: contentRect.origin.y + contentRect.height)
-        scrollView.setContentOffset(CGPoint(x: contentRect.width, y: 0), animated: true)
+        if stackView.arrangedSubviews.count == 1 {
+            scrollView.setContentOffset(CGPoint(x: contentRect.width, y: 0), animated: false) }
+        else {
+            scrollView.setContentOffset(CGPoint(x: contentRect.width, y: 0), animated: true)
+        }
     }
     
-    //insert address view
+    //Insert Name View
+    @objc func insertArrangedName(sender: AnyObject) {
+        let view = nameXib()
+        
+        view.firstName.rx.text.map { $0 ?? "" }.bind(to: viewModel.firstName).disposed(by: disposeBag)
+        view.middleName.rx.text.map { $0 ?? ""}.bind(to: viewModel.middleName).disposed(by: disposeBag)
+        view.lastName.rx.text.map { $0 ?? ""}.bind(to: viewModel.lastName).disposed(by: disposeBag)
+        
+        _ = viewModel.isNameValid.bind(to: view.isValid.rx.isEnabled)
+        view.isValid.addTarget(self, action: #selector(insertArrangedAddress(sender:)), for: .touchUpInside)
+        view.isValid.addTarget(view, action: #selector(view.removeButton(sender:)), for: .touchUpInside)
+        
+        viewModel.isNameValid.subscribe(onNext: { [unowned view] isValid in
+            guard let button = view.isValid else { return }
+            button.setTitleColor(isValid ? greenHexEnabled : greyHexDisabled, for: .normal)
+        }).disposed(by: disposeBag)
+        
+        view.heightAnchor.constraint(equalToConstant: self.view.bounds.height - 40 ).isActive = true
+        view.widthAnchor.constraint(equalToConstant: self.view.bounds.width).isActive = true
+        view.leftAnchor.constraint(equalTo: self.view.leftAnchor)
+        view.rightAnchor.constraint(equalTo: self.view.rightAnchor)
+        view.topLabel.textColor = blueHexTitle
+        stackView.addArrangedSubview(view)
+        animateIn(newView: view)
+    }
+    
+    //Insert Address View
     @objc func insertArrangedAddress(sender: AnyObject) {
         let view = addressXib()
         //Bind address text fields to the view model
@@ -73,34 +108,23 @@ class FirstViewController: UIViewController {
         
         _ = viewModel.isAddressValid.bind(to: view.isValid.rx.isEnabled)
         view.isValid.addTarget(self, action: #selector(insertArrangedSecurity(sender:)), for: .touchUpInside)
+        view.isValid.addTarget(view, action: #selector(view.removeButton(sender:)), for: .touchUpInside)
         
-        view.heightAnchor.constraint(equalToConstant: 600).isActive = true
-        view.widthAnchor.constraint(equalToConstant: 1000).isActive = true
-        stackView.addArrangedSubview(view)
-    }
-    
-    @objc func insertArrangedName(sender: AnyObject) {
-        let view = nameXib()
-
-        view.firstName.rx.text.map { $0 ?? "" }.bind(to: viewModel.firstName).disposed(by: disposeBag)
-        view.middleName.rx.text.map { $0 ?? ""}.bind(to: viewModel.middleName).disposed(by: disposeBag)
-        view.lastName.rx.text.map { $0 ?? ""}.bind(to: viewModel.lastName).disposed(by: disposeBag)
-
-        _ = viewModel.isNameValid.bind(to: view.isValid.rx.isEnabled)
-        view.isValid.addTarget(self, action: #selector(insertArrangedAddress(sender:)), for: .touchUpInside)
-        
-        //Set the text of the button to change when enabled or disables
-        viewModel.isNameValid.subscribe(onNext: { [unowned self] isValid in
-            view.isValid.setTitle(isValid ? "Enabled" : "Not Enabled", for: .normal)
-            print(self.viewModel.firstName.value, self.viewModel.middleName.value, self.viewModel.lastName , self.viewModel.address1.value , self.viewModel.state.value)
+        viewModel.isAddressValid.subscribe(onNext: { [unowned view] isValid in
+            guard let button = view.isValid else { return }
+            button.setTitleColor(isValid ? greenHexEnabled : greyHexDisabled, for: .normal)
         }).disposed(by: disposeBag)
-        view.heightAnchor.constraint(equalToConstant: 600).isActive = true
-        view.widthAnchor.constraint(equalToConstant: 1000).isActive = true
-        view.leftAnchor.constraint(equalTo: stackView.leftAnchor)
+        
+        view.heightAnchor.constraint(equalToConstant: self.view.bounds.height - 40 ).isActive = true
+        view.widthAnchor.constraint(equalToConstant: self.view.bounds.width).isActive = true
+        view.leftAnchor.constraint(equalTo: self.view.leftAnchor)
+        view.rightAnchor.constraint(equalTo: self.view.rightAnchor)
+        view.topLabel.textColor = blueHexTitle
         stackView.addArrangedSubview(view)
+        animateIn(newView: view)
     }
     
-    
+    //Insert Security View
     @objc func insertArrangedSecurity(sender: AnyObject) {
         let view = securityXib()
         
@@ -110,12 +134,23 @@ class FirstViewController: UIViewController {
         
         _ = viewModel.isSecurityValid.bind(to: view.isValid.rx.isEnabled)
         view.isValid.addTarget(self, action: #selector(insertArrangedContact(sender:)), for: .touchUpInside)
+        view.isValid.addTarget(view, action: #selector(view.removeButton(sender:)), for: .touchUpInside)
         
-        view.heightAnchor.constraint(equalToConstant: 600).isActive = true
-        view.widthAnchor.constraint(equalToConstant: 1000).isActive = true
+        viewModel.isSecurityValid.subscribe(onNext: { [unowned view] isValid in
+            guard let button = view.isValid else { return }
+            button.setTitleColor(isValid ? greenHexEnabled : greyHexDisabled, for: .normal)
+        }).disposed(by: disposeBag)
+        
+        view.heightAnchor.constraint(equalToConstant: self.view.bounds.height - 40 ).isActive = true
+        view.widthAnchor.constraint(equalToConstant: self.view.bounds.width).isActive = true
+        view.leftAnchor.constraint(equalTo: self.view.leftAnchor)
+        view.rightAnchor.constraint(equalTo: self.view.rightAnchor)
+        view.topLabel.textColor = blueHexTitle
         stackView.addArrangedSubview(view)
+        animateIn(newView: view)
     }
     
+    //Insert Contact View
     @objc func insertArrangedContact(sender: AnyObject) {
         let view = contactXib()
         
@@ -124,22 +159,57 @@ class FirstViewController: UIViewController {
         
         _ = viewModel.isContactValid.bind(to: view.isValid.rx.isEnabled)
         view.isValid.addTarget(self, action: #selector(insertArrangedSubmit(sender:)), for: .touchUpInside)
+        view.isValid.addTarget(view, action: #selector(view.removeButton(sender:)), for: .touchUpInside)
         
-        view.heightAnchor.constraint(equalToConstant: 600).isActive = true
-        view.widthAnchor.constraint(equalToConstant: 1000).isActive = true
+        viewModel.isContactValid.subscribe(onNext: { [unowned view] isValid in
+            guard let button = view.isValid else { return }
+            button.setTitleColor(isValid ? greenHexEnabled : greyHexDisabled, for: .normal)
+        }).disposed(by: disposeBag)
+        
+        view.heightAnchor.constraint(equalToConstant: self.view.bounds.height - 40 ).isActive = true
+        view.widthAnchor.constraint(equalToConstant: self.view.bounds.width).isActive = true
+        view.leftAnchor.constraint(equalTo: self.view.leftAnchor)
+        view.rightAnchor.constraint(equalTo: self.view.rightAnchor)
+        view.topLabel.textColor = blueHexTitle
         stackView.addArrangedSubview(view)
+        animateIn(newView: view)
     }
     
     @objc func insertArrangedSubmit(sender: AnyObject) {
         let view = submitXib()
         
-        _ = viewModel.isFormComplete.bind(to: view.submitButton.rx.isEnabled)
-        view.submitButton.addTarget(viewModel, action: #selector(viewModel.createUser(sender:)), for: .touchUpInside)
+        _ = viewModel.isFormComplete.bind(to: view.isValid.rx.isEnabled)
+        view.isValid.addTarget(viewModel, action: #selector(viewModel.createUser(sender:)), for: .touchUpInside)
+        view.isValid.addTarget(self, action: #selector(restartViews(sender:)), for: .touchUpInside)
         
-        view.heightAnchor.constraint(equalToConstant: 600).isActive = true
-        view.widthAnchor.constraint(equalToConstant: 1000).isActive = true
+        //validate that signature is not empty
+        viewModel.isFormComplete.subscribe(onNext: { [unowned view] isValid in
+            guard let button = view.isValid else { return }
+            button.setTitleColor(isValid ? greenHexEnabled : greyHexDisabled, for: .normal)
+        }).disposed(by: disposeBag)
+        
+        view.heightAnchor.constraint(equalToConstant: self.view.bounds.height - 40 ).isActive = true
+        view.widthAnchor.constraint(equalToConstant: self.view.bounds.width).isActive = true
+        view.leftAnchor.constraint(equalTo: self.view.leftAnchor)
+        view.rightAnchor.constraint(equalTo: self.view.rightAnchor)
+        view.topLabel.textColor = blueHexTitle
         stackView.addArrangedSubview(view)
+        animateIn(newView: view)
     }
 
+    @objc func restartViews(sender: AnyObject) {
+        for all in stackView.arrangedSubviews {stackView.removeArrangedSubview(all)}
+        for all in self.view.subviews { all.removeFromSuperview()}
+        setInitialScene(view: self.view)
+    }
+    
+    //animations
+    private func animateIn(newView: UIView) {
+        newView.transform = CGAffineTransform.init(scaleX: 0.2, y: 0.2)
+        newView.alpha = 0
+        UIView.animate(withDuration: 0.3, delay: 0.2, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.7, options: .curveEaseInOut, animations: {
+            newView.alpha = 1
+            newView.transform = CGAffineTransform.identity } , completion: nil )
+    }
 }
 

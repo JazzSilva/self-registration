@@ -13,7 +13,8 @@ class submitXib: UIView {
     
     @IBOutlet var contentView: UIView!
     
-    @IBOutlet weak var submitButton: UIButton!
+    @IBOutlet weak var topLabel: UILabel!
+    @IBOutlet weak var isValid: UIButton!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -28,8 +29,12 @@ class submitXib: UIView {
     private func commonInit() {
         Bundle.main.loadNibNamed("submitView", owner: self, options: nil)
         addSubview(contentView)
-        contentView.frame = self.bounds
-        contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        contentView.frame = .init(x: 0, y: 0, width: 800, height: 500)
+        contentView.clipsToBounds = false
+        contentView.shadowColor = .black
+        contentView.shadowOpacity = 0.20
+        contentView.shadowOffset = CGPoint(x: 0, y: 0)
+        contentView.shadowRadius = 14
     }
     
 }
