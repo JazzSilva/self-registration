@@ -32,6 +32,7 @@
 		DD220A15201126B700F19AC9 /* validationFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD220A14201126B700F19AC9 /* validationFunctions.swift */; };
 		DD3A3448202D834700F2B28B /* IBDesignables.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3A3447202D834700F2B28B /* IBDesignables.swift */; };
 		DD3A344A202D8C1700F2B28B /* colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3A3449202D8C1700F2B28B /* colors.swift */; };
+		DD3A344C202DA5E500F2B28B /* textFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3A344B202DA5E500F2B28B /* textFields.swift */; };
 		DD580D481FE970FA00A254B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD580D471FE970FA00A254B4 /* AppDelegate.swift */; };
 		DD580D4A1FE970FA00A254B4 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD580D491FE970FA00A254B4 /* FirstViewController.swift */; };
 		DD580D4C1FE970FA00A254B4 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD580D4B1FE970FA00A254B4 /* SecondViewController.swift */; };
@@ -40,6 +41,11 @@
 		DD580D541FE970FA00A254B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD580D521FE970FA00A254B4 /* LaunchScreen.storyboard */; };
 		DD580D5F1FE970FA00A254B4 /* self_registrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD580D5E1FE970FA00A254B4 /* self_registrationTests.swift */; };
 		DD580D6A1FE970FA00A254B4 /* self_registrationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD580D691FE970FA00A254B4 /* self_registrationUITests.swift */; };
+		DDC195A6202DAC4600705B0C /* Lottie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDC195A5202DAC4500705B0C /* Lottie.framework */; };
+		DDC195A7202DACEB00705B0C /* Lottie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDC195A5202DAC4500705B0C /* Lottie.framework */; };
+		DDC195A8202DACEB00705B0C /* Lottie.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DDC195A5202DAC4500705B0C /* Lottie.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DDC195AE202DAF3600705B0C /* img_0.png in Resources */ = {isa = PBXBuildFile; fileRef = DDC195AC202DAF3600705B0C /* img_0.png */; };
+		DDC195AF202DAF3600705B0C /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = DDC195AD202DAF3600705B0C /* data.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +77,7 @@
 				B057BDA2201BAF0C00BCDF95 /* RealmSwift.framework in Embed Frameworks */,
 				B0400E8120168C940026CA09 /* RxCocoa.framework in Embed Frameworks */,
 				B0400E8720168C940026CA09 /* RxTest.framework in Embed Frameworks */,
+				DDC195A8202DACEB00705B0C /* Lottie.framework in Embed Frameworks */,
 				B0400E8520168C940026CA09 /* RxBlocking.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -106,6 +113,7 @@
 		DD220A14201126B700F19AC9 /* validationFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = validationFunctions.swift; sourceTree = "<group>"; };
 		DD3A3447202D834700F2B28B /* IBDesignables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IBDesignables.swift; sourceTree = "<group>"; };
 		DD3A3449202D8C1700F2B28B /* colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = colors.swift; sourceTree = "<group>"; };
+		DD3A344B202DA5E500F2B28B /* textFields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = textFields.swift; sourceTree = "<group>"; };
 		DD580D441FE970FA00A254B4 /* self-registration.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "self-registration.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD580D471FE970FA00A254B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD580D491FE970FA00A254B4 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -120,6 +128,9 @@
 		DD580D651FE970FA00A254B4 /* self-registrationUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "self-registrationUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD580D691FE970FA00A254B4 /* self_registrationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = self_registrationUITests.swift; sourceTree = "<group>"; };
 		DD580D6B1FE970FA00A254B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DDC195A5202DAC4500705B0C /* Lottie.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Lottie.framework; path = Carthage/Build/iOS/Lottie.framework; sourceTree = "<group>"; };
+		DDC195AC202DAF3600705B0C /* img_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_0.png; sourceTree = "<group>"; };
+		DDC195AD202DAF3600705B0C /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,7 +139,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				B057BDA3201BAF0C00BCDF95 /* Realm.framework in Frameworks */,
+				DDC195A7202DACEB00705B0C /* Lottie.framework in Frameworks */,
 				B057BDA1201BAF0C00BCDF95 /* RealmSwift.framework in Frameworks */,
+				DDC195A6202DAC4600705B0C /* Lottie.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -152,6 +165,7 @@
 		B0400E72201688720026CA09 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DDC195A5202DAC4500705B0C /* Lottie.framework */,
 				B0400E76201688720026CA09 /* RxBlocking.framework */,
 				B0400E74201688720026CA09 /* RxCocoa.framework */,
 				B0400E73201688720026CA09 /* RxSwift.framework */,
@@ -208,8 +222,10 @@
 		DD3A3446202D832700F2B28B /* Design */ = {
 			isa = PBXGroup;
 			children = (
+				DDC195A9202DAF2900705B0C /* Lottie Animations */,
 				DD3A3447202D834700F2B28B /* IBDesignables.swift */,
 				DD3A3449202D8C1700F2B28B /* colors.swift */,
+				DD3A344B202DA5E500F2B28B /* textFields.swift */,
 			);
 			path = Design;
 			sourceTree = "<group>";
@@ -274,6 +290,32 @@
 				DD580D6B1FE970FA00A254B4 /* Info.plist */,
 			);
 			path = "self-registrationUITests";
+			sourceTree = "<group>";
+		};
+		DDC195A9202DAF2900705B0C /* Lottie Animations */ = {
+			isa = PBXGroup;
+			children = (
+				DDC195AA202DAF3600705B0C /* check */,
+			);
+			path = "Lottie Animations";
+			sourceTree = "<group>";
+		};
+		DDC195AA202DAF3600705B0C /* check */ = {
+			isa = PBXGroup;
+			children = (
+				DDC195AB202DAF3600705B0C /* images */,
+				DDC195AD202DAF3600705B0C /* data.json */,
+			);
+			name = check;
+			path = ../../../../check;
+			sourceTree = "<group>";
+		};
+		DDC195AB202DAF3600705B0C /* images */ = {
+			isa = PBXGroup;
+			children = (
+				DDC195AC202DAF3600705B0C /* img_0.png */,
+			);
+			path = images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -388,11 +430,13 @@
 				DD580D541FE970FA00A254B4 /* LaunchScreen.storyboard in Resources */,
 				B0639F022017C6EB00DD7FA4 /* addressView.xib in Resources */,
 				B0639EFE2017A5C200DD7FA4 /* nameView.xib in Resources */,
+				DDC195AF202DAF3600705B0C /* data.json in Resources */,
 				DD580D511FE970FA00A254B4 /* Assets.xcassets in Resources */,
 				B07313A92020F84C002A6DED /* contactView.xib in Resources */,
 				B07313A72020F83C002A6DED /* securityView.xib in Resources */,
 				B07313AB2020F86B002A6DED /* submitView.xib in Resources */,
 				DD580D4F1FE970FA00A254B4 /* Main.storyboard in Resources */,
+				DDC195AE202DAF3600705B0C /* img_0.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -425,6 +469,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/RxTest.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Realm.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Lottie.framework",
 			);
 			outputPaths = (
 			);
@@ -441,6 +486,7 @@
 			files = (
 				DD580D4C1FE970FA00A254B4 /* SecondViewController.swift in Sources */,
 				DD3A344A202D8C1700F2B28B /* colors.swift in Sources */,
+				DD3A344C202DA5E500F2B28B /* textFields.swift in Sources */,
 				B0639F002017A83800DD7FA4 /* nameXibClass.swift in Sources */,
 				B0639F042017C71A00DD7FA4 /* addressXibClass.swift in Sources */,
 				DD580D481FE970FA00A254B4 /* AppDelegate.swift in Sources */,

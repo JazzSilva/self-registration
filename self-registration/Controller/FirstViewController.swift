@@ -198,9 +198,7 @@ class FirstViewController: UIViewController {
     }
 
     @objc func restartViews(sender: AnyObject) {
-        for all in stackView.arrangedSubviews {stackView.removeArrangedSubview(all)}
-        for all in self.view.subviews { all.removeFromSuperview()}
-        setInitialScene(view: self.view)
+        animateOut(view: stackView)
     }
     
     //animations
@@ -211,5 +209,18 @@ class FirstViewController: UIViewController {
             newView.alpha = 1
             newView.transform = CGAffineTransform.identity } , completion: nil )
     }
+    
+    private func animateOut(view: UIView) {
+        view.alpha = 1
+        UIView.animate(withDuration: 0.1, delay: 0, usingSpringWithDamping: 0.4, initialSpringVelocity: 0.2, options: .curveEaseOut, animations: {
+            view.alpha = 0
+            //need to briefly bring up clapping hands animation
+        }, completion: { finished in
+            for all in self.stackView.arrangedSubviews {self.stackView.removeArrangedSubview(all)}
+            for all in self.view.subviews { all.removeFromSuperview() }
+            self.setInitialScene(view: self.view)
+        })
+    }
+    
 }
 
