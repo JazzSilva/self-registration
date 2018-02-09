@@ -13,6 +13,7 @@ import RealmSwift
 class userViewModel {
     
     var realm: Realm?
+    let disposeBag = DisposeBag()
     
     //This is a singleton
     init() {
@@ -35,10 +36,16 @@ class userViewModel {
     let phone = Variable<String>("")
     let email = Variable<String>("")
     
+    var firstNameValid: Observable<Bool> { return firstName.asObservable().map() { item in isLettersAndCharacters(input: item) && item.count > 1} }
+    var middleNameValid: Observable<Bool> { return middleName.asObservable().map() { item in isLettersAndCharacters(input: item) && item.count >= 1} }
+    var lastNameValid: Observable<Bool> { return lastName.asObservable().map() { item in isLettersAndCharacters(input: item) && item.count > 1} }
+
     var isNameValid: Observable<Bool> {
-        return Observable.combineLatest(firstName.asObservable(), middleName.asObservable(), lastName.asObservable()) {
-            first, middle, last in first.count > 0 && middle.count > 0 && last.count > 0
-        }
+        let valid = Variable<Bool>(false)
+        firstNameValid.bind(to: valid).disposed(by: disposeBag)
+        middleNameValid.bind(to: valid).disposed(by: disposeBag)
+        lastNameValid.bind(to: valid).disposed(by: disposeBag)
+        return valid.asObservable()
     }
     
     var isAddressValid: Observable<Bool> {

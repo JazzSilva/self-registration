@@ -10,7 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class FirstViewController: UIViewController {
+class FirstViewController: UIViewController, UITextFieldDelegate {
 
     var scrollView: UIScrollView!
     var stackView: UIStackView!
@@ -87,6 +87,11 @@ class FirstViewController: UIViewController {
             guard let button = view.isValid else { return }
             button.setTitleColor(isValid ? greenHexEnabled : greyHexDisabled, for: .normal)
         }).disposed(by: disposeBag)
+        
+        /*
+        viewModel.firstNameValid.subscribe(onNext: { [unowned view] isValid in
+            view.firstName.act(bool: isValid ? true : false)
+        }).disposed(by: disposeBag)*/
         
         view.heightAnchor.constraint(equalToConstant: self.view.bounds.height - 40 ).isActive = true
         view.widthAnchor.constraint(equalToConstant: self.view.bounds.width).isActive = true

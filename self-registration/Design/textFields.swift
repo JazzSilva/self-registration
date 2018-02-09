@@ -9,12 +9,17 @@
 import Foundation
 import UIKit
 import Lottie
+import RxSwift
 
 @IBDesignable
 
 class shakingTextField: UITextField {
     
-    func shake () {
+    func act(bool: Bool) {
+        bool ? self.updateView() : self.shake()
+    }
+    
+    func shake() {
         let animation = CABasicAnimation(keyPath: "position")
         animation.duration = 0.05
         animation.repeatCount = 5

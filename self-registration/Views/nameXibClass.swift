@@ -13,7 +13,7 @@ class nameXib: UIView {
     
     @IBOutlet weak var contentView: UIView!
     
-    @IBOutlet weak var firstName: UITextField!
+    @IBOutlet weak var firstName: shakingTextField!
     @IBOutlet weak var middleName: UITextField!
     @IBOutlet weak var lastName: UITextField!
     
