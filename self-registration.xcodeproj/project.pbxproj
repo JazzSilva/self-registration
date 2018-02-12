@@ -48,6 +48,7 @@
 		DDC195AF202DAF3600705B0C /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = DDC195AD202DAF3600705B0C /* data.json */; };
 		DDC195B12030223E00705B0C /* nextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC195B02030223E00705B0C /* nextButton.swift */; };
 		DDC195B320310F5000705B0C /* LogInController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC195B220310F5000705B0C /* LogInController.swift */; };
+		DDC195B520316B9D00705B0C /* swiftSignatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC195B420316B9D00705B0C /* swiftSignatureView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -135,6 +136,7 @@
 		DDC195AD202DAF3600705B0C /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
 		DDC195B02030223E00705B0C /* nextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nextButton.swift; sourceTree = "<group>"; };
 		DDC195B220310F5000705B0C /* LogInController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInController.swift; sourceTree = "<group>"; };
+		DDC195B420316B9D00705B0C /* swiftSignatureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = swiftSignatureView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -232,6 +234,7 @@
 				DD3A3449202D8C1700F2B28B /* colors.swift */,
 				DD3A344B202DA5E500F2B28B /* textFields.swift */,
 				DDC195B02030223E00705B0C /* nextButton.swift */,
+				DDC195B420316B9D00705B0C /* swiftSignatureView.swift */,
 			);
 			path = Design;
 			sourceTree = "<group>";
@@ -498,6 +501,7 @@
 				DD580D481FE970FA00A254B4 /* AppDelegate.swift in Sources */,
 				B07313AF2020F8F6002A6DED /* contactXibClass.swift in Sources */,
 				DD580D4A1FE970FA00A254B4 /* FirstViewController.swift in Sources */,
+				DDC195B520316B9D00705B0C /* swiftSignatureView.swift in Sources */,
 				DD3A3448202D834700F2B28B /* IBDesignables.swift in Sources */,
 				DDC195B12030223E00705B0C /* nextButton.swift in Sources */,
 				DD220A15201126B700F19AC9 /* validationFunctions.swift in Sources */,

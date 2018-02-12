@@ -40,7 +40,7 @@ class user: Object {
     }*/
     
     //May not be necessary. Need to add other fields
-    convenience init(firstName: String?, middleName: String?, lastName: String?, address1: String?, city: String?, state: String?, zip: String?, phone: String?, email: String?, mothersMaidenName: String?, pin: String?, holds: String?) {
+    convenience init(firstName: String?, middleName: String?, lastName: String?, address1: String?, city: String?, state: String?, zip: String?, phone: String?, email: String?, mothersMaidenName: String?, pin: String?, holds: String?, signature: String?) {
         self.init()
         self.firstName = firstName
         self.middleName = middleName
@@ -54,6 +54,7 @@ class user: Object {
         self.mothersMaidenName = mothersMaidenName
         self.pin = pin
         self.holds = holds
+        self.signature = signature
     }
     
 }

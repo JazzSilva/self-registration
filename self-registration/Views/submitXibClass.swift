@@ -15,6 +15,8 @@ class submitXib: UIView {
     
     @IBOutlet weak var topLabel: UILabel!
     @IBOutlet weak var isValid: UIButton!
+    @IBOutlet weak var signatureView: SwiftSignatureView!
+    
     
     override init(frame: CGRect) {
         super.init(frame: frame)

@@ -36,6 +36,8 @@ class userViewModel {
     let phone = Variable<String>("")
     let email = Variable<String>("")
     
+    var signature = Variable<String>("")
+    
     var firstNameValid: Observable<Bool> { return firstName.asObservable().map() { item in isLettersAndCharacters(input: item) && item.count >= 1} }
     var middleNameValid: Observable<Bool> { return middleName.asObservable().map() { item in isLettersAndCharacters(input: item) && item.count >= 0} }
     var lastNameValid: Observable<Bool> { return lastName.asObservable().map() { item in isLettersAndCharacters(input: item) && item.count >= 1} }
@@ -59,7 +61,7 @@ class userViewModel {
     
     @objc func createUser(sender: AnyObject) {
         //This references the convenience user init in the Database class
-        let newUser = user(firstName: firstName.value, middleName: middleName.value, lastName: lastName.value, address1: address1.value, city: city.value, state: state.value, zip: zip.value, phone: phone.value, email: email.value, mothersMaidenName: mothersMaidenName.value, pin: pin.value, holds: holds.value)
+        let newUser = user(firstName: firstName.value, middleName: middleName.value, lastName: lastName.value, address1: address1.value, city: city.value, state: state.value, zip: zip.value, phone: phone.value, email: email.value, mothersMaidenName: mothersMaidenName.value, pin: pin.value, holds: holds.value, signature: signature.value)
         //Actually save the user to the shared realm
         Database.shared.create(newUser)
     }

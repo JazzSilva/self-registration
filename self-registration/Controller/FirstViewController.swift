@@ -222,7 +222,13 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
     }
 
     @objc func restartViews(sender: AnyObject) {
+        submitSignature(view: self.stackView.arrangedSubviews.last! as! submitXib)
         animateOut(view: stackView)
+    }
+    
+    private func submitSignature(view: submitXib) {
+        let sig: Data = UIImagePNGRepresentation(view.signatureView.signature!)! as Data
+        viewModel.signature.value = sig.base64EncodedString()
     }
     
     //animations
