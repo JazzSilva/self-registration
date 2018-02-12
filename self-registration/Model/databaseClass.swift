@@ -15,19 +15,26 @@ class Database {
     
     static let shared = Database()
     var realm = try! Realm()
-    private init() { logIn() }
+    var currentPassword = ""
+    var currentUser = ""
+    
+    private init() { }
     
     var notificationToken: NotificationToken?
     var usersList = List<user>()
     
-    func logIn() {
+    enum logInResult {
+        case success
+        case failure
+    }
+    
+    func logIn(username: String, password: String, vc: logInController) {
         // You should make the username and password user-input supported
-        SyncUser.logIn(with: .usernamePassword(username: "jasmin.silva@hcpl.net", password: "HCpl2017!", register: false), server: URL(string: "http://127.0.0.1:9080")!) { user, error in
+        SyncUser.logIn(with: .usernamePassword(username: username, password: password, register: false), server: URL(string: "http://127.0.0.1:9080")!) { user, error in
             guard let user = user else {
-                print("did not log-in")
+                vc.wrongInput()
                 return
             }
-            
             DispatchQueue.main.async(execute: {
                 // Open Realm
                 let configuration = Realm.Configuration(
@@ -35,13 +42,15 @@ class Database {
                 )
                 
                 self.realm = try! Realm(configuration: configuration)
-                
                 // Set realm notification block
                 self.notificationToken = self.realm.observe( { _,_  in self.updateUsersList() } )
-                
                 self.updateUsersList()
             })
-        }}
+            vc.correctInput()
+            self.currentPassword = password
+            self.currentUser = username
+        }
+    }
         
     func updateUsersList() {
             print("did update users")
