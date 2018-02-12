@@ -14,11 +14,11 @@ class nameXib: UIView {
     @IBOutlet weak var contentView: UIView!
     
     @IBOutlet weak var firstName: shakingTextField!
-    @IBOutlet weak var middleName: UITextField!
-    @IBOutlet weak var lastName: UITextField!
+    @IBOutlet weak var middleName: shakingTextField!
+    @IBOutlet weak var lastName: shakingTextField!
     
     @IBOutlet weak var topLabel: UILabel!
-    @IBOutlet weak var isValid: UIButton!
+    @IBOutlet weak var isValid: nextButton!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -44,5 +44,23 @@ class nameXib: UIView {
     @objc func removeButton(sender: AnyObject) {
         self.isValid.removeFromSuperview()
     }
+    
+    
+    @IBAction func FirstEnd(_ sender: Any) {
+        self.firstName.didEndEditing()
+    }
+    
+    @IBAction func middleEnd(_ sender: Any) {
+        if self.middleName.text?.count == 0 {
+            self.middleName.hideImage()
+        } else {
+            self.middleName.didEndEditing()
+        }
+    }
+    
+    @IBAction func lastEnd(_ sender: Any) {
+        self.lastName.didEndEditing()
+    }
+    
     
 }

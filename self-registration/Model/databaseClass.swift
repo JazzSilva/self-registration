@@ -24,7 +24,8 @@ class Database {
         // You should make the username and password user-input supported
         SyncUser.logIn(with: .usernamePassword(username: "jasmin.silva@hcpl.net", password: "HCpl2017!", register: false), server: URL(string: "http://127.0.0.1:9080")!) { user, error in
             guard let user = user else {
-                fatalError(String(describing: error))
+                print("did not log-in")
+                return
             }
             
             DispatchQueue.main.async(execute: {

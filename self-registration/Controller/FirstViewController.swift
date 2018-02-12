@@ -23,12 +23,19 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
     
     override func viewWillDisappear(_ animated: Bool) {
         for all in stackView.arrangedSubviews {all.removeFromSuperview()}
-        for all in self.view.subviews { all.removeFromSuperview()}
+        for all in self.view.subviews {all.removeFromSuperview()}
     }
     
     private func setInitialScene(view: UIView) {
         viewModel = userViewModel()
         disposeBag = DisposeBag()
+        
+        //Set background image
+        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
+        backgroundImage.image = UIImage(named: "GradientArtboard")
+        backgroundImage.contentMode = UIViewContentMode.scaleAspectFill
+        self.view.insertSubview(backgroundImage, at: 0)
+        
         //Create Scroll View and add it as a subview to RegisterNow VC
         scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -79,19 +86,19 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
         view.middleName.rx.text.map { $0 ?? ""}.bind(to: viewModel.middleName).disposed(by: disposeBag)
         view.lastName.rx.text.map { $0 ?? ""}.bind(to: viewModel.lastName).disposed(by: disposeBag)
         
-        _ = viewModel.isNameValid.bind(to: view.isValid.rx.isEnabled)
+        viewModel.isNameViewValid.bind(to: view.isValid.rx.isEnabled).disposed(by: disposeBag)
+        
         view.isValid.addTarget(self, action: #selector(insertArrangedAddress(sender:)), for: .touchUpInside)
         view.isValid.addTarget(view, action: #selector(view.removeButton(sender:)), for: .touchUpInside)
         
-        viewModel.isNameValid.subscribe(onNext: { [unowned view] isValid in
+        viewModel.isNameViewValid.subscribe(onNext: { [unowned view] isValid in
             guard let button = view.isValid else { return }
-            button.setTitleColor(isValid ? greenHexEnabled : greyHexDisabled, for: .normal)
+            button.setUI(bool: isValid)
         }).disposed(by: disposeBag)
         
-        /*
-        viewModel.firstNameValid.subscribe(onNext: { [unowned view] isValid in
-            view.firstName.act(bool: isValid ? true : false)
-        }).disposed(by: disposeBag)*/
+        viewModel.firstNameValid.subscribe(onNext: { [unowned view] isValid in view.firstName.updateUI(bool: isValid)}).disposed(by: disposeBag)
+        viewModel.middleNameValid.subscribe(onNext: { [unowned view] isValid in view.middleName.updateUI(bool: isValid)}).disposed(by: disposeBag)
+        viewModel.lastNameValid.subscribe(onNext: { [unowned view] isValid in view.lastName.updateUI(bool: isValid)}).disposed(by: disposeBag)
         
         view.heightAnchor.constraint(equalToConstant: self.view.bounds.height - 40 ).isActive = true
         view.widthAnchor.constraint(equalToConstant: self.view.bounds.width).isActive = true
@@ -111,14 +118,19 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
         view.state.rx.text.map { $0 ?? ""}.bind(to: viewModel.state).disposed(by: disposeBag)
         view.zipCode.rx.text.map { $0 ?? ""}.bind(to: viewModel.zip).disposed(by: disposeBag)
         
-        _ = viewModel.isAddressValid.bind(to: view.isValid.rx.isEnabled)
+        _ = viewModel.isAddressViewValid.bind(to: view.isValid.rx.isEnabled)
         view.isValid.addTarget(self, action: #selector(insertArrangedSecurity(sender:)), for: .touchUpInside)
         view.isValid.addTarget(view, action: #selector(view.removeButton(sender:)), for: .touchUpInside)
         
-        viewModel.isAddressValid.subscribe(onNext: { [unowned view] isValid in
+        viewModel.isAddressViewValid.subscribe(onNext: { [unowned view] isValid in
             guard let button = view.isValid else { return }
-            button.setTitleColor(isValid ? greenHexEnabled : greyHexDisabled, for: .normal)
+            button.setUI(bool: isValid)
         }).disposed(by: disposeBag)
+        
+        viewModel.address1Valid.subscribe(onNext: { [unowned view] isValid in view.address1.updateUI(bool: isValid)}).disposed(by: disposeBag)
+        viewModel.cityValid.subscribe(onNext: { [unowned view] isValid in view.city.updateUI(bool: isValid)}).disposed(by: disposeBag)
+        viewModel.stateValid.subscribe(onNext: { [unowned view] isValid in view.state.updateUI(bool: isValid)}).disposed(by: disposeBag)
+        viewModel.zipValid.subscribe(onNext: { [unowned view] isValid in view.zipCode.updateUI(bool: isValid)}).disposed(by: disposeBag)
         
         view.heightAnchor.constraint(equalToConstant: self.view.bounds.height - 40 ).isActive = true
         view.widthAnchor.constraint(equalToConstant: self.view.bounds.width).isActive = true
@@ -137,14 +149,18 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
         view.holds.rx.text.map { $0 ?? "" }.bind(to: viewModel.holds).disposed(by: disposeBag)
         view.pin.rx.text.map { $0 ?? "" }.bind(to: viewModel.pin).disposed(by: disposeBag)
         
-        _ = viewModel.isSecurityValid.bind(to: view.isValid.rx.isEnabled)
+        _ = viewModel.isSecurityViewValid.bind(to: view.isValid.rx.isEnabled)
         view.isValid.addTarget(self, action: #selector(insertArrangedContact(sender:)), for: .touchUpInside)
         view.isValid.addTarget(view, action: #selector(view.removeButton(sender:)), for: .touchUpInside)
         
-        viewModel.isSecurityValid.subscribe(onNext: { [unowned view] isValid in
+        viewModel.isSecurityViewValid.subscribe(onNext: { [unowned view] isValid in
             guard let button = view.isValid else { return }
-            button.setTitleColor(isValid ? greenHexEnabled : greyHexDisabled, for: .normal)
+            button.setUI(bool: isValid)
         }).disposed(by: disposeBag)
+        
+        viewModel.mothersMaidenNameValid.subscribe(onNext: { [unowned view] isValid in view.mothersMaidenName.updateUI(bool: isValid)}).disposed(by: disposeBag)
+        viewModel.holdsValid.subscribe(onNext: { [unowned view] isValid in view.holds.updateUI(bool: isValid)}).disposed(by: disposeBag)
+        viewModel.pinValid.subscribe(onNext: { [unowned view] isValid in view.pin.updateUI(bool: isValid)}).disposed(by: disposeBag)
         
         view.heightAnchor.constraint(equalToConstant: self.view.bounds.height - 40 ).isActive = true
         view.widthAnchor.constraint(equalToConstant: self.view.bounds.width).isActive = true
@@ -162,14 +178,17 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
         view.phone.rx.text.map { $0 ?? ""}.bind(to: viewModel.phone).disposed(by: disposeBag)
         view.email.rx.text.map { $0 ?? ""}.bind(to: viewModel.email).disposed(by: disposeBag)
         
-        _ = viewModel.isContactValid.bind(to: view.isValid.rx.isEnabled)
+        _ = viewModel.isContactViewValid.bind(to: view.isValid.rx.isEnabled)
         view.isValid.addTarget(self, action: #selector(insertArrangedSubmit(sender:)), for: .touchUpInside)
         view.isValid.addTarget(view, action: #selector(view.removeButton(sender:)), for: .touchUpInside)
         
-        viewModel.isContactValid.subscribe(onNext: { [unowned view] isValid in
+        viewModel.isContactViewValid.subscribe(onNext: { [unowned view] isValid in
             guard let button = view.isValid else { return }
-            button.setTitleColor(isValid ? greenHexEnabled : greyHexDisabled, for: .normal)
+            button.setUI(bool: isValid)
         }).disposed(by: disposeBag)
+        
+        viewModel.phoneValid.subscribe(onNext: { [unowned view] isValid in view.phone.updateUI(bool: isValid)}).disposed(by: disposeBag)
+        viewModel.emailValid.subscribe(onNext: { [unowned view] isValid in view.email.updateUI(bool: isValid)}).disposed(by: disposeBag)
         
         view.heightAnchor.constraint(equalToConstant: self.view.bounds.height - 40 ).isActive = true
         view.widthAnchor.constraint(equalToConstant: self.view.bounds.width).isActive = true

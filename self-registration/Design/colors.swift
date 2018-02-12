@@ -15,6 +15,7 @@ let greyHexDisabled = UIColor(hex: "BDC2BC")
 let greenHexEnabled = UIColor(hex: "009434")
 let blueHexTitle = UIColor(hex: "111777")
 let isInvalidText = UIColor(hex: "C4174A")
+let isValidText = UIColor(hex: "020002")
 
 ///Extension that converts HEX to UI Color
 extension UIColor {

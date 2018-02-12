@@ -15,31 +15,45 @@ import RxSwift
 
 class shakingTextField: UITextField {
     
+    func updateUI(bool: Bool) {
+        self.textColor = bool ? isValidText : isInvalidText
+    }
+    
     func act(bool: Bool) {
         bool ? self.updateView() : self.shake()
     }
     
+    func updateImage(bool: Bool) {
+        if bool == false {
+            self.hideImage()
+        }
+        else {
+            return
+        }
+    }
+    
+    func didEndEditing() {
+        if self.leftViewMode == .never && self.text != "" {
+            self.act(bool: self.textColor == isValidText ? true : false)
+        }
+        else {
+           self.updateImage(bool: self.textColor == isValidText ? true : false)
+        }
+    }
+    
     func shake() {
         let animation = CABasicAnimation(keyPath: "position")
-        animation.duration = 0.05
+        animation.duration = 0.03
         animation.repeatCount = 5
         animation.autoreverses = true
         animation.fromValue = NSValue(cgPoint: CGPoint(x:self.center.x-4, y:self.center.y))
         animation.toValue = NSValue(cgPoint: CGPoint(x:self.center.x+4, y:self.center.y))
-        
         self.layer.add(animation, forKey: "position")
-        
-        //Hide green checkmark if field shakes
         self.hideImage()
-        
-        //Change text color to red if there is an error
-        self.textColor = greyHexDisabled
     }
-    
     
     @IBInspectable var leftImage: UIImage? {
         didSet {
-            //default function from inspector
             hideImage()
         }
     }
@@ -47,7 +61,7 @@ class shakingTextField: UITextField {
     func updateView() {
         if let image = leftImage {
             let animationView = LOTAnimationView(name: "data")
-            animationView.frame = CGRect(x: -16, y: -24, width: 70, height: 70)
+            animationView.frame = CGRect(x: -16, y: -24, width: 50, height: 50)
             animationView.contentMode = .scaleAspectFill
             
             //show image unless user is typing
@@ -59,8 +73,6 @@ class shakingTextField: UITextField {
             animationView.play()
             leftView = view
             
-            //Change text color back to black
-            self.textColor = UIColor.black
         }
         else {
             leftViewMode = .never
@@ -71,5 +83,7 @@ class shakingTextField: UITextField {
     func hideImage() {
         leftViewMode = .never
     }
+    
 }
+
 

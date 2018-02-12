@@ -30,6 +30,12 @@ class SecondViewController: UIViewController {
         let realm = Database.shared.realm
         userList = realm.objects(user.self)
         
+        //Set background image
+        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
+        backgroundImage.image = UIImage(named: "GradientArtboard")
+        backgroundImage.contentMode = UIViewContentMode.scaleAspectFill
+        self.view.insertSubview(backgroundImage, at: 0)
+        
         //Keep access to notification token, so you can later remove it in ViewWillDisappear
         notificationToken = realm.observe({(notification, realm) in self.tableView.reloadData()})
         Database.shared.observeRealmErrors(in: self) { (error) in print(error ?? "no error") }

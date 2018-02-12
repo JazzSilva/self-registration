@@ -39,6 +39,9 @@
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="image" keyPath="leftImage" value="img_0.png"/>
                     </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="middleEnd:" destination="-1" eventType="editingDidEnd" id="rIR-sC-mzI"/>
+                    </connections>
                 </textField>
                 <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last Name" textAlignment="natural" minimumFontSize="17" clearButtonMode="unlessEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Yae-pH-avE" customClass="shakingTextField" customModule="self_registration" customModuleProvider="target">
                     <rect key="frame" x="237" y="260" width="330" height="31"/>
@@ -49,8 +52,11 @@
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="image" keyPath="leftImage" value="img_0.png"/>
                     </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="lastEnd:" destination="-1" eventType="editingDidEnd" id="pG9-vN-XZo"/>
+                    </connections>
                 </textField>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ou8-Wf-ae3">
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ou8-Wf-ae3" customClass="nextButton" customModule="self_registration" customModuleProvider="target">
                     <rect key="frame" x="266" y="354" width="272" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
@@ -67,12 +73,15 @@
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="image" keyPath="leftImage" value="img_0.png"/>
                     </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="FirstEnd:" destination="-1" eventType="editingDidEnd" id="9zO-EC-7aV"/>
+                    </connections>
                 </textField>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Please enter your information" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sra-4H-bJN">
                     <rect key="frame" x="237" y="96" width="330" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="20"/>
-                    <color key="textColor" red="0.76862745098039209" green="0.090196078431372548" blue="0.29019607843137252" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="textColor" red="0.38694767405693231" green="0.078318322079531502" blue="0.37266474425079948" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>

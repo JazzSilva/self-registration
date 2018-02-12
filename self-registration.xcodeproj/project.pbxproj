@@ -46,6 +46,8 @@
 		DDC195A8202DACEB00705B0C /* Lottie.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DDC195A5202DAC4500705B0C /* Lottie.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DDC195AE202DAF3600705B0C /* img_0.png in Resources */ = {isa = PBXBuildFile; fileRef = DDC195AC202DAF3600705B0C /* img_0.png */; };
 		DDC195AF202DAF3600705B0C /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = DDC195AD202DAF3600705B0C /* data.json */; };
+		DDC195B12030223E00705B0C /* nextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC195B02030223E00705B0C /* nextButton.swift */; };
+		DDC195B320310F5000705B0C /* LogInController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC195B220310F5000705B0C /* LogInController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -131,6 +133,8 @@
 		DDC195A5202DAC4500705B0C /* Lottie.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Lottie.framework; path = Carthage/Build/iOS/Lottie.framework; sourceTree = "<group>"; };
 		DDC195AC202DAF3600705B0C /* img_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_0.png; sourceTree = "<group>"; };
 		DDC195AD202DAF3600705B0C /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
+		DDC195B02030223E00705B0C /* nextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nextButton.swift; sourceTree = "<group>"; };
+		DDC195B220310F5000705B0C /* LogInController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,6 +210,7 @@
 			children = (
 				DD580D491FE970FA00A254B4 /* FirstViewController.swift */,
 				DD580D4B1FE970FA00A254B4 /* SecondViewController.swift */,
+				DDC195B220310F5000705B0C /* LogInController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -226,6 +231,7 @@
 				DD3A3447202D834700F2B28B /* IBDesignables.swift */,
 				DD3A3449202D8C1700F2B28B /* colors.swift */,
 				DD3A344B202DA5E500F2B28B /* textFields.swift */,
+				DDC195B02030223E00705B0C /* nextButton.swift */,
 			);
 			path = Design;
 			sourceTree = "<group>";
@@ -260,10 +266,10 @@
 		DD580D461FE970FA00A254B4 /* self-registration */ = {
 			isa = PBXGroup;
 			children = (
-				DD3A3446202D832700F2B28B /* Design */,
 				B0639EF82017877900DD7FA4 /* Views */,
-				DD0A587E200671590035AD1F /* View Model */,
+				DD3A3446202D832700F2B28B /* Design */,
 				DD0A587D2006713A0035AD1F /* Controller */,
+				DD0A587E200671590035AD1F /* View Model */,
 				DD0A587C200671250035AD1F /* Model */,
 				DD580D471FE970FA00A254B4 /* AppDelegate.swift */,
 				DD580D4D1FE970FA00A254B4 /* Main.storyboard */,
@@ -493,9 +499,11 @@
 				B07313AF2020F8F6002A6DED /* contactXibClass.swift in Sources */,
 				DD580D4A1FE970FA00A254B4 /* FirstViewController.swift in Sources */,
 				DD3A3448202D834700F2B28B /* IBDesignables.swift in Sources */,
+				DDC195B12030223E00705B0C /* nextButton.swift in Sources */,
 				DD220A15201126B700F19AC9 /* validationFunctions.swift in Sources */,
 				DD220A0920111C6700F19AC9 /* databaseClass.swift in Sources */,
 				DD220A0720111B7A00F19AC9 /* dataModel.swift in Sources */,
+				DDC195B320310F5000705B0C /* LogInController.swift in Sources */,
 				B07313AD2020F8E0002A6DED /* securityXibClass.swift in Sources */,
 				B07313B12020F904002A6DED /* submitXibClass.swift in Sources */,
 				B067093920221C53002DAB07 /* userCell.swift in Sources */,

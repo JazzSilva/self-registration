@@ -36,41 +36,26 @@ class userViewModel {
     let phone = Variable<String>("")
     let email = Variable<String>("")
     
-    var firstNameValid: Observable<Bool> { return firstName.asObservable().map() { item in isLettersAndCharacters(input: item) && item.count > 1} }
-    var middleNameValid: Observable<Bool> { return middleName.asObservable().map() { item in isLettersAndCharacters(input: item) && item.count >= 1} }
-    var lastNameValid: Observable<Bool> { return lastName.asObservable().map() { item in isLettersAndCharacters(input: item) && item.count > 1} }
+    var firstNameValid: Observable<Bool> { return firstName.asObservable().map() { item in isLettersAndCharacters(input: item) && item.count >= 1} }
+    var middleNameValid: Observable<Bool> { return middleName.asObservable().map() { item in isLettersAndCharacters(input: item) && item.count >= 0} }
+    var lastNameValid: Observable<Bool> { return lastName.asObservable().map() { item in isLettersAndCharacters(input: item) && item.count >= 1} }
+    var address1Valid: Observable<Bool> { return address1.asObservable().map() { item in item.count >= 1} }
+    var cityValid: Observable<Bool> { return city.asObservable().map() { item in isLettersAndCharacters(input: item) && item.count >= 1} }
+    var stateValid: Observable<Bool> { return state.asObservable().map() { item in isLettersOnly(input: item) && item.count == 2} }
+    var zipValid: Observable<Bool> { return zip.asObservable().map() { item in isNumbersOnly(input: item) && item.count == 5} }
+    var mothersMaidenNameValid: Observable<Bool> { return mothersMaidenName.asObservable().map() { item in isLettersAndCharacters(input: item) && item.count >= 1} }
+    var pinValid: Observable<Bool> { return pin.asObservable().map() { item in isNumbersOnly(input: item) && item.count == 4} }
+    var holdsValid: Observable<Bool> { return holds.asObservable().map() { item in isLettersAndCharacters(input: item) && item.count >= 0} }
+    var phoneValid: Observable<Bool> { return phone.asObservable().map() { item in isValidPhone(input: item)} }
+    var emailValid: Observable<Bool> { return email.asObservable().map() { item in isValidEmail(input: item)} }
+    
 
-    var isNameValid: Observable<Bool> {
-        let valid = Variable<Bool>(false)
-        firstNameValid.bind(to: valid).disposed(by: disposeBag)
-        middleNameValid.bind(to: valid).disposed(by: disposeBag)
-        lastNameValid.bind(to: valid).disposed(by: disposeBag)
-        return valid.asObservable()
-    }
+    var isNameViewValid: Observable<Bool> { return Observable.combineLatest(firstNameValid, middleNameValid, lastNameValid) { first, middle, last in first && middle && last } }
+    var isAddressViewValid: Observable<Bool> { return Observable.combineLatest(address1Valid, cityValid, stateValid, zipValid) { address, city, state, zip in address && city && state && zip} }
+    var isSecurityViewValid: Observable<Bool> { return Observable.combineLatest(mothersMaidenNameValid, pinValid) { mothersMaidenName, pin in mothersMaidenName && pin } }
+    var isContactViewValid: Observable<Bool> { return Observable.combineLatest(phoneValid, emailValid) { phone, email in phone && email } }
     
-    var isAddressValid: Observable<Bool> {
-        return Observable.combineLatest(address1.asObservable(), city.asObservable(), state.asObservable(), zip.asObservable()) {
-            address1, city, state, zip in address1.count > 0 && city.count > 0 && state.count == 2 && zip.count == 5
-        }
-    }
-    
-    var isSecurityValid: Observable<Bool> {
-        return Observable.combineLatest(mothersMaidenName.asObservable(), pin.asObservable(), holds.asObservable()) {
-            mothersMaidenName, pin, holds in mothersMaidenName.count > 0 && pin.count == 4 && holds.count >= 0
-        }
-    }
-    
-    var isContactValid: Observable<Bool> {
-        return Observable.combineLatest(phone.asObservable(), email.asObservable()) {
-            phone, email in phone.count > 0 && email.count > 0
-        }
-    }
-    
-    var isFormComplete: Observable<Bool> {
-        return Observable.combineLatest(isNameValid, isAddressValid, isSecurityValid, isContactValid) {
-            name, address, security, contact in name && address && security && contact
-        }
-    }
+    var isFormComplete: Observable<Bool> { return Observable.combineLatest(isNameViewValid, isAddressViewValid, isSecurityViewValid, isContactViewValid) { name, address, security, contact in name && address && security && contact } }
     
     @objc func createUser(sender: AnyObject) {
         //This references the convenience user init in the Database class

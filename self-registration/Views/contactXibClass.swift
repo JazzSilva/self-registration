@@ -13,11 +13,11 @@ class contactXib: UIView {
     
     @IBOutlet var contentView: UIView!
     
-    @IBOutlet weak var phone: UITextField!
-    @IBOutlet weak var email: UITextField!
+    @IBOutlet weak var phone: shakingTextField!
+    @IBOutlet weak var email: shakingTextField!
     
     @IBOutlet weak var topLabel: UILabel!
-    @IBOutlet weak var isValid: UIButton!
+    @IBOutlet weak var isValid: nextButton!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -43,5 +43,17 @@ class contactXib: UIView {
     @objc func removeButton(sender: AnyObject) {
         self.isValid.removeFromSuperview()
     }
+    
+    @IBAction func phoneEnd(_ sender: Any) {
+        self.phone.didEndEditing()
+    }
+    
+    @IBAction func emailEnd(_ sender: Any) {
+        self.email.didEndEditing()
+    }
+    
+    
+    
+    
     
 }

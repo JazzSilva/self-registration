@@ -13,12 +13,12 @@ class securityXib: UIView {
     
     @IBOutlet var contentView: UIView!
     
-    @IBOutlet weak var pin: UITextField!
-    @IBOutlet weak var mothersMaidenName: UITextField!
-    @IBOutlet weak var holds: UITextField!
+    @IBOutlet weak var pin: shakingTextField!
+    @IBOutlet weak var mothersMaidenName: shakingTextField!
+    @IBOutlet weak var holds: shakingTextField!
     
     @IBOutlet weak var topLabel: UILabel!
-    @IBOutlet weak var isValid: UIButton!
+    @IBOutlet weak var isValid: nextButton!
     
     
     override init(frame: CGRect) {
@@ -45,4 +45,23 @@ class securityXib: UIView {
     @objc func removeButton(sender: AnyObject) {
         self.isValid.removeFromSuperview()
     }
+    
+    @IBAction func pinEnd(_ sender: Any) {
+        self.pin.didEndEditing()
+    }
+    
+    @IBAction func mothersMaidenNameEnd(_ sender: Any) {
+        self.mothersMaidenName.didEndEditing()
+    }
+    
+    @IBAction func holdsEnd(_ sender: Any) {
+        if self.holds.text?.count == 0 {
+            self.holds.hideImage()
+        } else {
+        self.holds.didEndEditing()
+        }
+    }
+    
+    
+    
 }
