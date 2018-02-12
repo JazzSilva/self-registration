@@ -59,6 +59,7 @@ class SecondViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         let realm = Database.shared.realm
         userList = realm.objects(user.self)
+        tableView.reloadData()
         
         //Set background image
         self.view.bringSubview(toFront: logInView)

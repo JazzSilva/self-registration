@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B00B2CF3203204E400355186 /* textFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00B2CF2203204E300355186 /* textFields.swift */; };
+		B00B2CF62032097A00355186 /* Lottie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDC195A5202DAC4500705B0C /* Lottie.framework */; };
+		B00B2CF7203209F100355186 /* Lottie.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DDC195A5202DAC4500705B0C /* Lottie.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B021470620320C70009449E1 /* img_0.png in Resources */ = {isa = PBXBuildFile; fileRef = B021470420320C70009449E1 /* img_0.png */; };
+		B021470720320C70009449E1 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = B021470520320C70009449E1 /* data.json */; };
 		B0400E8120168C940026CA09 /* RxCocoa.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B0400E7C20168C940026CA09 /* RxCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B0400E8320168C940026CA09 /* RxSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B0400E7D20168C940026CA09 /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B0400E8520168C940026CA09 /* RxBlocking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B0400E7E20168C940026CA09 /* RxBlocking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -32,7 +37,6 @@
 		DD220A15201126B700F19AC9 /* validationFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD220A14201126B700F19AC9 /* validationFunctions.swift */; };
 		DD3A3448202D834700F2B28B /* IBDesignables.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3A3447202D834700F2B28B /* IBDesignables.swift */; };
 		DD3A344A202D8C1700F2B28B /* colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3A3449202D8C1700F2B28B /* colors.swift */; };
-		DD3A344C202DA5E500F2B28B /* textFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3A344B202DA5E500F2B28B /* textFields.swift */; };
 		DD580D481FE970FA00A254B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD580D471FE970FA00A254B4 /* AppDelegate.swift */; };
 		DD580D4A1FE970FA00A254B4 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD580D491FE970FA00A254B4 /* FirstViewController.swift */; };
 		DD580D4C1FE970FA00A254B4 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD580D4B1FE970FA00A254B4 /* SecondViewController.swift */; };
@@ -41,11 +45,6 @@
 		DD580D541FE970FA00A254B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD580D521FE970FA00A254B4 /* LaunchScreen.storyboard */; };
 		DD580D5F1FE970FA00A254B4 /* self_registrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD580D5E1FE970FA00A254B4 /* self_registrationTests.swift */; };
 		DD580D6A1FE970FA00A254B4 /* self_registrationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD580D691FE970FA00A254B4 /* self_registrationUITests.swift */; };
-		DDC195A6202DAC4600705B0C /* Lottie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDC195A5202DAC4500705B0C /* Lottie.framework */; };
-		DDC195A7202DACEB00705B0C /* Lottie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDC195A5202DAC4500705B0C /* Lottie.framework */; };
-		DDC195A8202DACEB00705B0C /* Lottie.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DDC195A5202DAC4500705B0C /* Lottie.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		DDC195AE202DAF3600705B0C /* img_0.png in Resources */ = {isa = PBXBuildFile; fileRef = DDC195AC202DAF3600705B0C /* img_0.png */; };
-		DDC195AF202DAF3600705B0C /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = DDC195AD202DAF3600705B0C /* data.json */; };
 		DDC195B12030223E00705B0C /* nextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC195B02030223E00705B0C /* nextButton.swift */; };
 		DDC195B320310F5000705B0C /* LogInController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC195B220310F5000705B0C /* LogInController.swift */; };
 		DDC195B520316B9D00705B0C /* swiftSignatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC195B420316B9D00705B0C /* swiftSignatureView.swift */; };
@@ -75,12 +74,12 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				B00B2CF7203209F100355186 /* Lottie.framework in Embed Frameworks */,
 				B057BDA4201BAF0C00BCDF95 /* Realm.framework in Embed Frameworks */,
 				B0400E8320168C940026CA09 /* RxSwift.framework in Embed Frameworks */,
 				B057BDA2201BAF0C00BCDF95 /* RealmSwift.framework in Embed Frameworks */,
 				B0400E8120168C940026CA09 /* RxCocoa.framework in Embed Frameworks */,
 				B0400E8720168C940026CA09 /* RxTest.framework in Embed Frameworks */,
-				DDC195A8202DACEB00705B0C /* Lottie.framework in Embed Frameworks */,
 				B0400E8520168C940026CA09 /* RxBlocking.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -89,6 +88,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		B00B2CF2203204E300355186 /* textFields.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = textFields.swift; path = "../../../../../Library/Containers/com.apple.mail/Data/Library/Mail Downloads/D69F62FF-50E4-47D6-9765-15005F214FE2/textFields.swift"; sourceTree = "<group>"; };
+		B021470420320C70009449E1 /* img_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_0.png; sourceTree = "<group>"; };
+		B021470520320C70009449E1 /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
 		B0400E73201688720026CA09 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
 		B0400E74201688720026CA09 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
 		B0400E75201688720026CA09 /* RxTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxTest.framework; path = Carthage/Build/iOS/RxTest.framework; sourceTree = "<group>"; };
@@ -116,7 +118,6 @@
 		DD220A14201126B700F19AC9 /* validationFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = validationFunctions.swift; sourceTree = "<group>"; };
 		DD3A3447202D834700F2B28B /* IBDesignables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IBDesignables.swift; sourceTree = "<group>"; };
 		DD3A3449202D8C1700F2B28B /* colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = colors.swift; sourceTree = "<group>"; };
-		DD3A344B202DA5E500F2B28B /* textFields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = textFields.swift; sourceTree = "<group>"; };
 		DD580D441FE970FA00A254B4 /* self-registration.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "self-registration.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD580D471FE970FA00A254B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD580D491FE970FA00A254B4 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -132,8 +133,6 @@
 		DD580D691FE970FA00A254B4 /* self_registrationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = self_registrationUITests.swift; sourceTree = "<group>"; };
 		DD580D6B1FE970FA00A254B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DDC195A5202DAC4500705B0C /* Lottie.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Lottie.framework; path = Carthage/Build/iOS/Lottie.framework; sourceTree = "<group>"; };
-		DDC195AC202DAF3600705B0C /* img_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_0.png; sourceTree = "<group>"; };
-		DDC195AD202DAF3600705B0C /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
 		DDC195B02030223E00705B0C /* nextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nextButton.swift; sourceTree = "<group>"; };
 		DDC195B220310F5000705B0C /* LogInController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInController.swift; sourceTree = "<group>"; };
 		DDC195B420316B9D00705B0C /* swiftSignatureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = swiftSignatureView.swift; sourceTree = "<group>"; };
@@ -144,10 +143,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B00B2CF62032097A00355186 /* Lottie.framework in Frameworks */,
 				B057BDA3201BAF0C00BCDF95 /* Realm.framework in Frameworks */,
-				DDC195A7202DACEB00705B0C /* Lottie.framework in Frameworks */,
 				B057BDA1201BAF0C00BCDF95 /* RealmSwift.framework in Frameworks */,
-				DDC195A6202DAC4600705B0C /* Lottie.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -168,6 +166,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B021470120320C52009449E1 /* Lottie Animations */ = {
+			isa = PBXGroup;
+			children = (
+				B021470220320C70009449E1 /* check */,
+			);
+			name = "Lottie Animations";
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		B021470220320C70009449E1 /* check */ = {
+			isa = PBXGroup;
+			children = (
+				B021470320320C70009449E1 /* images */,
+				B021470520320C70009449E1 /* data.json */,
+			);
+			path = check;
+			sourceTree = "<group>";
+		};
+		B021470320320C70009449E1 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				B021470420320C70009449E1 /* img_0.png */,
+			);
+			path = images;
+			sourceTree = "<group>";
+		};
 		B0400E72201688720026CA09 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -229,12 +253,12 @@
 		DD3A3446202D832700F2B28B /* Design */ = {
 			isa = PBXGroup;
 			children = (
-				DDC195A9202DAF2900705B0C /* Lottie Animations */,
+				B021470120320C52009449E1 /* Lottie Animations */,
 				DD3A3447202D834700F2B28B /* IBDesignables.swift */,
 				DD3A3449202D8C1700F2B28B /* colors.swift */,
-				DD3A344B202DA5E500F2B28B /* textFields.swift */,
 				DDC195B02030223E00705B0C /* nextButton.swift */,
 				DDC195B420316B9D00705B0C /* swiftSignatureView.swift */,
+				B00B2CF2203204E300355186 /* textFields.swift */,
 			);
 			path = Design;
 			sourceTree = "<group>";
@@ -299,32 +323,6 @@
 				DD580D6B1FE970FA00A254B4 /* Info.plist */,
 			);
 			path = "self-registrationUITests";
-			sourceTree = "<group>";
-		};
-		DDC195A9202DAF2900705B0C /* Lottie Animations */ = {
-			isa = PBXGroup;
-			children = (
-				DDC195AA202DAF3600705B0C /* check */,
-			);
-			path = "Lottie Animations";
-			sourceTree = "<group>";
-		};
-		DDC195AA202DAF3600705B0C /* check */ = {
-			isa = PBXGroup;
-			children = (
-				DDC195AB202DAF3600705B0C /* images */,
-				DDC195AD202DAF3600705B0C /* data.json */,
-			);
-			name = check;
-			path = ../../../../check;
-			sourceTree = "<group>";
-		};
-		DDC195AB202DAF3600705B0C /* images */ = {
-			isa = PBXGroup;
-			children = (
-				DDC195AC202DAF3600705B0C /* img_0.png */,
-			);
-			path = images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -439,13 +437,13 @@
 				DD580D541FE970FA00A254B4 /* LaunchScreen.storyboard in Resources */,
 				B0639F022017C6EB00DD7FA4 /* addressView.xib in Resources */,
 				B0639EFE2017A5C200DD7FA4 /* nameView.xib in Resources */,
-				DDC195AF202DAF3600705B0C /* data.json in Resources */,
+				B021470720320C70009449E1 /* data.json in Resources */,
 				DD580D511FE970FA00A254B4 /* Assets.xcassets in Resources */,
 				B07313A92020F84C002A6DED /* contactView.xib in Resources */,
 				B07313A72020F83C002A6DED /* securityView.xib in Resources */,
 				B07313AB2020F86B002A6DED /* submitView.xib in Resources */,
 				DD580D4F1FE970FA00A254B4 /* Main.storyboard in Resources */,
-				DDC195AE202DAF3600705B0C /* img_0.png in Resources */,
+				B021470620320C70009449E1 /* img_0.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -495,10 +493,10 @@
 			files = (
 				DD580D4C1FE970FA00A254B4 /* SecondViewController.swift in Sources */,
 				DD3A344A202D8C1700F2B28B /* colors.swift in Sources */,
-				DD3A344C202DA5E500F2B28B /* textFields.swift in Sources */,
 				B0639F002017A83800DD7FA4 /* nameXibClass.swift in Sources */,
 				B0639F042017C71A00DD7FA4 /* addressXibClass.swift in Sources */,
 				DD580D481FE970FA00A254B4 /* AppDelegate.swift in Sources */,
+				B00B2CF3203204E400355186 /* textFields.swift in Sources */,
 				B07313AF2020F8F6002A6DED /* contactXibClass.swift in Sources */,
 				DD580D4A1FE970FA00A254B4 /* FirstViewController.swift in Sources */,
 				DDC195B520316B9D00705B0C /* swiftSignatureView.swift in Sources */,
