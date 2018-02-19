@@ -37,10 +37,14 @@ class homeXib: UIView {
     var userInformation = Dictionary<String, [String]>()
     var lottieAnimation: LOTAnimationView?
     var verified = Variable<Bool>(false)
+    let lilitab = AppDelegate.swipe
+    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
+        //initialize Lilitab
+        //Enable Basic Scanner Settings
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -53,7 +57,6 @@ class homeXib: UIView {
         addSubview(contentView)
         animateLottie()
         button.neutral()
-        initalizeSwipe()
         topLabel.textColor = blueHexTitle
         contentView.clipsToBounds = false
         contentView.frame = .init(x: 0, y: 0, width: 800, height: 500)
@@ -61,6 +64,13 @@ class homeXib: UIView {
         contentView.shadowOpacity = 0.20
         contentView.shadowOffset = CGPoint(x: 0, y: 0)
         contentView.shadowRadius = 14
+        lilitab?.scanForConnectedAccessories()
+        lilitab?.enableSwipe = true
+        lilitab?.swipeTimeout = 0
+        lilitab?.allowMultipleSwipes = true
+        lilitab?.ledState = LilitabSDK_LED_Mode.LED_On
+        lilitab?.swipeBlock = {(_ swipeData: [AnyHashable: Any]?) -> Void in
+        self.swipeFunc(swipeData)}
     }
     
     private func animateLottie() {
@@ -68,7 +78,10 @@ class homeXib: UIView {
             let animationView = LOTAnimationView(name: "account_success")
             animationView.frame = CGRect(x: 20, y: -05, width: 185, height: 185)
             animationView.animationSpeed = 0.5
-            animationView.play(fromFrame: 0, toFrame: 35, withCompletion: {completion in animationView.pause()})
+            animationView.play(fromFrame: 0, toFrame: 35, withCompletion: {completion in
+                animationView.pause()
+                animationView.animationSpeed = 1.5
+            })
             animationView.contentMode = .scaleAspectFit
             lottieAnimation = animationView
             image.addSubview(animationView)
@@ -77,7 +90,8 @@ class homeXib: UIView {
 
     func animateSwipe() {
         topLabel.text = "Great, let's get started!"
-        lottieAnimation?.play(fromFrame: 35, toFrame: 100, withCompletion: { completion in
+        lottieAnimation?.play(fromFrame: 35, toFrame: 60, withCompletion: { completion in
+            self.verified.value = true
             self.animateIn()
         })
     }
@@ -104,6 +118,5 @@ class homeXib: UIView {
     @objc func removeSwipeButton(sender: AnyObject) {
         self.swipeButton.removeFromSuperview()
     }
-    
 }
 

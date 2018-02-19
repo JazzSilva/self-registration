@@ -88,16 +88,12 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
     @objc func insertArrangedHome(sender: AnyObject) {
         let view = homeXib()
         
+        guard let button = view.swipeButton else { return }
+        button.addTarget(self, action: #selector(self.swipeCompleteNextXib(sender:)), for: .touchUpInside)
+        button.addTarget(view, action: #selector(view.removeSwipeButton(sender:)), for: .touchUpInside)
+        button.addTarget(self, action: #selector(self.insertArrangedSecurity(sender:)), for: .touchUpInside)
+    
         viewModel.verifiedValue.bind(to: view.verified).disposed(by: disposeBag)
-        viewModel.verifiedValue.subscribe(onNext: { [unowned view] value in
-            if value {
-            //this may crash if button isn't enabled yet
-            guard let button = view.swipeButton else { return }
-            button.addTarget(self, action: #selector(self.swipeCompleteNextXib(sender:)), for: .touchUpInside)
-            button.addTarget(view, action: #selector(view.removeSwipeButton(sender:)), for: .touchUpInside)
-            button.addTarget(self, action: #selector(self.insertArrangedSecurity(sender:)), for: .touchUpInside)}
-            else { return }
-        }).disposed(by: disposeBag)
         
         view.button.addTarget(self, action: #selector(insertArrangedName(sender:)), for: .touchUpInside)
         view.button.addTarget(view, action: #selector(view.removeButton(sender:)), for: .touchUpInside)
