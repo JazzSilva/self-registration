@@ -28,3 +28,23 @@ class nextButton: UIButton {
     }
     
 }
+
+
+class noLicenseButton: UIButton {
+    func setUI(bool: Bool) {
+        bool ? enableSettings() : disableSettings()
+    }
+    
+    func enableSettings() {
+        self.setTitleColor(UIColor.white, for: .normal)
+        self.backgroundColor = greenHexEnabled
+        self.layer.cornerRadius = 4
+    }
+    
+    func disableSettings() {
+        self.setTitleColor(UIColor.white, for: .disabled)
+        self.backgroundColor = UIColor.white
+        self.layer.cornerRadius = 4
+    }
+    
+}

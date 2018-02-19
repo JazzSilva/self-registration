@@ -1,0 +1,254 @@
+{
+  'version': 0,
+  'case-sensitive': 'false',
+  'roots': [
+    {
+      'type': 'directory',
+      'name': "/Users/jasmin/Desktop/self-registration/Carthage/Checkouts/realm-cocoa/Carthage/Build/Intermediates/ArchiveIntermediates/Realm/BuildProductsPath/Release-iphoneos/Realm.framework/Headers",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "NSError+RLMSync.h",
+          'external-contents': "/Users/jasmin/Desktop/self-registration/Carthage/Checkouts/realm-cocoa/Realm/NSError+RLMSync.h"
+        },
+        {
+          'type': 'file',
+          'name': "RLMArray.h",
+          'external-contents': "/Users/jasmin/Desktop/self-registration/Carthage/Checkouts/realm-cocoa/Realm/RLMArray.h"
+        },
+        {
+          'type': 'file',
+          'name': "RLMCollection.h",
+          'external-contents': "/Users/jasmin/Desktop/self-registration/Carthage/Checkouts/realm-cocoa/Realm/RLMCollection.h"
+        },
+        {
+          'type': 'file',
+          'name': "RLMConstants.h",
+          'external-contents': "/Users/jasmin/Desktop/self-registration/Carthage/Checkouts/realm-cocoa/Realm/RLMConstants.h"
+        },
+        {
+          'type': 'file',
+          'name': "RLMMigration.h",
+          'external-contents': "/Users/jasmin/Desktop/self-registration/Carthage/Checkouts/realm-cocoa/Realm/RLMMigration.h"
+        },
+        {
+          'type': 'file',
+          'name': "RLMObject.h",
+          'external-contents': "/Users/jasmin/Desktop/self-registration/Carthage/Checkouts/realm-cocoa/Realm/RLMObject.h"
+        },
+        {
+          'type': 'file',
+          'name': "RLMObjectBase.h",
+          'external-contents': "/Users/jasmin/Desktop/self-registration/Carthage/Checkouts/realm-cocoa/Realm/RLMObjectBase.h"
+        },
+        {
+          'type': 'file',
+          'name': "RLMObjectBase_Dynamic.h",
+          'external-contents': "/Users/jasmin/Desktop/self-registration/Carthage/Checkouts/realm-cocoa/Realm/RLMObjectBase_Dynamic.h"
+        },
+        {
+          'type': 'file',
+          'name': "RLMObjectSchema.h",
+          'external-contents': "/Users/jasmin/Desktop/self-registration/Carthage/Checkouts/realm-cocoa/Realm/RLMObjectSchema.h"
+        },
+        {
+          'type': 'file',
+          'name': "RLMProperty.h",
+          'external-contents': "/Users/jasmin/Desktop/self-registration/Carthage/Checkouts/realm-cocoa/Realm/RLMProperty.h"
+        },
+        {
+          'type': 'file',
+          'name': "RLMRealm+Sync.h",
+          'external-contents': "/Users/jasmin/Desktop/self-registration/Carthage/Checkouts/realm-cocoa/Realm/RLMRealm+Sync.h"
+        },
+        {
+          'type': 'file',
+          'name': "RLMRealm.h",
+          'external-contents': "/Users/jasmin/Desktop/self-registration/Carthage/Checkouts/realm-cocoa/Realm/RLMRealm.h"
+        },
+        {
+          'type': 'file',
+          'name': "RLMRealmConfiguration+Sync.h",
+          'external-contents': "/Users/jasmin/Desktop/self-registration/Carthage/Checkouts/realm-cocoa/Realm/RLMRealmConfiguration+Sync.h"
+        },
+        {
+          'type': 'file',
+          'name': "RLMRealmConfiguration.h",
+          'external-contents': "/Users/jasmin/Desktop/self-registration/Carthage/Checkouts/realm-cocoa/Realm/RLMRealmConfiguration.h"
+        },
+        {
+          'type': 'file',
+          'name': "RLMRealm_Dynamic.h",
+          'external-contents': "/Users/jasmin/Desktop/self-registration/Carthage/Checkouts/realm-cocoa/Realm/RLMRealm_Dynamic.h"
+        },
+        {
+          'type': 'file',
+          'name': "RLMResults.h",
+          'external-contents': "/Users/jasmin/Desktop/self-registration/Carthage/Checkouts/realm-cocoa/Realm/RLMResults.h"
+        },
+        {
+          'type': 'file',
+          'name': "RLMSchema.h",
+          'external-contents': "/Users/jasmin/Desktop/self-registration/Carthage/Checkouts/realm-cocoa/Realm/RLMSchema.h"
+        },
+        {
+          'type': 'file',
+          'name': "RLMSyncConfiguration.h",
+          'external-contents': "/Users/jasmin/Desktop/self-registration/Carthage/Checkouts/realm-cocoa/Realm/RLMSyncConfiguration.h"
+        },
+        {
+          'type': 'file',
+          'name': "RLMSyncCredentials.h",
+          'external-contents': "/Users/jasmin/Desktop/self-registration/Carthage/Checkouts/realm-cocoa/Realm/RLMSyncCredentials.h"
+        },
+        {
+          'type': 'file',
+          'name': "RLMSyncManager.h",
+          'external-contents': "/Users/jasmin/Desktop/self-registration/Carthage/Checkouts/realm-cocoa/Realm/RLMSyncManager.h"
+        },
+        {
+          'type': 'file',
+          'name': "RLMSyncPermission.h",
+          'external-contents': "/Users/jasmin/Desktop/self-registration/Carthage/Checkouts/realm-cocoa/Realm/RLMSyncPermission.h"
+        },
+        {
+          'type': 'file',
+          'name': "RLMSyncSession.h",
+          'external-contents': "/Users/jasmin/Desktop/self-registration/Carthage/Checkouts/realm-cocoa/Realm/RLMSyncSession.h"
+        },
+        {
+          'type': 'file',
+          'name': "RLMSyncUser.h",
+          'external-contents': "/Users/jasmin/Desktop/self-registration/Carthage/Checkouts/realm-cocoa/Realm/RLMSyncUser.h"
+        },
+        {
+          'type': 'file',
+          'name': "RLMSyncUtil.h",
+          'external-contents': "/Users/jasmin/Desktop/self-registration/Carthage/Checkouts/realm-cocoa/Realm/RLMSyncUtil.h"
+        },
+        {
+          'type': 'file',
+          'name': "RLMThreadSafeReference.h",
+          'external-contents': "/Users/jasmin/Desktop/self-registration/Carthage/Checkouts/realm-cocoa/Realm/RLMThreadSafeReference.h"
+        },
+        {
+          'type': 'file',
+          'name': "Realm-Swift.h",
+          'external-contents': "/Users/jasmin/Desktop/self-registration/Carthage/Checkouts/realm-cocoa/Carthage/Build/Intermediates/ArchiveIntermediates/Realm/BuildProductsPath/Release-iphoneos/Realm.framework/Headers/Realm-Swift.h"
+        },
+        {
+          'type': 'file',
+          'name': "Realm.h",
+          'external-contents': "/Users/jasmin/Desktop/self-registration/Carthage/Checkouts/realm-cocoa/Realm/Realm.h"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/jasmin/Desktop/self-registration/Carthage/Checkouts/realm-cocoa/Carthage/Build/Intermediates/ArchiveIntermediates/Realm/BuildProductsPath/Release-iphoneos/Realm.framework/Modules",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "module.modulemap",
+          'external-contents': "/Users/jasmin/Desktop/self-registration/Carthage/Checkouts/realm-cocoa/Carthage/Build/Intermediates/ArchiveIntermediates/Realm/IntermediateBuildFilesPath/Realm.build/Release-iphoneos/Realm.build/module.modulemap"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/jasmin/Desktop/self-registration/Carthage/Checkouts/realm-cocoa/Carthage/Build/Intermediates/ArchiveIntermediates/Realm/BuildProductsPath/Release-iphoneos/Realm.framework/PrivateHeaders",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "RLMAccessor.h",
+          'external-contents': "/Users/jasmin/Desktop/self-registration/Carthage/Checkouts/realm-cocoa/Realm/RLMAccessor.h"
+        },
+        {
+          'type': 'file',
+          'name': "RLMArray_Private.h",
+          'external-contents': "/Users/jasmin/Desktop/self-registration/Carthage/Checkouts/realm-cocoa/Realm/RLMArray_Private.h"
+        },
+        {
+          'type': 'file',
+          'name': "RLMCollection_Private.h",
+          'external-contents': "/Users/jasmin/Desktop/self-registration/Carthage/Checkouts/realm-cocoa/Realm/RLMCollection_Private.h"
+        },
+        {
+          'type': 'file',
+          'name': "RLMListBase.h",
+          'external-contents': "/Users/jasmin/Desktop/self-registration/Carthage/Checkouts/realm-cocoa/Realm/RLMListBase.h"
+        },
+        {
+          'type': 'file',
+          'name': "RLMMigration_Private.h",
+          'external-contents': "/Users/jasmin/Desktop/self-registration/Carthage/Checkouts/realm-cocoa/Realm/RLMMigration_Private.h"
+        },
+        {
+          'type': 'file',
+          'name': "RLMObjectBase_Private.h",
+          'external-contents': "/Users/jasmin/Desktop/self-registration/Carthage/Checkouts/realm-cocoa/Realm/RLMObjectBase_Private.h"
+        },
+        {
+          'type': 'file',
+          'name': "RLMObjectSchema_Private.h",
+          'external-contents': "/Users/jasmin/Desktop/self-registration/Carthage/Checkouts/realm-cocoa/Realm/RLMObjectSchema_Private.h"
+        },
+        {
+          'type': 'file',
+          'name': "RLMObjectStore.h",
+          'external-contents': "/Users/jasmin/Desktop/self-registration/Carthage/Checkouts/realm-cocoa/Realm/RLMObjectStore.h"
+        },
+        {
+          'type': 'file',
+          'name': "RLMObject_Private.h",
+          'external-contents': "/Users/jasmin/Desktop/self-registration/Carthage/Checkouts/realm-cocoa/Realm/RLMObject_Private.h"
+        },
+        {
+          'type': 'file',
+          'name': "RLMOptionalBase.h",
+          'external-contents': "/Users/jasmin/Desktop/self-registration/Carthage/Checkouts/realm-cocoa/Realm/RLMOptionalBase.h"
+        },
+        {
+          'type': 'file',
+          'name': "RLMProperty_Private.h",
+          'external-contents': "/Users/jasmin/Desktop/self-registration/Carthage/Checkouts/realm-cocoa/Realm/RLMProperty_Private.h"
+        },
+        {
+          'type': 'file',
+          'name': "RLMRealmConfiguration_Private.h",
+          'external-contents': "/Users/jasmin/Desktop/self-registration/Carthage/Checkouts/realm-cocoa/Realm/RLMRealmConfiguration_Private.h"
+        },
+        {
+          'type': 'file',
+          'name': "RLMRealm_Private.h",
+          'external-contents': "/Users/jasmin/Desktop/self-registration/Carthage/Checkouts/realm-cocoa/Realm/RLMRealm_Private.h"
+        },
+        {
+          'type': 'file',
+          'name': "RLMResults_Private.h",
+          'external-contents': "/Users/jasmin/Desktop/self-registration/Carthage/Checkouts/realm-cocoa/Realm/RLMResults_Private.h"
+        },
+        {
+          'type': 'file',
+          'name': "RLMSchema_Private.h",
+          'external-contents': "/Users/jasmin/Desktop/self-registration/Carthage/Checkouts/realm-cocoa/Realm/RLMSchema_Private.h"
+        },
+        {
+          'type': 'file',
+          'name': "RLMSyncConfiguration_Private.h",
+          'external-contents': "/Users/jasmin/Desktop/self-registration/Carthage/Checkouts/realm-cocoa/Realm/RLMSyncConfiguration_Private.h"
+        },
+        {
+          'type': 'file',
+          'name': "RLMSyncPermissionResults.h",
+          'external-contents': "/Users/jasmin/Desktop/self-registration/Carthage/Checkouts/realm-cocoa/Realm/RLMSyncPermissionResults.h"
+        },
+        {
+          'type': 'file',
+          'name': "RLMSyncUtil_Private.h",
+          'external-contents': "/Users/jasmin/Desktop/self-registration/Carthage/Checkouts/realm-cocoa/Realm/RLMSyncUtil_Private.h"
+        }
+      ]
+    }
+  ]
+}

@@ -12,7 +12,11 @@ import RxSwift
 public func isNumbersOnly(input: String) -> Bool {
     let digits = CharacterSet.decimalDigits
     for items in input.unicodeScalars {
-        if digits.contains(items) { return true } }
+        if digits.contains(items) { return true }
+        else {
+            return false
+        }
+    }
     return false }
 
 public func isLettersOnly(input: String) -> Bool {
@@ -34,10 +38,12 @@ public func isValidEmail(input: String) -> Bool {
 }
 
 public func isValidPhone(input: String) -> Bool {
-    let PHONE_REGEX = "^\\d{3}-\\d{3}-\\d{4}$"
-    let phoneTest = NSPredicate(format: "SELF MATCHES %@", PHONE_REGEX)
-    let result =  phoneTest.evaluate(with: input)
-    return result
+    if isNumbersOnly(input: input) && input.count == 10 {
+        return true
+    }
+    else {
+        return false
+    }
 }
 
 // FIXME: implement incorrentLength error

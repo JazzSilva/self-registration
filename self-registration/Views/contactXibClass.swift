@@ -45,15 +45,26 @@ class contactXib: UIView {
     }
     
     @IBAction func phoneEnd(_ sender: Any) {
+        var text = phone.text
+        var copy = text
+        while text?.contains("-") == true {
+            text!.remove(at: copy!.index(of: "-")!)
+            copy = text!
+        }
+        if text?.contains("(") == true {
+            text!.remove(at: copy!.index(of: "(")!)
+            copy = text!
+        }
+        if text?.contains(")") == true {
+            text!.remove(at: copy!.index(of: ")")!)
+            copy = text!
+        }
+        phone.text = text
         self.phone.didEndEditing()
     }
     
     @IBAction func emailEnd(_ sender: Any) {
         self.email.didEndEditing()
     }
-    
-    
-    
-    
     
 }

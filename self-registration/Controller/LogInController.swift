@@ -35,6 +35,9 @@ class logInController: UIViewController {
         
         //Hide response
         responseLabel.text = ""
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
     
     @IBAction func submitPressed(_ sender: Any) {

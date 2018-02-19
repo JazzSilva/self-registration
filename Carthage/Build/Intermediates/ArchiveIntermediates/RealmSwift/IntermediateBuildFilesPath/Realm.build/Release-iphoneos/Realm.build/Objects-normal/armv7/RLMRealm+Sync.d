@@ -1,0 +1,29 @@
+dependencies: \
+  /Users/jasmin/Desktop/self-registration/Carthage/Checkouts/realm-cocoa/Realm/RLMRealm+Sync.mm \
+  /Users/jasmin/Desktop/self-registration/Carthage/Checkouts/realm-cocoa/Realm/RLMRealm+Sync.h \
+  /Users/jasmin/Desktop/self-registration/Carthage/Checkouts/realm-cocoa/Realm/RLMRealm.h \
+  /Users/jasmin/Desktop/self-registration/Carthage/Checkouts/realm-cocoa/Realm/RLMConstants.h \
+  /Users/jasmin/Desktop/self-registration/Carthage/Checkouts/realm-cocoa/Realm/RLMObjectBase.h \
+  /Users/jasmin/Desktop/self-registration/Carthage/Checkouts/realm-cocoa/Realm/RLMObjectSchema.h \
+  /Users/jasmin/Desktop/self-registration/Carthage/Checkouts/realm-cocoa/Realm/RLMRealm_Private.hpp \
+  /Users/jasmin/Desktop/self-registration/Carthage/Checkouts/realm-cocoa/Realm/RLMRealm_Private.h \
+  /Users/jasmin/Desktop/self-registration/Carthage/Checkouts/realm-cocoa/Realm/RLMClassInfo.hpp \
+  /Users/jasmin/Desktop/self-registration/Carthage/Checkouts/realm-cocoa/Realm/RLMResults_Private.hpp \
+  /Users/jasmin/Desktop/self-registration/Carthage/Checkouts/realm-cocoa/Realm/RLMResults_Private.h \
+  /Users/jasmin/Desktop/self-registration/Carthage/Checkouts/realm-cocoa/Realm/RLMResults.h \
+  /Users/jasmin/Desktop/self-registration/Carthage/Checkouts/realm-cocoa/Realm/RLMCollection.h \
+  /Users/jasmin/Desktop/self-registration/Carthage/Checkouts/realm-cocoa/Realm/RLMThreadSafeReference.h \
+  /Users/jasmin/Desktop/self-registration/Carthage/Checkouts/realm-cocoa/Realm/ObjectStore/src/results.hpp \
+  Realm/ObjectStore/src/collection_notifications.hpp \
+  Realm/ObjectStore/src/index_set.hpp \
+  Realm/ObjectStore/src/util/atomic_shared_ptr.hpp \
+  Realm/ObjectStore/src/impl/collection_notifier.hpp \
+  Realm/ObjectStore/src/impl/collection_change_builder.hpp \
+  Realm/ObjectStore/src/property.hpp \
+  Realm/ObjectStore/src/util/tagged_bool.hpp \
+  /Users/jasmin/Desktop/self-registration/Carthage/Checkouts/realm-cocoa/Realm/RLMSchema.h \
+  Realm/ObjectStore/src/sync/partial_sync.hpp \
+  /Users/jasmin/Desktop/self-registration/Carthage/Checkouts/realm-cocoa/Realm/ObjectStore/src/shared_realm.hpp \
+  Realm/ObjectStore/src/execution_context_id.hpp \
+  Realm/ObjectStore/src/util/aligned_union.hpp \
+  Realm/ObjectStore/src/schema.hpp

@@ -1,0 +1,26 @@
+dependencies: \
+  /Users/jasmin/Desktop/self-registration/Carthage/Checkouts/realm-cocoa/Realm/ObjectStore/src/sync/sync_manager.cpp \
+  Realm/ObjectStore/src/sync/sync_manager.hpp \
+  /Users/jasmin/Desktop/self-registration/Carthage/Checkouts/realm-cocoa/Realm/ObjectStore/src/shared_realm.hpp \
+  Realm/ObjectStore/src/execution_context_id.hpp \
+  Realm/ObjectStore/src/util/aligned_union.hpp \
+  Realm/ObjectStore/src/schema.hpp \
+  /Users/jasmin/Desktop/self-registration/Carthage/Checkouts/realm-cocoa/Realm/ObjectStore/src/sync/sync_user.hpp \
+  Realm/ObjectStore/src/util/atomic_shared_ptr.hpp \
+  Realm/ObjectStore/src/sync/impl/sync_client.hpp \
+  /Users/jasmin/Desktop/self-registration/Carthage/Checkouts/realm-cocoa/Realm/ObjectStore/src/binding_callback_thread_observer.hpp \
+  Realm/ObjectStore/src/sync/impl/network_reachability.hpp \
+  Realm/ObjectStore/src/sync/impl/apple/network_reachability_observer.hpp \
+  Realm/ObjectStore/src/sync/impl/apple/system_configuration.hpp \
+  Realm/ObjectStore/src/sync/impl/sync_file.hpp \
+  Realm/ObjectStore/src/sync/impl/sync_metadata.hpp \
+  /Users/jasmin/Desktop/self-registration/Carthage/Checkouts/realm-cocoa/Realm/ObjectStore/src/results.hpp \
+  Realm/ObjectStore/src/collection_notifications.hpp \
+  Realm/ObjectStore/src/index_set.hpp \
+  Realm/ObjectStore/src/impl/collection_notifier.hpp \
+  Realm/ObjectStore/src/impl/collection_change_builder.hpp \
+  Realm/ObjectStore/src/property.hpp \
+  Realm/ObjectStore/src/util/tagged_bool.hpp \
+  Realm/ObjectStore/src/sync/sync_session.hpp \
+  Realm/ObjectStore/src/feature_checks.hpp \
+  Realm/ObjectStore/src/sync/sync_config.hpp

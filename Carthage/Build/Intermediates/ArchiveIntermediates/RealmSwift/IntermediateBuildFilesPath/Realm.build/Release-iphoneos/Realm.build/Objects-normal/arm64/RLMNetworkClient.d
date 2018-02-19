@@ -1,0 +1,24 @@
+dependencies: \
+  /Users/jasmin/Desktop/self-registration/Carthage/Checkouts/realm-cocoa/Realm/RLMNetworkClient.mm \
+  /Users/jasmin/Desktop/self-registration/Carthage/Checkouts/realm-cocoa/Realm/RLMNetworkClient.h \
+  /Users/jasmin/Desktop/self-registration/Carthage/Checkouts/realm-cocoa/Realm/RLMSyncUtil_Private.h \
+  /Users/jasmin/Desktop/self-registration/Carthage/Checkouts/realm-cocoa/Realm/RLMSyncUtil.h \
+  /Users/jasmin/Desktop/self-registration/Carthage/Checkouts/realm-cocoa/Realm/RLMConstants.h \
+  /Users/jasmin/Desktop/self-registration/Carthage/Checkouts/realm-cocoa/Realm/RLMProperty.h \
+  /Users/jasmin/Desktop/self-registration/Carthage/Checkouts/realm-cocoa/Realm/RLMRealmConfiguration.h \
+  /Users/jasmin/Desktop/self-registration/Carthage/Checkouts/realm-cocoa/Realm/RLMRealm.h \
+  /Users/jasmin/Desktop/self-registration/Carthage/Checkouts/realm-cocoa/Realm/RLMSyncCredentials.h \
+  /Users/jasmin/Desktop/self-registration/Carthage/Checkouts/realm-cocoa/Realm/RLMJSONModels.h \
+  /Users/jasmin/Desktop/self-registration/Carthage/Checkouts/realm-cocoa/Realm/RLMSyncUtil_Private.hpp \
+  /Users/jasmin/Desktop/self-registration/Carthage/Checkouts/realm-cocoa/Realm/RLMSyncConfiguration_Private.h \
+  /Users/jasmin/Desktop/self-registration/Carthage/Checkouts/realm-cocoa/Realm/RLMSyncConfiguration.h \
+  /Users/jasmin/Desktop/self-registration/Carthage/Checkouts/realm-cocoa/Realm/RLMSyncPermission.h \
+  Realm/ObjectStore/src/sync/sync_manager.hpp \
+  /Users/jasmin/Desktop/self-registration/Carthage/Checkouts/realm-cocoa/Realm/ObjectStore/src/shared_realm.hpp \
+  Realm/ObjectStore/src/execution_context_id.hpp \
+  Realm/ObjectStore/src/util/aligned_union.hpp \
+  Realm/ObjectStore/src/schema.hpp \
+  Realm/ObjectStore/src/sync/sync_user.hpp \
+  Realm/ObjectStore/src/util/atomic_shared_ptr.hpp \
+  /Users/jasmin/Desktop/self-registration/Carthage/Checkouts/realm-cocoa/Realm/RLMUtil.hpp \
+  /Users/jasmin/Desktop/self-registration/Carthage/Checkouts/realm-cocoa/Realm/RLMOptionalBase.h

@@ -1,0 +1,24 @@
+dependencies: \
+  /Users/jasmin/Desktop/self-registration/Carthage/Checkouts/realm-cocoa/Realm/RLMRealmConfiguration.mm \
+  /Users/jasmin/Desktop/self-registration/Carthage/Checkouts/realm-cocoa/Realm/RLMRealmConfiguration_Private.h \
+  /Users/jasmin/Desktop/self-registration/Carthage/Checkouts/realm-cocoa/Realm/RLMRealmConfiguration.h \
+  /Users/jasmin/Desktop/self-registration/Carthage/Checkouts/realm-cocoa/Realm/RLMRealm.h \
+  /Users/jasmin/Desktop/self-registration/Carthage/Checkouts/realm-cocoa/Realm/RLMConstants.h \
+  /Users/jasmin/Desktop/self-registration/Carthage/Checkouts/realm-cocoa/Realm/RLMObjectSchema_Private.hpp \
+  /Users/jasmin/Desktop/self-registration/Carthage/Checkouts/realm-cocoa/Realm/RLMObjectSchema_Private.h \
+  /Users/jasmin/Desktop/self-registration/Carthage/Checkouts/realm-cocoa/Realm/RLMObjectSchema.h \
+  /Users/jasmin/Desktop/self-registration/Carthage/Checkouts/realm-cocoa/Realm/ObjectStore/src/object_schema.hpp \
+  /Users/jasmin/Desktop/self-registration/Carthage/Checkouts/realm-cocoa/Realm/RLMRealm_Private.h \
+  /Users/jasmin/Desktop/self-registration/Carthage/Checkouts/realm-cocoa/Realm/RLMSchema_Private.hpp \
+  /Users/jasmin/Desktop/self-registration/Carthage/Checkouts/realm-cocoa/Realm/RLMSchema_Private.h \
+  /Users/jasmin/Desktop/self-registration/Carthage/Checkouts/realm-cocoa/Realm/RLMSchema.h \
+  /Users/jasmin/Desktop/self-registration/Carthage/Checkouts/realm-cocoa/Realm/RLMUtil.hpp \
+  /Users/jasmin/Desktop/self-registration/Carthage/Checkouts/realm-cocoa/Realm/RLMOptionalBase.h \
+  /Users/jasmin/Desktop/self-registration/Carthage/Checkouts/realm-cocoa/Realm/ObjectStore/src/schema.hpp \
+  /Users/jasmin/Desktop/self-registration/Carthage/Checkouts/realm-cocoa/Realm/ObjectStore/src/shared_realm.hpp \
+  Realm/ObjectStore/src/execution_context_id.hpp \
+  Realm/ObjectStore/src/util/aligned_union.hpp \
+  Realm/ObjectStore/src/sync/sync_config.hpp \
+  Realm/ObjectStore/src/sync/sync_user.hpp \
+  Realm/ObjectStore/src/util/atomic_shared_ptr.hpp \
+  Realm/ObjectStore/src/sync/sync_manager.hpp

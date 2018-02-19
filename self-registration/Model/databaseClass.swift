@@ -38,7 +38,7 @@ class Database {
             DispatchQueue.main.async(execute: {
                 // Open Realm
                 let configuration = Realm.Configuration(
-                    syncConfiguration: SyncConfiguration(user: user, realmURL: URL(string: "realm://10.116.15.36:9080/~/selfReg")!)
+                    syncConfiguration: SyncConfiguration(user: user, realmURL: URL(string: "realm://10.116.15.36:9080/selfRegistration")!)
                 )
                 
                 self.realm = try! Realm(configuration: configuration)

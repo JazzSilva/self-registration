@@ -1,0 +1,3 @@
+github "ReactiveX/RxSwift" "4.1.2"
+github "airbnb/lottie-ios" "d1008701a0dc6ec82f8040503bafb3746fda318a"
+github "realm/realm-cocoa" "v3.1.1"

@@ -14,8 +14,14 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
 
     var scrollView: UIScrollView!
     var stackView: UIStackView!
-    var viewModel = userViewModel() //should this be optional? weak
-    var disposeBag = DisposeBag() //should this be optional? weak
+    var viewModel = userViewModel() //should this be
+    var disposeBag = DisposeBag() //should this be weak
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         setInitialScene(view: self.view)
@@ -24,6 +30,11 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
     override func viewWillDisappear(_ animated: Bool) {
         for all in stackView.arrangedSubviews {all.removeFromSuperview()}
         for all in self.view.subviews {all.removeFromSuperview()}
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        updateScrollContentSize()
     }
     
     private func setInitialScene(view: UIView) {
@@ -57,16 +68,11 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
         scrollView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[stackView]|", options: NSLayoutFormatOptions.alignAllCenterX, metrics: nil, views: ["stackView": stackView]))
         scrollView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[stackView]", options: NSLayoutFormatOptions.alignAllCenterX, metrics: nil, views: ["stackView": stackView]))
         
-        //Add custom view to the stack
-        insertArrangedName(sender: self)
+        //Add the first custom view to the stack
+        insertArrangedHome(sender: self)
     }
     
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-        updateScrollContentSize()
-    }
-    
-    //adjust scroll view to fit new stack view content
+    //Adjust scroll view to fit new stack view content
     private func updateScrollContentSize() {
         var contentRect = CGRect.zero
         for view in scrollView.subviews { contentRect = contentRect.union(view.frame) }
@@ -78,6 +84,28 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    //Insert Home View
+    @objc func insertArrangedHome(sender: AnyObject) {
+        let view = homeXib()
+        
+        viewModel.verifiedValue.bind(to: view.verified).disposed(by: disposeBag)
+        viewModel.verifiedValue.subscribe(onNext: { [unowned view] value in
+            if value {
+            //this may crash if button isn't enabled yet
+            guard let button = view.swipeButton else { return }
+            button.addTarget(self, action: #selector(self.swipeCompleteNextXib(sender:)), for: .touchUpInside)
+            button.addTarget(view, action: #selector(view.removeSwipeButton(sender:)), for: .touchUpInside)
+            button.addTarget(self, action: #selector(self.insertArrangedSecurity(sender:)), for: .touchUpInside)}
+            else { return }
+        }).disposed(by: disposeBag)
+        
+        view.button.addTarget(self, action: #selector(insertArrangedName(sender:)), for: .touchUpInside)
+        view.button.addTarget(view, action: #selector(view.removeButton(sender:)), for: .touchUpInside)
+        stackView.addArrangedSubview(setConstraints(inputXib: view))
+        
+        animateIn(newView: view)
+    }
+    
     //Insert Name View
     @objc func insertArrangedName(sender: AnyObject) {
         let view = nameXib()
@@ -85,9 +113,7 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
         view.firstName.rx.text.map { $0 ?? "" }.bind(to: viewModel.firstName).disposed(by: disposeBag)
         view.middleName.rx.text.map { $0 ?? ""}.bind(to: viewModel.middleName).disposed(by: disposeBag)
         view.lastName.rx.text.map { $0 ?? ""}.bind(to: viewModel.lastName).disposed(by: disposeBag)
-        
         viewModel.isNameViewValid.bind(to: view.isValid.rx.isEnabled).disposed(by: disposeBag)
-        
         view.isValid.addTarget(self, action: #selector(insertArrangedAddress(sender:)), for: .touchUpInside)
         view.isValid.addTarget(view, action: #selector(view.removeButton(sender:)), for: .touchUpInside)
         
@@ -100,19 +126,13 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
         viewModel.middleNameValid.subscribe(onNext: { [unowned view] isValid in view.middleName.updateUI(bool: isValid)}).disposed(by: disposeBag)
         viewModel.lastNameValid.subscribe(onNext: { [unowned view] isValid in view.lastName.updateUI(bool: isValid)}).disposed(by: disposeBag)
         
-        view.heightAnchor.constraint(equalToConstant: self.view.bounds.height - 40 ).isActive = true
-        view.widthAnchor.constraint(equalToConstant: self.view.bounds.width).isActive = true
-        view.leftAnchor.constraint(equalTo: self.view.leftAnchor)
-        view.rightAnchor.constraint(equalTo: self.view.rightAnchor)
         view.topLabel.textColor = blueHexTitle
-        stackView.addArrangedSubview(view)
-        animateIn(newView: view)
+        stackView.addArrangedSubview(setConstraints(inputXib: view))
     }
     
     //Insert Address View
     @objc func insertArrangedAddress(sender: AnyObject) {
         let view = addressXib()
-        //Bind address text fields to the view model
         view.address1.rx.text.map { $0 ?? "" }.bind(to: viewModel.address1).disposed(by: disposeBag)
         view.city.rx.text.map { $0 ?? ""}.bind(to: viewModel.city).disposed(by: disposeBag)
         view.state.rx.text.map { $0 ?? ""}.bind(to: viewModel.state).disposed(by: disposeBag)
@@ -132,19 +152,14 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
         viewModel.stateValid.subscribe(onNext: { [unowned view] isValid in view.state.updateUI(bool: isValid)}).disposed(by: disposeBag)
         viewModel.zipValid.subscribe(onNext: { [unowned view] isValid in view.zipCode.updateUI(bool: isValid)}).disposed(by: disposeBag)
         
-        view.heightAnchor.constraint(equalToConstant: self.view.bounds.height - 40 ).isActive = true
-        view.widthAnchor.constraint(equalToConstant: self.view.bounds.width).isActive = true
-        view.leftAnchor.constraint(equalTo: self.view.leftAnchor)
-        view.rightAnchor.constraint(equalTo: self.view.rightAnchor)
+        stackView.addArrangedSubview(setConstraints(inputXib: view))
         view.topLabel.textColor = blueHexTitle
-        stackView.addArrangedSubview(view)
         animateIn(newView: view)
     }
     
     //Insert Security View
     @objc func insertArrangedSecurity(sender: AnyObject) {
         let view = securityXib()
-        
         view.mothersMaidenName.rx.text.map { $0 ?? "" }.bind(to: viewModel.mothersMaidenName).disposed(by: disposeBag)
         view.holds.rx.text.map { $0 ?? "" }.bind(to: viewModel.holds).disposed(by: disposeBag)
         view.pin.rx.text.map { $0 ?? "" }.bind(to: viewModel.pin).disposed(by: disposeBag)
@@ -162,19 +177,14 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
         viewModel.holdsValid.subscribe(onNext: { [unowned view] isValid in view.holds.updateUI(bool: isValid)}).disposed(by: disposeBag)
         viewModel.pinValid.subscribe(onNext: { [unowned view] isValid in view.pin.updateUI(bool: isValid)}).disposed(by: disposeBag)
         
-        view.heightAnchor.constraint(equalToConstant: self.view.bounds.height - 40 ).isActive = true
-        view.widthAnchor.constraint(equalToConstant: self.view.bounds.width).isActive = true
-        view.leftAnchor.constraint(equalTo: self.view.leftAnchor)
-        view.rightAnchor.constraint(equalTo: self.view.rightAnchor)
         view.topLabel.textColor = blueHexTitle
-        stackView.addArrangedSubview(view)
+        stackView.addArrangedSubview(setConstraints(inputXib: view))
         animateIn(newView: view)
     }
     
     //Insert Contact View
     @objc func insertArrangedContact(sender: AnyObject) {
         let view = contactXib()
-        
         view.phone.rx.text.map { $0 ?? ""}.bind(to: viewModel.phone).disposed(by: disposeBag)
         view.email.rx.text.map { $0 ?? ""}.bind(to: viewModel.email).disposed(by: disposeBag)
         
@@ -190,15 +200,12 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
         viewModel.phoneValid.subscribe(onNext: { [unowned view] isValid in view.phone.updateUI(bool: isValid)}).disposed(by: disposeBag)
         viewModel.emailValid.subscribe(onNext: { [unowned view] isValid in view.email.updateUI(bool: isValid)}).disposed(by: disposeBag)
         
-        view.heightAnchor.constraint(equalToConstant: self.view.bounds.height - 40 ).isActive = true
-        view.widthAnchor.constraint(equalToConstant: self.view.bounds.width).isActive = true
-        view.leftAnchor.constraint(equalTo: self.view.leftAnchor)
-        view.rightAnchor.constraint(equalTo: self.view.rightAnchor)
         view.topLabel.textColor = blueHexTitle
-        stackView.addArrangedSubview(view)
+        stackView.addArrangedSubview(setConstraints(inputXib: view))
         animateIn(newView: view)
     }
     
+    //Insert Submit 
     @objc func insertArrangedSubmit(sender: AnyObject) {
         let view = submitXib()
         
@@ -206,24 +213,23 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
         view.isValid.addTarget(viewModel, action: #selector(viewModel.createUser(sender:)), for: .touchUpInside)
         view.isValid.addTarget(self, action: #selector(restartViews(sender:)), for: .touchUpInside)
         
-        //validate that signature is not empty
         viewModel.isFormComplete.subscribe(onNext: { [unowned view] isValid in
             guard let button = view.isValid else { return }
             button.setTitleColor(isValid ? greenHexEnabled : greyHexDisabled, for: .normal)
         }).disposed(by: disposeBag)
         
-        view.heightAnchor.constraint(equalToConstant: self.view.bounds.height - 40 ).isActive = true
-        view.widthAnchor.constraint(equalToConstant: self.view.bounds.width).isActive = true
-        view.leftAnchor.constraint(equalTo: self.view.leftAnchor)
-        view.rightAnchor.constraint(equalTo: self.view.rightAnchor)
         view.topLabel.textColor = blueHexTitle
-        stackView.addArrangedSubview(view)
+        stackView.addArrangedSubview(setConstraints(inputXib: view))
         animateIn(newView: view)
     }
 
     @objc func restartViews(sender: AnyObject) {
         submitSignature(view: self.stackView.arrangedSubviews.last! as! submitXib)
         animateOut(view: stackView)
+    }
+    
+    @objc func swipeCompleteNextXib(sender: AnyObject) {
+        bindSwipe(inputXib: self.stackView.arrangedSubviews.last! as! homeXib)
     }
     
     private func submitSignature(view: submitXib) {
@@ -252,5 +258,25 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
         })
     }
     
+    private func setConstraints(inputXib: UIView) -> UIView {
+        inputXib.heightAnchor.constraint(equalToConstant: self.view.bounds.height - 40 ).isActive = true
+        inputXib.widthAnchor.constraint(equalToConstant: self.view.bounds.width).isActive = true
+        inputXib.leftAnchor.constraint(equalTo: self.view.leftAnchor)
+        inputXib.rightAnchor.constraint(equalTo: self.view.rightAnchor)
+        return inputXib
+    }
+    
+    private func bindSwipe(inputXib: homeXib) {
+        viewModel.firstName.value = inputXib.firstSwipe.text!
+        viewModel.lastName.value = inputXib.lastSwipe.text!
+        viewModel.address1.value = inputXib.addressSwipe.text!
+        viewModel.city.value = inputXib.citySwipe.text!
+        viewModel.state.value = inputXib.stateSwipe.text!
+        viewModel.zip.value = inputXib.zipSwipe.text!
+        viewModel.birthday.value = inputXib.dobSwipe.text!
+        viewModel.libraryCardNumber.value = inputXib.licenseSwipe.text!
+        viewModel.licenseNumber.value = inputXib.licenseSwipe.text!
+        viewModel.verified.value = true
+    }
 }
 

@@ -9,17 +9,13 @@
 import UIKit
 
 public protocol SwiftSignatureViewDelegate: class {
-    
     func swiftSignatureViewDidTapInside(_ view: SwiftSignatureView)
-    
     func swiftSignatureViewDidPanInside(_ view: SwiftSignatureView)
-    
 }
 
 /// A lightweight, fast and customizable option for capturing fluid, variable-stroke-width signatures within your app.
 open class SwiftSignatureView: UIView {
     // MARK: Public Properties
-    
     open weak var delegate: SwiftSignatureViewDelegate?
     
     /**

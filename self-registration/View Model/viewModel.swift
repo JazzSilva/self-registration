@@ -23,6 +23,7 @@ class userViewModel {
     let firstName = Variable<String>("")
     let middleName = Variable<String>("")
     let lastName = Variable<String>("")
+    let birthday = Variable<String>("")
     
     let address1 = Variable<String>("")
     let city = Variable<String>("")
@@ -35,6 +36,11 @@ class userViewModel {
     
     let phone = Variable<String>("")
     let email = Variable<String>("")
+    
+    let verified = Variable<Bool>(false)
+    let accountType = Variable<String>("")
+    let licenseNumber = Variable<String>("")
+    let libraryCardNumber = Variable<String>("")
     
     var signature = Variable<String>("")
     
@@ -50,7 +56,7 @@ class userViewModel {
     var holdsValid: Observable<Bool> { return holds.asObservable().map() { item in isLettersAndCharacters(input: item) && item.count >= 0} }
     var phoneValid: Observable<Bool> { return phone.asObservable().map() { item in isValidPhone(input: item)} }
     var emailValid: Observable<Bool> { return email.asObservable().map() { item in isValidEmail(input: item)} }
-    
+    var verifiedValue: Observable<Bool> { return verified.asObservable().map() { item in item } }
 
     var isNameViewValid: Observable<Bool> { return Observable.combineLatest(firstNameValid, middleNameValid, lastNameValid) { first, middle, last in first && middle && last } }
     var isAddressViewValid: Observable<Bool> { return Observable.combineLatest(address1Valid, cityValid, stateValid, zipValid) { address, city, state, zip in address && city && state && zip} }
@@ -61,7 +67,7 @@ class userViewModel {
     
     @objc func createUser(sender: AnyObject) {
         //This references the convenience user init in the Database class
-        let newUser = user(firstName: firstName.value, middleName: middleName.value, lastName: lastName.value, address1: address1.value, city: city.value, state: state.value, zip: zip.value, phone: phone.value, email: email.value, mothersMaidenName: mothersMaidenName.value, pin: pin.value, holds: holds.value, signature: signature.value)
+        let newUser = user(firstName: firstName.value, middleName: middleName.value, lastName: lastName.value, address1: address1.value, city: city.value, state: state.value, zip: zip.value, phone: phone.value, email: email.value, mothersMaidenName: mothersMaidenName.value, pin: pin.value, holds: holds.value, signature: signature.value, birthday: birthday.value, verified: verified.value, accountType: accountType.value, licenseNumber: licenseNumber.value, libraryCardNumber: libraryCardNumber.value)
         //Actually save the user to the shared realm
         Database.shared.create(newUser)
     }

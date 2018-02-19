@@ -17,7 +17,7 @@ class user: Object {
     @objc dynamic var firstName: String? = nil
     @objc dynamic var middleName: String? = nil
     @objc dynamic var lastName: String? = nil
-    @objc dynamic var birthday: NSDate? = nil
+    @objc dynamic var birthday: String? = nil
     
     @objc dynamic var address1: String? = nil
     @objc dynamic var city: String? = nil
@@ -30,17 +30,16 @@ class user: Object {
     @objc dynamic var mothersMaidenName: String? = nil
     @objc dynamic var pin: String? = nil
     @objc dynamic var holds: String? = nil
-    @objc dynamic var signature: String? = nil /// FIX: Change this data type to data
+    @objc dynamic var signature: String? = nil
     
     @objc dynamic var libraryCardNumber: String? = nil
     @objc dynamic var licenseNumber: String? = nil
     
-    /*override static func primaryKey() -> String? {
-        return "id"
-    }*/
+    @objc dynamic var verified: Bool = false
+    @objc dynamic var accountType: String? = nil
     
     //May not be necessary. Need to add other fields
-    convenience init(firstName: String?, middleName: String?, lastName: String?, address1: String?, city: String?, state: String?, zip: String?, phone: String?, email: String?, mothersMaidenName: String?, pin: String?, holds: String?, signature: String?) {
+    convenience init(firstName: String?, middleName: String?, lastName: String?, address1: String?, city: String?, state: String?, zip: String?, phone: String?, email: String?, mothersMaidenName: String?, pin: String?, holds: String?, signature: String?, birthday: String?, verified: Bool, accountType: String?, licenseNumber: String?, libraryCardNumber: String?) {
         self.init()
         self.firstName = firstName
         self.middleName = middleName
@@ -55,6 +54,11 @@ class user: Object {
         self.pin = pin
         self.holds = holds
         self.signature = signature
+        self.birthday = birthday
+        self.verified = verified
+        self.accountType = accountType
+        self.licenseNumber = licenseNumber
+        self.libraryCardNumber = libraryCardNumber
     }
     
 }
