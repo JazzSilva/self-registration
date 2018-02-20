@@ -9,6 +9,8 @@
 import UIKit
 import RealmSwift
 import LilitabSDK
+import Firebase
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,9 +18,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     static let swipe = LilitabSDK.singleton()
+    static let remoteConfig = RemoteConfig.remoteConfig()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        FirebaseApp.configure()
+        let _ = RCValues.sharedInstance
         return true
     }
 

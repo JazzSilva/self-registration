@@ -57,7 +57,7 @@ class homeXib: UIView {
         addSubview(contentView)
         animateLottie()
         button.neutral()
-        topLabel.textColor = blueHexTitle
+        topLabel.textColor = RCValues.sharedInstance.color(forKey: .headerTextPrimaryColor) 
         contentView.clipsToBounds = false
         contentView.frame = .init(x: 0, y: 0, width: 800, height: 500)
         contentView.shadowColor = .black

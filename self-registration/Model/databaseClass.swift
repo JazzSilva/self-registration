@@ -30,7 +30,7 @@ class Database {
     
     func logIn(username: String, password: String, vc: logInController) {
         // You should make the username and password user-input supported
-        SyncUser.logIn(with: .usernamePassword(username: username, password: password, register: false), server: URL(string: "http://10.116.15.36:9080")!) { user, error in
+        SyncUser.logIn(with: .usernamePassword(username: username, password: password, register: false), server: URL(string: RCValues.sharedInstance.string(forKey: .syncUserServer) )!) { user, error in
             guard let user = user else {
                 vc.wrongInput()
                 return
@@ -38,7 +38,7 @@ class Database {
             DispatchQueue.main.async(execute: {
                 // Open Realm
                 let configuration = Realm.Configuration(
-                    syncConfiguration: SyncConfiguration(user: user, realmURL: URL(string: "realm://10.116.15.36:9080/selfRegistration")!)
+                    syncConfiguration: SyncConfiguration(user: user, realmURL: URL(string: RCValues.sharedInstance.string(forKey: .syncConfigServer) )!)
                 )
                 
                 self.realm = try! Realm(configuration: configuration)
