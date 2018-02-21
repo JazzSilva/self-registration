@@ -33,6 +33,9 @@
 		B02A3C2B203C652000977D1F /* FirebaseDatabase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B02A3C29203C652000977D1F /* FirebaseDatabase.framework */; };
 		B02A3C33203C681E00977D1F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B02A3C32203C681E00977D1F /* GoogleService-Info.plist */; };
 		B02A3C35203C754800977D1F /* RCValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02A3C34203C754800977D1F /* RCValues.swift */; };
+		B02A3C39203DE3F000977D1F /* barcodeFirebaseFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02A3C38203DE3F000977D1F /* barcodeFirebaseFunctions.swift */; };
+		B02A3C3B203DE45000977D1F /* twilioFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02A3C3A203DE45000977D1F /* twilioFunctions.swift */; };
+		B02A3C3D203DE46300977D1F /* sirsiFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02A3C3C203DE46300977D1F /* sirsiFunctions.swift */; };
 		B0400E8120168C940026CA09 /* RxCocoa.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B0400E7C20168C940026CA09 /* RxCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B0400E8320168C940026CA09 /* RxSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B0400E7D20168C940026CA09 /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B0400E8520168C940026CA09 /* RxBlocking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B0400E7E20168C940026CA09 /* RxBlocking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -150,6 +153,9 @@
 		B02A3C31203C66C200977D1F /* module.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
 		B02A3C32203C681E00977D1F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B02A3C34203C754800977D1F /* RCValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCValues.swift; sourceTree = "<group>"; };
+		B02A3C38203DE3F000977D1F /* barcodeFirebaseFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = barcodeFirebaseFunctions.swift; sourceTree = "<group>"; };
+		B02A3C3A203DE45000977D1F /* twilioFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = twilioFunctions.swift; sourceTree = "<group>"; };
+		B02A3C3C203DE46300977D1F /* sirsiFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sirsiFunctions.swift; sourceTree = "<group>"; };
 		B0400E73201688720026CA09 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
 		B0400E74201688720026CA09 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
 		B0400E75201688720026CA09 /* RxTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxTest.framework; path = Carthage/Build/iOS/RxTest.framework; sourceTree = "<group>"; };
@@ -341,6 +347,16 @@
 			path = Database;
 			sourceTree = "<group>";
 		};
+		B02A3C37203DE3AB00977D1F /* API Requests */ = {
+			isa = PBXGroup;
+			children = (
+				B02A3C38203DE3F000977D1F /* barcodeFirebaseFunctions.swift */,
+				B02A3C3A203DE45000977D1F /* twilioFunctions.swift */,
+				B02A3C3C203DE46300977D1F /* sirsiFunctions.swift */,
+			);
+			path = "API Requests";
+			sourceTree = "<group>";
+		};
 		B0400E72201688720026CA09 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -455,6 +471,7 @@
 				DD0A587D2006713A0035AD1F /* Controller */,
 				DD0A587E200671590035AD1F /* View Model */,
 				DD0A587C200671250035AD1F /* Model */,
+				B02A3C37203DE3AB00977D1F /* API Requests */,
 				DD580D471FE970FA00A254B4 /* AppDelegate.swift */,
 				DD580D4D1FE970FA00A254B4 /* Main.storyboard */,
 				DD580D501FE970FA00A254B4 /* Assets.xcassets */,
@@ -680,6 +697,7 @@
 				DD3A344A202D8C1700F2B28B /* colors.swift in Sources */,
 				DD3A344C202DA5E500F2B28B /* textFields.swift in Sources */,
 				DDC195B9203A00C200705B0C /* homeXibClass.swift in Sources */,
+				B02A3C3B203DE45000977D1F /* twilioFunctions.swift in Sources */,
 				B0639F002017A83800DD7FA4 /* nameXibClass.swift in Sources */,
 				B0639F042017C71A00DD7FA4 /* addressXibClass.swift in Sources */,
 				DD580D481FE970FA00A254B4 /* AppDelegate.swift in Sources */,
@@ -691,10 +709,12 @@
 				DDC195B12030223E00705B0C /* buttons.swift in Sources */,
 				DD220A15201126B700F19AC9 /* validationFunctions.swift in Sources */,
 				DD220A0920111C6700F19AC9 /* databaseClass.swift in Sources */,
+				B02A3C3D203DE46300977D1F /* sirsiFunctions.swift in Sources */,
 				DD220A0720111B7A00F19AC9 /* dataModel.swift in Sources */,
 				DDC195B320310F5000705B0C /* LogInController.swift in Sources */,
 				B07313AD2020F8E0002A6DED /* securityXibClass.swift in Sources */,
 				DDC195BB203A038200705B0C /* extensions.swift in Sources */,
+				B02A3C39203DE3F000977D1F /* barcodeFirebaseFunctions.swift in Sources */,
 				B07313B12020F904002A6DED /* submitXibClass.swift in Sources */,
 				B067093920221C53002DAB07 /* userCell.swift in Sources */,
 				DDE4EBB0203A7B6800E24DA0 /* lilitabSwipe.swift in Sources */,

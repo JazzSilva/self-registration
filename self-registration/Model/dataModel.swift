@@ -11,8 +11,8 @@ import RealmSwift
 
 class user: Object {
     
+    @objc dynamic var masterKey = UUID().uuidString
     @objc dynamic var dateCreated = NSDate()
-    //@objc dynamic var id = ""
     
     @objc dynamic var firstName: String? = nil
     @objc dynamic var middleName: String? = nil
@@ -38,7 +38,10 @@ class user: Object {
     @objc dynamic var verified: Bool = false
     @objc dynamic var accountType: String? = nil
     
-    //May not be necessary. Need to add other fields
+    override static func primaryKey() -> String? {
+        return "masterKey"
+    }
+    
     convenience init(firstName: String?, middleName: String?, lastName: String?, address1: String?, city: String?, state: String?, zip: String?, phone: String?, email: String?, mothersMaidenName: String?, pin: String?, holds: String?, signature: String?, birthday: String?, verified: Bool, accountType: String?, licenseNumber: String?, libraryCardNumber: String?) {
         self.init()
         self.firstName = firstName

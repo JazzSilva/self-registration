@@ -28,7 +28,7 @@ class RCValues {
         let appDefaults: [String: NSObject] = [
             ValueKey.headerTextPrimaryColor.rawValue : "#FBB03B" as NSObject,
             ValueKey.syncUserServer.rawValue : "http://10.116.15.36:9080" as NSObject,
-            ValueKey.syncConfigServer.rawValue: "realm://10.116.15.36:9080/selfRegistration" as NSObject
+            ValueKey.syncConfigServer.rawValue: "realm://10.116.15.36:9080/selfRegistrationApp" as NSObject
         ]
         RemoteConfig.remoteConfig().setDefaults(appDefaults)
     }
