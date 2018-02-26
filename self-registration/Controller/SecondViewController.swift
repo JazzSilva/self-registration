@@ -119,6 +119,21 @@ extension SecondViewController: UITableViewDataSource {
 
 extension SecondViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("selected")
+        let user = userList[indexPath.row]
+        print(user.masterKey)
     }
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt: IndexPath) -> [UITableViewRowAction]? {
+        let send = UITableViewRowAction(style: .normal, title: "Resend Barcode") { action, index in
+            let user = self.userList[index.row]
+            guard let phone = user.phone else {
+                print("no phone # on file")
+                return
+            }
+            postBarcodeToFirebase(user: user)
+        }
+        send.backgroundColor = .lightGray
+        return [send]
+    }
+    
 }

@@ -9,39 +9,25 @@
 import Foundation
 import Firebase
 
-/*
-func postBarcodeToFirebase(barcode: UIImage) -> String {
-    //Store Barcode image
-    let barimage = convert(cmage: (barcode.ciImage)!)
-    let PNG: Data = UIImagePNGRepresentation(barimage)! as Data
-    let imgName = NSUUID().uuidString
-    let storageRef = Storage.storage().reference(forURL: "gs://hcpl-library-card.appspot.com/")
-    let barRef = storageRef.child("barcodes").child("\(imgName).png")
+
+func postBarcodeToFirebase(user: user) {
+    guard let number = user.libraryCardNumber else {
+        return
+    }
+    guard let pngData = UIImagePNGRepresentation(generateBarcode(from: number)!) else {
+        return
+    }
+    let imageName = NSUUID().uuidString
+    let storageReference = Storage.storage().reference(forURL: "gs://self-registration-5e729.appspot.com")
+    let barcodeReference = storageReference.child("barcodes").child("\(imageName).png")
     
-    barRef.putData(PNG, metadata: nil, completion: { (metadata, error) in
+    barcodeReference.putData(pngData, metadata: nil, completion: { (metadata, error) in
         if error != nil {
-            print(error)
-            return
+            print(error.debugDescription)
         }
-        if let profileImageUrl = metadata?.downloadURL()?.absoluteString {
-            print("Sucessfully stored barcode at path \(profileImageURL)")
-            return profileImageUrl
+        if let profileImageURL = metadata?.downloadURL()?.absoluteString {
+            print("Successfully stored barcode at path \(profileImageURL)")
         }
     })
 }
-
-private func generateBarcodeForUser(from string: String) -> UIImage? {
-    let data = string.data(using: String.Encoding.ascii)
-    
-    if let filter = CIFilter(name: "CICode128BarcodeGenerator") {
-        filter.setValue(data, forKey: "inputMessage")
-        let transform = CGAffineTransform(scaleX: 3, y: 3)
-        
-        if let output = filter.outputImage?.transformed(by: transform) {
-            return UIImage(ciImage: output)
-        }
-    }
-    
-    return nil
-}*/
 
