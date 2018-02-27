@@ -130,10 +130,9 @@ extension SecondViewController: UITableViewDelegate {
                 print("no phone # on file")
                 return
             }
-            postBarcodeToFirebase(user: user)
+            text(user: user)
         }
         send.backgroundColor = .lightGray
         return [send]
     }
-    
 }
