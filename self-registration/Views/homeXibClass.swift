@@ -36,8 +36,8 @@ class homeXib: UIView {
     var userDict = Dictionary<Int, String>()
     var userInformation = Dictionary<String, [String]>()
     var lottieAnimation: LOTAnimationView?
-    var verified = Variable<Bool>(false)
     let lilitab = AppDelegate.swipe
+    let animationView = LOTAnimationView(name: "account_success")
     
     
     override init(frame: CGRect) {
@@ -75,23 +75,20 @@ class homeXib: UIView {
     
     private func animateLottie() {
         if let image = imageView {
-            let animationView = LOTAnimationView(name: "account_success")
+            image.addSubview(animationView)
             animationView.frame = CGRect(x: 20, y: -05, width: 185, height: 185)
-            animationView.animationSpeed = 0.5
+            animationView.animationSpeed = 2.0
             animationView.play(fromFrame: 0, toFrame: 35, withCompletion: {completion in
-                animationView.pause()
-                animationView.animationSpeed = 1.5
+                self.animationView.pause()
+                self.animationView.animationSpeed = 2.0
             })
             animationView.contentMode = .scaleAspectFit
-            lottieAnimation = animationView
-            image.addSubview(animationView)
         }
     }
 
     func animateSwipe() {
         topLabel.text = "Great, let's get started!"
-        lottieAnimation?.play(fromFrame: 35, toFrame: 60, withCompletion: { completion in
-            self.verified.value = true
+        animationView.play(fromFrame: 35, toFrame: 60, withCompletion: { completion in
             self.animateIn()
         })
     }
@@ -100,15 +97,14 @@ class homeXib: UIView {
         self.addSubview(swipedView)
         swipedView.center = CGPoint(x: self.center.x, y: self.center.y + 50) // might be -50. need to test
         swipedView.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
-        lottieAnimation!.transform = CGAffineTransform.identity
+        animationView.transform = CGAffineTransform.identity
         swipedView.alpha = 0
         UIView.animate(withDuration: 0.4) {
             self.swipedView.alpha = 1
             self.swipedView.transform = CGAffineTransform.identity
-            self.lottieAnimation!.transform = CGAffineTransform.init(scaleX: 0, y: 0)
+            self.animationView.transform = CGAffineTransform.init(scaleX: 0, y: 0)
         }
         swipeButton.enableSettings()
-        verified.value = true
     }
     
     @objc func removeButton(sender: AnyObject) {

@@ -18,6 +18,9 @@ class userViewModel {
     //This is a singleton
     init() {
         realm = Database.shared.realm
+        libraryCardNumber.value = getLibraryCardNumber()
+        dateCreated.value = getDateCreatedToString(date: NSDate())
+        branchCode.value = Database.shared.currentUser
     }
     
     let firstName = Variable<String>("")
@@ -37,10 +40,15 @@ class userViewModel {
     let phone = Variable<String>("")
     let email = Variable<String>("")
     
+    let isChildUser = Variable<Bool>(false)
     let verified = Variable<Bool>(false)
-    let accountType = Variable<String>("")
     let licenseNumber = Variable<String>("")
     let libraryCardNumber = Variable<String>("")
+    
+    let dateCreated = Variable<String>("")
+    let userProfile = Variable<String>("HC-DigitaJ")
+    let branchCode = Variable<String>("")
+    let contactPreference = Variable<String>("")
     
     var signature = Variable<String>("")
     
@@ -67,9 +75,11 @@ class userViewModel {
     
     @objc func createUser(sender: AnyObject) {
         //This references the convenience user init in the Database class
-        let newUser = user(firstName: firstName.value, middleName: middleName.value, lastName: lastName.value, address1: address1.value, city: city.value, state: state.value, zip: zip.value, phone: phone.value, email: email.value, mothersMaidenName: mothersMaidenName.value, pin: pin.value, holds: holds.value, signature: signature.value, birthday: birthday.value, verified: verified.value, accountType: accountType.value, licenseNumber: licenseNumber.value, libraryCardNumber: libraryCardNumber.value)
+        let newUser = user(firstName: firstName.value.uppercased(), middleName: middleName.value.uppercased(), lastName: lastName.value.uppercased(), address1: address1.value.uppercased(), city: city.value.uppercased(), state: state.value.uppercased(), zip: zip.value, phone: phone.value, email: email.value, mothersMaidenName: mothersMaidenName.value.uppercased(), pin: pin.value, holds: holds.value.uppercased(), signature: signature.value, birthday: birthday.value, verified: verified.value, userProfile: userProfile.value, licenseNumber: licenseNumber.value, libraryCardNumber: libraryCardNumber.value, branchCode: branchCode.value, contactPreference: contactPreference.value, dateCreated: dateCreated.value)
         //Actually save the user to the shared realm
         Database.shared.create(newUser)
+        sendToSirsi(user: newUser)
+        if isChildUser.value { sendParentSMS(user: newUser) } else { text(user: newUser) }
     }
     
 }

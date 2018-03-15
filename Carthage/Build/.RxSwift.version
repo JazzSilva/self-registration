@@ -5,12 +5,12 @@
       "hash" : "bdfe7f4aad5aa092ce541a8aedfb49d29fb7b6f2e62ab18ee2368880be1e278a"
     },
     {
-      "name" : "RxCocoa",
-      "hash" : "7b3d467d794a18f262c47edac5f108f18b3cebf3b9fca8ba64bded6c21e31a33"
-    },
-    {
       "name" : "RxTest",
       "hash" : "d7f1f44220136d57a3f56c758e337b886e3ea5bf70d77598d06c6ce8f0aa3098"
+    },
+    {
+      "name" : "RxCocoa",
+      "hash" : "7b3d467d794a18f262c47edac5f108f18b3cebf3b9fca8ba64bded6c21e31a33"
     },
     {
       "name" : "RxSwift",
@@ -33,12 +33,12 @@
   ],
   "tvOS" : [
     {
-      "name" : "RxBlocking",
-      "hash" : "41f5c65c058f618189c9138af97b318d8a9be1cef57dc95dc76d35691fb3adfd"
-    },
-    {
       "name" : "RxTest",
       "hash" : "72e18213d9f5be35cf0617802e7ca5649e135147e724493d5eab1fa467777fbe"
+    },
+    {
+      "name" : "RxBlocking",
+      "hash" : "41f5c65c058f618189c9138af97b318d8a9be1cef57dc95dc76d35691fb3adfd"
     },
     {
       "name" : "RxCocoa",

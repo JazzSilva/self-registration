@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import RxSwift
 
 class nameXib: UIView {
     
@@ -16,9 +17,12 @@ class nameXib: UIView {
     @IBOutlet weak var firstName: shakingTextField!
     @IBOutlet weak var middleName: shakingTextField!
     @IBOutlet weak var lastName: shakingTextField!
+    @IBOutlet weak var datePicker: UIDatePicker!
     
     @IBOutlet weak var topLabel: UILabel!
     @IBOutlet weak var isValid: nextButton!
+    
+    let birthday = Variable<String>("")
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -60,6 +64,10 @@ class nameXib: UIView {
     
     @IBAction func lastEnd(_ sender: Any) {
         self.lastName.didEndEditing()
+    }
+    
+    @objc func doneSelecting(sender: AnyObject) {
+        birthday.value = getBirthdayToString(date: datePicker.date as NSDate)
     }
     
     

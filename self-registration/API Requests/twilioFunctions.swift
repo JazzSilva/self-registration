@@ -9,23 +9,18 @@
 import Foundation
 
 
-
-
 func sendBarcodeToSMS(user: user, mediaURL: String) {
     //Initialize Twilio Settings: Need to change to remote config
-    let twilioSID = "ACa43dc90666f387df600823974501aff3"
-    let twilioSecret = "637608f493bdbc2cd06a940a0aa39955"
-    let fromNumber = "%212408234654"// This is our Twilio assigned number
     guard let toNumber = user.phone else { return }
     guard let name = user.firstName else { return }
     let message = "Hello \(name)! You may use this barcode at any self checkout machine."
     
-    let request = NSMutableURLRequest(url: URL(string:"https://\(twilioSID):\(twilioSecret)@api.twilio.com/2010-04-01/Accounts/\(twilioSID)/Messages")!)
+    let request = NSMutableURLRequest(url: URL(string:"https://\(RCValues.sharedInstance.string(forKey: .twilioSID)):\(RCValues.sharedInstance.string(forKey: .twilioSecret))@api.twilio.com/2010-04-01/Accounts/\(RCValues.sharedInstance.string(forKey: .twilioSID))/Messages")!)
     request.httpMethod = "POST"
     print("media URL: is", mediaURL)
     let allowedCharacterSet = (CharacterSet(charactersIn: "&/%").inverted)
 
-    request.httpBody = "From=\(fromNumber)&To=\(toNumber)&Body=\(message)&MediaUrl=\(mediaURL.addingPercentEncoding(withAllowedCharacters: allowedCharacterSet)!)".data(using: String.Encoding.utf8)
+    request.httpBody = "From=\(RCValues.sharedInstance.string(forKey: .fromNumber))&To=\(toNumber)&Body=\(message)&MediaUrl=\(mediaURL.addingPercentEncoding(withAllowedCharacters: allowedCharacterSet)!)".data(using: String.Encoding.utf8)
     
     //Send Request
     URLSession.shared.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) in
@@ -40,19 +35,14 @@ func sendBarcodeToSMS(user: user, mediaURL: String) {
     }).resume()
 }
 
-
-
 func sendParentSMS(user: user) {
-    let twilioSID = "ACa43dc90666f387df600823974501aff3"
-    let twilioSecret = "637608f493bdbc2cd06a940a0aa39955"
-    let fromNumber = "%212408234654"// This is our Twilio assigned number
     guard let toNumber = user.phone else { return }
     guard let name = user.firstName else { return }
     let message = "Hello! \(name) has requested a children's library card at Harris County Public Library. To activate their account, please respond YES."
     
-    let childrensRequest = NSMutableURLRequest(url: URL(string:"https://\(twilioSID):\(twilioSecret)@api.twilio.com/2010-04-01/Accounts/\(twilioSID)/Messages")!)
+    let childrensRequest = NSMutableURLRequest(url: URL(string:"https://\(RCValues.sharedInstance.string(forKey: .twilioSID)):\(RCValues.sharedInstance.string(forKey: .twilioSecret))@api.twilio.com/2010-04-01/Accounts/\(RCValues.sharedInstance.string(forKey: .twilioSID))/Messages")!)
     childrensRequest.httpMethod = "POST"
-    childrensRequest.httpBody = "From=\(fromNumber)&To=\(toNumber)&Body=\(message)".data(using: .utf8)
+    childrensRequest.httpBody = "From=\(RCValues.sharedInstance.string(forKey: .fromNumber))&To=\(toNumber)&Body=\(message)".data(using: String.Encoding.utf8)
     
     //Send Childrens Request
     URLSession.shared.dataTask(with: childrensRequest as URLRequest, completionHandler: { (data, response, error) in

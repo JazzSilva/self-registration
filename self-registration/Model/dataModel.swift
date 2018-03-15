@@ -12,7 +12,7 @@ import RealmSwift
 class user: Object {
     
     @objc dynamic var masterKey = UUID().uuidString
-    @objc dynamic var dateCreated = NSDate()
+    @objc dynamic var dateCreated: String? = nil
     
     @objc dynamic var firstName: String? = nil
     @objc dynamic var middleName: String? = nil
@@ -36,13 +36,15 @@ class user: Object {
     @objc dynamic var licenseNumber: String? = nil
     
     @objc dynamic var verified: Bool = false
-    @objc dynamic var accountType: String? = nil
+    @objc dynamic var userProfile: String? = nil
+    @objc dynamic var branchCode: String? = nil
+    @objc dynamic var contactPreference: String? = nil
     
     override static func primaryKey() -> String? {
         return "masterKey"
     }
     
-    convenience init(firstName: String?, middleName: String?, lastName: String?, address1: String?, city: String?, state: String?, zip: String?, phone: String?, email: String?, mothersMaidenName: String?, pin: String?, holds: String?, signature: String?, birthday: String?, verified: Bool, accountType: String?, licenseNumber: String?, libraryCardNumber: String?) {
+    convenience init(firstName: String?, middleName: String?, lastName: String?, address1: String?, city: String?, state: String?, zip: String?, phone: String?, email: String?, mothersMaidenName: String?, pin: String?, holds: String?, signature: String?, birthday: String?, verified: Bool, userProfile: String?, licenseNumber: String?, libraryCardNumber: String?, branchCode: String?, contactPreference: String?, dateCreated: String?) {
         self.init()
         self.firstName = firstName
         self.middleName = middleName
@@ -59,9 +61,12 @@ class user: Object {
         self.signature = signature
         self.birthday = birthday
         self.verified = verified
-        self.accountType = accountType
+        self.userProfile = userProfile
         self.licenseNumber = licenseNumber
         self.libraryCardNumber = libraryCardNumber
+        self.branchCode = branchCode
+        self.contactPreference = contactPreference
+        self.dateCreated = dateCreated
     }
     
 }

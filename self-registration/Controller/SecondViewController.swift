@@ -9,6 +9,7 @@
 import UIKit
 import RxSwift
 import RealmSwift
+import Firebase
 
 class SecondViewController: UIViewController {
     
@@ -48,12 +49,14 @@ class SecondViewController: UIViewController {
         backgroundImage.image = UIImage(named: "GradientArtboard")
         backgroundImage.contentMode = UIViewContentMode.scaleAspectFill
         self.view.insertSubview(backgroundImage, at: 0)
+        self.tableView.reloadData()
         view.sendSubview(toBack: logInView)
     }
     
     override func viewDidLoad() {
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        self.hideKeyboardWhenTappedAround()
     }
     override func viewWillAppear(_ animated: Bool) {
         tableView.delegate = self
@@ -70,6 +73,7 @@ class SecondViewController: UIViewController {
         backgroundImage.image = UIImage(named: "GradientArtboard")
         backgroundImage.contentMode = UIViewContentMode.scaleAspectFill
         self.logInView.insertSubview(backgroundImage, at: 0)
+        passwordText.text = ""
         
         //Keep access to notification token, so you can later remove it in ViewWillDisappear
         notificationToken = realm.observe({(notification, realm) in self.tableView.reloadData()})

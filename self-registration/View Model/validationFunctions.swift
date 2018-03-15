@@ -46,5 +46,41 @@ public func isValidPhone(input: String) -> Bool {
     }
 }
 
-// FIXME: implement incorrentLength error
-// FIXME: implement invalidFormat error
+func getBirthdayToString(date: NSDate) -> String {
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "yyyyMMdd"
+    let string1 = dateFormatter.string(from: date as Date)
+    let date1 = dateFormatter.date(from: string1)
+    return dateFormatter.string(from: date1!)
+}
+
+func getDateCreatedToString(date: NSDate) -> String {
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "MM/dd/yyyy"
+    let string1 = dateFormatter.string(from: date as Date)
+    let date1 = dateFormatter.date(from: string1)
+    return dateFormatter.string(from: date1!)
+}
+
+func random9DigitString() -> String {
+    let min: UInt32 = 100_000_000
+    let max: UInt32 = 999_999_999
+    let i = min + arc4random_uniform(max - min + 1)
+    return String(i)
+}
+
+public func calculateTimeDistance(date: NSDate) -> Bool {
+    var child = false
+    let time = (date.timeIntervalSince(Date())) / 31536000
+    if time >= -18 {
+        child = true
+    }
+    return child
+}
+
+public func isChild(_ dateAsString: String) -> Bool {
+    let formatter = DateFormatter()
+    formatter.dateFormat = "yyyyMMdd"
+    let DOB = formatter.date(from: dateAsString)
+    return calculateTimeDistance(date: DOB! as NSDate)
+}

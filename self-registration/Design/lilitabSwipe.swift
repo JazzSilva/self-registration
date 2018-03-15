@@ -44,7 +44,6 @@ extension homeXib {
             self.licenseSwipe.text = self.userInformation["DL Number"]?.first
         }
         animateSwipe()
-        verified.value = true
    }
     
     public func cityState(input :String) {

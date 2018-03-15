@@ -20,7 +20,7 @@ func postBarcodeToFirebase(user: user, completionHandler: @escaping CompletionHa
     }
     let imageName = NSUUID().uuidString
     var profileImageURL = ""
-    let storageReference = Storage.storage().reference(forURL: "gs://self-registration-5e729.appspot.com")
+    let storageReference = Storage.storage().reference(forURL: RCValues.sharedInstance.string(forKey: .firebaseStorageReference))
     let barcodeReference = storageReference.child("barcodes").child("\(imageName).png")
     
     barcodeReference.putData(pngData, metadata: nil, completion: { (metadata, error) in
@@ -44,4 +44,6 @@ func text(user: user) {
         print("closure user: \(user)")
     })
 }
+
+
 

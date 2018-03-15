@@ -21,6 +21,7 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        self.hideKeyboardWhenTappedAround()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -93,8 +94,6 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
         button.addTarget(view, action: #selector(view.removeSwipeButton(sender:)), for: .touchUpInside)
         button.addTarget(self, action: #selector(self.insertArrangedSecurity(sender:)), for: .touchUpInside)
     
-        viewModel.verifiedValue.bind(to: view.verified).disposed(by: disposeBag)
-        
         view.button.addTarget(self, action: #selector(insertArrangedName(sender:)), for: .touchUpInside)
         view.button.addTarget(view, action: #selector(view.removeButton(sender:)), for: .touchUpInside)
         stackView.addArrangedSubview(setConstraints(inputXib: view))
@@ -109,7 +108,10 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
         view.firstName.rx.text.map { $0 ?? "" }.bind(to: viewModel.firstName).disposed(by: disposeBag)
         view.middleName.rx.text.map { $0 ?? ""}.bind(to: viewModel.middleName).disposed(by: disposeBag)
         view.lastName.rx.text.map { $0 ?? ""}.bind(to: viewModel.lastName).disposed(by: disposeBag)
+        
         viewModel.isNameViewValid.bind(to: view.isValid.rx.isEnabled).disposed(by: disposeBag)
+        view.isValid.addTarget(view, action: #selector(view.doneSelecting(sender:)), for: .touchUpInside)
+        view.isValid.addTarget(self, action: #selector(nameCompleteBindBirthday(sender:)), for: .touchUpInside)
         view.isValid.addTarget(self, action: #selector(insertArrangedAddress(sender:)), for: .touchUpInside)
         view.isValid.addTarget(view, action: #selector(view.removeButton(sender:)), for: .touchUpInside)
         
@@ -196,6 +198,11 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
         viewModel.phoneValid.subscribe(onNext: { [unowned view] isValid in view.phone.updateUI(bool: isValid)}).disposed(by: disposeBag)
         viewModel.emailValid.subscribe(onNext: { [unowned view] isValid in view.email.updateUI(bool: isValid)}).disposed(by: disposeBag)
         
+        if viewModel.isChildUser.value {
+            view.topLabel.text = "How can we contact your parent or guardian?"
+        } else {
+            view.topLabel.text = "How can we contact you?"
+        }
         view.topLabel.textColor = blueHexTitle
         stackView.addArrangedSubview(setConstraints(inputXib: view))
         animateIn(newView: view)
@@ -206,8 +213,9 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
         let view = submitXib()
         
         _ = viewModel.isFormComplete.bind(to: view.isValid.rx.isEnabled)
+        view.isValid.addTarget(self, action: #selector(submitSignatureData(sender:)), for: .touchUpInside)
         view.isValid.addTarget(viewModel, action: #selector(viewModel.createUser(sender:)), for: .touchUpInside)
-        view.isValid.addTarget(self, action: #selector(restartViews(sender:)), for: .touchUpInside)
+        view.isValid.addTarget(self, action: #selector(insertArrangedFinished(sender:)), for: .touchUpInside)
         
         viewModel.isFormComplete.subscribe(onNext: { [unowned view] isValid in
             guard let button = view.isValid else { return }
@@ -218,14 +226,43 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
         stackView.addArrangedSubview(setConstraints(inputXib: view))
         animateIn(newView: view)
     }
+    
+    //Insert Finished
+    @objc func insertArrangedFinished(sender: AnyObject) {
+        let view = finishedXib()
+        
+        
+        if viewModel.userProfile.value == "A" {
+            view.bodyText.text = "You can now use your drivers license to checkout materials! We also texted you an electronic copy of your card to number \(viewModel.phone.value)"
+        }
+        else if viewModel.isChildUser.value {
+            view.bodyText.text = "We sent your electornic children's card to \(viewModel.phone.value). It can be used to access all of our digital resources! We sent your parent instructions to fully activate your card."
+        }
+        else {
+            view.bodyText.text = "We sent your electornic library card to \(viewModel.phone.value). It can be used to access all of our digital resources! You'll need to verify your address at the front desk to begin checking out physical materials."
+        }
+        
+        view.isValid.addTarget(self, action: #selector(restartViews(sender:)), for: .touchUpInside)
+        
+        stackView.addArrangedSubview(setConstraints(inputXib: view))
+        animateIn(newView: view)
+        
+    }
+    
+    @objc func submitSignatureData(sender: AnyObject) {
+        submitSignature(view: self.stackView.arrangedSubviews.last! as! submitXib)
+    }
 
     @objc func restartViews(sender: AnyObject) {
-        submitSignature(view: self.stackView.arrangedSubviews.last! as! submitXib)
         animateOut(view: stackView)
     }
     
     @objc func swipeCompleteNextXib(sender: AnyObject) {
         bindSwipe(inputXib: self.stackView.arrangedSubviews.last! as! homeXib)
+    }
+    
+    @objc func nameCompleteBindBirthday(sender: AnyObject) {
+        bindBirthday(inputXib: self.stackView.arrangedSubviews.last! as! nameXib)
     }
     
     private func submitSignature(view: submitXib) {
@@ -272,7 +309,19 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
         viewModel.birthday.value = inputXib.dobSwipe.text!
         viewModel.libraryCardNumber.value = inputXib.licenseSwipe.text!
         viewModel.licenseNumber.value = inputXib.licenseSwipe.text!
+        viewModel.isChildUser.value = isChild(viewModel.birthday.value)
         viewModel.verified.value = true
+        if viewModel.isChildUser.value {
+            viewModel.userProfile.value = "C" } else {
+            viewModel.userProfile.value = "A"
+        }
+    }
+    
+    private func bindBirthday(inputXib: nameXib) {
+        viewModel.birthday.value = inputXib.birthday.value
+        viewModel.isChildUser.value = isChild(viewModel.birthday.value)
+        print("birthday is \(viewModel.birthday.value)")
+        print("is child \(viewModel.isChildUser.value)")
     }
 }
 
