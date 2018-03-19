@@ -19,6 +19,7 @@ enum ValueKey: String {
     case twilioSID
     case twilioSecret
     case fromNumber
+    case lookupUserID
 }
 
 class RCValues {
@@ -40,7 +41,8 @@ class RCValues {
             ValueKey.firebaseStorageReference.rawValue: "gs://self-registration-5e729.appspot.com" as NSObject,
             ValueKey.twilioSID.rawValue: "ACa43dc90666f387df600823974501aff3" as NSObject,
             ValueKey.twilioSecret.rawValue: "637608f493bdbc2cd06a940a0aa39955" as NSObject,
-            ValueKey.fromNumber.rawValue: "%212408234654" as NSObject
+            ValueKey.fromNumber.rawValue: "%212408234654" as NSObject,
+            ValueKey.lookupUserID.rawValue: "http://10.116.15.70:8080/symws/rest/circulation/getUser?userID=" as NSObject
         ]
         RemoteConfig.remoteConfig().setDefaults(appDefaults)
     }
@@ -68,6 +70,12 @@ class RCValues {
             print("Our app's Twilio SID is \(Firebase.RemoteConfig.remoteConfig().configValue(forKey: "twilioSID").stringValue ?? "")")
             print("Our app's Twilio Secret is \(Firebase.RemoteConfig.remoteConfig().configValue(forKey: "twilioSecret").stringValue ?? "")")
             print("Our app's from number is \(Firebase.RemoteConfig.remoteConfig().configValue(forKey: "fromNumber").stringValue ?? "")")
+            print("Our app's lookup user ID url is \(Firebase.RemoteConfig.remoteConfig().configValue(forKey: "lookupUserID").stringValue ?? "")")
+            
+            /*if Connectivity.shared.isConnectedToInternet() {
+                print("Yes")
+            }*/
+            
         })
     }
     

@@ -36,6 +36,7 @@
 		B02A3C39203DE3F000977D1F /* barcodeFirebaseFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02A3C38203DE3F000977D1F /* barcodeFirebaseFunctions.swift */; };
 		B02A3C3B203DE45000977D1F /* twilioFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02A3C3A203DE45000977D1F /* twilioFunctions.swift */; };
 		B02A3C3D203DE46300977D1F /* sirsiFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02A3C3C203DE46300977D1F /* sirsiFunctions.swift */; };
+		B02A3C3F205B136C00977D1F /* connectivityFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02A3C3E205B136C00977D1F /* connectivityFunctions.swift */; };
 		B0400E8120168C940026CA09 /* RxCocoa.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B0400E7C20168C940026CA09 /* RxCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B0400E8320168C940026CA09 /* RxSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B0400E7D20168C940026CA09 /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B0400E8520168C940026CA09 /* RxBlocking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B0400E7E20168C940026CA09 /* RxBlocking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -161,6 +162,7 @@
 		B02A3C38203DE3F000977D1F /* barcodeFirebaseFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = barcodeFirebaseFunctions.swift; sourceTree = "<group>"; };
 		B02A3C3A203DE45000977D1F /* twilioFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = twilioFunctions.swift; sourceTree = "<group>"; };
 		B02A3C3C203DE46300977D1F /* sirsiFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sirsiFunctions.swift; sourceTree = "<group>"; };
+		B02A3C3E205B136C00977D1F /* connectivityFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = connectivityFunctions.swift; sourceTree = "<group>"; };
 		B0400E73201688720026CA09 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
 		B0400E74201688720026CA09 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
 		B0400E75201688720026CA09 /* RxTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxTest.framework; path = Carthage/Build/iOS/RxTest.framework; sourceTree = "<group>"; };
@@ -362,6 +364,7 @@
 				B02A3C38203DE3F000977D1F /* barcodeFirebaseFunctions.swift */,
 				B02A3C3A203DE45000977D1F /* twilioFunctions.swift */,
 				B02A3C3C203DE46300977D1F /* sirsiFunctions.swift */,
+				B02A3C3E205B136C00977D1F /* connectivityFunctions.swift */,
 			);
 			path = "API Requests";
 			sourceTree = "<group>";
@@ -725,6 +728,7 @@
 				DD220A0920111C6700F19AC9 /* databaseClass.swift in Sources */,
 				B02A3C3D203DE46300977D1F /* sirsiFunctions.swift in Sources */,
 				DD220A0720111B7A00F19AC9 /* dataModel.swift in Sources */,
+				B02A3C3F205B136C00977D1F /* connectivityFunctions.swift in Sources */,
 				DDC195B320310F5000705B0C /* LogInController.swift in Sources */,
 				B07313AD2020F8E0002A6DED /* securityXibClass.swift in Sources */,
 				DDC195BB203A038200705B0C /* extensions.swift in Sources */,

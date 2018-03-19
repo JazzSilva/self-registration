@@ -38,6 +38,18 @@ func sendToSirsi(user: user) {
     })
 }
 
+func getSessionToken() {
+    Alamofire.request(RCValues.sharedInstance.string(forKey: .sessionTokenRequestURL)).responseJSON {
+        response in
+        let post = response.value as! [String:String]
+        sessionToken = post["sessionToken"] ?? ""
+        print("sessionToken is: \(sessionToken)")
+    }
+}
+
+func lookupUserID(id: String) {
+    
+}
 
 func sendJSONtoILS(creationURL: String, method: HTTPMethod, parameters: Parameters, header: HTTPHeaders, completionHandler: (String) -> Void) {
     Alamofire.request(creationURL, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: header).responseString { response in
