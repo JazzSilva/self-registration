@@ -11,7 +11,7 @@ import RxSwift
 import RealmSwift
 import Firebase
 
-class SecondViewController: UIViewController {
+class SecondViewController: UIViewController, UISearchBarDelegate {
     
     @IBOutlet weak var logInView: UIView!
     @IBOutlet weak var tableView: UITableView!
@@ -20,9 +20,13 @@ class SecondViewController: UIViewController {
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var logInResponse: UILabel!
     @IBOutlet weak var logInSubview: UIView!
+    @IBOutlet weak var searchBar: UISearchBar!
+    
     
     var viewModel = userViewModel()
     var notificationToken: NotificationToken?
+    var isSearching = Variable<Bool>(false)
+    var filteredData: Results<user>!
     
     //NEED TO REMOVE REFERENCE TO DATABASE = MVVM
     var userList: Results<user>!
@@ -57,6 +61,9 @@ class SecondViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         self.hideKeyboardWhenTappedAround()
+        searchBar.delegate = self
+        searchBar.returnKeyType = UIReturnKeyType.done
+
     }
     override func viewWillAppear(_ animated: Bool) {
         tableView.delegate = self
@@ -64,8 +71,7 @@ class SecondViewController: UIViewController {
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 80
         // Do any additional setup after loading the view, typically from a nib.
-        let realm = Database.shared.realm
-        userList = realm.objects(user.self)
+
         
         //Set background image
         self.view.bringSubview(toFront: logInView)
@@ -75,6 +81,8 @@ class SecondViewController: UIViewController {
         self.logInView.insertSubview(backgroundImage, at: 0)
         passwordText.text = ""
         
+        let realm = Database.shared.realm
+        userList = realm.objects(user.self)
         //Keep access to notification token, so you can later remove it in ViewWillDisappear
         notificationToken = realm.observe({(notification, realm) in self.tableView.reloadData()})
         Database.shared.observeRealmErrors(in: self) { (error) in print(error ?? "no error") }
@@ -106,16 +114,51 @@ class SecondViewController: UIViewController {
             newView.transform = CGAffineTransform.identity } , completion: nil )
     }
     
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        let realm = Database.shared.realm
+        
+        if searchBar.text == nil || searchBar.text == "" {
+            isSearching.value = false
+            view.endEditing(true)
+            userList = realm.objects(user.self)
+            tableView.reloadData()
+        }
+        else {
+            isSearching.value = true
+            //Search fields will match with the following fields. May need to remove a few if search is slowed.
+            let firstPredicate = NSPredicate(format: "firstName CONTAINS [c] %@", searchBar.text!)
+            let middlePredicate = NSPredicate(format: "middleName CONTAINS [c] %@", searchBar.text!)
+            let lastPredicate = NSPredicate(format: "lastName CONTAINS [c] %@", searchBar.text!)
+            let addressPredicate = NSPredicate(format: "address1 CONTAINS [c] %@", searchBar.text!)
+            let cityPredicate = NSPredicate(format: "city CONTAINS [c] %@", searchBar.text!)
+            let zipPredicate = NSPredicate(format: "zip CONTAINS [c] %@", searchBar.text!)
+            let emailPredicate = NSPredicate(format: "email CONTAINS [c] %@", searchBar.text!)
+            let phonePredicate = NSPredicate(format: "phone CONTAINS [c] %@", searchBar.text!)
+            let predicateCompound = NSCompoundPredicate.init(type: .or, subpredicates: [firstPredicate, middlePredicate, lastPredicate, addressPredicate, cityPredicate, zipPredicate, emailPredicate, phonePredicate])
+            filteredData = realm.objects(user.self).filter(predicateCompound)
+            userList = filteredData
+            tableView.reloadData()
+        }
+    }
+    
 }
 
 extension SecondViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection: Int) -> Int {
+        if isSearching.value {
+            return filteredData.count
+        }
         return userList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "userCell") as? userCell else { return UITableViewCell() }
-        let user = userList[indexPath.row]
+        
+        var user = userList[indexPath.row]
+        
+        if isSearching.value {
+            user = filteredData[indexPath.row]
+        }
         cell.configure(with: user)
         return cell
     }
@@ -139,4 +182,9 @@ extension SecondViewController: UITableViewDelegate {
         send.backgroundColor = .lightGray
         return [send]
     }
+}
+
+extension SecondViewController {
+    
+
 }
