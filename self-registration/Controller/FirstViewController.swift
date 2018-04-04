@@ -233,13 +233,13 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
         
         
         if viewModel.userProfile.value == "A" {
-            view.bodyText.text = "You can now use your drivers license to checkout materials! We also texted you an electronic copy of your card to number \(viewModel.phone.value)"
+            view.popUpAdult(sender: self)
         }
         else if viewModel.isChildUser.value {
-            view.bodyText.text = "We sent your electornic children's card to \(viewModel.phone.value). It can be used to access all of our digital resources! We sent your parent instructions to fully activate your card."
+            view.popUpChild(sender: self)
         }
         else {
-            view.bodyText.text = "We sent your electornic library card to \(viewModel.phone.value). It can be used to access all of our digital resources! You'll need to verify your address at the front desk to begin checking out physical materials."
+            view.popUpDigital(sender: self)
         }
         
         view.isValid.addTarget(self, action: #selector(restartViews(sender:)), for: .touchUpInside)

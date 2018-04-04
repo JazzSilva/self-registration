@@ -17,8 +17,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="finishedXib" customModule="self_registration" customModuleProvider="target">
             <connections>
-                <outlet property="bodyText" destination="O5E-ta-afI" id="BXU-Rw-zFB"/>
+                <outlet property="adultResultPopUp" destination="mU5-W8-AlX" id="1ou-Z2-LZ3"/>
+                <outlet property="childrenResultPopUp" destination="HtB-0v-alz" id="Yt7-2G-eB3"/>
                 <outlet property="contentView" destination="iN0-l3-epB" id="zVf-be-wUT"/>
+                <outlet property="digitalResultPopUp" destination="Hyd-Tv-rbo" id="AZ6-Nv-Gfd"/>
                 <outlet property="isValid" destination="xkL-R0-GcP" id="2P2-Al-cFT"/>
                 <outlet property="topLabel" destination="c1o-5u-GFx" id="eqM-dC-gai"/>
             </connections>
@@ -37,13 +39,6 @@
                     <rect key="frame" x="98" y="104" width="605" height="39"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="20"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="What now" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O5E-ta-afI">
-                    <rect key="frame" x="214" y="162" width="373" height="196"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -75,7 +70,7 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="xtR-Up-Hxc"/>
-            <point key="canvasLocation" x="-510.5" y="-81"/>
+            <point key="canvasLocation" x="-513" y="-81"/>
         </view>
         <view contentMode="scaleToFill" id="HtB-0v-alz">
             <rect key="frame" x="0.0" y="0.0" width="373" height="196"/>
@@ -131,7 +126,7 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="jiS-2N-PyC"/>
-            <point key="canvasLocation" x="-512.5" y="407"/>
+            <point key="canvasLocation" x="-511" y="411"/>
         </view>
     </objects>
 </document>

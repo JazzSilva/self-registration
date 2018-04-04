@@ -14,7 +14,10 @@ class finishedXib: UIView {
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var isValid: UIButton!
     @IBOutlet weak var topLabel: UILabel!
-    @IBOutlet weak var bodyText: UILabel!
+
+    @IBOutlet weak var adultResultPopUp: UIView!
+    @IBOutlet weak var childrenResultPopUp: UIView!
+    @IBOutlet weak var digitalResultPopUp: UIView!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -35,6 +38,18 @@ class finishedXib: UIView {
         contentView.shadowOpacity = 0.20
         contentView.shadowOffset = CGPoint(x: 0, y: 0)
         contentView.shadowRadius = 14
+    }
+    
+    @objc func popUpAdult(sender: AnyObject) {
+        self.addSubview(adultResultPopUp)
+    }
+    
+    @objc func popUpChild(sender: AnyObject) {
+        self.addSubview(childrenResultPopUp)
+    }
+    
+    @objc func popUpDigital(sender: AnyObject) {
+        self.addSubview(digitalResultPopUp)
     }
     
 }
