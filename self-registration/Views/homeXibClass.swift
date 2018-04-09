@@ -20,8 +20,11 @@ class homeXib: UIView {
     @IBOutlet weak var swipeButton: nextButton!
     @IBOutlet weak var button: nextButton!
     @IBOutlet weak var topLabel: UILabel!
+    @IBOutlet weak var accountExistsButton: nextButton!
     
     @IBOutlet var swipedView: UIView!
+    @IBOutlet weak var accountExists: UIView!
+    
     
     @IBOutlet weak var firstSwipe: UITextField!
     @IBOutlet weak var lastSwipe: UITextField!

@@ -51,6 +51,7 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
         //Create Scroll View and add it as a subview to RegisterNow VC
         scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.isScrollEnabled = true
         scrollView.isPagingEnabled = true
         view.addSubview(scrollView)
         view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[scrollView]|", options: .alignAllCenterX, metrics: nil, views: ["scrollView": scrollView]))
@@ -96,8 +97,8 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
     
         view.button.addTarget(self, action: #selector(insertArrangedName(sender:)), for: .touchUpInside)
         view.button.addTarget(view, action: #selector(view.removeButton(sender:)), for: .touchUpInside)
+        view.accountExistsButton.addTarget(self, action: #selector(restartViews(sender:)), for: .touchUpInside)
         stackView.addArrangedSubview(setConstraints(inputXib: view))
-        
         animateIn(newView: view)
     }
     
@@ -245,8 +246,9 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
         view.isValid.addTarget(self, action: #selector(restartViews(sender:)), for: .touchUpInside)
         
         stackView.addArrangedSubview(setConstraints(inputXib: view))
+        scrollView.isScrollEnabled = false
+        scrollView.isPagingEnabled = false
         animateIn(newView: view)
-        
     }
     
     @objc func submitSignatureData(sender: AnyObject) {

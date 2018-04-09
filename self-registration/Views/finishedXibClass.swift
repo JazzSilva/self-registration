@@ -8,13 +8,15 @@
 
 import Foundation
 import UIKit
+import Lottie
 
 class finishedXib: UIView {
     
     @IBOutlet var contentView: UIView!
-    @IBOutlet weak var isValid: UIButton!
+    @IBOutlet weak var isValid: nextButton!
     @IBOutlet weak var topLabel: UILabel!
 
+    @IBOutlet var checkMark: UIView!
     @IBOutlet weak var adultResultPopUp: UIView!
     @IBOutlet weak var childrenResultPopUp: UIView!
     @IBOutlet weak var digitalResultPopUp: UIView!
@@ -38,18 +40,50 @@ class finishedXib: UIView {
         contentView.shadowOpacity = 0.20
         contentView.shadowOffset = CGPoint(x: 0, y: 0)
         contentView.shadowRadius = 14
+        contentView.addSubview(checkMark)
+        checkMark.center.x = contentView.center.x
+        checkMark.center.y = contentView.center.y
+        isValid.enableSettings()
     }
     
     @objc func popUpAdult(sender: AnyObject) {
-        self.addSubview(adultResultPopUp)
+        contentView.addSubview(adultResultPopUp)
+        adultResultPopUp.center.x = contentView.center.x
+        adultResultPopUp.center.y = contentView.center.y
+        //adultResultPopUp.addSubview(checkMark)
+        //checkMark.center.x = contentView.center.x
+        //checkMark.center.y = contentView.center.y
+        animateCheck()
+        
     }
     
     @objc func popUpChild(sender: AnyObject) {
-        self.addSubview(childrenResultPopUp)
+        contentView.addSubview(childrenResultPopUp)
+        childrenResultPopUp.center.x = contentView.center.x
+        childrenResultPopUp.center.y = contentView.center.y
+        //childrenResultPopUp.addSubview(checkMark)
+        //checkMark.center.x = contentView.center.x
+        //checkMark.center.y = contentView.center.y
+        animateCheck()
     }
     
     @objc func popUpDigital(sender: AnyObject) {
-        self.addSubview(digitalResultPopUp)
+        contentView.addSubview(digitalResultPopUp)
+        digitalResultPopUp.center.x = contentView.center.x
+        digitalResultPopUp.center.y = contentView.center.y
+        //digitalResultPopUp.addSubview(checkMark)
+        //checkMark.center.x = contentView.center.x
+        //checkMark.center.y = contentView.center.y
+        animateCheck()
+    }
+    
+    private func animateCheck() {
+        let animationView = LOTAnimationView(name: "done")
+        animationView.frame = CGRect(x:0, y:0, width: 90, height: 90)
+        animationView.contentMode = .scaleAspectFill
+        checkMark.addSubview(animationView)
+        animationView.play()
+        animationView.loopAnimation = false
     }
     
 }

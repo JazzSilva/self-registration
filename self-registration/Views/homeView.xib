@@ -17,6 +17,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="homeXib" customModule="self_registration" customModuleProvider="target">
             <connections>
+                <outlet property="accountExists" destination="PIk-z6-5Um" id="JgN-Lj-5v1"/>
+                <outlet property="accountExistsButton" destination="BPs-Bg-5XG" id="uTd-Da-i4C"/>
                 <outlet property="addressSwipe" destination="hom-t4-te3" id="xm5-XD-Hph"/>
                 <outlet property="button" destination="ulE-px-ErZ" id="uRs-jw-5pY"/>
                 <outlet property="citySwipe" destination="fa2-6d-WCE" id="gow-fU-UKD"/>
@@ -125,11 +127,6 @@
                     <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UNZ-wY-08C" customClass="nextButton" customModule="self_registration" customModuleProvider="target">
-                    <rect key="frame" x="166" y="182" width="173" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="Next"/>
-                </button>
                 <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fZ0-Tf-NEl">
                     <rect key="frame" x="349" y="109" width="141" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -138,11 +135,40 @@
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UNZ-wY-08C" customClass="nextButton" customModule="self_registration" customModuleProvider="target">
+                    <rect key="frame" x="216" y="183" width="74" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                    <state key="normal" title="Next"/>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="OUs-YT-gC9"/>
-            <point key="canvasLocation" x="-264.5" y="215.5"/>
+            <point key="canvasLocation" x="-662.5" y="274.5"/>
+        </view>
+        <view contentMode="scaleToFill" id="PIk-z6-5Um">
+            <rect key="frame" x="0.0" y="0.0" width="505" height="289"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Looks like there is already an account registered with this license!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fte-iZ-poO">
+                    <rect key="frame" x="55" y="81" width="395" height="62"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BPs-Bg-5XG" customClass="nextButton" customModule="self_registration" customModuleProvider="target">
+                    <rect key="frame" x="215" y="178" width="74" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                    <state key="normal" title="Okay"/>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="eU5-Bd-kF2"/>
+            <point key="canvasLocation" x="-663.5" y="610.5"/>
         </view>
     </objects>
 </document>

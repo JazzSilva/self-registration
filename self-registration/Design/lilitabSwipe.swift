@@ -33,17 +33,34 @@ extension homeXib {
                 self.zipDobNumber(input: self.userDict[4]!)
             }
             
-            //Set information in pop-up view
-            self.firstSwipe.text = self.userInformation["First"]?.first
-            self.lastSwipe.text = self.userInformation["Last"]?.first
-            self.addressSwipe.text = self.userInformation["Address 1"]?.first
-            self.citySwipe.text = self.userInformation["City"]?.first
-            self.dobSwipe.text = self.userInformation["DOB"]?.first
-            self.stateSwipe.text = self.userInformation["State"]?.first
-            self.zipSwipe.text = self.userInformation["Zip"]?.first
-            self.licenseSwipe.text = self.userInformation["DL Number"]?.first
+            //Standard popup view should appear if this is a new user
+            if doesAccountExist(id: (userInformation["DL Number"]?.first)!) == false {
+                self.firstSwipe.text = self.userInformation["First"]?.first
+                self.lastSwipe.text = self.userInformation["Last"]?.first
+                self.addressSwipe.text = self.userInformation["Address 1"]?.first
+                self.citySwipe.text = self.userInformation["City"]?.first
+                self.dobSwipe.text = self.userInformation["DOB"]?.first
+                self.stateSwipe.text = self.userInformation["State"]?.first
+                self.zipSwipe.text = self.userInformation["Zip"]?.first
+                self.licenseSwipe.text = self.userInformation["DL Number"]?.first
+                animateSwipe()
+            }
+            //This user already exists in the system
+            else {
+                self.addSubview(accountExists)
+                accountExists.center = CGPoint(x: self.center.x, y: self.center.y + 50)
+                accountExists.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
+                animationView.transform = CGAffineTransform.identity
+                swipedView.alpha = 0
+                UIView.animate(withDuration: 0.4) {
+                    self.accountExists.alpha = 1
+                    self.accountExists.transform = CGAffineTransform.identity
+                    self.animationView.transform = CGAffineTransform.init(scaleX: 0, y: 0)
+                }
+                accountExistsButton.enableSettings()
+            }
         }
-        animateSwipe()
+        
    }
     
     public func cityState(input :String) {

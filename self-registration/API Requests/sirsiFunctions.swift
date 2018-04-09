@@ -8,9 +8,10 @@
 
 import Foundation
 import Alamofire
+import RxSwift
 
 typealias CompletionHandlerWithParameters = (_ parameters: Parameters) -> Void
-
+typealias CompletionHandlerWithBool = (_ id: String) -> Bool
 var sessionToken = ""
 
 var headers: HTTPHeaders = [
@@ -24,18 +25,12 @@ var headers: HTTPHeaders = [
 
 func getLibraryCardNumber() -> String {
     let libraryCardNumber = "HCPLB" + random9DigitString()
-    return libraryCardNumber
-}
-
-func sendToSirsi(user: user) {
-    getSessionTokenAndParameters(user: user, completionHandler: { myArray -> Void in
-        sendJSONtoILS(creationURL: RCValues.sharedInstance.string(forKey: .creationURL), method: .post, parameters: myArray, header: headers) {
-            response in
-            print("inside response")
-        }
-        print("inside closure now")
-        print("closure url: \(myArray)")
-    })
+    if doesAccountExist(id: libraryCardNumber) == false {
+        return libraryCardNumber
+    }
+    else {
+        return getLibraryCardNumber()
+    }
 }
 
 func getSessionToken() {
@@ -47,15 +42,67 @@ func getSessionToken() {
     }
 }
 
-func lookupUserID(id: String) {
-    
+//Functions to check if user exists
+
+func doesAccountExist(id: String) -> Bool {
+    let doesExist = Variable<Bool>(false)
+    getSessionTokenStepOne(id: id, completionHandler: { id -> Bool in
+        doesExist.value = lookupUserID(id: id)
+        print("inside closure now")
+        return lookupUserID(id: id)
+    })
+    return doesExist.value
+}
+
+func getSessionTokenStepOne(id: String, completionHandler: @escaping CompletionHandlerWithBool) {
+    Alamofire.request(RCValues.sharedInstance.string(forKey: .sessionTokenRequestURL)).responseJSON {
+        response in
+        let post = response.value as! [String:String]
+        sessionToken = post["sessionToken"] ?? ""
+        print(completionHandler(id))
+    }
+}
+
+func lookupUserID(id: String) -> Bool {
+    let lookupURL = RCValues.sharedInstance.string(forKey: .lookupUserID) + id
+    let doesExist = Variable<Bool>(false)
+    Alamofire.request(lookupURL, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+        guard let post = response.data else {
+            return
+        }
+        do { let json = try JSONSerialization.jsonObject(with: post)
+            if let people = json as? [String: Any] {
+                if people.keys.contains("user") {
+                    doesExist.value = true
+                    print("users", people["user"] ?? "")
+                }
+                else {
+                    doesExist.value = false
+                }
+            }
+        }
+        catch { print("error parsing json") }
+        print("Does the USER ID exist: \(doesExist.value)")
+    }
+    return doesExist.value
+}
+
+
+
+
+func sendToSirsi(user: user) {
+    getSessionTokenAndParameters(user: user, completionHandler: { myArray -> Void in
+        sendJSONtoILS(creationURL: RCValues.sharedInstance.string(forKey: .creationURL), method: .post, parameters: myArray, header: headers) {
+            response in
+            print("inside response")
+        }
+        print("closure url: \(myArray)")
+    })
 }
 
 func sendJSONtoILS(creationURL: String, method: HTTPMethod, parameters: Parameters, header: HTTPHeaders, completionHandler: (String) -> Void) {
     Alamofire.request(creationURL, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: header).responseString { response in
         print("Send JSON to ILS was a success")
-        print("myArray: \(parameters)")
-        print("myHeader: \(header)")
     }
 }
 
@@ -64,7 +111,6 @@ func getSessionTokenAndParameters(user: user, completionHandler: @escaping Compl
         response in
         let post = response.value as! [String: String]
         sessionToken = post["sessionToken"]!
-        print("sessionToken is: \(sessionToken)")
         
         var myArray = Parameters()
         
