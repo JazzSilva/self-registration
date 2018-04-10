@@ -11,7 +11,7 @@ import Alamofire
 import RxSwift
 
 typealias CompletionHandlerWithParameters = (_ parameters: Parameters) -> Void
-typealias CompletionHandlerWithBool = (_ id: String) -> Bool
+typealias CompletionHandlerBool = (_ id: String) -> Bool
 var sessionToken = ""
 
 var headers: HTTPHeaders = [
@@ -42,15 +42,17 @@ func getSessionToken() {
     }
 }
 
-//Functions to check if user exists
+/*Functions to check if user exists
 
 func doesAccountExist(id: String) -> Bool {
     let doesExist = Variable<Bool>(false)
     getSessionTokenStepOne(id: id, completionHandler: { id -> Bool in
         doesExist.value = lookupUserID(id: id)
-        print("inside closure now")
+        print("this is the id:", id)
+        print("inside closure now:", lookupUserID(id: id))
         return lookupUserID(id: id)
     })
+    print("does exist value is:", doesExist.value)
     return doesExist.value
 }
 
@@ -84,8 +86,49 @@ func lookupUserID(id: String) -> Bool {
         catch { print("error parsing json") }
         print("Does the USER ID exist: \(doesExist.value)")
     }
+    print("This is the final does exist value:",doesExist.value)
     return doesExist.value
 }
+
+*/
+
+func doesAccountExist(id: String) -> Bool {
+    return getNewToken(id: id, completionHandler: check(_:))
+}
+
+func getNewToken(id: String, completionHandler: @escaping CompletionHandlerBool) {
+    //get token and update code then
+    Alamofire.request(RCValues.sharedInstance.string(forKey: .sessionTokenRequestURL)).responseJSON {
+        response in
+        let post = response.value as! [String:String]
+        sessionToken = post["sessionToken"] ?? ""
+    }
+    return completionHandler(id)
+}
+
+func check(_ id: String) -> Bool {
+    let lookupURL = RCValues.sharedInstance.string(forKey: .lookupUserID) + id
+    let doesExist = Variable<Bool>(false)
+    Alamofire.request(lookupURL, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+        guard let post = response.data else {
+            return
+        }
+        do { let json = try JSONSerialization.jsonObject(with: post)
+            if let people = json as? [String: Any] {
+                if people.keys.contains("user") {
+                    doesExist.value = true
+                }
+                else {
+                    doesExist.value = false
+                }
+            }
+        }
+        catch {print("error parsing json")}
+    }
+    print("This is the final does exist value:",doesExist.value)
+    return doesExist.value
+}
+
 
 
 

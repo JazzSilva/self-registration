@@ -37,12 +37,14 @@ extension homeXib {
             if doesAccountExist(id: (userInformation["DL Number"]?.first)!) == false {
                 self.firstSwipe.text = self.userInformation["First"]?.first
                 self.lastSwipe.text = self.userInformation["Last"]?.first
-                self.addressSwipe.text = self.userInformation["Address 1"]?.first
+                //self.userInformation["Address 1"]?.first
+                self.addressSwipe.text = "Did not"
                 self.citySwipe.text = self.userInformation["City"]?.first
                 self.dobSwipe.text = self.userInformation["DOB"]?.first
                 self.stateSwipe.text = self.userInformation["State"]?.first
                 self.zipSwipe.text = self.userInformation["Zip"]?.first
                 self.licenseSwipe.text = self.userInformation["DL Number"]?.first
+                
                 animateSwipe()
             }
             //This user already exists in the system
