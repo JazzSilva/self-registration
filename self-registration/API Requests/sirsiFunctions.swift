@@ -130,9 +130,6 @@ func check(_ id: String) -> Bool {
 }
 
 
-
-
-
 func sendToSirsi(user: user) {
     getSessionTokenAndParameters(user: user, completionHandler: { myArray -> Void in
         sendJSONtoILS(creationURL: RCValues.sharedInstance.string(forKey: .creationURL), method: .post, parameters: myArray, header: headers) {
