@@ -12,6 +12,8 @@ import RxSwift
 
 typealias CompletionHandlerWithParameters = (_ parameters: Parameters) -> Void
 typealias CompletionHandlerBool = (_ id: String) -> Bool
+typealias CompletionHandlerVoid = (_ success: Bool) -> Void
+
 var sessionToken = ""
 
 var headers: HTTPHeaders = [
@@ -93,21 +95,28 @@ func lookupUserID(id: String) -> Bool {
 */
 
 func doesAccountExist(id: String) -> Bool {
-    return getNewToken(id: id, completionHandler: check(_:))
-}
-
-func getNewToken(id: String, completionHandler: @escaping CompletionHandlerBool) {
-    //get token and update code then
-    Alamofire.request(RCValues.sharedInstance.string(forKey: .sessionTokenRequestURL)).responseJSON {
-        response in
-        let post = response.value as! [String:String]
-        sessionToken = post["sessionToken"] ?? ""
+    
+    func getNewToken(completionHandler: @escaping CompletionHandlerBool) -> Bool {
+        //get token and update code then
+        Alamofire.request(RCValues.sharedInstance.string(forKey: .sessionTokenRequestURL)).responseJSON {
+            response in
+            let post = response.value as! [String:String]
+            sessionToken = post["sessionToken"] ?? ""
+            print("session token:", sessionToken)
+        }
+        return execute(id: id)
     }
-    return completionHandler(id)
+    
+    func execute(id: String) -> Bool {
+        return check(id)
+    }
+    
+    return check(id)
 }
 
-func check(_ id: String) -> Bool {
+var check = { (id: String) -> Bool in
     let lookupURL = RCValues.sharedInstance.string(forKey: .lookupUserID) + id
+    print("lookUP URL:", lookupURL)
     let doesExist = Variable<Bool>(false)
     Alamofire.request(lookupURL, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
         guard let post = response.data else {
@@ -115,11 +124,14 @@ func check(_ id: String) -> Bool {
         }
         do { let json = try JSONSerialization.jsonObject(with: post)
             if let people = json as? [String: Any] {
+                print("people:", people)
                 if people.keys.contains("user") {
                     doesExist.value = true
+                    print("true")
                 }
                 else {
                     doesExist.value = false
+                    print("false")
                 }
             }
         }
