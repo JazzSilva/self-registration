@@ -21,7 +21,7 @@
         <scene sceneID="hNz-n2-bh7">
             <objects>
                 <viewController id="9pv-A4-QxB" customClass="FirstViewController" customModule="self_registration" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" misplaced="YES" id="tsR-hK-woN">
+                    <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.98529547452926636" green="0.97948293299561551" blue="0.98038775449652915" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -59,7 +59,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clearsContextBeforeDrawing="NO" contentMode="redraw" preservesSuperviewLayoutMargins="YES" selectionStyle="blue" showsReorderControl="YES" indentationWidth="10" reuseIdentifier="userCell" rowHeight="66" id="y78-uY-wVk" customClass="userCell" customModule="self_registration" customModuleProvider="target">
+                                    <tableViewCell clearsContextBeforeDrawing="NO" contentMode="redraw" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="blue" showsReorderControl="YES" indentationWidth="10" reuseIdentifier="userCell" rowHeight="66" id="y78-uY-wVk" customClass="userCell" customModule="self_registration" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="967" height="66"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" multipleTouchEnabled="YES" contentMode="scaleAspectFit" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="y78-uY-wVk" id="51m-Rz-0fG">
@@ -103,7 +103,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="sample.person@gmail.com" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IrH-Xs-dCb">
-                                                    <rect key="frame" x="738" y="32.5" width="214" height="20.5"/>
+                                                    <rect key="frame" x="482" y="32.5" width="214" height="20.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="214" id="Uf2-A1-OD0"/>
                                                     </constraints>
@@ -124,7 +124,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="2402736898" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="THw-5Z-qFG">
-                                                    <rect key="frame" x="605" y="34" width="110" height="21"/>
+                                                    <rect key="frame" x="349" y="34" width="110" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="110" id="W0E-Y8-VMr"/>
                                                     </constraints>

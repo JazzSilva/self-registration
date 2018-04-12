@@ -51,6 +51,7 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
         //Create Scroll View and add it as a subview to RegisterNow VC
         scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.isScrollEnabled = true
         scrollView.isPagingEnabled = true
         view.addSubview(scrollView)
         view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[scrollView]|", options: .alignAllCenterX, metrics: nil, views: ["scrollView": scrollView]))
@@ -96,8 +97,8 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
     
         view.button.addTarget(self, action: #selector(insertArrangedName(sender:)), for: .touchUpInside)
         view.button.addTarget(view, action: #selector(view.removeButton(sender:)), for: .touchUpInside)
+        view.accountExistsButton.addTarget(self, action: #selector(restartViews(sender:)), for: .touchUpInside)
         stackView.addArrangedSubview(setConstraints(inputXib: view))
-        
         animateIn(newView: view)
     }
     
@@ -233,20 +234,21 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
         
         
         if viewModel.userProfile.value == "A" {
-            view.bodyText.text = "You can now use your drivers license to checkout materials! We also texted you an electronic copy of your card to number \(viewModel.phone.value)"
+            view.popUpAdult(sender: self)
         }
         else if viewModel.isChildUser.value {
-            view.bodyText.text = "We sent your electornic children's card to \(viewModel.phone.value). It can be used to access all of our digital resources! We sent your parent instructions to fully activate your card."
+            view.popUpChild(sender: self)
         }
         else {
-            view.bodyText.text = "We sent your electornic library card to \(viewModel.phone.value). It can be used to access all of our digital resources! You'll need to verify your address at the front desk to begin checking out physical materials."
+            view.popUpDigital(sender: self)
         }
         
         view.isValid.addTarget(self, action: #selector(restartViews(sender:)), for: .touchUpInside)
         
         stackView.addArrangedSubview(setConstraints(inputXib: view))
+        scrollView.isScrollEnabled = false
+        scrollView.isPagingEnabled = false
         animateIn(newView: view)
-        
     }
     
     @objc func submitSignatureData(sender: AnyObject) {

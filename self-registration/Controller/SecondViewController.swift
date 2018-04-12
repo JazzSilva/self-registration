@@ -171,7 +171,19 @@ extension SecondViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt: IndexPath) -> [UITableViewRowAction]? {
-        let send = UITableViewRowAction(style: .normal, title: "Resend Barcode") { action, index in
+        
+        let edit = UITableViewRowAction(style: .normal, title: "Does Exist") {
+            action, index in
+            let user = self.userList[index.row]
+            guard let id = user.libraryCardNumber else {
+                print("the user doesn't have a number to check")
+                return
+            }
+            print(doesAccountExist(id: id))
+        }
+        
+        let send = UITableViewRowAction(style: .normal, title: "Resend Barcode")
+        { action, index in
             let user = self.userList[index.row]
             guard let phone = user.phone else {
                 print("no phone # on file")
@@ -180,8 +192,10 @@ extension SecondViewController: UITableViewDelegate {
             text(user: user)
         }
         send.backgroundColor = .lightGray
-        return [send]
+        edit.backgroundColor = .green
+        return [send, edit]
     }
+
 }
 
 extension SecondViewController {

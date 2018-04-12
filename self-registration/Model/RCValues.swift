@@ -49,8 +49,8 @@ class RCValues {
     
     func fetchCloudValues() {
         //In production, change fetch duration to 43200 (12hrs). A fetch duration of 0 will never use cached data & "activateDebugMode()" is needed.
-        let fetchDuration: TimeInterval = 0
-        activateDebugMode()
+        let fetchDuration: TimeInterval = 43200
+        //activateDebugMode()
         Firebase.RemoteConfig.remoteConfig().fetch(withExpirationDuration: fetchDuration, completionHandler: {
             [weak self] (status, error) in
             
@@ -107,4 +107,6 @@ class RCValues {
             return 0.0
         }
     }
+    
+    
 }

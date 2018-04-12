@@ -45,6 +45,7 @@
 		B057BDA2201BAF0C00BCDF95 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B057BD9F201BAF0C00BCDF95 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B057BDA3201BAF0C00BCDF95 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B057BDA0201BAF0C00BCDF95 /* Realm.framework */; };
 		B057BDA4201BAF0C00BCDF95 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B057BDA0201BAF0C00BCDF95 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B05B8022207BC1A500831A5B /* done.json in Resources */ = {isa = PBXBuildFile; fileRef = B05B8021207BC1A500831A5B /* done.json */; };
 		B0639EFE2017A5C200DD7FA4 /* nameView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0639EFD2017A5C200DD7FA4 /* nameView.xib */; };
 		B0639F002017A83800DD7FA4 /* nameXibClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0639EFF2017A83800DD7FA4 /* nameXibClass.swift */; };
 		B0639F022017C6EB00DD7FA4 /* addressView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0639F012017C6EB00DD7FA4 /* addressView.xib */; };
@@ -173,6 +174,7 @@
 		B0400E7F20168C940026CA09 /* RxTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxTest.framework; path = Carthage/Build/iOS/RxTest.framework; sourceTree = "<group>"; };
 		B057BD9F201BAF0C00BCDF95 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		B057BDA0201BAF0C00BCDF95 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
+		B05B8021207BC1A500831A5B /* done.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = done.json; sourceTree = "<group>"; };
 		B0639EFD2017A5C200DD7FA4 /* nameView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = nameView.xib; sourceTree = "<group>"; };
 		B0639EFF2017A83800DD7FA4 /* nameXibClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nameXibClass.swift; sourceTree = "<group>"; };
 		B0639F012017C6EB00DD7FA4 /* addressView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = addressView.xib; sourceTree = "<group>"; };
@@ -382,6 +384,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		B05B8020207BC19500831A5B /* done */ = {
+			isa = PBXGroup;
+			children = (
+				B05B8021207BC1A500831A5B /* done.json */,
+			);
+			path = done;
+			sourceTree = "<group>";
+		};
 		B0639EF82017877900DD7FA4 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -517,6 +527,7 @@
 		DDC195A9202DAF2900705B0C /* Lottie Animations */ = {
 			isa = PBXGroup;
 			children = (
+				B05B8020207BC19500831A5B /* done */,
 				B0214708203B1FE3009449E1 /* check */,
 				DDC195BE203A210800705B0C /* person */,
 			);
@@ -651,6 +662,7 @@
 				DD580D511FE970FA00A254B4 /* Assets.xcassets in Resources */,
 				B02A3C1C203C650600977D1F /* upload-sym.sh in Resources */,
 				B02A3C1A203C650600977D1F /* upload-sym in Resources */,
+				B05B8022207BC1A500831A5B /* done.json in Resources */,
 				B02A3C1F203C650600977D1F /* dump_syms in Resources */,
 				B02A3C33203C681E00977D1F /* GoogleService-Info.plist in Resources */,
 				B021470D203B1FE3009449E1 /* data.json in Resources */,
