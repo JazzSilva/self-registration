@@ -25,14 +25,30 @@ var headers: HTTPHeaders = [
     "SD-Prompt-Return": "USER_PRIVILEGE_OVRCD/SECRET"
 ]
 
-func getLibraryCardNumber() -> String {
+func getLibraryCardNumber(user: user) {
     let libraryCardNumber = "HCPLB" + random9DigitString()
-    if doesAccountExist(id: libraryCardNumber) == false {
-        return libraryCardNumber
+    getSessionTokenTwo { (success) -> Void in
+        if success {
+            print("got session token", NSDate())
+            // do second task if success
+            if checkAccount(libraryCardNumber) {
+                print("card number was already in use")
+                getLibraryCardNumber(user: user)
+            }
+            else {
+                print("card number was not in use")
+                setLibraryCard(card: libraryCardNumber, user: user)
+            }
+        }
+        else {
+            print("did not get session token")
+            sessionTokenError()
+        }
     }
-    else {
-        return getLibraryCardNumber()
-    }
+}
+
+func setLibraryCard(card: String, user: user) {
+    user.libraryCardNumber = card
 }
 
 func getSessionToken() {
@@ -43,104 +59,6 @@ func getSessionToken() {
         print("sessionToken is: \(sessionToken)")
     }
 }
-
-/*Functions to check if user exists
-
-func doesAccountExist(id: String) -> Bool {
-    let doesExist = Variable<Bool>(false)
-    getSessionTokenStepOne(id: id, completionHandler: { id -> Bool in
-        doesExist.value = lookupUserID(id: id)
-        print("this is the id:", id)
-        print("inside closure now:", lookupUserID(id: id))
-        return lookupUserID(id: id)
-    })
-    print("does exist value is:", doesExist.value)
-    return doesExist.value
-}
-
-func getSessionTokenStepOne(id: String, completionHandler: @escaping CompletionHandlerWithBool) {
-    Alamofire.request(RCValues.sharedInstance.string(forKey: .sessionTokenRequestURL)).responseJSON {
-        response in
-        let post = response.value as! [String:String]
-        sessionToken = post["sessionToken"] ?? ""
-        print(completionHandler(id))
-    }
-}
-
-func lookupUserID(id: String) -> Bool {
-    let lookupURL = RCValues.sharedInstance.string(forKey: .lookupUserID) + id
-    let doesExist = Variable<Bool>(false)
-    Alamofire.request(lookupURL, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
-        guard let post = response.data else {
-            return
-        }
-        do { let json = try JSONSerialization.jsonObject(with: post)
-            if let people = json as? [String: Any] {
-                if people.keys.contains("user") {
-                    doesExist.value = true
-                    print("users", people["user"] ?? "")
-                }
-                else {
-                    doesExist.value = false
-                }
-            }
-        }
-        catch { print("error parsing json") }
-        print("Does the USER ID exist: \(doesExist.value)")
-    }
-    print("This is the final does exist value:",doesExist.value)
-    return doesExist.value
-}
-
-*/
-
-func doesAccountExist(id: String) -> Bool {
-    
-    func getNewToken(completionHandler: @escaping CompletionHandlerBool) -> Bool {
-        //get token and update code then
-        Alamofire.request(RCValues.sharedInstance.string(forKey: .sessionTokenRequestURL)).responseJSON {
-            response in
-            let post = response.value as! [String:String]
-            sessionToken = post["sessionToken"] ?? ""
-            print("session token:", sessionToken)
-        }
-        return execute(id: id)
-    }
-    
-    func execute(id: String) -> Bool {
-        return check(id)
-    }
-    
-    return check(id)
-}
-
-var check = { (id: String) -> Bool in
-    let lookupURL = RCValues.sharedInstance.string(forKey: .lookupUserID) + id
-    print("lookUP URL:", lookupURL)
-    let doesExist = Variable<Bool>(false)
-    Alamofire.request(lookupURL, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
-        guard let post = response.data else {
-            return
-        }
-        do { let json = try JSONSerialization.jsonObject(with: post)
-            if let people = json as? [String: Any] {
-                print("people:", people)
-                if people.keys.contains("user") {
-                    doesExist.value = true
-                    print("true")
-                }
-                else {
-                    doesExist.value = false
-                    print("false")
-                }
-            }
-        }
-        catch {print("error parsing json")}
-    }
-    print("This is the final does exist value:",doesExist.value)
-    return doesExist.value
-}
-
 
 func sendToSirsi(user: user) {
     getSessionTokenAndParameters(user: user, completionHandler: { myArray -> Void in
@@ -290,3 +208,78 @@ func getSessionTokenAndParameters(user: user, completionHandler: @escaping Compl
         completionHandler(myArray)
     }
 }
+
+/// Does Account Exist
+func getSessionTokenTwo(completion: ((_ success: Bool) -> Void)?) {
+    // Do something
+    //Get sessionToken
+    print("hello", NSDate())
+    Alamofire.request(RCValues.sharedInstance.string(forKey: .sessionTokenRequestURL)).responseJSON {
+        response in
+        guard let post = response.value as? [String:String] else {
+            completion?(false)
+            return
+        }
+        sessionToken = post["sessionToken"] ?? ""
+        print("session token:", sessionToken)
+        completion?(true)
+    }
+}
+
+func checkAccount(_ id: String) -> Bool {
+    print("checking if account exists", NSDate())
+    let lookupURL = RCValues.sharedInstance.string(forKey: .lookupUserID) + id
+    print("lookUP URL:", lookupURL)
+    let doesExist = Variable<Bool>(false)
+    Alamofire.request(lookupURL, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+        guard let post = response.data else {
+            return
+        }
+        do { let json = try JSONSerialization.jsonObject(with: post)
+            if let people = json as? [String: Any] {
+                print("people:", people)
+                if people.keys.contains("user") {
+                    doesExist.value = true
+                    print("true")
+                }
+                else {
+                    doesExist.value = false
+                    print("false")
+                }
+            }
+        }
+        catch {print("error parsing json")}
+    }
+    print("This is the final does exist value:",doesExist.value)
+    return doesExist.value
+}
+
+func sessionTokenError() {
+    print("need to design error pop-UP")
+    print("display: Could not get token")
+    print("action: Could not connect to network, need to try again later")
+    print("action: Make note on staff screen")
+}
+
+
+/*
+getSessionTokenTwo { (success) -> Void in
+    if success {
+        print("got session token", NSDate())
+        // do second task if success
+        checkAccount(id)
+    }
+    else {
+        print("did not get session token")
+        sessionTokenError()
+    }
+}
+*/
+
+
+
+
+
+
+
+
