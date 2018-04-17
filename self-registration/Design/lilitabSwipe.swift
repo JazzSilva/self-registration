@@ -33,37 +33,49 @@ extension homeXib {
                 self.zipDobNumber(input: self.userDict[4]!)
             }
             
-            //Standard popup view should appear if this is a new user
-            if doesAccountExist(id: (userInformation["DL Number"]?.first)!) == false {
-                self.firstSwipe.text = self.userInformation["First"]?.first
-                self.lastSwipe.text = self.userInformation["Last"]?.first
-                //self.userInformation["Address 1"]?.first
-                self.addressSwipe.text = "Did not"
-                self.citySwipe.text = self.userInformation["City"]?.first
-                self.dobSwipe.text = self.userInformation["DOB"]?.first
-                self.stateSwipe.text = self.userInformation["State"]?.first
-                self.zipSwipe.text = self.userInformation["Zip"]?.first
-                self.licenseSwipe.text = self.userInformation["DL Number"]?.first
-                
-                animateSwipe()
-            }
-            //This user already exists in the system
-            else {
-                self.addSubview(accountExists)
-                accountExists.center = CGPoint(x: self.center.x, y: self.center.y + 50)
-                accountExists.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
-                animationView.transform = CGAffineTransform.identity
-                swipedView.alpha = 0
-                UIView.animate(withDuration: 0.4) {
-                    self.accountExists.alpha = 1
-                    self.accountExists.transform = CGAffineTransform.identity
-                    self.animationView.transform = CGAffineTransform.init(scaleX: 0, y: 0)
+            getSessionToken { (success) -> Void in
+                if success {
+                    print("got session token", NSDate())
+                    // do second task if success
+                    doesAccountExist((self.userInformation["DL Number"]?.first!)!) { (success) -> Void in
+                        if success {
+                            print("account does exist")
+                            print("card number was already in use")
+                            self.hello()
+                        }
+                        else {
+                            print("account does not exist")
+                            print("account does not exist")
+                            print("card number was not in use")
+                            self.accountDoesNotExistAction()
+                        }
+                    }
                 }
-                accountExistsButton.enableSettings()
+                else {
+                    print("did not get session token")
+                    sessionTokenError()
+                }
             }
+        
         }
         
    }
+    public func hello() {
+        self.animateError()
+    }
+    
+    public func accountDoesNotExistAction() {
+        self.firstSwipe.text = self.userInformation["First"]?.first
+        self.lastSwipe.text = self.userInformation["Last"]?.first
+        self.addressSwipe.text = self.userInformation["Address 1"]?.first
+        self.citySwipe.text = self.userInformation["City"]?.first
+        self.dobSwipe.text = self.userInformation["DOB"]?.first
+        self.stateSwipe.text = self.userInformation["State"]?.first
+        self.zipSwipe.text = self.userInformation["Zip"]?.first
+        self.licenseSwipe.text = self.userInformation["DL Number"]?.first
+        self.animateSwipe()
+        accountDoesNotExist()
+    }
     
     public func cityState(input :String) {
         userInformation["State"] = input.capturedGroups(withRegex: "[%](..)[.]*")

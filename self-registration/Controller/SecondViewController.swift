@@ -179,7 +179,27 @@ extension SecondViewController: UITableViewDelegate {
                 print("the user doesn't have a number to check")
                 return
             }
-            print(doesAccountExist(id: id))
+            print("this is where we check account")
+            getSessionToken { (success) -> Void in
+                if success {
+                    print("got session token", NSDate())
+                    // do second task if success
+                    doesAccountExist(id) { (success) -> Void in
+                        if success {
+                            print("account does exist")
+                            accountExistsFunction()
+                        }
+                        else {
+                            print("account does not exist")
+                            accountDoesNotExist()
+                        }
+                    }
+                }
+                else {
+                    print("did not get session token")
+                    sessionTokenError()
+                }
+            }
         }
         
         let send = UITableViewRowAction(style: .normal, title: "Resend Barcode")

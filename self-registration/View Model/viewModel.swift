@@ -18,7 +18,7 @@ class userViewModel {
     //This is a singleton
     init() {
         realm = Database.shared.realm
-        libraryCardNumber.value = getLibraryCardNumber()
+        getLibraryCardNumber(user: self)
         dateCreated.value = getDateCreatedToString(date: NSDate())
         branchCode.value = Database.shared.currentUser
     }

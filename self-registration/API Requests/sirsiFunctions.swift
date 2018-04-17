@@ -25,9 +25,26 @@ var headers: HTTPHeaders = [
     "SD-Prompt-Return": "USER_PRIVILEGE_OVRCD/SECRET"
 ]
 
-func getLibraryCardNumber(user: user) {
+/// Get session token
+func getSessionToken(completion: ((_ success: Bool) -> Void)?) {
+    // Do something
+    //Get sessionToken
+    print("hello", NSDate())
+    Alamofire.request(RCValues.sharedInstance.string(forKey: .sessionTokenRequestURL)).responseJSON {
+        response in
+        guard let post = response.value as? [String:String] else {
+            completion?(false)
+            return
+        }
+        sessionToken = post["sessionToken"] ?? ""
+        print("session token:", sessionToken)
+        completion?(true)
+    }
+}
+
+func getLibraryCardNumber(user: userViewModel) {
     let libraryCardNumber = "HCPLB" + random9DigitString()
-    getSessionTokenTwo { (success) -> Void in
+    getSessionToken { (success) -> Void in
         if success {
             print("got session token", NSDate())
             // do second task if success
@@ -47,18 +64,19 @@ func getLibraryCardNumber(user: user) {
     }
 }
 
-func setLibraryCard(card: String, user: user) {
-    user.libraryCardNumber = card
+func setLibraryCard(card: String, user: userViewModel) {
+    user.libraryCardNumber.value = card
+    print("user:\(user), has library card number: \(user.libraryCardNumber.value) which should match card: \(card)")
 }
 
-func getSessionToken() {
+/*func getSessionToken() {
     Alamofire.request(RCValues.sharedInstance.string(forKey: .sessionTokenRequestURL)).responseJSON {
         response in
         let post = response.value as! [String:String]
         sessionToken = post["sessionToken"] ?? ""
         print("sessionToken is: \(sessionToken)")
     }
-}
+}*/
 
 func sendToSirsi(user: user) {
     getSessionTokenAndParameters(user: user, completionHandler: { myArray -> Void in
@@ -209,22 +227,6 @@ func getSessionTokenAndParameters(user: user, completionHandler: @escaping Compl
     }
 }
 
-/// Does Account Exist
-func getSessionTokenTwo(completion: ((_ success: Bool) -> Void)?) {
-    // Do something
-    //Get sessionToken
-    print("hello", NSDate())
-    Alamofire.request(RCValues.sharedInstance.string(forKey: .sessionTokenRequestURL)).responseJSON {
-        response in
-        guard let post = response.value as? [String:String] else {
-            completion?(false)
-            return
-        }
-        sessionToken = post["sessionToken"] ?? ""
-        print("session token:", sessionToken)
-        completion?(true)
-    }
-}
 
 func checkAccount(_ id: String) -> Bool {
     print("checking if account exists", NSDate())
@@ -261,6 +263,39 @@ func sessionTokenError() {
     print("action: Make note on staff screen")
 }
 
+func doesAccountExist(_ id: String, completion: ((_ success: Bool) -> Void)?) {
+    print("checking if account exists", NSDate())
+    let lookupURL = RCValues.sharedInstance.string(forKey: .lookupUserID) + id
+    print("lookUP URL:", lookupURL)
+    Alamofire.request(lookupURL, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+        guard let post = response.data else {
+            return
+        }
+        do { let json = try JSONSerialization.jsonObject(with: post)
+            if let people = json as? [String: Any] {
+                print("people:", people)
+                if people.keys.contains("user") {
+                    print("true")
+                    completion?(true)
+                }
+                else {
+                    print("false")
+                    completion?(false)
+                }
+            }
+        }
+        catch {print("error parsing json")}
+    }
+}
+
+func accountExistsFunction() {
+    print("account exists function run")
+}
+
+func accountDoesNotExist() {
+    print("account does not exist function run")
+}
+
 
 /*
 getSessionTokenTwo { (success) -> Void in
@@ -274,6 +309,18 @@ getSessionTokenTwo { (success) -> Void in
         sessionTokenError()
     }
 }
+
+ doesAccountExist { (success) -> Void in
+    if success {
+        print("account does exist")
+        accountExists()
+    }
+    else {
+        print("account does not exist")
+        accountDoesNotExist()
+    }
+ }
+
 */
 
 

@@ -23,7 +23,7 @@ class homeXib: UIView {
     @IBOutlet weak var accountExistsButton: nextButton!
     
     @IBOutlet var swipedView: UIView!
-    @IBOutlet weak var accountExists: UIView!
+    @IBOutlet var accountExists: UIView!
     
     
     @IBOutlet weak var firstSwipe: UITextField!
@@ -94,6 +94,25 @@ class homeXib: UIView {
         animationView.play(fromFrame: 35, toFrame: 60, withCompletion: { completion in
             self.animateIn()
         })
+    }
+    
+    func animateError() {
+        topLabel.text = "Whoops!"
+        self.accountExistsAction()
+    }
+    
+    private func accountExistsAction() {
+        self.addSubview(accountExists)
+        accountExists.center = CGPoint(x: self.center.x, y: self.center.y + 50)
+        accountExists.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
+        animationView.transform = CGAffineTransform.identity
+        accountExists.alpha = 0
+        UIView.animate(withDuration: 0.4) {
+            self.accountExists.alpha = 1
+            self.accountExists.transform = CGAffineTransform.identity
+            self.animationView.transform = CGAffineTransform.init(scaleX: 0, y: 0)
+        }
+        accountExistsButton.enableSettings()
     }
     
     private func animateIn() {
