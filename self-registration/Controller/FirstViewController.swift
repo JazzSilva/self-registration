@@ -75,7 +75,7 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
     }
     
     //Adjust scroll view to fit new stack view content
-    private func updateScrollContentSize() {
+    public func updateScrollContentSize() {
         var contentRect = CGRect.zero
         for view in scrollView.subviews { contentRect = contentRect.union(view.frame) }
         scrollView.contentSize = CGSize(width: contentRect.width, height: contentRect.origin.y + contentRect.height)
@@ -115,7 +115,7 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
         view.isValid.addTarget(self, action: #selector(nameCompleteBindBirthday(sender:)), for: .touchUpInside)
         view.isValid.addTarget(self, action: #selector(insertArrangedAddress(sender:)), for: .touchUpInside)
         view.isValid.addTarget(view, action: #selector(view.removeButton(sender:)), for: .touchUpInside)
-        
+
         viewModel.isNameViewValid.subscribe(onNext: { [unowned view] isValid in
             guard let button = view.isValid else { return }
             button.setUI(bool: isValid)
@@ -127,6 +127,7 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
         
         view.topLabel.textColor = blueHexTitle
         stackView.addArrangedSubview(setConstraints(inputXib: view))
+        displayStartOver()
     }
     
     //Insert Address View
@@ -220,7 +221,7 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
         
         viewModel.isFormComplete.subscribe(onNext: { [unowned view] isValid in
             guard let button = view.isValid else { return }
-            button.setTitleColor(isValid ? greenHexEnabled : greyHexDisabled, for: .normal)
+            button.setUI(bool: isValid)
         }).disposed(by: disposeBag)
         
         view.topLabel.textColor = blueHexTitle
@@ -232,6 +233,7 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
     @objc func insertArrangedFinished(sender: AnyObject) {
         let view = finishedXib()
         
+        self.view.subviews.last?.removeFromSuperview()
         
         if viewModel.userProfile.value == "A" {
             view.popUpAdult(sender: self)
@@ -261,12 +263,13 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
     
     @objc func swipeCompleteNextXib(sender: AnyObject) {
         bindSwipe(inputXib: self.stackView.arrangedSubviews.last! as! homeXib)
+        displayStartOver()
     }
     
     @objc func nameCompleteBindBirthday(sender: AnyObject) {
         bindBirthday(inputXib: self.stackView.arrangedSubviews.last! as! nameXib)
     }
-    
+
     private func submitSignature(view: submitXib) {
         let sig: Data = UIImagePNGRepresentation(view.signatureView.signature!)! as Data
         viewModel.signature.value = sig.base64EncodedString()
@@ -325,5 +328,14 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
         print("birthday is \(viewModel.birthday.value)")
         print("is child \(viewModel.isChildUser.value)")
     }
+    
+    private func displayStartOver() {
+        let button = startOverButton()
+        button.enableSettings()
+        button.addTarget(self, action: #selector(restartViews(sender:)), for: .touchUpInside)
+        self.view.addSubview(button)
+        button.center = CGPoint(x: 100, y: 665)
+    }
+
 }
 

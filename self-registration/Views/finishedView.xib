@@ -169,13 +169,6 @@
             <viewLayoutGuide key="safeArea" id="jiS-2N-PyC"/>
             <point key="canvasLocation" x="-656" y="541"/>
         </view>
-        <view contentMode="scaleToFill" id="nNy-Z5-Gqh">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-            <viewLayoutGuide key="safeArea" id="eve-Tp-ayA"/>
-            <point key="canvasLocation" x="-755" y="625"/>
-        </view>
         <view contentMode="scaleToFill" id="AZg-5n-8iD">
             <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

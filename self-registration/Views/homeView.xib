@@ -41,7 +41,7 @@
             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ulE-px-ErZ" customClass="nextButton" customModule="self_registration" customModuleProvider="target">
-                    <rect key="frame" x="305" y="403" width="188" height="25"/>
+                    <rect key="frame" x="299" y="398" width="198" height="35"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                     <state key="normal" title="I don't have a license"/>
@@ -148,7 +148,7 @@
             <point key="canvasLocation" x="-662.5" y="274.5"/>
         </view>
         <view contentMode="scaleToFill" id="PIk-z6-5Um">
-            <rect key="frame" x="0.0" y="0.0" width="505" height="289"/>
+            <rect key="frame" x="0.0" y="0.0" width="505" height="290"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Looks like there is already an account registered with this license!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fte-iZ-poO">

@@ -59,7 +59,7 @@ class homeXib: UIView {
         Bundle.main.loadNibNamed("homeView", owner: self, options: nil)
         addSubview(contentView)
         animateLottie()
-        button.neutral()
+        button.enableSettings()
         topLabel.textColor = RCValues.sharedInstance.color(forKey: .headerTextPrimaryColor) 
         contentView.clipsToBounds = false
         contentView.frame = .init(x: 0, y: 0, width: 800, height: 500)

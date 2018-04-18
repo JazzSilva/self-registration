@@ -15,7 +15,7 @@ class logInController: UIViewController {
     @IBOutlet weak var logInView: UIView!
     @IBOutlet weak var usernameField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
-    @IBOutlet weak var submitButton: UIButton!
+    @IBOutlet weak var submitButton: nextButton!
     @IBOutlet weak var responseLabel: UILabel!
     
     override func viewDidLoad() {
@@ -29,9 +29,7 @@ class logInController: UIViewController {
         animateIn(newView: logInView)
         
         //Set Submit button settings
-        submitButton.setTitleColor(UIColor.white, for: .normal)
-        submitButton.backgroundColor = greenHexEnabled
-        submitButton.layer.cornerRadius = 4
+        submitButton.enableSettings()
         
         //Hide response
         responseLabel.text = ""

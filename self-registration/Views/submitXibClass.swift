@@ -14,7 +14,7 @@ class submitXib: UIView {
     @IBOutlet var contentView: UIView!
     
     @IBOutlet weak var topLabel: UILabel!
-    @IBOutlet weak var isValid: UIButton!
+    @IBOutlet weak var isValid: nextButton!
     @IBOutlet weak var signatureView: SwiftSignatureView!
     
     
@@ -37,6 +37,7 @@ class submitXib: UIView {
         contentView.shadowOpacity = 0.20
         contentView.shadowOffset = CGPoint(x: 0, y: 0)
         contentView.shadowRadius = 14
+        isValid.enableSettings()
     }
     
 }

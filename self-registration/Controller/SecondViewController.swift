@@ -17,7 +17,7 @@ class SecondViewController: UIViewController, UISearchBarDelegate {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var usernameText: UITextField!
     @IBOutlet weak var passwordText: UITextField!
-    @IBOutlet weak var submitButton: UIButton!
+    @IBOutlet weak var submitButton: nextButton!
     @IBOutlet weak var logInResponse: UILabel!
     @IBOutlet weak var logInSubview: UIView!
     @IBOutlet weak var searchBar: UISearchBar!
@@ -63,7 +63,7 @@ class SecondViewController: UIViewController, UISearchBarDelegate {
         self.hideKeyboardWhenTappedAround()
         searchBar.delegate = self
         searchBar.returnKeyType = UIReturnKeyType.done
-
+        submitButton.enableSettings()
     }
     override func viewWillAppear(_ animated: Bool) {
         tableView.delegate = self
@@ -215,10 +215,5 @@ extension SecondViewController: UITableViewDelegate {
         edit.backgroundColor = .green
         return [send, edit]
     }
-
-}
-
-extension SecondViewController {
-    
 
 }
