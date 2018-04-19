@@ -263,7 +263,7 @@ func sessionTokenError() {
     print("action: Make note on staff screen")
 }
 
-func doesAccountExist(_ id: String, completion: ((_ success: Bool) -> Void)?) {
+func doesAccountExist(_ id: String, completion: ((_ success: Bool,_ string: String) -> Void)?) {
     print("checking if account exists", NSDate())
     let lookupURL = RCValues.sharedInstance.string(forKey: .lookupUserID) + id
     print("lookUP URL:", lookupURL)
@@ -275,12 +275,12 @@ func doesAccountExist(_ id: String, completion: ((_ success: Bool) -> Void)?) {
             if let people = json as? [String: Any] {
                 print("people:", people)
                 if people.keys.contains("user") {
-                    print("true")
-                    completion?(true)
+                    print("dict is:", people["user"].debugDescription)
+                    completion?(true, people["user"].debugDescription)
                 }
                 else {
                     print("false")
-                    completion?(false)
+                    completion?(false, "This user cannot be found in Sirsi.")
                 }
             }
         }

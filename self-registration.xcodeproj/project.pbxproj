@@ -57,6 +57,8 @@
 		B07313AD2020F8E0002A6DED /* securityXibClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07313AC2020F8E0002A6DED /* securityXibClass.swift */; };
 		B07313AF2020F8F6002A6DED /* contactXibClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07313AE2020F8F6002A6DED /* contactXibClass.swift */; };
 		B07313B12020F904002A6DED /* submitXibClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07313B02020F904002A6DED /* submitXibClass.swift */; };
+		DD1A048120886D4E002BC5CB /* detailPatronView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD1A048020886D4E002BC5CB /* detailPatronView.xib */; };
+		DD1A048320887BEF002BC5CB /* detailPatronXibClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1A048220887BEF002BC5CB /* detailPatronXibClass.swift */; };
 		DD220A0720111B7A00F19AC9 /* dataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD220A0620111B7A00F19AC9 /* dataModel.swift */; };
 		DD220A0920111C6700F19AC9 /* databaseClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD220A0820111C6700F19AC9 /* databaseClass.swift */; };
 		DD220A0F2011247600F19AC9 /* viewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD220A0E2011247600F19AC9 /* viewModel.swift */; };
@@ -186,6 +188,8 @@
 		B07313AC2020F8E0002A6DED /* securityXibClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = securityXibClass.swift; sourceTree = "<group>"; };
 		B07313AE2020F8F6002A6DED /* contactXibClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = contactXibClass.swift; sourceTree = "<group>"; };
 		B07313B02020F904002A6DED /* submitXibClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = submitXibClass.swift; sourceTree = "<group>"; };
+		DD1A048020886D4E002BC5CB /* detailPatronView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = detailPatronView.xib; sourceTree = "<group>"; };
+		DD1A048220887BEF002BC5CB /* detailPatronXibClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = detailPatronXibClass.swift; sourceTree = "<group>"; };
 		DD220A0620111B7A00F19AC9 /* dataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dataModel.swift; sourceTree = "<group>"; };
 		DD220A0820111C6700F19AC9 /* databaseClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = databaseClass.swift; sourceTree = "<group>"; };
 		DD220A0E2011247600F19AC9 /* viewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewModel.swift; sourceTree = "<group>"; };
@@ -410,6 +414,8 @@
 				DDC195B8203A00C200705B0C /* homeXibClass.swift */,
 				DDB0263A2056E336007EDD94 /* finishedView.xib */,
 				DDB0263C2056E349007EDD94 /* finishedXibClass.swift */,
+				DD1A048020886D4E002BC5CB /* detailPatronView.xib */,
+				DD1A048220887BEF002BC5CB /* detailPatronXibClass.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -673,6 +679,7 @@
 				B07313AB2020F86B002A6DED /* submitView.xib in Resources */,
 				B02A3C21203C650600977D1F /* batch-upload in Resources */,
 				DD580D4F1FE970FA00A254B4 /* Main.storyboard in Resources */,
+				DD1A048120886D4E002BC5CB /* detailPatronView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -727,6 +734,7 @@
 				DD3A344C202DA5E500F2B28B /* textFields.swift in Sources */,
 				DDC195B9203A00C200705B0C /* homeXibClass.swift in Sources */,
 				B02A3C3B203DE45000977D1F /* twilioFunctions.swift in Sources */,
+				DD1A048320887BEF002BC5CB /* detailPatronXibClass.swift in Sources */,
 				B0639F002017A83800DD7FA4 /* nameXibClass.swift in Sources */,
 				B0639F042017C71A00DD7FA4 /* addressXibClass.swift in Sources */,
 				DD580D481FE970FA00A254B4 /* AppDelegate.swift in Sources */,

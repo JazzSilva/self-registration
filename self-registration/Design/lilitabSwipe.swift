@@ -37,7 +37,7 @@ extension homeXib {
                 if success {
                     print("got session token", NSDate())
                     // do second task if success
-                    doesAccountExist((self.userInformation["DL Number"]?.first!)!) { (success) -> Void in
+                    doesAccountExist((self.userInformation["DL Number"]?.first!)!) { (success, string) -> Void in
                         if success {
                             print("account does exist")
                             print("card number was already in use")

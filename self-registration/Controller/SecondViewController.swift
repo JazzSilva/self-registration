@@ -184,10 +184,21 @@ extension SecondViewController: UITableViewDelegate {
                 if success {
                     print("got session token", NSDate())
                     // do second task if success
-                    doesAccountExist(id) { (success) -> Void in
+                    doesAccountExist(id) { (success, string) -> Void in
                         if success {
                             print("account does exist")
-                            accountExistsFunction()
+                            let view = self.parseResponseDetail(xib: detailPatronXib(), string: string)
+                            view.translatesAutoresizingMaskIntoConstraints = false
+                            view.exitButton.addTarget(self, action: #selector(self.exitTableDetailView(sender:)), for: .touchUpInside)
+                            self.tableView.tableHeaderView = view
+                            self.tableView.tableHeaderView?.isUserInteractionEnabled = true
+                            view.centerXAnchor.constraint(equalTo: self.tableView.centerXAnchor).isActive = true
+                            view.centerYAnchor.constraint(equalTo: self.tableView.centerYAnchor).isActive = true
+                            view.widthAnchor.constraint(equalTo: self.tableView.widthAnchor).isActive = true
+                            view.heightAnchor.constraint(equalTo: self.tableView.heightAnchor).isActive = true
+                            self.tableView.tableHeaderView?.layoutIfNeeded()
+                            self.tableView.tableHeaderView = self.tableView.tableHeaderView
+                            self.tableView.isScrollEnabled = false
                         }
                         else {
                             print("account does not exist")
@@ -211,9 +222,55 @@ extension SecondViewController: UITableViewDelegate {
             }
             text(user: user)
         }
+        
+        let detail = UITableViewRowAction(style: .normal, title: "Show Detailed View")
+        { action, index in
+            let user = self.userList[index.row]
+            let view = detailPatronXib()
+            view.translatesAutoresizingMaskIntoConstraints = false
+            view.exitButton.addTarget(self, action: #selector(self.exitTableDetailView(sender:)), for: .touchUpInside)
+            self.tableView.tableHeaderView = view
+            self.tableView.tableHeaderView?.isUserInteractionEnabled = true
+            view.centerXAnchor.constraint(equalTo: self.tableView.centerXAnchor).isActive = true
+            view.centerYAnchor.constraint(equalTo: self.tableView.centerYAnchor).isActive = true
+            view.widthAnchor.constraint(equalTo: self.tableView.widthAnchor).isActive = true
+            view.heightAnchor.constraint(equalTo: self.tableView.heightAnchor).isActive = true
+            self.tableView.tableHeaderView?.layoutIfNeeded()
+            self.tableView.tableHeaderView = self.tableView.tableHeaderView
+            self.tableView.isScrollEnabled = false
+        }
         send.backgroundColor = .lightGray
         edit.backgroundColor = .green
-        return [send, edit]
+        detail.backgroundColor = .yellow
+        return [send, edit, detail]
+    }
+    
+    @objc func exitTableDetailView(sender: AnyObject) {
+        self.tableView.tableHeaderView = nil
+        self.tableView.layoutIfNeeded()
+        self.tableView.layoutSubviews()
+        self.tableView.reloadData()
+        self.tableView.isScrollEnabled = true
+    }
+    
+    func parseResponseDetail(xib: detailPatronXib, string: String) -> detailPatronXib {
+        xib.firstLabel.text = string.capturedGroups(withRegex: "firstName = (.*);").first
+        xib.middleLabel.text = string.capturedGroups(withRegex: "middleName = (.*);").first
+        xib.lastLabel.text = string.capturedGroups(withRegex: "lastName = (.*);").first
+        xib.cityLabel.text = string.capturedGroups(withRegex: "CITY/STATE\";[.*]entryValue = (.*);").first
+        xib.stateLabel.text = string.capturedGroups(withRegex: "").first
+        xib.zipLabel.text = string.capturedGroups(withRegex: "").first
+        xib.addressLabel.text = string.capturedGroups(withRegex: "").first
+        xib.emailLabel.text = string.capturedGroups(withRegex: "").first
+        xib.phoneLabel.text = string.capturedGroups(withRegex: "").first
+        xib.homeLibraryLabel.text = string.capturedGroups(withRegex: "libraryID = (.*);").first
+        xib.holdsLabel.text = string.capturedGroups(withRegex: "").first
+        xib.userIDLabel.text = string.capturedGroups(withRegex: "userID = (.*);").first
+        xib.alternateIDLabel.text = string.capturedGroups(withRegex: "altID = (.*);").first
+        xib.userStandingLabel.text = string.capturedGroups(withRegex: "userStandingID = (.*);").first
+        xib.profileType.text = string.capturedGroups(withRegex: "profileID = (.*);").first
+        xib.dateCreatedLabel.text = string.capturedGroups(withRegex: "").first
+        return xib
     }
 
 }
