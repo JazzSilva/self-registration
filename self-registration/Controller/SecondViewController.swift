@@ -198,6 +198,7 @@ extension SecondViewController: UITableViewDelegate {
                             view.heightAnchor.constraint(equalTo: self.tableView.heightAnchor).isActive = true
                             self.tableView.tableHeaderView?.layoutIfNeeded()
                             self.tableView.tableHeaderView = self.tableView.tableHeaderView
+                            self.tableView.setContentOffset(CGPoint.zero, animated: true)
                             self.tableView.isScrollEnabled = false
                         }
                         else {
@@ -242,19 +243,19 @@ extension SecondViewController: UITableViewDelegate {
         xib.firstLabel.text = string.capturedGroups(withRegex: "firstName = (.*);").first
         xib.middleLabel.text = string.capturedGroups(withRegex: "middleName = (.*);").first
         xib.lastLabel.text = string.capturedGroups(withRegex: "lastName = (.*);").first
-        xib.cityLabel.text = string.capturedGroups(withRegex: "CITY/STATE\";[.*]entryValue = (.*);").first
-        xib.stateLabel.text = string.capturedGroups(withRegex: "").first
-        xib.zipLabel.text = string.capturedGroups(withRegex: "").first
-        xib.addressLabel.text = string.capturedGroups(withRegex: "").first
-        xib.emailLabel.text = string.capturedGroups(withRegex: "").first
-        xib.phoneLabel.text = string.capturedGroups(withRegex: "").first
+        xib.cityLabel.text = string.capturedGroups(withRegex: "STATE\";[\n][ *].*entryValue = \"(.*),").first
+        xib.stateLabel.text = string.capturedGroups(withRegex: "STATE\";[\n][ *].*entryValue = \".*, (.*)\"").first
+        xib.zipLabel.text = string.capturedGroups(withRegex: "ZIP;[\n][ *].*entryValue = (.*);").first
+        xib.addressLabel.text = string.capturedGroups(withRegex: "LINE1;[\n][ *].*entryValue = \"(.*)\"").first
+        xib.emailLabel.text = string.capturedGroups(withRegex: "EMAIL;[\n][ *].*entryValue = \"(.*)\"").first
+        xib.phoneLabel.text = string.capturedGroups(withRegex: "HOMEPHONE;[\n][ *].*entryValue = (.*);").first
         xib.homeLibraryLabel.text = string.capturedGroups(withRegex: "libraryID = (.*);").first
-        xib.holdsLabel.text = string.capturedGroups(withRegex: "").first
+        xib.holdsLabel.text = string.capturedGroups(withRegex: "HOLDPICKUP;[\n][ *].*entryValue = \"(.*)\"").first
         xib.userIDLabel.text = string.capturedGroups(withRegex: "userID = (.*);").first
-        xib.alternateIDLabel.text = string.capturedGroups(withRegex: "altID = (.*);").first
+        xib.alternateIDLabel.text = string.capturedGroups(withRegex: "altID = \"(.*)\"").first
         xib.userStandingLabel.text = string.capturedGroups(withRegex: "userStandingID = (.*);").first
-        xib.profileType.text = string.capturedGroups(withRegex: "profileID = (.*);").first
-        xib.dateCreatedLabel.text = string.capturedGroups(withRegex: "").first
+        xib.profileType.text = string.capturedGroups(withRegex: "profileID = \"(.*)\"").first
+        xib.dateCreatedLabel.text = string.capturedGroups(withRegex: "FILE_DATE\";[\n][ *].*entryValue = \"(.*)\"").first
         return xib
     }
 

@@ -52,5 +52,13 @@ class detailPatronXib: UIView {
         contentView.shadowOffset = CGPoint(x: 0, y: 0)
         contentView.shadowRadius = 14
     }
+    @IBAction func resendText(_ sender: Any) {
+        if phoneLabel.text != "" {
+            retext(cardNumber: userIDLabel.text!, name: firstLabel.text!, toNumber: phoneLabel.text!)
+        }
+        else {
+            resendButton.titleLabel?.text = "Invalid Phone Number"
+        }
+    }
     
 }

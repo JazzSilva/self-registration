@@ -11,11 +11,9 @@ import Firebase
 
 typealias CompletionHandler = (_ url: String) -> Void
 
-func postBarcodeToFirebase(user: user, completionHandler: @escaping CompletionHandler) {
-    guard let number = user.libraryCardNumber else {
-        return
-    }
-    guard let pngData = UIImagePNGRepresentation(generateBarcode(from: number)!) else {
+func postBarcodeToFirebase(user: String, completionHandler: @escaping CompletionHandler) {
+
+    guard let pngData = UIImagePNGRepresentation(generateBarcode(from: user)!) else {
         return
     }
     let imageName = NSUUID().uuidString
@@ -37,13 +35,20 @@ func postBarcodeToFirebase(user: user, completionHandler: @escaping CompletionHa
 }
 
 func text(user: user) {
-    postBarcodeToFirebase(user: user, completionHandler: { myURL -> Void in
-        sendBarcodeToSMS(user: user, mediaURL: myURL)
+    postBarcodeToFirebase(user: user.libraryCardNumber!, completionHandler: { myURL -> Void in
+        sendBarcodeToSMS(toNumber: user.phone!, name: user.firstName!, number: user.libraryCardNumber!, mediaURL: myURL)
         print("inside closure now")
         print("closure url: \(myURL)")
         print("closure user: \(user)")
     })
 }
 
+func retext(cardNumber: String, name: String, toNumber: String) {
+    postBarcodeToFirebase(user: cardNumber, completionHandler: { myURL -> Void in
+        sendBarcodeToSMS(toNumber: toNumber, name: name, number: cardNumber, mediaURL: myURL)
+        print("inside closure now")
+        print("closure url: \(myURL)")
+    })
+}
 
 

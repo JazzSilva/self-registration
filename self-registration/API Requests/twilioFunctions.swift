@@ -9,11 +9,11 @@
 import Foundation
 
 
-func sendBarcodeToSMS(user: user, mediaURL: String) {
+func sendBarcodeToSMS(toNumber: String, name: String, number: String, mediaURL: String) {
     //Initialize Twilio Settings: Need to change to remote config
-    guard let toNumber = user.phone else { return }
-    guard let name = user.firstName else { return }
-    let message = "Hello \(name)! Your library card number is \(user.libraryCardNumber ?? ""). You may use this barcode at the circulation desk to checkout materials."
+    //guard let toNumber = user.phone else { return }
+    //guard let name = user.firstName else { return }
+    let message = "Hello \(name)! Your library card number is \(number). You may use this barcode at the circulation desk to checkout materials."
     
     let request = NSMutableURLRequest(url: URL(string:"https://\(RCValues.sharedInstance.string(forKey: .twilioSID)):\(RCValues.sharedInstance.string(forKey: .twilioSecret))@api.twilio.com/2010-04-01/Accounts/\(RCValues.sharedInstance.string(forKey: .twilioSID))/Messages")!)
     request.httpMethod = "POST"

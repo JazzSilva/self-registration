@@ -274,6 +274,9 @@
                     <color key="backgroundColor" red="0.86849103451341625" green="0.96485840719896576" blue="0.992207328680203" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="19"/>
                     <state key="normal" title="Resend Electronic Card"/>
+                    <connections>
+                        <action selector="resendText:" destination="-1" eventType="touchUpInside" id="pjS-X9-vJe"/>
+                    </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="OK" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AqX-FY-KPJ">
                     <rect key="frame" x="504" y="66" width="183" height="21"/>
