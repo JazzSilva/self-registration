@@ -44,7 +44,7 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
         
         //Set background image
         let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
-        backgroundImage.image = UIImage(named: "gradientArtboardMesh")
+        backgroundImage.image = UIImage(named: "GradientArtboard")
         backgroundImage.contentMode = UIViewContentMode.scaleAspectFill
         self.view.insertSubview(backgroundImage, at: 0)
         
