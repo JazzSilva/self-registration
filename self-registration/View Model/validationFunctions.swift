@@ -78,6 +78,14 @@ public func calculateTimeDistance(date: NSDate) -> Bool {
     return child
 }
 
+public func dateStringFormatted(date: String) -> String {
+    let nsDate = NSMutableString.init(string: date)
+    nsDate.insert("-", at: 4)
+    nsDate.insert("-", at: 7)
+    let nsString = nsDate as String
+    return nsString
+}
+
 public func isChild(_ dateAsString: String) -> Bool {
     let formatter = DateFormatter()
     formatter.dateFormat = "yyyyMMdd"

@@ -16,6 +16,7 @@ class submitXib: UIView {
     @IBOutlet weak var topLabel: UILabel!
     @IBOutlet weak var isValid: nextButton!
     @IBOutlet weak var signatureView: SwiftSignatureView!
+    @IBOutlet weak var clearButton: UIButton!
     
     
     override init(frame: CGRect) {
@@ -40,4 +41,7 @@ class submitXib: UIView {
         isValid.enableSettings()
     }
     
+    @IBAction func clearSignature(_ sender: Any) {
+        signatureView.clear()
+    }
 }

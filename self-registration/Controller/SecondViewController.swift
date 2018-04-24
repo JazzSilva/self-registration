@@ -213,36 +213,21 @@ extension SecondViewController: UITableViewDelegate {
             }
         }
         
-        let send = UITableViewRowAction(style: .normal, title: "Resend Barcode")
-        { action, index in
+        //let send = UITableViewRowAction(style: .normal, title: "Resend Barcode")
+        /*{ action, index in
             let user = self.userList[index.row]
             guard let phone = user.phone else {
                 print("no phone # on file")
                 return
             }
             text(user: user)
-        }
+        }*/
         
-        let detail = UITableViewRowAction(style: .normal, title: "Show Detailed View")
-        { action, index in
-            let user = self.userList[index.row]
-            let view = detailPatronXib()
-            view.translatesAutoresizingMaskIntoConstraints = false
-            view.exitButton.addTarget(self, action: #selector(self.exitTableDetailView(sender:)), for: .touchUpInside)
-            self.tableView.tableHeaderView = view
-            self.tableView.tableHeaderView?.isUserInteractionEnabled = true
-            view.centerXAnchor.constraint(equalTo: self.tableView.centerXAnchor).isActive = true
-            view.centerYAnchor.constraint(equalTo: self.tableView.centerYAnchor).isActive = true
-            view.widthAnchor.constraint(equalTo: self.tableView.widthAnchor).isActive = true
-            view.heightAnchor.constraint(equalTo: self.tableView.heightAnchor).isActive = true
-            self.tableView.tableHeaderView?.layoutIfNeeded()
-            self.tableView.tableHeaderView = self.tableView.tableHeaderView
-            self.tableView.isScrollEnabled = false
-        }
-        send.backgroundColor = .lightGray
-        edit.backgroundColor = .green
-        detail.backgroundColor = .yellow
-        return [send, edit, detail]
+
+
+        //send.backgroundColor = .lightGray
+        edit.backgroundColor = .lightGray
+        return [edit]
     }
     
     @objc func exitTableDetailView(sender: AnyObject) {

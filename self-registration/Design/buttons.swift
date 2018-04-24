@@ -29,7 +29,7 @@ class nextButton: UIButton {
     func disableSettings() {
         self.setTitleColor(UIColor.white, for: .disabled)
         self.backgroundColor = UIColor.white
-        self.layer.cornerRadius = 4
+        self.shadowColor = UIColor.white
     }
     
     func neutral() {
@@ -45,7 +45,7 @@ class startOverButton: UIButton {
     
     func enableSettings() {
         self.setTitleColor(UIColor.white, for: .normal)
-        self.backgroundColor = startOverBlue
+        self.backgroundColor = orangeSnooze
         self.layer.cornerRadius = 4
         self.setTitle("Start Over", for: .normal)
         self.titleLabel?.font = UIFont(name: "Futura-Medium", size: 17.0)
