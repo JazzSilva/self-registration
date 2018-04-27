@@ -51,7 +51,7 @@
                     <rect key="frame" x="8" y="7" width="656" height="71"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="0.0" green="0.58039215686274503" blue="0.20392156862745098" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                    <string key="text">Congratulations                                                                                                 You may now use your drivers license to checkout materials!</string>
+                    <string key="text">Congratulations                                                                                                 You may now use your driver's license to checkout materials!</string>
                     <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="21"/>
                     <color key="textColor" red="0.98140163108390566" green="0.97791722810993154" blue="0.97102175777814426" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <nil key="highlightedColor"/>
@@ -70,8 +70,8 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="For your convenience, we also texted you an electronic version of your library card. " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SKS-uw-xoI">
-                    <rect key="frame" x="8" y="209" width="656" height="59"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="To access Overdrive and other digital resources, simply enter your drivers license number." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SKS-uw-xoI">
+                    <rect key="frame" x="29" y="216" width="613" height="59"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="20"/>
                     <nil key="textColor"/>
@@ -94,7 +94,7 @@
                             <rect key="frame" x="8" y="8" width="654" height="71"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" red="0.0" green="0.58039215690000001" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                            <string key="text">Congratulations                                                                                                 We texted you a children's library card!</string>
+                            <string key="text">Congratulations                                                                                                 We texted you a children's activation code!</string>
                             <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="21"/>
                             <color key="textColor" red="0.9814016311" green="0.97791722810000004" blue="0.9710217578" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <nil key="highlightedColor"/>
@@ -114,9 +114,9 @@
                             </userDefinedRuntimeAttributes>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PYe-dy-4BW">
-                            <rect key="frame" x="8" y="187" width="654" height="80"/>
+                            <rect key="frame" x="8" y="195" width="654" height="80"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <string key="text">Use this card to access any of our digital resources.                                             To checkout physical items, your guardian will need to fully activate your account.</string>
+                            <string key="text">Use this number to access any of our digital resources.                                            To finish registration, bring this code to the circulation desk. </string>
                             <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="20"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -127,7 +127,7 @@
             </subviews>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="Iuu-4d-p3g"/>
-            <point key="canvasLocation" x="-656" y="223"/>
+            <point key="canvasLocation" x="-656" y="222.5"/>
         </view>
         <view contentMode="scaleToFill" id="Hyd-Tv-rbo">
             <rect key="frame" x="0.0" y="0.0" width="670" height="275"/>
@@ -137,7 +137,7 @@
                     <rect key="frame" x="8" y="8" width="654" height="71"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="0.0" green="0.58039215690000001" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                    <string key="text">Congratulations                                                                                                 We texted you a digital library card!</string>
+                    <string key="text">Congratulations                                                                                                 We texted you an HCPL activation code!</string>
                     <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="21"/>
                     <color key="textColor" red="0.9814016311" green="0.97791722810000004" blue="0.9710217578" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <nil key="highlightedColor"/>
@@ -157,9 +157,9 @@
                     </userDefinedRuntimeAttributes>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0h5-th-Isx">
-                    <rect key="frame" x="8" y="186" width="646" height="83"/>
+                    <rect key="frame" x="8" y="191" width="654" height="83"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <string key="text">Use this card to access any of our digital resources.                                            To checkout physical materials, you'll need to verify your address at the front desk.</string>
+                    <string key="text">Use this number to access any of our digital resources.                                            To finish registration, bring this code and proof of address to the circulation desk.</string>
                     <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="20"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -167,7 +167,7 @@
             </subviews>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="jiS-2N-PyC"/>
-            <point key="canvasLocation" x="-656" y="541"/>
+            <point key="canvasLocation" x="-656" y="540.5"/>
         </view>
         <view contentMode="scaleToFill" id="AZg-5n-8iD">
             <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>

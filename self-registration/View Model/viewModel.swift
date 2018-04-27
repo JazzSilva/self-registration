@@ -79,7 +79,7 @@ class userViewModel {
         //Actually save the user to the shared realm
         Database.shared.create(newUser)
         sendToSirsi(user: newUser)
-        if isChildUser.value { sendParentSMS(user: newUser) } else { text(user: newUser) }
+        if userProfile.value == "HC-DigitaJ" { text(user: newUser) }
     }
     
 }

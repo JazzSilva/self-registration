@@ -201,7 +201,7 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
         viewModel.emailValid.subscribe(onNext: { [unowned view] isValid in view.email.updateUI(bool: isValid)}).disposed(by: disposeBag)
         
         if viewModel.isChildUser.value {
-            view.topLabel.text = "How can we contact your parent or guardian?"
+            view.topLabel.text = "How can we contact you?"
         } else {
             view.topLabel.text = "How can we contact you?"
         }
