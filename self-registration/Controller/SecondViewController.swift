@@ -22,8 +22,6 @@ class SecondViewController: UIViewController, UISearchBarDelegate {
     @IBOutlet weak var logInSubview: UIView!
     @IBOutlet weak var searchBar: UISearchBar!
     
-    
-    var viewModel = userViewModel()
     var notificationToken: NotificationToken?
     var isSearching = Variable<Bool>(false)
     var filteredData: Results<user>!
@@ -39,12 +37,12 @@ class SecondViewController: UIViewController, UISearchBarDelegate {
             self.wrongLogIn()
         }
     }
-
+ 
     func wrongLogIn() {
         usernameText.text = ""
         passwordText.text = ""
-        logInResponse.textColor = isInvalidText
-        logInResponse.text = "Incorrect password or username"
+        logInResponse.textColor = constants.colors.redInvalid
+        logInResponse.text = constants.labels.incorrectLogIn
         shake()
     }
     
@@ -58,22 +56,21 @@ class SecondViewController: UIViewController, UISearchBarDelegate {
     }
     
     override func viewDidLoad() {
-        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
-        self.hideKeyboardWhenTappedAround()
         searchBar.delegate = self
         searchBar.returnKeyType = UIReturnKeyType.done
         submitButton.enableSettings()
     }
+    
     override func viewWillAppear(_ animated: Bool) {
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        self.hideKeyboardWhenTappedAround()
         tableView.delegate = self
         tableView.dataSource = self
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 80
         // Do any additional setup after loading the view, typically from a nib.
 
-        
-        //Set background image
         self.view.bringSubview(toFront: logInView)
         let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
         backgroundImage.image = UIImage(named: "GradientArtboard")
@@ -91,6 +88,7 @@ class SecondViewController: UIViewController, UISearchBarDelegate {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        NotificationCenter.default.removeObserver(self)
         //stop observing changes/updates to the realm database
         notificationToken?.invalidate()
         Database.shared.stopObservingErrors(in: self)
@@ -172,22 +170,22 @@ extension SecondViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, editActionsForRowAt: IndexPath) -> [UITableViewRowAction]? {
         
-        let edit = UITableViewRowAction(style: .normal, title: "Does Exist") {
+        let edit = UITableViewRowAction(style: .normal, title: "See Patron Details") {
             action, index in
             let user = self.userList[index.row]
             guard let id = user.libraryCardNumber else {
                 print("the user doesn't have a number to check")
                 return
             }
-            print("this is where we check account")
+
             getSessionToken { (success) -> Void in
                 if success {
-                    print("got session token", NSDate())
+                    print(constants.console.sessionTokenSuccess, NSDate())
                     // do second task if success
                     doesAccountExist(id) { (success, string) -> Void in
                         if success {
-                            print("account does exist")
-                            let view = self.parseResponseDetail(xib: detailPatronXib(), string: string)
+                            print(constants.console.accountDoesExist)
+                            let view = self.parseResponseDetail(xib: detailPatronXib(), string: string, user: user)
                             view.translatesAutoresizingMaskIntoConstraints = false
                             view.exitButton.addTarget(self, action: #selector(self.exitTableDetailView(sender:)), for: .touchUpInside)
                             self.tableView.tableHeaderView = view
@@ -202,32 +200,31 @@ extension SecondViewController: UITableViewDelegate {
                             self.tableView.isScrollEnabled = false
                         }
                         else {
-                            print("account does not exist")
-                            accountDoesNotExist()
+                            print(constants.console.accountDoesNotExist)
+                            let view = self.parseUserNotInSirsi(xib: detailPatronXib(), user: user)
+                            view.translatesAutoresizingMaskIntoConstraints = false
+                            view.exitButton.addTarget(self, action: #selector(self.exitTableDetailView(sender:)), for: .touchUpInside)
+                            self.tableView.tableHeaderView = view
+                            self.tableView.tableHeaderView?.isUserInteractionEnabled = true
+                            view.centerXAnchor.constraint(equalTo: self.tableView.centerXAnchor).isActive = true
+                            view.centerYAnchor.constraint(equalTo: self.tableView.centerYAnchor).isActive = true
+                            view.widthAnchor.constraint(equalTo: self.tableView.widthAnchor).isActive = true
+                            view.heightAnchor.constraint(equalTo: self.tableView.heightAnchor).isActive = true
+                            self.tableView.tableHeaderView?.layoutIfNeeded()
+                            self.tableView.tableHeaderView = self.tableView.tableHeaderView
+                            self.tableView.setContentOffset(CGPoint.zero, animated: true)
+                            self.tableView.isScrollEnabled = false
                         }
                     }
                 }
                 else {
-                    print("did not get session token")
+                    print(constants.console.sessionTokenFailure)
                     sessionTokenError()
                 }
             }
         }
         
-        //let send = UITableViewRowAction(style: .normal, title: "Resend Barcode")
-        /*{ action, index in
-            let user = self.userList[index.row]
-            guard let phone = user.phone else {
-                print("no phone # on file")
-                return
-            }
-            text(user: user)
-        }*/
-        
-
-
-        //send.backgroundColor = .lightGray
-        edit.backgroundColor = .lightGray
+        edit.backgroundColor = constants.colors.greenValid
         return [edit]
     }
     
@@ -239,7 +236,9 @@ extension SecondViewController: UITableViewDelegate {
         self.tableView.isScrollEnabled = true
     }
     
-    func parseResponseDetail(xib: detailPatronXib, string: String) -> detailPatronXib {
+    func parseResponseDetail(xib: detailPatronXib, string: String, user: user) -> detailPatronXib {
+        xib.currentUser = user
+        xib.resendButton.setTitle(constants.buttons.resendCode, for: .normal)
         xib.firstLabel.text = string.capturedGroups(withRegex: "firstName = (.*);").first
         xib.middleLabel.text = string.capturedGroups(withRegex: "middleName = (.*);").first
         xib.lastLabel.text = string.capturedGroups(withRegex: "lastName = (.*);").first
@@ -250,12 +249,34 @@ extension SecondViewController: UITableViewDelegate {
         xib.emailLabel.text = string.capturedGroups(withRegex: "EMAIL;[\n][ *].*entryValue = \"(.*)\"").first
         xib.phoneLabel.text = string.capturedGroups(withRegex: "HOMEPHONE;[\n][ *].*entryValue = (.*);").first
         xib.homeLibraryLabel.text = string.capturedGroups(withRegex: "libraryID = (.*);").first
-        xib.holdsLabel.text = string.capturedGroups(withRegex: "HOLDPICKUP;[\n][ *].*entryValue = \"(.*)\"").first
+        xib.holdsLabel.text = string.capturedGroups(withRegex: "HOLDPICKUP;[\n][ *].*entryValue = (.*);").first
         xib.userIDLabel.text = string.capturedGroups(withRegex: "userID = (.*);").first
         xib.alternateIDLabel.text = string.capturedGroups(withRegex: "altID = \"(.*)\"").first
         xib.userStandingLabel.text = string.capturedGroups(withRegex: "userStandingID = (.*);").first
-        xib.profileType.text = string.capturedGroups(withRegex: "profileID = \"(.*)\"").first
+        xib.profileType.text = string.capturedGroups(withRegex: "profileID = (.*);").first
         xib.dateCreatedLabel.text = string.capturedGroups(withRegex: "FILE_DATE\";[\n][ *].*entryValue = \"(.*)\"").first
+        return xib
+    }
+    
+    func parseUserNotInSirsi(xib: detailPatronXib, user: user) -> detailPatronXib {
+        xib.currentUser = user
+        xib.resendButton.setTitle(constants.buttons.createAccount, for: .normal)
+        xib.firstLabel.text = user.firstName
+        xib.middleLabel.text = user.middleName
+        xib.lastLabel.text = user.lastName
+        xib.cityLabel.text = user.city
+        xib.stateLabel.text = user.state
+        xib.zipLabel.text = user.zip
+        xib.addressLabel.text = user.address1
+        xib.emailLabel.text = user.email
+        xib.phoneLabel.text = user.phone
+        xib.homeLibraryLabel.text = user.branchCode
+        xib.holdsLabel.text = user.holds
+        xib.userIDLabel.text = user.libraryCardNumber
+        xib.alternateIDLabel.text = ""
+        xib.userStandingLabel.text = constants.labels.accountNotInSirsi //need to update if in Sirsi
+        xib.profileType.text = user.userProfile
+        xib.dateCreatedLabel.text = user.dateCreated
         return xib
     }
 

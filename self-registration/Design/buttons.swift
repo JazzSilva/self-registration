@@ -17,7 +17,7 @@ class nextButton: UIButton {
     
     func enableSettings() {
         self.setTitleColor(UIColor.white, for: .normal)
-        self.backgroundColor = greenHexEnabled
+        self.backgroundColor = constants.colors.greenEnabled
         self.layer.cornerRadius = 4
         self.clipsToBounds = false
         self.shadowColor = UIColor.gray
@@ -34,7 +34,7 @@ class nextButton: UIButton {
     
     func neutral() {
         self.setTitleColor(UIColor.white, for: .normal)
-        self.backgroundColor = greenHexEnabled
+        self.backgroundColor = constants.colors.greenEnabled
         self.layer.cornerRadius = 4
     }
     
@@ -45,9 +45,9 @@ class startOverButton: UIButton {
     
     func enableSettings() {
         self.setTitleColor(UIColor.white, for: .normal)
-        self.backgroundColor = orangeSnooze
+        self.backgroundColor = constants.colors.orange
         self.layer.cornerRadius = 4
-        self.setTitle("Start Over", for: .normal)
+        self.setTitle(constants.buttons.startOver, for: .normal)
         self.titleLabel?.font = UIFont(name: "Futura-Medium", size: 17.0)
         self.frame = CGRect(x: 150, y: -150, width: 100, height: 33)
         self.clipsToBounds = false

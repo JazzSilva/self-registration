@@ -9,15 +9,6 @@
 import Foundation
 import UIKit
 
-//Hex colors that are used as UI Colors in app Color Palette
-
-let greyHexDisabled = UIColor(hex: "BDC2BC")
-let greenHexEnabled = UIColor(hex: "6AB97C") //009434
-let blueHexTitle = UIColor(hex: "111777")
-let isInvalidText = UIColor(hex: "C4174A")
-let isValidText = UIColor(hex: "020002")
-let startOverBlue = UIColor(hex: "6CB6F7")
-let orangeSnooze = UIColor(hex: "C8A8F9")
 
 ///Extension that converts HEX to UI Color
 extension UIColor {

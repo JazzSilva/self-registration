@@ -52,7 +52,7 @@ class RCValues {
         let fetchDuration: TimeInterval = 43200
         //activateDebugMode()
         Firebase.RemoteConfig.remoteConfig().fetch(withExpirationDuration: fetchDuration, completionHandler: {
-            [weak self] (status, error) in
+            (status, error) in
             
             guard error == nil else {
                 print("Uh-oh. Got an error fetching remote values \(String(describing: error))")
@@ -71,10 +71,7 @@ class RCValues {
             print("Our app's Twilio Secret is \(Firebase.RemoteConfig.remoteConfig().configValue(forKey: "twilioSecret").stringValue ?? "")")
             print("Our app's from number is \(Firebase.RemoteConfig.remoteConfig().configValue(forKey: "fromNumber").stringValue ?? "")")
             print("Our app's lookup user ID url is \(Firebase.RemoteConfig.remoteConfig().configValue(forKey: "lookupUserID").stringValue ?? "")")
-            
-            /*if Connectivity.shared.isConnectedToInternet() {
-                print("Yes")
-            }*/
+            print(constants.console.databaseDidUpdate)
             
         })
     }

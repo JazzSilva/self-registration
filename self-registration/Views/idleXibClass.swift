@@ -1,24 +1,23 @@
 //
-//  submitXibClass.swift
+//  idleXibClass.swift
 //  self-registration
 //
-//  Created by Jasmin Silva on 1/30/18.
+//  Created by Jasmin Silva on 6/12/18.
 //  Copyright © 2018 Makina. All rights reserved.
 //
 
 import Foundation
 import UIKit
+import RxSwift
+import Lottie
 
-class submitXib: UIView {
+class idleXib: UIView {
     
     @IBOutlet var contentView: UIView!
-    
+
     @IBOutlet weak var topLabel: UILabel!
     @IBOutlet weak var isValid: nextButton!
-    @IBOutlet weak var signatureView: SwiftSignatureView!
-    @IBOutlet weak var clearButton: UIButton!
-    @IBOutlet weak var instructions: UILabel!
-    
+    @IBOutlet weak var imageView: UIImageView!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -31,18 +30,26 @@ class submitXib: UIView {
     }
     
     private func commonInit() {
-        Bundle.main.loadNibNamed("submitView", owner: self, options: nil)
+        Bundle.main.loadNibNamed("idleView", owner: self, options: nil)
         addSubview(contentView)
-        contentView.frame = .init(x: 0, y: 0, width: 800, height: 500)
         contentView.clipsToBounds = false
+        contentView.frame = .init(x: 0, y: 0, width: 800, height: 500)
         contentView.shadowColor = .black
         contentView.shadowOpacity = 0.20
         contentView.shadowOffset = CGPoint(x: 0, y: 0)
         contentView.shadowRadius = 14
+        addImageToUIImageView()
         isValid.enableSettings()
     }
     
-    @IBAction func clearSignature(_ sender: Any) {
-        signatureView.clear()
+    @objc func removeButton(sender: AnyObject) {
+        self.isValid.removeFromSuperview()
     }
+    
+    // call this function where you want to set image.
+    func addImageToUIImageView() {
+        let image: UIImage = UIImage(named: "idleArtboard")!
+        imageView.image = image
+    }
+
 }

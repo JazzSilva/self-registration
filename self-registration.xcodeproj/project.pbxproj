@@ -37,6 +37,62 @@
 		B02A3C3B203DE45000977D1F /* twilioFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02A3C3A203DE45000977D1F /* twilioFunctions.swift */; };
 		B02A3C3D203DE46300977D1F /* sirsiFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02A3C3C203DE46300977D1F /* sirsiFunctions.swift */; };
 		B02A3C3F205B136C00977D1F /* connectivityFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02A3C3E205B136C00977D1F /* connectivityFunctions.swift */; };
+		B02B8746209A23BA00C7FDD2 /* createAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02B8745209A23BA00C7FDD2 /* createAccount.swift */; };
+		B02B874E209B83E600C7FDD2 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B02B874C209B83DF00C7FDD2 /* Crashlytics.framework */; };
+		B02B874F209B83E600C7FDD2 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B02B874D209B83E600C7FDD2 /* Fabric.framework */; };
+		B02B8760209CCBFB00C7FDD2 /* GTMSessionFetcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B02B875B209CCBFA00C7FDD2 /* GTMSessionFetcher.framework */; };
+		B02B8763209CCBFB00C7FDD2 /* Protobuf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B02B875E209CCBFA00C7FDD2 /* Protobuf.framework */; };
+		B02B876A209CCDFD00C7FDD2 /* Protobuf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B02B8766209CCDFD00C7FDD2 /* Protobuf.framework */; };
+		B02B876B209CCDFD00C7FDD2 /* FirebaseSwizzlingUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B02B8767209CCDFD00C7FDD2 /* FirebaseSwizzlingUtilities.framework */; };
+		B02B876C209CCDFD00C7FDD2 /* GTMSessionFetcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B02B8768209CCDFD00C7FDD2 /* GTMSessionFetcher.framework */; };
+		B02B876D209CCDFD00C7FDD2 /* FirebasePerformance.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B02B8769209CCDFD00C7FDD2 /* FirebasePerformance.framework */; };
+		B02B8772209CCE1900C7FDD2 /* FirebasePerformance.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B02B876E209CCE1800C7FDD2 /* FirebasePerformance.framework */; };
+		B02B8773209CCE1900C7FDD2 /* GTMSessionFetcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B02B876F209CCE1800C7FDD2 /* GTMSessionFetcher.framework */; };
+		B02B8774209CCE1900C7FDD2 /* Protobuf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B02B8770209CCE1800C7FDD2 /* Protobuf.framework */; };
+		B02B8775209CCE1900C7FDD2 /* FirebaseSwizzlingUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B02B8771209CCE1900C7FDD2 /* FirebaseSwizzlingUtilities.framework */; };
+		B02B877620A0A83700C7FDD2 /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B02A3BFC203C638A00977D1F /* FirebaseCore.framework */; };
+		B02B877720A0A83800C7FDD2 /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B02A3BFC203C638A00977D1F /* FirebaseCore.framework */; };
+		B02B877820A0A84000C7FDD2 /* Protobuf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B02B8766209CCDFD00C7FDD2 /* Protobuf.framework */; };
+		B02B877920A0A84000C7FDD2 /* Protobuf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B02B8766209CCDFD00C7FDD2 /* Protobuf.framework */; };
+		B02B877A20A0A84400C7FDD2 /* FirebaseSwizzlingUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B02B8767209CCDFD00C7FDD2 /* FirebaseSwizzlingUtilities.framework */; };
+		B02B877B20A0A84400C7FDD2 /* FirebaseSwizzlingUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B02B8767209CCDFD00C7FDD2 /* FirebaseSwizzlingUtilities.framework */; };
+		B02B877C20A0A84700C7FDD2 /* GTMSessionFetcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B02B8768209CCDFD00C7FDD2 /* GTMSessionFetcher.framework */; };
+		B02B877D20A0A84700C7FDD2 /* GTMSessionFetcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B02B8768209CCDFD00C7FDD2 /* GTMSessionFetcher.framework */; };
+		B02B877E20A0A84A00C7FDD2 /* FirebasePerformance.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B02B8769209CCDFD00C7FDD2 /* FirebasePerformance.framework */; };
+		B02B877F20A0A84A00C7FDD2 /* FirebasePerformance.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B02B8769209CCDFD00C7FDD2 /* FirebasePerformance.framework */; };
+		B02B878020A0A85700C7FDD2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B02A3C32203C681E00977D1F /* GoogleService-Info.plist */; };
+		B02B878120A0A85800C7FDD2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B02A3C32203C681E00977D1F /* GoogleService-Info.plist */; };
+		B02B878220A0A85A00C7FDD2 /* leveldb-library.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B02A3C28203C652000977D1F /* leveldb-library.framework */; };
+		B02B878320A0A85B00C7FDD2 /* leveldb-library.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B02A3C28203C652000977D1F /* leveldb-library.framework */; };
+		B02B878420A0A85E00C7FDD2 /* FirebaseDatabase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B02A3C29203C652000977D1F /* FirebaseDatabase.framework */; };
+		B02B878520A0A85E00C7FDD2 /* FirebaseDatabase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B02A3C29203C652000977D1F /* FirebaseDatabase.framework */; };
+		B02B878620A0A86100C7FDD2 /* GTMSessionFetcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B02A3C23203C651600977D1F /* GTMSessionFetcher.framework */; };
+		B02B878720A0A86100C7FDD2 /* GTMSessionFetcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B02A3C23203C651600977D1F /* GTMSessionFetcher.framework */; };
+		B02B878820A0A86400C7FDD2 /* FirebaseStorage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B02A3C24203C651600977D1F /* FirebaseStorage.framework */; };
+		B02B878920A0A86400C7FDD2 /* FirebaseStorage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B02A3C24203C651600977D1F /* FirebaseStorage.framework */; };
+		B02B878A20A0A86700C7FDD2 /* Protobuf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B02A3C13203C650500977D1F /* Protobuf.framework */; };
+		B02B878B20A0A86800C7FDD2 /* Protobuf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B02A3C13203C650500977D1F /* Protobuf.framework */; };
+		B02B878C20A0A86A00C7FDD2 /* FirebaseCrash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B02A3C15203C650500977D1F /* FirebaseCrash.framework */; };
+		B02B878D20A0A86A00C7FDD2 /* FirebaseCrash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B02A3C15203C650500977D1F /* FirebaseCrash.framework */; };
+		B02B878E20A0A86D00C7FDD2 /* Protobuf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B02A3C0B203C63A100977D1F /* Protobuf.framework */; };
+		B02B878F20A0A86E00C7FDD2 /* Protobuf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B02A3C0B203C63A100977D1F /* Protobuf.framework */; };
+		B02B879020A0A87100C7FDD2 /* FirebaseRemoteConfig.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B02A3C0C203C63A100977D1F /* FirebaseRemoteConfig.framework */; };
+		B02B879120A0A87100C7FDD2 /* FirebaseRemoteConfig.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B02A3C0C203C63A100977D1F /* FirebaseRemoteConfig.framework */; };
+		B02B879220A0A87400C7FDD2 /* FirebaseABTesting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B02A3C0D203C63A100977D1F /* FirebaseABTesting.framework */; };
+		B02B879320A0A87500C7FDD2 /* FirebaseABTesting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B02A3C0D203C63A100977D1F /* FirebaseABTesting.framework */; };
+		B02B879420A0A87900C7FDD2 /* FirebaseAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B02A3BFD203C638A00977D1F /* FirebaseAnalytics.framework */; };
+		B02B879520A0A87900C7FDD2 /* FirebaseAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B02A3BFD203C638A00977D1F /* FirebaseAnalytics.framework */; };
+		B02B879620A0A87C00C7FDD2 /* GoogleToolboxForMac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B02A3BFE203C638A00977D1F /* GoogleToolboxForMac.framework */; };
+		B02B879720A0A87D00C7FDD2 /* GoogleToolboxForMac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B02A3BFE203C638A00977D1F /* GoogleToolboxForMac.framework */; };
+		B02B879820A0A88000C7FDD2 /* nanopb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B02A3BFF203C638A00977D1F /* nanopb.framework */; };
+		B02B879920A0A88000C7FDD2 /* nanopb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B02A3BFF203C638A00977D1F /* nanopb.framework */; };
+		B02B879A20A0A88300C7FDD2 /* FirebaseNanoPB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B02A3C00203C638A00977D1F /* FirebaseNanoPB.framework */; };
+		B02B879B20A0A88300C7FDD2 /* FirebaseNanoPB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B02A3C00203C638A00977D1F /* FirebaseNanoPB.framework */; };
+		B02B879C20A0A88700C7FDD2 /* FirebaseInstanceID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B02A3C01203C638A00977D1F /* FirebaseInstanceID.framework */; };
+		B02B879D20A0A88700C7FDD2 /* FirebaseInstanceID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B02A3C01203C638A00977D1F /* FirebaseInstanceID.framework */; };
+		B02B879E20A0A88A00C7FDD2 /* FirebaseCoreDiagnostics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B02A3C02203C638A00977D1F /* FirebaseCoreDiagnostics.framework */; };
+		B02B879F20A0A88B00C7FDD2 /* FirebaseCoreDiagnostics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B02A3C02203C638A00977D1F /* FirebaseCoreDiagnostics.framework */; };
+		B02B87A120A0ABAD00C7FDD2 /* randomNumberGeneratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02B87A020A0ABAD00C7FDD2 /* randomNumberGeneratorTests.swift */; };
 		B0400E8120168C940026CA09 /* RxCocoa.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B0400E7C20168C940026CA09 /* RxCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B0400E8320168C940026CA09 /* RxSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B0400E7D20168C940026CA09 /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B0400E8520168C940026CA09 /* RxBlocking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B0400E7E20168C940026CA09 /* RxBlocking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -76,9 +132,13 @@
 		DD580D541FE970FA00A254B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD580D521FE970FA00A254B4 /* LaunchScreen.storyboard */; };
 		DD580D5F1FE970FA00A254B4 /* self_registrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD580D5E1FE970FA00A254B4 /* self_registrationTests.swift */; };
 		DD580D6A1FE970FA00A254B4 /* self_registrationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD580D691FE970FA00A254B4 /* self_registrationUITests.swift */; };
+		DD80AD5420C063CB00CE530F /* twilioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD80AD5320C063CB00CE530F /* twilioManager.swift */; };
+		DD80AD5620C063E800CE530F /* sirsiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD80AD5520C063E800CE530F /* sirsiManager.swift */; };
+		DD80AD5A20C0690700CE530F /* webServicesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD80AD5920C0690700CE530F /* webServicesRouter.swift */; };
+		DD80AD5E20C319DA00CE530F /* constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD80AD5D20C319DA00CE530F /* constants.swift */; };
+		DD80AD6020C31ACB00CE530F /* remoteConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD80AD5F20C31ACB00CE530F /* remoteConstants.swift */; };
 		DDB0263B2056E336007EDD94 /* finishedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDB0263A2056E336007EDD94 /* finishedView.xib */; };
 		DDB0263D2056E349007EDD94 /* finishedXibClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB0263C2056E349007EDD94 /* finishedXibClass.swift */; };
-		DDC195A6202DAC4600705B0C /* Lottie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDC195A5202DAC4500705B0C /* Lottie.framework */; };
 		DDC195A7202DACEB00705B0C /* Lottie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDC195A5202DAC4500705B0C /* Lottie.framework */; };
 		DDC195A8202DACEB00705B0C /* Lottie.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DDC195A5202DAC4500705B0C /* Lottie.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DDC195B12030223E00705B0C /* buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC195B02030223E00705B0C /* buttons.swift */; };
@@ -88,6 +148,9 @@
 		DDC195B9203A00C200705B0C /* homeXibClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC195B8203A00C200705B0C /* homeXibClass.swift */; };
 		DDC195BB203A038200705B0C /* extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC195BA203A038200705B0C /* extensions.swift */; };
 		DDC195C0203A211A00705B0C /* account_success.json in Resources */ = {isa = PBXBuildFile; fileRef = DDC195BF203A211A00705B0C /* account_success.json */; };
+		DDD947CA20CFFEC600E9D4A9 /* libraryCardDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD947C920CFFEC600E9D4A9 /* libraryCardDataModel.swift */; };
+		DDD947CC20D0020600E9D4A9 /* idleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDD947CB20D0020600E9D4A9 /* idleView.xib */; };
+		DDD947CE20D0047E00E9D4A9 /* idleXibClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD947CD20D0047E00E9D4A9 /* idleXibClass.swift */; };
 		DDE4EBAD203A462700E24DA0 /* LilitabSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDE4EBAC203A462700E24DA0 /* LilitabSDK.framework */; };
 		DDE4EBAE203A462700E24DA0 /* LilitabSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DDE4EBAC203A462700E24DA0 /* LilitabSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DDE4EBB0203A7B6800E24DA0 /* lilitabSwipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE4EBAF203A7B6800E24DA0 /* lilitabSwipe.swift */; };
@@ -166,6 +229,23 @@
 		B02A3C3A203DE45000977D1F /* twilioFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = twilioFunctions.swift; sourceTree = "<group>"; };
 		B02A3C3C203DE46300977D1F /* sirsiFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sirsiFunctions.swift; sourceTree = "<group>"; };
 		B02A3C3E205B136C00977D1F /* connectivityFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = connectivityFunctions.swift; sourceTree = "<group>"; };
+		B02B8745209A23BA00C7FDD2 /* createAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = createAccount.swift; sourceTree = "<group>"; };
+		B02B874C209B83DF00C7FDD2 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		B02B874D209B83E600C7FDD2 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
+		B02B875B209CCBFA00C7FDD2 /* GTMSessionFetcher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GTMSessionFetcher.framework; path = "../../../Downloads/Firebase-2/Performance/GTMSessionFetcher.framework"; sourceTree = "<group>"; };
+		B02B875C209CCBFA00C7FDD2 /* FirebaseISASwizzler.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseISASwizzler.framework; path = "../../../Downloads/Firebase-2/Performance/FirebaseISASwizzler.framework"; sourceTree = "<group>"; };
+		B02B875D209CCBFA00C7FDD2 /* FirebaseMethodSwizzler.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseMethodSwizzler.framework; path = "../../../Downloads/Firebase-2/Performance/FirebaseMethodSwizzler.framework"; sourceTree = "<group>"; };
+		B02B875E209CCBFA00C7FDD2 /* Protobuf.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Protobuf.framework; path = "../../../Downloads/Firebase-2/Performance/Protobuf.framework"; sourceTree = "<group>"; };
+		B02B875F209CCBFA00C7FDD2 /* FirebasePerformance.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebasePerformance.framework; path = "../../../Downloads/Firebase-2/Performance/FirebasePerformance.framework"; sourceTree = "<group>"; };
+		B02B8766209CCDFD00C7FDD2 /* Protobuf.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Protobuf.framework; sourceTree = "<group>"; };
+		B02B8767209CCDFD00C7FDD2 /* FirebaseSwizzlingUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseSwizzlingUtilities.framework; sourceTree = "<group>"; };
+		B02B8768209CCDFD00C7FDD2 /* GTMSessionFetcher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GTMSessionFetcher.framework; sourceTree = "<group>"; };
+		B02B8769209CCDFD00C7FDD2 /* FirebasePerformance.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebasePerformance.framework; sourceTree = "<group>"; };
+		B02B876E209CCE1800C7FDD2 /* FirebasePerformance.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebasePerformance.framework; path = ../../../Downloads/Firebase/Performance/FirebasePerformance.framework; sourceTree = "<group>"; };
+		B02B876F209CCE1800C7FDD2 /* GTMSessionFetcher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GTMSessionFetcher.framework; path = ../../../Downloads/Firebase/Performance/GTMSessionFetcher.framework; sourceTree = "<group>"; };
+		B02B8770209CCE1800C7FDD2 /* Protobuf.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Protobuf.framework; path = ../../../Downloads/Firebase/Performance/Protobuf.framework; sourceTree = "<group>"; };
+		B02B8771209CCE1900C7FDD2 /* FirebaseSwizzlingUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseSwizzlingUtilities.framework; path = ../../../Downloads/Firebase/Performance/FirebaseSwizzlingUtilities.framework; sourceTree = "<group>"; };
+		B02B87A020A0ABAD00C7FDD2 /* randomNumberGeneratorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = randomNumberGeneratorTests.swift; sourceTree = "<group>"; };
 		B0400E73201688720026CA09 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
 		B0400E74201688720026CA09 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
 		B0400E75201688720026CA09 /* RxTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxTest.framework; path = Carthage/Build/iOS/RxTest.framework; sourceTree = "<group>"; };
@@ -212,6 +292,11 @@
 		DD580D651FE970FA00A254B4 /* self-registrationUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "self-registrationUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD580D691FE970FA00A254B4 /* self_registrationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = self_registrationUITests.swift; sourceTree = "<group>"; };
 		DD580D6B1FE970FA00A254B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DD80AD5320C063CB00CE530F /* twilioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = twilioManager.swift; sourceTree = "<group>"; };
+		DD80AD5520C063E800CE530F /* sirsiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sirsiManager.swift; sourceTree = "<group>"; };
+		DD80AD5920C0690700CE530F /* webServicesRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = webServicesRouter.swift; sourceTree = "<group>"; };
+		DD80AD5D20C319DA00CE530F /* constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = constants.swift; path = "self-registration/API Requests/constants.swift"; sourceTree = SOURCE_ROOT; };
+		DD80AD5F20C31ACB00CE530F /* remoteConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = remoteConstants.swift; sourceTree = "<group>"; };
 		DD84C69E203A41C80076274A /* LilitabSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LilitabSDK.framework; path = "../../Downloads/LilitabSDK-Release-Universal/LilitabSDK.framework"; sourceTree = "<group>"; };
 		DDB0263A2056E336007EDD94 /* finishedView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = finishedView.xib; sourceTree = "<group>"; };
 		DDB0263C2056E349007EDD94 /* finishedXibClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = finishedXibClass.swift; sourceTree = "<group>"; };
@@ -223,6 +308,9 @@
 		DDC195B8203A00C200705B0C /* homeXibClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = homeXibClass.swift; sourceTree = "<group>"; };
 		DDC195BA203A038200705B0C /* extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensions.swift; sourceTree = "<group>"; };
 		DDC195BF203A211A00705B0C /* account_success.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = account_success.json; sourceTree = "<group>"; };
+		DDD947C920CFFEC600E9D4A9 /* libraryCardDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = libraryCardDataModel.swift; sourceTree = "<group>"; };
+		DDD947CB20D0020600E9D4A9 /* idleView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = idleView.xib; sourceTree = "<group>"; };
+		DDD947CD20D0047E00E9D4A9 /* idleXibClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = idleXibClass.swift; sourceTree = "<group>"; };
 		DDE4EBAC203A462700E24DA0 /* LilitabSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LilitabSDK.framework; path = Carthage/Build/iOS/LilitabSDK.framework; sourceTree = "<group>"; };
 		DDE4EBAF203A7B6800E24DA0 /* lilitabSwipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lilitabSwipe.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -232,16 +320,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B02B8772209CCE1900C7FDD2 /* FirebasePerformance.framework in Frameworks */,
+				B02B8773209CCE1900C7FDD2 /* GTMSessionFetcher.framework in Frameworks */,
+				B02B8774209CCE1900C7FDD2 /* Protobuf.framework in Frameworks */,
+				B02B8775209CCE1900C7FDD2 /* FirebaseSwizzlingUtilities.framework in Frameworks */,
+				B02B8760209CCBFB00C7FDD2 /* GTMSessionFetcher.framework in Frameworks */,
+				B02B8763209CCBFB00C7FDD2 /* Protobuf.framework in Frameworks */,
+				B02B876B209CCDFD00C7FDD2 /* FirebaseSwizzlingUtilities.framework in Frameworks */,
 				B02A3C2B203C652000977D1F /* FirebaseDatabase.framework in Frameworks */,
 				B057BDA3201BAF0C00BCDF95 /* Realm.framework in Frameworks */,
 				DDC195A7202DACEB00705B0C /* Lottie.framework in Frameworks */,
 				B02A3C03203C638A00977D1F /* FirebaseCore.framework in Frameworks */,
+				B02B874E209B83E600C7FDD2 /* Crashlytics.framework in Frameworks */,
 				B057BDA1201BAF0C00BCDF95 /* RealmSwift.framework in Frameworks */,
+				B02B876A209CCDFD00C7FDD2 /* Protobuf.framework in Frameworks */,
 				B02A3C08203C638A00977D1F /* FirebaseInstanceID.framework in Frameworks */,
 				B02A3C10203C63A100977D1F /* FirebaseABTesting.framework in Frameworks */,
 				DD2A2B03204F25ED008010F0 /* Alamofire.framework in Frameworks */,
 				B02A3C0F203C63A100977D1F /* FirebaseRemoteConfig.framework in Frameworks */,
 				B02A3C06203C638A00977D1F /* nanopb.framework in Frameworks */,
+				B02B874F209B83E600C7FDD2 /* Fabric.framework in Frameworks */,
 				B02A3C04203C638A00977D1F /* FirebaseAnalytics.framework in Frameworks */,
 				B02A3C2A203C652000977D1F /* leveldb-library.framework in Frameworks */,
 				B02A3C05203C638A00977D1F /* GoogleToolboxForMac.framework in Frameworks */,
@@ -250,8 +348,9 @@
 				B02A3C07203C638A00977D1F /* FirebaseNanoPB.framework in Frameworks */,
 				B02A3C09203C638A00977D1F /* FirebaseCoreDiagnostics.framework in Frameworks */,
 				B02A3C0E203C63A100977D1F /* Protobuf.framework in Frameworks */,
+				B02B876C209CCDFD00C7FDD2 /* GTMSessionFetcher.framework in Frameworks */,
 				DDE4EBAD203A462700E24DA0 /* LilitabSDK.framework in Frameworks */,
-				DDC195A6202DAC4600705B0C /* Lottie.framework in Frameworks */,
+				B02B876D209CCDFD00C7FDD2 /* FirebasePerformance.framework in Frameworks */,
 				B02A3C1B203C650600977D1F /* Protobuf.framework in Frameworks */,
 				B02A3C1D203C650600977D1F /* FirebaseCrash.framework in Frameworks */,
 			);
@@ -261,6 +360,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B02B878420A0A85E00C7FDD2 /* FirebaseDatabase.framework in Frameworks */,
+				B02B877C20A0A84700C7FDD2 /* GTMSessionFetcher.framework in Frameworks */,
+				B02B877E20A0A84A00C7FDD2 /* FirebasePerformance.framework in Frameworks */,
+				B02B879C20A0A88700C7FDD2 /* FirebaseInstanceID.framework in Frameworks */,
+				B02B877A20A0A84400C7FDD2 /* FirebaseSwizzlingUtilities.framework in Frameworks */,
+				B02B879820A0A88000C7FDD2 /* nanopb.framework in Frameworks */,
+				B02B878620A0A86100C7FDD2 /* GTMSessionFetcher.framework in Frameworks */,
+				B02B879620A0A87C00C7FDD2 /* GoogleToolboxForMac.framework in Frameworks */,
+				B02B878820A0A86400C7FDD2 /* FirebaseStorage.framework in Frameworks */,
+				B02B877620A0A83700C7FDD2 /* FirebaseCore.framework in Frameworks */,
+				B02B879A20A0A88300C7FDD2 /* FirebaseNanoPB.framework in Frameworks */,
+				B02B878A20A0A86700C7FDD2 /* Protobuf.framework in Frameworks */,
+				B02B877820A0A84000C7FDD2 /* Protobuf.framework in Frameworks */,
+				B02B879220A0A87400C7FDD2 /* FirebaseABTesting.framework in Frameworks */,
+				B02B878C20A0A86A00C7FDD2 /* FirebaseCrash.framework in Frameworks */,
+				B02B878220A0A85A00C7FDD2 /* leveldb-library.framework in Frameworks */,
+				B02B879020A0A87100C7FDD2 /* FirebaseRemoteConfig.framework in Frameworks */,
+				B02B879E20A0A88A00C7FDD2 /* FirebaseCoreDiagnostics.framework in Frameworks */,
+				B02B878E20A0A86D00C7FDD2 /* Protobuf.framework in Frameworks */,
+				B02B879420A0A87900C7FDD2 /* FirebaseAnalytics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,6 +387,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B02B878520A0A85E00C7FDD2 /* FirebaseDatabase.framework in Frameworks */,
+				B02B877D20A0A84700C7FDD2 /* GTMSessionFetcher.framework in Frameworks */,
+				B02B877F20A0A84A00C7FDD2 /* FirebasePerformance.framework in Frameworks */,
+				B02B879D20A0A88700C7FDD2 /* FirebaseInstanceID.framework in Frameworks */,
+				B02B877B20A0A84400C7FDD2 /* FirebaseSwizzlingUtilities.framework in Frameworks */,
+				B02B879920A0A88000C7FDD2 /* nanopb.framework in Frameworks */,
+				B02B878720A0A86100C7FDD2 /* GTMSessionFetcher.framework in Frameworks */,
+				B02B879720A0A87D00C7FDD2 /* GoogleToolboxForMac.framework in Frameworks */,
+				B02B878920A0A86400C7FDD2 /* FirebaseStorage.framework in Frameworks */,
+				B02B877720A0A83800C7FDD2 /* FirebaseCore.framework in Frameworks */,
+				B02B879B20A0A88300C7FDD2 /* FirebaseNanoPB.framework in Frameworks */,
+				B02B878B20A0A86800C7FDD2 /* Protobuf.framework in Frameworks */,
+				B02B877920A0A84000C7FDD2 /* Protobuf.framework in Frameworks */,
+				B02B879320A0A87500C7FDD2 /* FirebaseABTesting.framework in Frameworks */,
+				B02B878D20A0A86A00C7FDD2 /* FirebaseCrash.framework in Frameworks */,
+				B02B878320A0A85B00C7FDD2 /* leveldb-library.framework in Frameworks */,
+				B02B879120A0A87100C7FDD2 /* FirebaseRemoteConfig.framework in Frameworks */,
+				B02B879F20A0A88B00C7FDD2 /* FirebaseCoreDiagnostics.framework in Frameworks */,
+				B02B878F20A0A86E00C7FDD2 /* Protobuf.framework in Frameworks */,
+				B02B879520A0A87900C7FDD2 /* FirebaseAnalytics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,6 +433,7 @@
 		B02A3BFA203C633700977D1F /* Firebase */ = {
 			isa = PBXGroup;
 			children = (
+				B02B8765209CCDFD00C7FDD2 /* Performance */,
 				B02A3C31203C66C200977D1F /* module.modulemap */,
 				B02A3C2D203C665A00977D1F /* self-registration-Bridging-Header.h */,
 				B02A3C2C203C65A000977D1F /* Firebase.h */,
@@ -370,14 +510,38 @@
 				B02A3C38203DE3F000977D1F /* barcodeFirebaseFunctions.swift */,
 				B02A3C3A203DE45000977D1F /* twilioFunctions.swift */,
 				B02A3C3C203DE46300977D1F /* sirsiFunctions.swift */,
+				B02B8745209A23BA00C7FDD2 /* createAccount.swift */,
 				B02A3C3E205B136C00977D1F /* connectivityFunctions.swift */,
+				DD80AD5320C063CB00CE530F /* twilioManager.swift */,
+				DD80AD5520C063E800CE530F /* sirsiManager.swift */,
+				DD80AD5920C0690700CE530F /* webServicesRouter.swift */,
 			);
 			path = "API Requests";
+			sourceTree = "<group>";
+		};
+		B02B8765209CCDFD00C7FDD2 /* Performance */ = {
+			isa = PBXGroup;
+			children = (
+				B02B8766209CCDFD00C7FDD2 /* Protobuf.framework */,
+				B02B8767209CCDFD00C7FDD2 /* FirebaseSwizzlingUtilities.framework */,
+				B02B8768209CCDFD00C7FDD2 /* GTMSessionFetcher.framework */,
+				B02B8769209CCDFD00C7FDD2 /* FirebasePerformance.framework */,
+			);
+			path = Performance;
 			sourceTree = "<group>";
 		};
 		B0400E72201688720026CA09 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B02B876E209CCE1800C7FDD2 /* FirebasePerformance.framework */,
+				B02B8771209CCE1900C7FDD2 /* FirebaseSwizzlingUtilities.framework */,
+				B02B876F209CCE1800C7FDD2 /* GTMSessionFetcher.framework */,
+				B02B8770209CCE1800C7FDD2 /* Protobuf.framework */,
+				B02B875C209CCBFA00C7FDD2 /* FirebaseISASwizzler.framework */,
+				B02B875D209CCBFA00C7FDD2 /* FirebaseMethodSwizzler.framework */,
+				B02B875F209CCBFA00C7FDD2 /* FirebasePerformance.framework */,
+				B02B875B209CCBFA00C7FDD2 /* GTMSessionFetcher.framework */,
+				B02B875E209CCBFA00C7FDD2 /* Protobuf.framework */,
 				DD84C69E203A41C80076274A /* LilitabSDK.framework */,
 				DDC195A5202DAC4500705B0C /* Lottie.framework */,
 				B0400E76201688720026CA09 /* RxBlocking.framework */,
@@ -416,6 +580,8 @@
 				DDB0263C2056E349007EDD94 /* finishedXibClass.swift */,
 				DD1A048020886D4E002BC5CB /* detailPatronView.xib */,
 				DD1A048220887BEF002BC5CB /* detailPatronXibClass.swift */,
+				DDD947CB20D0020600E9D4A9 /* idleView.xib */,
+				DDD947CD20D0047E00E9D4A9 /* idleXibClass.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -423,6 +589,7 @@
 		DD0A587C200671250035AD1F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				DDD947C920CFFEC600E9D4A9 /* libraryCardDataModel.swift */,
 				DD220A0620111B7A00F19AC9 /* dataModel.swift */,
 				DD220A0820111C6700F19AC9 /* databaseClass.swift */,
 				B02A3C34203C754800977D1F /* RCValues.swift */,
@@ -467,6 +634,8 @@
 		DD580D3B1FE970FA00A254B4 = {
 			isa = PBXGroup;
 			children = (
+				B02B874C209B83DF00C7FDD2 /* Crashlytics.framework */,
+				B02B874D209B83E600C7FDD2 /* Fabric.framework */,
 				DD2A2B02204F25ED008010F0 /* Alamofire.framework */,
 				B02A3BFA203C633700977D1F /* Firebase */,
 				DDE4EBAC203A462700E24DA0 /* LilitabSDK.framework */,
@@ -497,6 +666,7 @@
 		DD580D461FE970FA00A254B4 /* self-registration */ = {
 			isa = PBXGroup;
 			children = (
+				DD80AD5C20C3199D00CE530F /* Constants */,
 				B0639EF82017877900DD7FA4 /* Views */,
 				DD3A3446202D832700F2B28B /* Design */,
 				DD0A587D2006713A0035AD1F /* Controller */,
@@ -526,8 +696,18 @@
 			children = (
 				DD580D691FE970FA00A254B4 /* self_registrationUITests.swift */,
 				DD580D6B1FE970FA00A254B4 /* Info.plist */,
+				B02B87A020A0ABAD00C7FDD2 /* randomNumberGeneratorTests.swift */,
 			);
 			path = "self-registrationUITests";
+			sourceTree = "<group>";
+		};
+		DD80AD5C20C3199D00CE530F /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				DD80AD5D20C319DA00CE530F /* constants.swift */,
+				DD80AD5F20C31ACB00CE530F /* remoteConstants.swift */,
+			);
+			path = Constants;
 			sourceTree = "<group>";
 		};
 		DDC195A9202DAF2900705B0C /* Lottie Animations */ = {
@@ -560,6 +740,7 @@
 				DD580D421FE970FA00A254B4 /* Resources */,
 				B0400E7B2016888A0026CA09 /* ShellScript */,
 				B0400E8820168C950026CA09 /* Embed Frameworks */,
+				B02B874B209B82B000C7FDD2 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -613,7 +794,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = Makina;
 				TargetAttributes = {
 					DD580D431FE970FA00A254B4 = {
@@ -659,6 +840,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD580D541FE970FA00A254B4 /* LaunchScreen.storyboard in Resources */,
+				DDD947CC20D0020600E9D4A9 /* idleView.xib in Resources */,
 				B0639F022017C6EB00DD7FA4 /* addressView.xib in Resources */,
 				B02A3C1E203C650600977D1F /* extract-keys in Resources */,
 				B021470C203B1FE3009449E1 /* img_0.png in Resources */,
@@ -687,6 +869,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B02B878020A0A85700C7FDD2 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -694,12 +877,26 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B02B878120A0A85800C7FDD2 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		B02B874B209B82B000C7FDD2 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 8;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+			shellPath = /usr/local/bin/sh;
+			shellScript = "$(SRCROOT)/Fabric.framework/run\n";
+		};
 		B0400E7B2016888A0026CA09 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 8;
@@ -730,8 +927,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD580D4C1FE970FA00A254B4 /* SecondViewController.swift in Sources */,
+				DD80AD5E20C319DA00CE530F /* constants.swift in Sources */,
 				DD3A344A202D8C1700F2B28B /* colors.swift in Sources */,
 				DD3A344C202DA5E500F2B28B /* textFields.swift in Sources */,
+				DD80AD6020C31ACB00CE530F /* remoteConstants.swift in Sources */,
 				DDC195B9203A00C200705B0C /* homeXibClass.swift in Sources */,
 				B02A3C3B203DE45000977D1F /* twilioFunctions.swift in Sources */,
 				DD1A048320887BEF002BC5CB /* detailPatronXibClass.swift in Sources */,
@@ -739,14 +938,19 @@
 				B0639F042017C71A00DD7FA4 /* addressXibClass.swift in Sources */,
 				DD580D481FE970FA00A254B4 /* AppDelegate.swift in Sources */,
 				B07313AF2020F8F6002A6DED /* contactXibClass.swift in Sources */,
+				DD80AD5A20C0690700CE530F /* webServicesRouter.swift in Sources */,
 				B02A3C35203C754800977D1F /* RCValues.swift in Sources */,
 				DD580D4A1FE970FA00A254B4 /* FirstViewController.swift in Sources */,
+				DDD947CE20D0047E00E9D4A9 /* idleXibClass.swift in Sources */,
 				DDC195B520316B9D00705B0C /* swiftSignatureView.swift in Sources */,
 				DD3A3448202D834700F2B28B /* IBDesignables.swift in Sources */,
 				DDC195B12030223E00705B0C /* buttons.swift in Sources */,
 				DD220A15201126B700F19AC9 /* validationFunctions.swift in Sources */,
 				DD220A0920111C6700F19AC9 /* databaseClass.swift in Sources */,
+				B02B8746209A23BA00C7FDD2 /* createAccount.swift in Sources */,
+				DD80AD5620C063E800CE530F /* sirsiManager.swift in Sources */,
 				B02A3C3D203DE46300977D1F /* sirsiFunctions.swift in Sources */,
+				DD80AD5420C063CB00CE530F /* twilioManager.swift in Sources */,
 				DD220A0720111B7A00F19AC9 /* dataModel.swift in Sources */,
 				B02A3C3F205B136C00977D1F /* connectivityFunctions.swift in Sources */,
 				DDC195B320310F5000705B0C /* LogInController.swift in Sources */,
@@ -758,6 +962,7 @@
 				B067093920221C53002DAB07 /* userCell.swift in Sources */,
 				DDE4EBB0203A7B6800E24DA0 /* lilitabSwipe.swift in Sources */,
 				DD220A0F2011247600F19AC9 /* viewModel.swift in Sources */,
+				DDD947CA20CFFEC600E9D4A9 /* libraryCardDataModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -773,6 +978,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B02B87A120A0ABAD00C7FDD2 /* randomNumberGeneratorTests.swift in Sources */,
 				DD580D6A1FE970FA00A254B4 /* self_registrationUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -826,6 +1032,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -833,6 +1040,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -859,8 +1067,10 @@
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_PARAMETER = YES;
+				GCC_WARN_UNUSED_VALUE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -883,6 +1093,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -890,6 +1101,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -910,8 +1122,10 @@
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_PARAMETER = YES;
+				GCC_WARN_UNUSED_VALUE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -925,6 +1139,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = RZZ2SRNCGK;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -934,9 +1149,12 @@
 					"$(PROJECT_DIR)/Firebase/Crash",
 					"$(PROJECT_DIR)/Firebase/Storage",
 					"$(PROJECT_DIR)/Firebase/Database",
+					"$(PROJECT_DIR)/Firebase",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Firebase/Performance",
 				);
 				INFOPLIST_FILE = "self-registration/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.hcpl.self-registration";
@@ -964,9 +1182,12 @@
 					"$(PROJECT_DIR)/Firebase/Crash",
 					"$(PROJECT_DIR)/Firebase/Storage",
 					"$(PROJECT_DIR)/Firebase/Database",
+					"$(PROJECT_DIR)/Firebase",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Firebase/Performance",
 				);
 				INFOPLIST_FILE = "self-registration/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.hcpl.self-registration";
@@ -984,14 +1205,25 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = YAKDMK2B7A;
+				DEVELOPMENT_TEAM = RZZ2SRNCGK;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Firebase/Analytics",
+					"$(PROJECT_DIR)/Firebase/Performance",
+					"$(PROJECT_DIR)/Firebase/Database",
+					"$(PROJECT_DIR)/Firebase/Storage",
+					"$(PROJECT_DIR)/Firebase/Crash",
+					"$(PROJECT_DIR)/Firebase/RemoteConfig",
+				);
 				INFOPLIST_FILE = "self-registrationTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.self-registrationTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/self-registration.app/self-registration";
+				"USER_HEADER_SEARCH_PATHS[arch=*]" = "$(SRCROOT)/";
 			};
 			name = Debug;
 		};
@@ -1001,14 +1233,25 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = YAKDMK2B7A;
+				DEVELOPMENT_TEAM = RZZ2SRNCGK;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Firebase/Analytics",
+					"$(PROJECT_DIR)/Firebase/Performance",
+					"$(PROJECT_DIR)/Firebase/Database",
+					"$(PROJECT_DIR)/Firebase/Storage",
+					"$(PROJECT_DIR)/Firebase/Crash",
+					"$(PROJECT_DIR)/Firebase/RemoteConfig",
+				);
 				INFOPLIST_FILE = "self-registrationTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.self-registrationTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/self-registration.app/self-registration";
+				"USER_HEADER_SEARCH_PATHS[arch=*]" = "$(SRCROOT)/";
 			};
 			name = Release;
 		};
@@ -1018,13 +1261,24 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YAKDMK2B7A;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Firebase/Analytics",
+					"$(PROJECT_DIR)/Firebase/Performance",
+					"$(PROJECT_DIR)/Firebase/Database",
+					"$(PROJECT_DIR)/Firebase/Storage",
+					"$(PROJECT_DIR)/Firebase/Crash",
+					"$(PROJECT_DIR)/Firebase/RemoteConfig",
+				);
 				INFOPLIST_FILE = "self-registrationUITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.self-registrationUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = "self-registration";
+				"USER_HEADER_SEARCH_PATHS[arch=*]" = "$(SRCROOT)/";
 			};
 			name = Debug;
 		};
@@ -1034,13 +1288,24 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YAKDMK2B7A;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Firebase/Analytics",
+					"$(PROJECT_DIR)/Firebase/Performance",
+					"$(PROJECT_DIR)/Firebase/Database",
+					"$(PROJECT_DIR)/Firebase/Storage",
+					"$(PROJECT_DIR)/Firebase/Crash",
+					"$(PROJECT_DIR)/Firebase/RemoteConfig",
+				);
 				INFOPLIST_FILE = "self-registrationUITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.self-registrationUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = "self-registration";
+				"USER_HEADER_SEARCH_PATHS[arch=*]" = "$(SRCROOT)/";
 			};
 			name = Release;
 		};

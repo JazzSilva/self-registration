@@ -13,12 +13,13 @@ import RealmSwift
 class userViewModel {
     
     var realm: Realm?
+    var libraryCardObject = libraryCard()
     let disposeBag = DisposeBag()
     
     //This is a singleton
     init() {
         realm = Database.shared.realm
-        getLibraryCardNumber(user: self)
+        //getLibraryCardNumber(user: self)
         dateCreated.value = getDateCreatedToString(date: NSDate())
         branchCode.value = Database.shared.currentUser
     }
@@ -42,13 +43,15 @@ class userViewModel {
     
     let isChildUser = Variable<Bool>(false)
     let verified = Variable<Bool>(false)
-    let licenseNumber = Variable<String>("")
-    let libraryCardNumber = Variable<String>("")
-    
+
     let dateCreated = Variable<String>("")
-    let userProfile = Variable<String>("HC-DigitaJ")
+    let userProfile = Variable<String>(constants.accountType.digital)
     let branchCode = Variable<String>("")
     let contactPreference = Variable<String>("")
+    
+    var libraryCardNumber: String {
+        return verified.value ? libraryCardObject.driversLicenseWithCorrectedPrefix : libraryCardObject.generatedNumber
+    }
     
     var signature = Variable<String>("")
     
@@ -71,15 +74,18 @@ class userViewModel {
     var isSecurityViewValid: Observable<Bool> { return Observable.combineLatest(mothersMaidenNameValid, pinValid) { mothersMaidenName, pin in mothersMaidenName && pin } }
     var isContactViewValid: Observable<Bool> { return Observable.combineLatest(phoneValid, emailValid) { phone, email in phone && email } }
     
-    var isFormComplete: Observable<Bool> { return Observable.combineLatest(isNameViewValid, isAddressViewValid, isSecurityViewValid, isContactViewValid) { name, address, security, contact in name && address && security && contact } }
+    var isFormComplete: Observable<Bool> { return Observable.combineLatest(isNameViewValid, isAddressViewValid, isSecurityViewValid, isContactViewValid) { name, address, security, contact in name && address && security && contact} }
     
     @objc func createUser(sender: AnyObject) {
         //This references the convenience user init in the Database class
-        let newUser = user(firstName: firstName.value.uppercased(), middleName: middleName.value.uppercased(), lastName: lastName.value.uppercased(), address1: address1.value.uppercased(), city: city.value.uppercased(), state: state.value.uppercased(), zip: zip.value, phone: phone.value, email: email.value, mothersMaidenName: mothersMaidenName.value.uppercased(), pin: pin.value, holds: holds.value.uppercased(), signature: signature.value, birthday: birthday.value, verified: verified.value, userProfile: userProfile.value, licenseNumber: licenseNumber.value, libraryCardNumber: libraryCardNumber.value, branchCode: branchCode.value, contactPreference: contactPreference.value, dateCreated: dateCreated.value)
-        //Actually save the user to the shared realm
+        let newUser = user(firstName: firstName.value.uppercased(), middleName: middleName.value.uppercased(), lastName: lastName.value.uppercased(), address1: address1.value.uppercased(), city: city.value.uppercased(), state: state.value.uppercased(), zip: zip.value, phone: phone.value, email: email.value, mothersMaidenName: mothersMaidenName.value.uppercased(), pin: pin.value, holds: holds.value.uppercased(), signature: signature.value, birthday: birthday.value, verified: verified.value, userProfile: userProfile.value, licenseNumber: self.libraryCardObject.eightDigitLicense, libraryCardNumber: self.libraryCardNumber, branchCode: branchCode.value, contactPreference: contactPreference.value, dateCreated: dateCreated.value)
+        //save the user to the shared realm
         Database.shared.create(newUser)
-        sendToSirsi(user: newUser)
-        if userProfile.value == "HC-DigitaJ" { text(user: newUser) }
+        //request session token -> post to sirsi and send twilio text
+        getSessionTokenILS(user: newUser) { (success, token, user) -> Void in
+            choice(success, token, user)
+        }
+    
     }
     
 }

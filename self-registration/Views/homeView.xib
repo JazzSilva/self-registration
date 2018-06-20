@@ -1,19 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="Futura.ttc">
-            <string>Futura-Medium</string>
-        </array>
-    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="homeXib" customModule="self_registration" customModuleProvider="target">
             <connections>
@@ -32,6 +26,8 @@
                 <outlet property="swipeButton" destination="UNZ-wY-08C" id="yOR-He-NRS"/>
                 <outlet property="swipedView" destination="wTn-yb-Cs9" id="ZWe-Xd-MvS"/>
                 <outlet property="topLabel" destination="MNy-Dm-7Wr" id="JrJ-5o-Mwa"/>
+                <outlet property="unableToReadDataView" destination="I1l-qV-NzA" id="Gw3-bh-tcO"/>
+                <outlet property="unableToReadSwipeButton" destination="x82-0q-6JD" id="HiO-gx-FsM"/>
                 <outlet property="zipSwipe" destination="pCz-GS-GgA" id="Hh6-jK-syC"/>
             </connections>
         </placeholder>
@@ -74,9 +70,9 @@
                 </userDefinedRuntimeAttribute>
             </userDefinedRuntimeAttributes>
         </view>
-        <view contentMode="scaleToFill" id="wTn-yb-Cs9">
+        <view autoresizesSubviews="NO" clipsSubviews="YES" contentMode="scaleToFill" id="wTn-yb-Cs9">
             <rect key="frame" x="0.0" y="0.0" width="505" height="289"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
             <subviews>
                 <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="first" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lih-lP-hfu">
                     <rect key="frame" x="16" y="33" width="170" height="30"/>
@@ -144,15 +140,16 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
             <viewLayoutGuide key="safeArea" id="OUs-YT-gC9"/>
             <point key="canvasLocation" x="-662.5" y="274.5"/>
         </view>
-        <view contentMode="scaleToFill" id="PIk-z6-5Um">
+        <view autoresizesSubviews="NO" clipsSubviews="YES" contentMode="scaleToFill" id="PIk-z6-5Um">
             <rect key="frame" x="0.0" y="0.0" width="505" height="290"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Looks like there is already an account registered with this license!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fte-iZ-poO">
-                    <rect key="frame" x="55" y="27" width="395" height="82"/>
+                    <rect key="frame" x="56" y="29" width="395" height="82"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="22"/>
                     <nil key="textColor"/>
@@ -167,8 +164,33 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
             <viewLayoutGuide key="safeArea" id="eU5-Bd-kF2"/>
             <point key="canvasLocation" x="-663.5" y="610.5"/>
+        </view>
+        <view autoresizesSubviews="NO" clipsSubviews="YES" contentMode="scaleToFill" id="I1l-qV-NzA">
+            <rect key="frame" x="0.0" y="0.0" width="505" height="290"/>
+            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x82-0q-6JD" customClass="nextButton" customModule="self_registration" customModuleProvider="target">
+                    <rect key="frame" x="211" y="196" width="74" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                    <state key="normal" title="Okay"/>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="We're having trouble reading your card. You may need to manually enter your information. " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aOc-3u-gel">
+                    <rect key="frame" x="32" y="36" width="442" height="122"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="22"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
+            <viewLayoutGuide key="safeArea" id="xPv-ce-cml"/>
+            <point key="canvasLocation" x="-663" y="953"/>
         </view>
     </objects>
 </document>

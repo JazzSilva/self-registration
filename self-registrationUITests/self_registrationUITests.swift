@@ -8,6 +8,8 @@
 
 import XCTest
 
+@testable import self_registration
+
 class self_registrationUITests: XCTestCase {
         
     override func setUp() {

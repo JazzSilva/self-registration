@@ -21,9 +21,11 @@ class homeXib: UIView {
     @IBOutlet weak var button: nextButton!
     @IBOutlet weak var topLabel: UILabel!
     @IBOutlet weak var accountExistsButton: nextButton!
+    @IBOutlet weak var unableToReadSwipeButton: nextButton!
     
     @IBOutlet var swipedView: UIView!
     @IBOutlet var accountExists: UIView!
+    @IBOutlet var unableToReadDataView: UIView!
     
     
     @IBOutlet weak var firstSwipe: UITextField!
@@ -38,8 +40,9 @@ class homeXib: UIView {
     //User Dictionaries
     var userDict = Dictionary<Int, String>()
     var userInformation = Dictionary<String, [String]>()
+    var newLibraryCard = libraryCard()
     var lottieAnimation: LOTAnimationView?
-    let lilitab = AppDelegate.swipe
+    weak var lilitab = LilitabSDK.singleton()
     let animationView = LOTAnimationView(name: "account_success")
     
     
@@ -70,10 +73,12 @@ class homeXib: UIView {
         lilitab?.scanForConnectedAccessories()
         lilitab?.enableSwipe = true
         lilitab?.swipeTimeout = 0
-        lilitab?.allowMultipleSwipes = true
+        lilitab?.allowMultipleSwipes = false
         lilitab?.ledState = LilitabSDK_LED_Mode.LED_On
-        lilitab?.swipeBlock = {(_ swipeData: [AnyHashable: Any]?) -> Void in
-        self.swipeFunc(swipeData)}
+        lilitab?.swipeBlock = { (_ swipeData: Any?) -> Void in
+            self.swipeFunc(swipeData)
+            self.lilitab?.ledState = LilitabSDK_LED_Mode.LED_Blink2
+        }
     }
     
     private func animateLottie() {
@@ -89,21 +94,39 @@ class homeXib: UIView {
         }
     }
 
-    func animateSwipe() {
+    func animateSuccessfulSwipeView() {
         topLabel.text = "Great, let's get started!"
+        self.firstSwipe.text = self.userInformation["First"]?.first
+        self.lastSwipe.text = self.userInformation["Last"]?.first
+        self.addressSwipe.text = self.userInformation["Address 1"]?.first
+        self.citySwipe.text = self.userInformation["City"]?.first
+        self.dobSwipe.text = dateStringFormatted(date: (self.userInformation["DOB"]?.first)!)
+        self.stateSwipe.text = self.userInformation["State"]?.first
+        self.zipSwipe.text = self.userInformation["Zip"]?.first
+        self.licenseSwipe.text = newLibraryCard.driversLicenseWithCorrectedPrefix
+        
         animationView.play(fromFrame: 35, toFrame: 60, withCompletion: { completion in
-            self.animateIn()
+            self.contentView.addSubview(self.swipedView)
+            self.swipedView.superview?.bringSubview(toFront: self.swipedView)
+            self.swipedView.center = CGPoint(x: self.contentView.center.x - 105, y: self.contentView.center.y - 35)
+            //self.swipedView.center = CGPoint(x: self.center.x, y: self.center.y + 50) // might be -50. need to test
+            self.swipedView.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
+            self.animationView.transform = CGAffineTransform.identity
+            self.swipedView.alpha = 0
+            UIView.animate(withDuration: 0.4) {
+                self.swipedView.alpha = 1
+                self.swipedView.transform = CGAffineTransform.identity
+                self.animationView.transform = CGAffineTransform.init(scaleX: 0, y: 0)
+            }
+            self.swipeButton.enableSettings()
         })
     }
     
-    func animateError() {
+    func animateAccountExistsView() {
         topLabel.text = "Whoops!"
-        self.accountExistsAction()
-    }
-    
-    private func accountExistsAction() {
-        self.addSubview(accountExists)
-        accountExists.center = CGPoint(x: self.center.x, y: self.center.y + 50)
+        self.contentView.addSubview(accountExists)
+        accountExists.superview?.bringSubview(toFront: accountExists)
+        accountExists.center = CGPoint(x: self.contentView.center.x - 105, y: self.contentView.center.y - 35)
         accountExists.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
         animationView.transform = CGAffineTransform.identity
         accountExists.alpha = 0
@@ -115,18 +138,20 @@ class homeXib: UIView {
         accountExistsButton.enableSettings()
     }
     
-    private func animateIn() {
-        self.addSubview(swipedView)
-        swipedView.center = CGPoint(x: self.center.x, y: self.center.y + 50) // might be -50. need to test
-        swipedView.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
-        animationView.transform = CGAffineTransform.identity
-        swipedView.alpha = 0
+    func animateUnableToReadSwipeView() {
+        topLabel.text = "Sorry!"
+        self.contentView.addSubview(unableToReadDataView)
+        unableToReadDataView.superview?.bringSubview(toFront: unableToReadDataView)
+        unableToReadDataView.center = CGPoint(x: self.contentView.center.x - 105, y: self.contentView.center.y - 35)
+        unableToReadDataView.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
+        unableToReadDataView.transform = CGAffineTransform.identity
+        unableToReadDataView.alpha = 0
         UIView.animate(withDuration: 0.4) {
-            self.swipedView.alpha = 1
-            self.swipedView.transform = CGAffineTransform.identity
+            self.unableToReadDataView.alpha = 1
+            self.unableToReadDataView.transform = CGAffineTransform.identity
             self.animationView.transform = CGAffineTransform.init(scaleX: 0, y: 0)
         }
-        swipeButton.enableSettings()
+        unableToReadSwipeButton.enableSettings()
     }
     
     @objc func removeButton(sender: AnyObject) {

@@ -21,9 +21,7 @@ class nameXib: UIView {
     
     @IBOutlet weak var topLabel: UILabel!
     @IBOutlet weak var isValid: nextButton!
-    
-    @IBOutlet weak var showButtonTest: UIButton!
-    
+
     let birthday = Variable<String>("")
     
     override init(frame: CGRect) {

@@ -13,11 +13,11 @@ import LilitabSDK
 
 extension homeXib {
     
-    public func swipeFunc(_ swipeData: [AnyHashable: Any]?) -> Void {
+    public func swipeFunc(_ swipeData: Any?) -> Void {
         //Put the data from the ID into a dictionary
-        if let swipeData = swipeData as NSDictionary? as! [String:Any]? {
+        if let swipeData = swipeData as! [String:Any]? {
             let data = swipeData["rawData"] as! String
-            
+    
             var i = 0
             //Parse raw data into a dictionary where an index (1-4) corresponds to each field separator (^)
             for items in data.components(separatedBy: "^") {
@@ -27,56 +27,51 @@ extension homeXib {
             
             do {
                 //Use regular expressions to parse each of the 4 track lines to get each field
-                self.cityState(input: self.userDict[1]!)
-                self.name(input: self.userDict[2]!)
-                self.addressInput(input: self.userDict[3]!)
-                self.zipDobNumber(input: self.userDict[4]!)
+                guard let city = self.userDict[1],
+                    let name = self.userDict[2],
+                    let address = self.userDict[3],
+                    let zip = self.userDict[4]
+                else {
+                    self.animateUnableToReadSwipeView()
+                    return
+                    }
+                self.cityState(input: city)
+                self.name(input: name)
+                self.addressInput(input: address)
+                self.zipDobNumber(input: zip)
             }
+
+            newLibraryCard.fourteenDigitLicense = self.userInformation["DL Number"]?.first!
             
             getSessionToken { (success) -> Void in
                 if success {
                     print("got session token", NSDate())
                     // do second task if success
-                    doesAccountExist((self.userInformation["DL Number"]?.first!)!) { (success, string) -> Void in
+                    doesAccountExist(self.newLibraryCard.driversLicenseWithCorrectedPrefix) { (success, string) -> Void in
                         if success {
-                            print("account does exist")
-                            print("card number was already in use")
-                            self.hello()
+                            //The license is already associated with an account
+                            self.animateAccountExistsView()
                         }
                         else {
-                            print("account does not exist")
-                            print("account does not exist")
-                            print("card number was not in use")
-                            self.accountDoesNotExistAction()
+                            //The license is not associated with an account
+                            self.animateSuccessfulSwipeView()
                         }
                     }
                 }
                 else {
-                    print("did not get session token")
+                    //We could not get the session token to look-Up the license
                     sessionTokenError()
+                    //Temporary Fix: trigger unable to read license function
+                    self.animateUnableToReadSwipeView()
                 }
             }
-        
         }
-        
-   }
-    public func hello() {
-        self.animateError()
+        else {
+            //If the swipe cannot read the card data, trigger this function
+            self.animateUnableToReadSwipeView()
+        }
     }
-    
-    public func accountDoesNotExistAction() {
-        self.firstSwipe.text = self.userInformation["First"]?.first
-        self.lastSwipe.text = self.userInformation["Last"]?.first
-        self.addressSwipe.text = self.userInformation["Address 1"]?.first
-        self.citySwipe.text = self.userInformation["City"]?.first
-        self.dobSwipe.text = self.userInformation["DOB"]?.first
-        self.stateSwipe.text = self.userInformation["State"]?.first
-        self.zipSwipe.text = self.userInformation["Zip"]?.first
-        self.licenseSwipe.text = self.userInformation["DL Number"]?.first
-        self.animateSwipe()
-        accountDoesNotExist()
-    }
-    
+
     public func cityState(input :String) {
         userInformation["State"] = input.capturedGroups(withRegex: "[%](..)[.]*")
         userInformation["City"] = input.capturedGroups(withRegex: "[%]..(.*)")
@@ -92,7 +87,7 @@ extension homeXib {
     }
     
     public func zipDobNumber(input: String) {
-        userInformation["Zip"] = input.capturedGroups(withRegex: "[?]...([0-9]*) ")
+        userInformation["Zip"] = input.capturedGroups(withRegex: "[?][#]..([0-9][0-9][0-9][0-9][0-9])")
         userInformation["DL Number"] = input.capturedGroups(withRegex: "[?][;]([0-9]*)[=]")
         userInformation["DOB"] = input.capturedGroups(withRegex: "[=]....([0-9]*)[?]")
     }

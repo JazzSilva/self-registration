@@ -32,6 +32,8 @@ class detailPatronXib: UIView {
     @IBOutlet weak var profileType: UILabel!
     @IBOutlet weak var dateCreatedLabel: UILabel!
     
+    var currentUser: user!
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
@@ -52,12 +54,30 @@ class detailPatronXib: UIView {
         contentView.shadowOffset = CGPoint(x: 0, y: 0)
         contentView.shadowRadius = 14
     }
+    
     @IBAction func resendText(_ sender: Any) {
-        if phoneLabel.text != "" {
-            retext(cardNumber: userIDLabel.text!, name: firstLabel.text!, toNumber: phoneLabel.text!)
+        if userStandingLabel.text != "Account Not In Sirsi" {
+            //resend text to patron
+            if profileType.text == "A" {
+                sendTextToSMS(toNumber: phoneLabel.text!, name: firstLabel.text!, number: userIDLabel.text!)
+            }
+            else {
+                retext(cardNumber: userIDLabel.text!, name: firstLabel.text!, toNumber: phoneLabel.text!)
+            }
+            //after button is pressed, change text so staff know button was pressed
+            resendButton.setTitle("Resending Text", for: .normal)
         }
         else {
-            resendButton.titleLabel?.text = "Invalid Phone Number"
+            guard let patron = currentUser else {
+                print("couldn't initialize patron as current user")
+                return
+            }
+            getSessionTokenILS(user: patron) { (success, token, user) -> Void in
+                print("retry sirsi")
+                choice(success, token, user)
+                self.resendButton.setTitle("Recreating Account", for: .normal)
+                self.userStandingLabel.text = "OK"
+            }
         }
     }
     

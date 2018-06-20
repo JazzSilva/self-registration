@@ -16,7 +16,7 @@ import RxSwift
 class shakingTextField: UITextField {
     
     func updateUI(bool: Bool) {
-        self.textColor = bool ? isValidText : isInvalidText
+        self.textColor = bool ? constants.colors.greenValid : constants.colors.redInvalid
     }
     
     func act(bool: Bool) {
@@ -34,10 +34,10 @@ class shakingTextField: UITextField {
     
     func didEndEditing() {
         if self.leftViewMode == .never && self.text != "" {
-            self.act(bool: self.textColor == isValidText ? true : false)
+            self.act(bool: self.textColor == constants.colors.greenValid ? true : false)
         }
         else {
-           self.updateImage(bool: self.textColor == isValidText ? true : false)
+           self.updateImage(bool: self.textColor == constants.colors.greenValid ? true : false)
         }
     }
     

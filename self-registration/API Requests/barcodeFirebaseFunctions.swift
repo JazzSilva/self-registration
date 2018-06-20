@@ -51,4 +51,3 @@ func retext(cardNumber: String, name: String, toNumber: String) {
     })
 }
 
-

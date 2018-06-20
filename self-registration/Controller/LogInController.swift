@@ -25,18 +25,20 @@ class logInController: UIViewController {
         backgroundImage.contentMode = UIViewContentMode.scaleAspectFill
         self.view.insertSubview(backgroundImage, at: 0)
         
-        //animation
         animateIn(newView: logInView)
-        
-        //Set Submit button settings
         submitButton.enableSettings()
-        
-        //Hide response
         responseLabel.text = ""
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         self.hideKeyboardWhenTappedAround()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(self)
     }
     
     @IBAction func submitPressed(_ sender: Any) {
@@ -47,8 +49,8 @@ class logInController: UIViewController {
         shake()
         usernameField.text = ""
         passwordField.text = ""
-        responseLabel.textColor = isInvalidText
-        responseLabel.text = "Incorrect username or password"
+        responseLabel.textColor = constants.colors.redInvalid
+        responseLabel.text = constants.labels.incorrectLogIn
     }
     
     func correctInput() {

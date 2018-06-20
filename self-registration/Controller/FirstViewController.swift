@@ -9,28 +9,35 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import Crashlytics
+import Fabric
 
 class FirstViewController: UIViewController, UITextFieldDelegate {
 
     var scrollView: UIScrollView!
     var stackView: UIStackView!
-    var viewModel = userViewModel() //should this be
-    var disposeBag = DisposeBag() //should this be weak
+    var viewModel: userViewModel! //should this be
+    var disposeBag: DisposeBag! //should this be weak
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
-        self.hideKeyboardWhenTappedAround()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         setInitialScene(view: self.view)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        Database.shared.observeRealmErrors(in: self) { (error) in print(error ?? "no error") }
+        self.hideKeyboardWhenTappedAround()
+        super.viewWillAppear(true)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(self)
+        Database.shared.stopObservingErrors(in: self)
         for all in stackView.arrangedSubviews {all.removeFromSuperview()}
         for all in self.view.subviews {all.removeFromSuperview()}
+        super.viewWillDisappear(true)
     }
     
     override func viewWillLayoutSubviews() {
@@ -71,7 +78,7 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
         scrollView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[stackView]", options: NSLayoutFormatOptions.alignAllCenterX, metrics: nil, views: ["stackView": stackView]))
         
         //Add the first custom view to the stack
-        insertArrangedHome(sender: self)
+        insertArrangedIdle(sender: self)
     }
     
     //Adjust scroll view to fit new stack view content
@@ -86,6 +93,20 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    @objc func insertArrangedIdle(sender: AnyObject) {
+        let view = idleXib()
+        
+        guard let button = view.isValid else { return }
+        button.addTarget(self, action: #selector(self.insertArrangedHome(sender:)), for: .touchUpInside)
+        button.addTarget(view, action: #selector(view.removeButton(sender:)), for: .touchUpInside)
+        
+        stackView.addArrangedSubview(setConstraints(inputXib: view))
+        animateIn(newView: view)
+        
+        
+    }
+    
+    
     //Insert Home View
     @objc func insertArrangedHome(sender: AnyObject) {
         let view = homeXib()
@@ -98,8 +119,11 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
         view.button.addTarget(self, action: #selector(insertArrangedName(sender:)), for: .touchUpInside)
         view.button.addTarget(view, action: #selector(view.removeButton(sender:)), for: .touchUpInside)
         view.accountExistsButton.addTarget(self, action: #selector(restartViews(sender:)), for: .touchUpInside)
+        view.unableToReadSwipeButton.addTarget(self, action: #selector(restartViews(sender:)), for: .touchUpInside)
+        
         stackView.addArrangedSubview(setConstraints(inputXib: view))
         animateIn(newView: view)
+        displayStartOver()
     }
     
     //Insert Name View
@@ -125,9 +149,9 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
         viewModel.middleNameValid.subscribe(onNext: { [unowned view] isValid in view.middleName.updateUI(bool: isValid)}).disposed(by: disposeBag)
         viewModel.lastNameValid.subscribe(onNext: { [unowned view] isValid in view.lastName.updateUI(bool: isValid)}).disposed(by: disposeBag)
         
-        view.topLabel.textColor = blueHexTitle
+        view.topLabel.textColor = constants.colors.blueText
         stackView.addArrangedSubview(setConstraints(inputXib: view))
-        displayStartOver()
+        
     }
     
     //Insert Address View
@@ -153,7 +177,7 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
         viewModel.zipValid.subscribe(onNext: { [unowned view] isValid in view.zipCode.updateUI(bool: isValid)}).disposed(by: disposeBag)
         
         stackView.addArrangedSubview(setConstraints(inputXib: view))
-        view.topLabel.textColor = blueHexTitle
+        view.topLabel.textColor = constants.colors.blueText
         animateIn(newView: view)
     }
     
@@ -177,7 +201,7 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
         viewModel.holdsValid.subscribe(onNext: { [unowned view] isValid in view.holds.updateUI(bool: isValid)}).disposed(by: disposeBag)
         viewModel.pinValid.subscribe(onNext: { [unowned view] isValid in view.pin.updateUI(bool: isValid)}).disposed(by: disposeBag)
         
-        view.topLabel.textColor = blueHexTitle
+        view.topLabel.textColor = constants.colors.blueText
         stackView.addArrangedSubview(setConstraints(inputXib: view))
         animateIn(newView: view)
     }
@@ -200,12 +224,7 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
         viewModel.phoneValid.subscribe(onNext: { [unowned view] isValid in view.phone.updateUI(bool: isValid)}).disposed(by: disposeBag)
         viewModel.emailValid.subscribe(onNext: { [unowned view] isValid in view.email.updateUI(bool: isValid)}).disposed(by: disposeBag)
         
-        if viewModel.isChildUser.value {
-            view.topLabel.text = "How can we contact you?"
-        } else {
-            view.topLabel.text = "How can we contact you?"
-        }
-        view.topLabel.textColor = blueHexTitle
+        view.topLabel.textColor = constants.colors.blueText
         stackView.addArrangedSubview(setConstraints(inputXib: view))
         animateIn(newView: view)
     }
@@ -215,16 +234,14 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
         let view = submitXib()
         
         _ = viewModel.isFormComplete.bind(to: view.isValid.rx.isEnabled)
-        view.isValid.addTarget(self, action: #selector(submitSignatureData(sender:)), for: .touchUpInside)
-        view.isValid.addTarget(viewModel, action: #selector(viewModel.createUser(sender:)), for: .touchUpInside)
-        view.isValid.addTarget(self, action: #selector(insertArrangedFinished(sender:)), for: .touchUpInside)
-        
+        view.isValid.addTarget(self, action: #selector(submitData(sender:)), for: .touchUpInside)
+
         viewModel.isFormComplete.subscribe(onNext: { [unowned view] isValid in
             guard let button = view.isValid else { return }
             button.setUI(bool: isValid)
         }).disposed(by: disposeBag)
         
-        view.topLabel.textColor = blueHexTitle
+        view.topLabel.textColor = constants.colors.blueText
         stackView.addArrangedSubview(setConstraints(inputXib: view))
         animateIn(newView: view)
     }
@@ -253,7 +270,7 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
         animateIn(newView: view)
     }
     
-    @objc func submitSignatureData(sender: AnyObject) {
+    @objc func submitData(sender: AnyObject) {
         submitSignature(view: self.stackView.arrangedSubviews.last! as! submitXib)
     }
 
@@ -271,10 +288,18 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
     }
 
     private func submitSignature(view: submitXib) {
-        let sig: Data = UIImagePNGRepresentation(view.signatureView.signature!)! as Data
-        viewModel.signature.value = sig.base64EncodedString()
+        if let signatureData = view.signatureView?.signature  {
+            let data = UIImagePNGRepresentation(signatureData)!
+            viewModel.signature.value = data.base64EncodedString()
+            viewModel.createUser(sender:self)
+            insertArrangedFinished(sender: self)
+        }
+        else {
+            view.instructions.textColor = constants.colors.redInvalid
+            return
+        }
     }
-    
+
     //animations
     private func animateIn(newView: UIView) {
         newView.transform = CGAffineTransform.init(scaleX: 0.2, y: 0.2)
@@ -290,8 +315,14 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
             view.alpha = 0
             //need to briefly bring up clapping hands animation
         }, completion: { finished in
-            for all in self.stackView.arrangedSubviews {self.stackView.removeArrangedSubview(all)}
-            for all in self.view.subviews { all.removeFromSuperview() }
+            for all in self.stackView.arrangedSubviews {
+                self.stackView.removeArrangedSubview(all)
+                all.removeFromSuperview()
+            }
+            for all in self.view.subviews {
+                view.willRemoveSubview(all)
+                all.removeFromSuperview()
+            }
             self.setInitialScene(view: self.view)
         })
     }
@@ -312,21 +343,22 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
         viewModel.state.value = inputXib.stateSwipe.text!
         viewModel.zip.value = inputXib.zipSwipe.text!
         viewModel.birthday.value = inputXib.dobSwipe.text!
-        viewModel.libraryCardNumber.value = inputXib.licenseSwipe.text!
+        viewModel.libraryCardObject = inputXib.newLibraryCard
+        /*viewModel.libraryCardNumber.value = inputXib.licenseSwipe.text!
         viewModel.licenseNumber.value = inputXib.licenseSwipe.text!
-        viewModel.isChildUser.value = isChild(viewModel.birthday.value)
+         */
+        viewModel.isChildUser.value = isDLChild(viewModel.birthday.value)
         viewModel.verified.value = true
         if viewModel.isChildUser.value {
-            viewModel.userProfile.value = "C" } else {
-            viewModel.userProfile.value = "A"
+            viewModel.userProfile.value = constants.accountType.childInState }
+        else {
+            viewModel.userProfile.value = constants.accountType.adultInState
         }
     }
     
     private func bindBirthday(inputXib: nameXib) {
-        viewModel.birthday.value = inputXib.birthday.value
-        viewModel.isChildUser.value = isChild(viewModel.birthday.value)
-        print("birthday is \(viewModel.birthday.value)")
-        print("is child \(viewModel.isChildUser.value)")
+        viewModel.birthday.value = dateStringFormatted(date: inputXib.birthday.value)
+        viewModel.isChildUser.value = isChild(inputXib.birthday.value)
     }
     
     private func displayStartOver() {

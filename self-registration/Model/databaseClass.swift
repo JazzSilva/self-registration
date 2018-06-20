@@ -38,7 +38,7 @@ class Database {
             DispatchQueue.main.async(execute: {
                 // Open Realm
                 let configuration = Realm.Configuration(
-                    syncConfiguration: SyncConfiguration(user: user, realmURL: URL(string: RCValues.sharedInstance.string(forKey: .syncConfigServer) )!)
+                    syncConfiguration: SyncConfiguration(user: user, realmURL: URL(string: RCValues.sharedInstance.string(forKey: .syncConfigServer) + username )!)
                 )
                 
                 self.realm = try! Realm(configuration: configuration)
@@ -53,7 +53,7 @@ class Database {
     }
         
     func updateUsersList() {
-            print("did update users")
+            print(constants.console.databaseDidUpdate)
     }
         
     func create<T: Object>(_ object: T) {

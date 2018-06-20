@@ -1,24 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="Futura.ttc">
-            <string>Futura-Medium</string>
-        </array>
-    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="submitXib" customModule="self_registration" customModuleProvider="target">
             <connections>
                 <outlet property="clearButton" destination="J60-mx-5hQ" id="ipV-si-JsK"/>
                 <outlet property="contentView" destination="iN0-l3-epB" id="iuf-io-4r9"/>
+                <outlet property="instructions" destination="JJ4-zz-CYf" id="O69-K0-ASU"/>
                 <outlet property="isValid" destination="UDu-RY-2by" id="W5P-OU-SYN"/>
                 <outlet property="signatureView" destination="DyH-Xh-iE5" id="GsV-0B-WoT"/>
                 <outlet property="topLabel" destination="JJ4-zz-CYf" id="lFu-rV-ySC"/>
@@ -30,7 +25,7 @@
             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DyH-Xh-iE5" customClass="SwiftSignatureView" customModule="self_registration" customModuleProvider="target">
-                    <rect key="frame" x="240" y="205" width="321" height="173"/>
+                    <rect key="frame" x="202" y="205" width="397" height="189"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     <userDefinedRuntimeAttributes>
@@ -58,7 +53,7 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Use your finger to sign." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JJ4-zz-CYf">
-                    <rect key="frame" x="294" y="166" width="212" height="31"/>
+                    <rect key="frame" x="295" y="167" width="212" height="31"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="19"/>
                     <color key="textColor" red="0.0" green="0.58039215686274503" blue="0.20392156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -80,7 +75,7 @@
                     </state>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J60-mx-5hQ">
-                    <rect key="frame" x="569" y="205" width="34" height="31"/>
+                    <rect key="frame" x="604" y="204" width="34" height="31"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" title="Clear" image="clear"/>
                     <userDefinedRuntimeAttributes>

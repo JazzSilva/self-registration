@@ -65,13 +65,13 @@ func getDateCreatedToString(date: NSDate) -> String {
 func random9DigitString() -> String {
     let min: UInt32 = 100_000_000
     let max: UInt32 = 999_999_999
-    let i = min + arc4random_uniform(max - min + 1)
+    let i = UInt64(min) + UInt64((arc4random_uniform(max - min)))
     return String(i)
 }
 
 public func calculateTimeDistance(date: NSDate) -> Bool {
     var child = false
-    let time = (date.timeIntervalSince(Date())) / 31536000
+    let time: Int64 = Int64(date.timeIntervalSince(Date())) / Int64(31536000)
     if time >= -18 {
         child = true
     }
@@ -92,3 +92,11 @@ public func isChild(_ dateAsString: String) -> Bool {
     let DOB = formatter.date(from: dateAsString)
     return calculateTimeDistance(date: DOB! as NSDate)
 }
+
+public func isDLChild(_ dateAsString: String) -> Bool {
+    let formatter = DateFormatter()
+    formatter.dateFormat = "yyyy-MM-dd"
+    let DOB = formatter.date(from: dateAsString)
+    return calculateTimeDistance(date: DOB! as NSDate)
+}
+
