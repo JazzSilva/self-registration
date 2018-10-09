@@ -48,7 +48,7 @@ class SecondViewController: UIViewController, UISearchBarDelegate {
     
     func rightLogIn() {
         let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
-        backgroundImage.image = UIImage(named: "GradientArtboard")
+        backgroundImage.image = UIImage(named: "backgroundArtboard")
         backgroundImage.contentMode = UIViewContentMode.scaleAspectFill
         self.view.insertSubview(backgroundImage, at: 0)
         self.tableView.reloadData()
@@ -58,6 +58,9 @@ class SecondViewController: UIViewController, UISearchBarDelegate {
     override func viewDidLoad() {
         searchBar.delegate = self
         searchBar.returnKeyType = UIReturnKeyType.done
+        let textFieldInsideSearchBar = searchBar.value(forKey: "searchField") as? UITextField
+        textFieldInsideSearchBar?.textColor = constants.colors.pink
+        textFieldInsideSearchBar?.font = UIFont(name: "RobotoSlab-Regular", size: 18.0)
         submitButton.enableSettings()
     }
     
@@ -73,7 +76,7 @@ class SecondViewController: UIViewController, UISearchBarDelegate {
 
         self.view.bringSubview(toFront: logInView)
         let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
-        backgroundImage.image = UIImage(named: "GradientArtboard")
+        backgroundImage.image = UIImage(named: "backgroundArtboard")
         backgroundImage.contentMode = UIViewContentMode.scaleAspectFill
         self.logInView.insertSubview(backgroundImage, at: 0)
         passwordText.text = ""
@@ -125,14 +128,13 @@ class SecondViewController: UIViewController, UISearchBarDelegate {
             isSearching.value = true
             //Search fields will match with the following fields. May need to remove a few if search is slowed.
             let firstPredicate = NSPredicate(format: "firstName CONTAINS [c] %@", searchBar.text!)
-            let middlePredicate = NSPredicate(format: "middleName CONTAINS [c] %@", searchBar.text!)
             let lastPredicate = NSPredicate(format: "lastName CONTAINS [c] %@", searchBar.text!)
             let addressPredicate = NSPredicate(format: "address1 CONTAINS [c] %@", searchBar.text!)
             let cityPredicate = NSPredicate(format: "city CONTAINS [c] %@", searchBar.text!)
             let zipPredicate = NSPredicate(format: "zip CONTAINS [c] %@", searchBar.text!)
             let emailPredicate = NSPredicate(format: "email CONTAINS [c] %@", searchBar.text!)
             let phonePredicate = NSPredicate(format: "phone CONTAINS [c] %@", searchBar.text!)
-            let predicateCompound = NSCompoundPredicate.init(type: .or, subpredicates: [firstPredicate, middlePredicate, lastPredicate, addressPredicate, cityPredicate, zipPredicate, emailPredicate, phonePredicate])
+            let predicateCompound = NSCompoundPredicate.init(type: .or, subpredicates: [firstPredicate, lastPredicate, addressPredicate, cityPredicate, zipPredicate, emailPredicate, phonePredicate])
             filteredData = realm.objects(user.self).filter(predicateCompound)
             userList = filteredData
             tableView.reloadData()
@@ -173,59 +175,33 @@ extension SecondViewController: UITableViewDelegate {
         let edit = UITableViewRowAction(style: .normal, title: "See Patron Details") {
             action, index in
             let user = self.userList[index.row]
+            /*
             guard let id = user.libraryCardNumber else {
                 print("the user doesn't have a number to check")
                 return
             }
-
-            getSessionToken { (success) -> Void in
-                if success {
-                    print(constants.console.sessionTokenSuccess, NSDate())
-                    // do second task if success
-                    doesAccountExist(id) { (success, string) -> Void in
-                        if success {
-                            print(constants.console.accountDoesExist)
-                            let view = self.parseResponseDetail(xib: detailPatronXib(), string: string, user: user)
-                            view.translatesAutoresizingMaskIntoConstraints = false
-                            view.exitButton.addTarget(self, action: #selector(self.exitTableDetailView(sender:)), for: .touchUpInside)
-                            self.tableView.tableHeaderView = view
-                            self.tableView.tableHeaderView?.isUserInteractionEnabled = true
-                            view.centerXAnchor.constraint(equalTo: self.tableView.centerXAnchor).isActive = true
-                            view.centerYAnchor.constraint(equalTo: self.tableView.centerYAnchor).isActive = true
-                            view.widthAnchor.constraint(equalTo: self.tableView.widthAnchor).isActive = true
-                            view.heightAnchor.constraint(equalTo: self.tableView.heightAnchor).isActive = true
-                            self.tableView.tableHeaderView?.layoutIfNeeded()
-                            self.tableView.tableHeaderView = self.tableView.tableHeaderView
-                            self.tableView.setContentOffset(CGPoint.zero, animated: true)
-                            self.tableView.isScrollEnabled = false
-                        }
-                        else {
-                            print(constants.console.accountDoesNotExist)
-                            let view = self.parseUserNotInSirsi(xib: detailPatronXib(), user: user)
-                            view.translatesAutoresizingMaskIntoConstraints = false
-                            view.exitButton.addTarget(self, action: #selector(self.exitTableDetailView(sender:)), for: .touchUpInside)
-                            self.tableView.tableHeaderView = view
-                            self.tableView.tableHeaderView?.isUserInteractionEnabled = true
-                            view.centerXAnchor.constraint(equalTo: self.tableView.centerXAnchor).isActive = true
-                            view.centerYAnchor.constraint(equalTo: self.tableView.centerYAnchor).isActive = true
-                            view.widthAnchor.constraint(equalTo: self.tableView.widthAnchor).isActive = true
-                            view.heightAnchor.constraint(equalTo: self.tableView.heightAnchor).isActive = true
-                            self.tableView.tableHeaderView?.layoutIfNeeded()
-                            self.tableView.tableHeaderView = self.tableView.tableHeaderView
-                            self.tableView.setContentOffset(CGPoint.zero, animated: true)
-                            self.tableView.isScrollEnabled = false
-                        }
-                    }
-                }
-                else {
-                    print(constants.console.sessionTokenFailure)
-                    sessionTokenError()
-                }
+            */
+            
+            do {
+                let view = self.parseUserNotInSirsi(xib: detailPatronXib(), user: user)
+                view.translatesAutoresizingMaskIntoConstraints = false
+                view.exitButton.addTarget(self, action: #selector(self.exitTableDetailView(sender:)), for: .touchUpInside)
+                self.tableView.tableHeaderView = view
+                self.tableView.tableHeaderView?.isUserInteractionEnabled = true
+                view.centerXAnchor.constraint(equalTo: self.tableView.centerXAnchor).isActive = true
+                view.centerYAnchor.constraint(equalTo: self.tableView.centerYAnchor).isActive = true
+                view.widthAnchor.constraint(equalTo: self.tableView.widthAnchor).isActive = true
+                view.heightAnchor.constraint(equalTo: self.tableView.heightAnchor).isActive = true
+                self.tableView.tableHeaderView?.layoutIfNeeded()
+                self.tableView.tableHeaderView = self.tableView.tableHeaderView
+                self.tableView.setContentOffset(CGPoint.zero, animated: true)
+                self.tableView.isScrollEnabled = false
             }
+            
         }
-        
         edit.backgroundColor = constants.colors.greenValid
         return [edit]
+        
     }
     
     @objc func exitTableDetailView(sender: AnyObject) {

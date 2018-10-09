@@ -81,11 +81,13 @@ class userViewModel {
         let newUser = user(firstName: firstName.value.uppercased(), middleName: middleName.value.uppercased(), lastName: lastName.value.uppercased(), address1: address1.value.uppercased(), city: city.value.uppercased(), state: state.value.uppercased(), zip: zip.value, phone: phone.value, email: email.value, mothersMaidenName: mothersMaidenName.value.uppercased(), pin: pin.value, holds: holds.value.uppercased(), signature: signature.value, birthday: birthday.value, verified: verified.value, userProfile: userProfile.value, licenseNumber: self.libraryCardObject.eightDigitLicense, libraryCardNumber: self.libraryCardNumber, branchCode: branchCode.value, contactPreference: contactPreference.value, dateCreated: dateCreated.value)
         //save the user to the shared realm
         Database.shared.create(newUser)
+        //This is where we would call sirsi to create account
         //request session token -> post to sirsi and send twilio text
-        getSessionTokenILS(user: newUser) { (success, token, user) -> Void in
+        /*getSessionTokenILS(user: newUser) { (success, token, user) -> Void in
             choice(success, token, user)
-        }
-    
+        }*/
+        //NOW: We send the data to sirsi. *TEST*
+        sendDataToTwilio(user: newUser)
     }
     
 }

@@ -1,4 +1,4 @@
-github "Alamofire/Alamofire" "4.7.0"
-github "ReactiveX/RxSwift" "4.1.2"
-github "airbnb/lottie-ios" "551eba407724ae6190225c8911e24c1f9bc88b7e"
+github "Alamofire/Alamofire" "4.7.3"
+github "ReactiveX/RxSwift" "4.2.0"
+github "airbnb/lottie-ios" "21122a769ccc3e43ffd23f80b7c8c48247834900"
 github "realm/realm-cocoa" "v3.1.1"

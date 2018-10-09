@@ -32,11 +32,26 @@ class constants {
     }
     
     enum colors {
-        static let greenEnabled = UIColor(hex: "6AB97C")
-        static let blueText = UIColor(hex: "111777")
-        static let redInvalid = UIColor(hex: "C4174A")
-        static let greenValid = UIColor(hex: "020002")
-        static let orange = UIColor(hex: "C8A8F9")
+        static let headerTextColor = Firebase.RemoteConfig.remoteConfig().configValue(forKey: "headerTextColor").stringValue!
+        static let fieldTextPlaceholderColor = Firebase.RemoteConfig.remoteConfig().configValue(forKey: "fieldTextPlaceholderColor").stringValue!
+        static let fieldTextInputColor = Firebase.RemoteConfig.remoteConfig().configValue(forKey: "fieldTextInputColor").stringValue!
+        static let submitButtonColor = Firebase.RemoteConfig.remoteConfig().configValue(forKey: "submitButtonColor").stringValue!
+        static let submitTextColor = Firebase.RemoteConfig.remoteConfig().configValue(forKey: "submitTextColor").stringValue!
+        static let tabInactiveBackgroundColor = Firebase.RemoteConfig.remoteConfig().configValue(forKey: "tabInactiveBackgroundColor").stringValue!
+        static let tabInactiveText = Firebase.RemoteConfig.remoteConfig().configValue(forKey: "tabInactiveText").stringValue!
+        static let tabActiveBackgroundColor = Firebase.RemoteConfig.remoteConfig().configValue(forKey: "tabActiveBackgroundColor").stringValue!
+        static let tabActiveText = Firebase.RemoteConfig.remoteConfig().configValue(forKey: "tabActiveText").stringValue!
+        static let restartButtonColor = Firebase.RemoteConfig.remoteConfig().configValue(forKey: "restartButtonColor").stringValue!
+        static let restartTextColor = Firebase.RemoteConfig.remoteConfig().configValue(forKey: "restartTextColor").stringValue!
+        static let invalidEntryColor = Firebase.RemoteConfig.remoteConfig().configValue(forKey: "invalidEntryColor").stringValue!
+        
+        //Old Colors
+        static let greenEnabled = UIColor(hex: "286A61")
+        static let blueText = UIColor(hex: "153C67")
+        static let redInvalid = UIColor(hex: "C8041B")
+        static let greenValid = UIColor(hex: "286A61")
+        static let pink = UIColor(hex: "D40177")
+        static let whiteText = UIColor(hex: "F4F4F4")
     }
     
     enum cardPrefix {
@@ -50,7 +65,7 @@ class constants {
         static let adultOutState = "VSA"
         static let childInState = "C"
         static let childOutState = "VSC"
-        static let digital = "SELFREG" //TODO Change to "SELFREG" not "HC-DigitaJ"
+        static let digital = "SELFREG" 
     }
     
 }

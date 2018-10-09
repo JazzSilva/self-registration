@@ -51,7 +51,7 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
         
         //Set background image
         let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
-        backgroundImage.image = UIImage(named: "GradientArtboard")
+        backgroundImage.image = UIImage(named: "backgroundArtboard")
         backgroundImage.contentMode = UIViewContentMode.scaleAspectFill
         self.view.insertSubview(backgroundImage, at: 0)
         
@@ -93,6 +93,18 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    
+    @objc func insertArrangedOnboarding(sender: AnyObject) {
+        let view = UIPageViewController()
+        
+        
+        
+        //stackView.inse
+        //animateIn(newView: view)
+    }
+    
+    
+    
     @objc func insertArrangedIdle(sender: AnyObject) {
         let view = idleXib()
         
@@ -100,9 +112,13 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
         button.addTarget(self, action: #selector(self.insertArrangedHome(sender:)), for: .touchUpInside)
         button.addTarget(view, action: #selector(view.removeButton(sender:)), for: .touchUpInside)
         
-        stackView.addArrangedSubview(setConstraints(inputXib: view))
-        animateIn(newView: view)
+        view.heightAnchor.constraint(equalToConstant: self.view.bounds.height - 10 ).isActive = true
+        view.widthAnchor.constraint(equalToConstant: self.view.bounds.width).isActive = true
+        view.leftAnchor.constraint(equalTo: self.view.leftAnchor)
+        view.rightAnchor.constraint(equalTo: self.view.rightAnchor)
         
+        stackView.addArrangedSubview(view)
+        animateIn(newView: view)
         
     }
     

@@ -33,10 +33,6 @@
 		B02A3C2B203C652000977D1F /* FirebaseDatabase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B02A3C29203C652000977D1F /* FirebaseDatabase.framework */; };
 		B02A3C33203C681E00977D1F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B02A3C32203C681E00977D1F /* GoogleService-Info.plist */; };
 		B02A3C35203C754800977D1F /* RCValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02A3C34203C754800977D1F /* RCValues.swift */; };
-		B02A3C39203DE3F000977D1F /* barcodeFirebaseFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02A3C38203DE3F000977D1F /* barcodeFirebaseFunctions.swift */; };
-		B02A3C3B203DE45000977D1F /* twilioFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02A3C3A203DE45000977D1F /* twilioFunctions.swift */; };
-		B02A3C3D203DE46300977D1F /* sirsiFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02A3C3C203DE46300977D1F /* sirsiFunctions.swift */; };
-		B02A3C3F205B136C00977D1F /* connectivityFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02A3C3E205B136C00977D1F /* connectivityFunctions.swift */; };
 		B02B8746209A23BA00C7FDD2 /* createAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02B8745209A23BA00C7FDD2 /* createAccount.swift */; };
 		B02B874E209B83E600C7FDD2 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B02B874C209B83DF00C7FDD2 /* Crashlytics.framework */; };
 		B02B874F209B83E600C7FDD2 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B02B874D209B83E600C7FDD2 /* Fabric.framework */; };
@@ -113,6 +109,12 @@
 		B07313AD2020F8E0002A6DED /* securityXibClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07313AC2020F8E0002A6DED /* securityXibClass.swift */; };
 		B07313AF2020F8F6002A6DED /* contactXibClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07313AE2020F8F6002A6DED /* contactXibClass.swift */; };
 		B07313B12020F904002A6DED /* submitXibClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07313B02020F904002A6DED /* submitXibClass.swift */; };
+		B0AAEE8D2107A9D500DCA02B /* RobotoSlab-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B0AAEE892107A9D200DCA02B /* RobotoSlab-Thin.ttf */; };
+		B0AAEE8E2107A9D500DCA02B /* RobotoSlab-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B0AAEE8A2107A9D300DCA02B /* RobotoSlab-Regular.ttf */; };
+		B0AAEE8F2107A9D500DCA02B /* RobotoSlab-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B0AAEE8B2107A9D400DCA02B /* RobotoSlab-Bold.ttf */; };
+		B0AAEE902107A9D500DCA02B /* RobotoSlab-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B0AAEE8C2107A9D500DCA02B /* RobotoSlab-Light.ttf */; };
+		B0AAEE932107C92900DCA02B /* correctCheck.json in Resources */ = {isa = PBXBuildFile; fileRef = B0AAEE922107C92900DCA02B /* correctCheck.json */; };
+		B0AAEE97210B7DC000DCA02B /* onboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AAEE96210B7DC000DCA02B /* onboardingViewController.swift */; };
 		DD1A048120886D4E002BC5CB /* detailPatronView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD1A048020886D4E002BC5CB /* detailPatronView.xib */; };
 		DD1A048320887BEF002BC5CB /* detailPatronXibClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1A048220887BEF002BC5CB /* detailPatronXibClass.swift */; };
 		DD220A0720111B7A00F19AC9 /* dataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD220A0620111B7A00F19AC9 /* dataModel.swift */; };
@@ -132,11 +134,7 @@
 		DD580D541FE970FA00A254B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD580D521FE970FA00A254B4 /* LaunchScreen.storyboard */; };
 		DD580D5F1FE970FA00A254B4 /* self_registrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD580D5E1FE970FA00A254B4 /* self_registrationTests.swift */; };
 		DD580D6A1FE970FA00A254B4 /* self_registrationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD580D691FE970FA00A254B4 /* self_registrationUITests.swift */; };
-		DD80AD5420C063CB00CE530F /* twilioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD80AD5320C063CB00CE530F /* twilioManager.swift */; };
-		DD80AD5620C063E800CE530F /* sirsiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD80AD5520C063E800CE530F /* sirsiManager.swift */; };
-		DD80AD5A20C0690700CE530F /* webServicesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD80AD5920C0690700CE530F /* webServicesRouter.swift */; };
 		DD80AD5E20C319DA00CE530F /* constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD80AD5D20C319DA00CE530F /* constants.swift */; };
-		DD80AD6020C31ACB00CE530F /* remoteConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD80AD5F20C31ACB00CE530F /* remoteConstants.swift */; };
 		DDB0263B2056E336007EDD94 /* finishedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDB0263A2056E336007EDD94 /* finishedView.xib */; };
 		DDB0263D2056E349007EDD94 /* finishedXibClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB0263C2056E349007EDD94 /* finishedXibClass.swift */; };
 		DDC195A7202DACEB00705B0C /* Lottie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDC195A5202DAC4500705B0C /* Lottie.framework */; };
@@ -225,10 +223,6 @@
 		B02A3C31203C66C200977D1F /* module.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
 		B02A3C32203C681E00977D1F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B02A3C34203C754800977D1F /* RCValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCValues.swift; sourceTree = "<group>"; };
-		B02A3C38203DE3F000977D1F /* barcodeFirebaseFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = barcodeFirebaseFunctions.swift; sourceTree = "<group>"; };
-		B02A3C3A203DE45000977D1F /* twilioFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = twilioFunctions.swift; sourceTree = "<group>"; };
-		B02A3C3C203DE46300977D1F /* sirsiFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sirsiFunctions.swift; sourceTree = "<group>"; };
-		B02A3C3E205B136C00977D1F /* connectivityFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = connectivityFunctions.swift; sourceTree = "<group>"; };
 		B02B8745209A23BA00C7FDD2 /* createAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = createAccount.swift; sourceTree = "<group>"; };
 		B02B874C209B83DF00C7FDD2 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		B02B874D209B83E600C7FDD2 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
@@ -268,6 +262,12 @@
 		B07313AC2020F8E0002A6DED /* securityXibClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = securityXibClass.swift; sourceTree = "<group>"; };
 		B07313AE2020F8F6002A6DED /* contactXibClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = contactXibClass.swift; sourceTree = "<group>"; };
 		B07313B02020F904002A6DED /* submitXibClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = submitXibClass.swift; sourceTree = "<group>"; };
+		B0AAEE892107A9D200DCA02B /* RobotoSlab-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoSlab-Thin.ttf"; sourceTree = "<group>"; };
+		B0AAEE8A2107A9D300DCA02B /* RobotoSlab-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoSlab-Regular.ttf"; sourceTree = "<group>"; };
+		B0AAEE8B2107A9D400DCA02B /* RobotoSlab-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoSlab-Bold.ttf"; sourceTree = "<group>"; };
+		B0AAEE8C2107A9D500DCA02B /* RobotoSlab-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoSlab-Light.ttf"; sourceTree = "<group>"; };
+		B0AAEE922107C92900DCA02B /* correctCheck.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = correctCheck.json; sourceTree = "<group>"; };
+		B0AAEE96210B7DC000DCA02B /* onboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = onboardingViewController.swift; sourceTree = "<group>"; };
 		DD1A048020886D4E002BC5CB /* detailPatronView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = detailPatronView.xib; sourceTree = "<group>"; };
 		DD1A048220887BEF002BC5CB /* detailPatronXibClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = detailPatronXibClass.swift; sourceTree = "<group>"; };
 		DD220A0620111B7A00F19AC9 /* dataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dataModel.swift; sourceTree = "<group>"; };
@@ -292,11 +292,7 @@
 		DD580D651FE970FA00A254B4 /* self-registrationUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "self-registrationUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD580D691FE970FA00A254B4 /* self_registrationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = self_registrationUITests.swift; sourceTree = "<group>"; };
 		DD580D6B1FE970FA00A254B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DD80AD5320C063CB00CE530F /* twilioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = twilioManager.swift; sourceTree = "<group>"; };
-		DD80AD5520C063E800CE530F /* sirsiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sirsiManager.swift; sourceTree = "<group>"; };
-		DD80AD5920C0690700CE530F /* webServicesRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = webServicesRouter.swift; sourceTree = "<group>"; };
 		DD80AD5D20C319DA00CE530F /* constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = constants.swift; path = "self-registration/API Requests/constants.swift"; sourceTree = SOURCE_ROOT; };
-		DD80AD5F20C31ACB00CE530F /* remoteConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = remoteConstants.swift; sourceTree = "<group>"; };
 		DD84C69E203A41C80076274A /* LilitabSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LilitabSDK.framework; path = "../../Downloads/LilitabSDK-Release-Universal/LilitabSDK.framework"; sourceTree = "<group>"; };
 		DDB0263A2056E336007EDD94 /* finishedView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = finishedView.xib; sourceTree = "<group>"; };
 		DDB0263C2056E349007EDD94 /* finishedXibClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = finishedXibClass.swift; sourceTree = "<group>"; };
@@ -507,14 +503,7 @@
 		B02A3C37203DE3AB00977D1F /* API Requests */ = {
 			isa = PBXGroup;
 			children = (
-				B02A3C38203DE3F000977D1F /* barcodeFirebaseFunctions.swift */,
-				B02A3C3A203DE45000977D1F /* twilioFunctions.swift */,
-				B02A3C3C203DE46300977D1F /* sirsiFunctions.swift */,
 				B02B8745209A23BA00C7FDD2 /* createAccount.swift */,
-				B02A3C3E205B136C00977D1F /* connectivityFunctions.swift */,
-				DD80AD5320C063CB00CE530F /* twilioManager.swift */,
-				DD80AD5520C063E800CE530F /* sirsiManager.swift */,
-				DD80AD5920C0690700CE530F /* webServicesRouter.swift */,
 			);
 			path = "API Requests";
 			sourceTree = "<group>";
@@ -582,8 +571,28 @@
 				DD1A048220887BEF002BC5CB /* detailPatronXibClass.swift */,
 				DDD947CB20D0020600E9D4A9 /* idleView.xib */,
 				DDD947CD20D0047E00E9D4A9 /* idleXibClass.swift */,
+				B0AAEE96210B7DC000DCA02B /* onboardingViewController.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		B0AAEE882107A99C00DCA02B /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				B0AAEE8B2107A9D400DCA02B /* RobotoSlab-Bold.ttf */,
+				B0AAEE8C2107A9D500DCA02B /* RobotoSlab-Light.ttf */,
+				B0AAEE8A2107A9D300DCA02B /* RobotoSlab-Regular.ttf */,
+				B0AAEE892107A9D200DCA02B /* RobotoSlab-Thin.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		B0AAEE912107C91D00DCA02B /* correctCheck */ = {
+			isa = PBXGroup;
+			children = (
+				B0AAEE922107C92900DCA02B /* correctCheck.json */,
+			);
+			path = correctCheck;
 			sourceTree = "<group>";
 		};
 		DD0A587C200671250035AD1F /* Model */ = {
@@ -619,6 +628,7 @@
 		DD3A3446202D832700F2B28B /* Design */ = {
 			isa = PBXGroup;
 			children = (
+				B0AAEE882107A99C00DCA02B /* Fonts */,
 				DDC195A9202DAF2900705B0C /* Lottie Animations */,
 				DD3A3447202D834700F2B28B /* IBDesignables.swift */,
 				DD3A3449202D8C1700F2B28B /* colors.swift */,
@@ -705,7 +715,6 @@
 			isa = PBXGroup;
 			children = (
 				DD80AD5D20C319DA00CE530F /* constants.swift */,
-				DD80AD5F20C31ACB00CE530F /* remoteConstants.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -713,6 +722,7 @@
 		DDC195A9202DAF2900705B0C /* Lottie Animations */ = {
 			isa = PBXGroup;
 			children = (
+				B0AAEE912107C91D00DCA02B /* correctCheck */,
 				B05B8020207BC19500831A5B /* done */,
 				B0214708203B1FE3009449E1 /* check */,
 				DDC195BE203A210800705B0C /* person */,
@@ -846,10 +856,13 @@
 				B021470C203B1FE3009449E1 /* img_0.png in Resources */,
 				B0639EFE2017A5C200DD7FA4 /* nameView.xib in Resources */,
 				DDC195B72039FF2600705B0C /* homeView.xib in Resources */,
+				B0AAEE932107C92900DCA02B /* correctCheck.json in Resources */,
 				DDC195C0203A211A00705B0C /* account_success.json in Resources */,
 				DD580D511FE970FA00A254B4 /* Assets.xcassets in Resources */,
 				B02A3C1C203C650600977D1F /* upload-sym.sh in Resources */,
+				B0AAEE8F2107A9D500DCA02B /* RobotoSlab-Bold.ttf in Resources */,
 				B02A3C1A203C650600977D1F /* upload-sym in Resources */,
+				B0AAEE8E2107A9D500DCA02B /* RobotoSlab-Regular.ttf in Resources */,
 				B05B8022207BC1A500831A5B /* done.json in Resources */,
 				B02A3C1F203C650600977D1F /* dump_syms in Resources */,
 				B02A3C33203C681E00977D1F /* GoogleService-Info.plist in Resources */,
@@ -860,7 +873,9 @@
 				B02A3C20203C650600977D1F /* upload-sym-util.bash in Resources */,
 				B07313AB2020F86B002A6DED /* submitView.xib in Resources */,
 				B02A3C21203C650600977D1F /* batch-upload in Resources */,
+				B0AAEE902107A9D500DCA02B /* RobotoSlab-Light.ttf in Resources */,
 				DD580D4F1FE970FA00A254B4 /* Main.storyboard in Resources */,
+				B0AAEE8D2107A9D500DCA02B /* RobotoSlab-Thin.ttf in Resources */,
 				DD1A048120886D4E002BC5CB /* detailPatronView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -930,15 +945,13 @@
 				DD80AD5E20C319DA00CE530F /* constants.swift in Sources */,
 				DD3A344A202D8C1700F2B28B /* colors.swift in Sources */,
 				DD3A344C202DA5E500F2B28B /* textFields.swift in Sources */,
-				DD80AD6020C31ACB00CE530F /* remoteConstants.swift in Sources */,
 				DDC195B9203A00C200705B0C /* homeXibClass.swift in Sources */,
-				B02A3C3B203DE45000977D1F /* twilioFunctions.swift in Sources */,
 				DD1A048320887BEF002BC5CB /* detailPatronXibClass.swift in Sources */,
 				B0639F002017A83800DD7FA4 /* nameXibClass.swift in Sources */,
 				B0639F042017C71A00DD7FA4 /* addressXibClass.swift in Sources */,
 				DD580D481FE970FA00A254B4 /* AppDelegate.swift in Sources */,
+				B0AAEE97210B7DC000DCA02B /* onboardingViewController.swift in Sources */,
 				B07313AF2020F8F6002A6DED /* contactXibClass.swift in Sources */,
-				DD80AD5A20C0690700CE530F /* webServicesRouter.swift in Sources */,
 				B02A3C35203C754800977D1F /* RCValues.swift in Sources */,
 				DD580D4A1FE970FA00A254B4 /* FirstViewController.swift in Sources */,
 				DDD947CE20D0047E00E9D4A9 /* idleXibClass.swift in Sources */,
@@ -948,15 +961,10 @@
 				DD220A15201126B700F19AC9 /* validationFunctions.swift in Sources */,
 				DD220A0920111C6700F19AC9 /* databaseClass.swift in Sources */,
 				B02B8746209A23BA00C7FDD2 /* createAccount.swift in Sources */,
-				DD80AD5620C063E800CE530F /* sirsiManager.swift in Sources */,
-				B02A3C3D203DE46300977D1F /* sirsiFunctions.swift in Sources */,
-				DD80AD5420C063CB00CE530F /* twilioManager.swift in Sources */,
 				DD220A0720111B7A00F19AC9 /* dataModel.swift in Sources */,
-				B02A3C3F205B136C00977D1F /* connectivityFunctions.swift in Sources */,
 				DDC195B320310F5000705B0C /* LogInController.swift in Sources */,
 				B07313AD2020F8E0002A6DED /* securityXibClass.swift in Sources */,
 				DDC195BB203A038200705B0C /* extensions.swift in Sources */,
-				B02A3C39203DE3F000977D1F /* barcodeFirebaseFunctions.swift in Sources */,
 				B07313B12020F904002A6DED /* submitXibClass.swift in Sources */,
 				DDB0263D2056E349007EDD94 /* finishedXibClass.swift in Sources */,
 				B067093920221C53002DAB07 /* userCell.swift in Sources */,

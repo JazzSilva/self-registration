@@ -40,8 +40,8 @@ class nameXib: UIView {
         contentView.clipsToBounds = false
         contentView.frame = .init(x: 0, y: 0, width: 800, height: 500)
         contentView.shadowColor = .black
-        contentView.shadowOpacity = 0.20
-        contentView.shadowOffset = CGPoint(x: 0, y: 0)
+        contentView.shadowOpacity = 0.80
+        contentView.shadowOffset = CGPoint(x: 2, y: 2)
         contentView.shadowRadius = 14
     }
     

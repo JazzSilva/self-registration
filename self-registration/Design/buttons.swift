@@ -31,30 +31,22 @@ class nextButton: UIButton {
         self.backgroundColor = UIColor.white
         self.shadowColor = UIColor.white
     }
-    
-    func neutral() {
-        self.setTitleColor(UIColor.white, for: .normal)
-        self.backgroundColor = constants.colors.greenEnabled
-        self.layer.cornerRadius = 4
-    }
-    
 }
-
 
 class startOverButton: UIButton {
     
     func enableSettings() {
-        self.setTitleColor(UIColor.white, for: .normal)
-        self.backgroundColor = constants.colors.orange
+        self.setTitleColor(constants.colors.whiteText, for: .normal)
+        self.backgroundColor = constants.colors.pink
         self.layer.cornerRadius = 4
         self.setTitle(constants.buttons.startOver, for: .normal)
-        self.titleLabel?.font = UIFont(name: "Futura-Medium", size: 17.0)
+        self.titleLabel?.font = UIFont(name: "RobotoSlab-Regular", size: 18.0)
         self.frame = CGRect(x: 150, y: -150, width: 100, height: 33)
         self.clipsToBounds = false
-        self.shadowColor = UIColor.gray
-        self.shadowOpacity = 15
-        self.shadowOffset = CGPoint(x: 0, y: 0)
-        self.shadowRadius = 4
+        self.shadowColor = UIColor.black
+        self.shadowOpacity = 0.80
+        self.shadowOffset = CGPoint(x: 2, y: 2)
+        self.shadowRadius = 14
     }
     
 }

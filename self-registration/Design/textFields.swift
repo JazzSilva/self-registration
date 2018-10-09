@@ -60,15 +60,15 @@ class shakingTextField: UITextField {
     
     func updateView() {
         if let image = leftImage {
-            let animationView = LOTAnimationView(name: "data")
-            animationView.frame = CGRect(x: -16, y: -24, width: 50, height: 50)
+            let animationView = LOTAnimationView(name: "correctCheck")
+            animationView.frame = CGRect(x: -70, y: -70, width: 140, height: 140)
             animationView.contentMode = .scaleAspectFill
             
             //show image unless user is typing
             leftViewMode = .always
-            let imageView = UIImageView(frame: CGRect(x: 6, y: 0, width: 24, height: 20))
+            let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
             imageView.image = image
-            let view = UIView(frame: CGRect(x: 0, y: 0, width: 28, height: 20))
+            let view = UIView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
             view.addSubview(animationView)
             animationView.play()
             leftView = view

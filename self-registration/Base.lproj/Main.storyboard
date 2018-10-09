@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="pP7-1h-meO">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="pP7-1h-meO">
     <device id="ipad9_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,18 +10,23 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="RobotoSlab-Regular.ttf">
+            <string>RobotoSlab-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--First View Controller-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
                 <viewController id="9pv-A4-QxB" customClass="FirstViewController" customModule="self_registration" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="719"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.98529547452926636" green="0.97948293299561551" blue="0.98038775449652915" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="tabs4Artboard 1" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="" image="tabRegisterNow" id="acW-dT-cKf"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
@@ -32,18 +37,18 @@
             <objects>
                 <viewController id="8rJ-Kc-sve" customClass="SecondViewController" customModule="self_registration" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="719"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Second View" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="zEq-FU-wV5">
-                                <rect key="frame" x="411.5" y="362.5" width="201.5" height="43"/>
+                                <rect key="frame" x="411.5" y="338" width="201.5" height="43"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="36"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loaded by SecondViewController" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NDk-cv-Gan">
-                                <rect key="frame" x="404.5" y="413.5" width="215" height="17"/>
+                                <rect key="frame" x="404.5" y="389" width="215" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -60,24 +65,18 @@
                                             <rect key="frame" x="0.0" y="0.0" width="967" height="65.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" ambiguous="YES" text="Brianna" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lIr-3O-aao">
-                                                    <rect key="frame" x="159.5" y="10.5" width="53" height="19.5"/>
-                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
-                                                    <color key="textColor" red="0.53978782892227173" green="0.38901713490486145" blue="0.84947699308395386" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="19236 Mississippi Avenue" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AUo-Pc-8Ab">
-                                                    <rect key="frame" x="30" y="34" width="177.5" height="21"/>
+                                                    <rect key="frame" x="30" y="34" width="183" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="Oqu-y6-djS"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
+                                                    <fontDescription key="fontDescription" name="RobotoSlab-Regular" family="Roboto Slab" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="League City" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GL9-Hm-E66">
-                                                    <rect key="frame" x="256.5" y="34" width="81" height="21"/>
-                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
+                                                    <rect key="frame" x="456.5" y="34" width="83.5" height="21"/>
+                                                    <fontDescription key="fontDescription" name="RobotoSlab-Regular" family="Roboto Slab" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -86,35 +85,35 @@
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="35" id="GJf-CT-ts4"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
+                                                    <fontDescription key="fontDescription" name="RobotoSlab-Regular" family="Roboto Slab" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="77098" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v64-Zf-1sF">
-                                                    <rect key="frame" x="738" y="10" width="53" height="21"/>
-                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="77098" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v64-Zf-1sF">
+                                                    <rect key="frame" x="555" y="34" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" name="RobotoSlab-Regular" family="Roboto Slab" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="sample.person@gmail.com" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IrH-Xs-dCb">
-                                                    <rect key="frame" x="695" y="33" width="257" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="sample.person@gmail.com" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IrH-Xs-dCb">
+                                                    <rect key="frame" x="730" y="32" width="222" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="222" id="Uf2-A1-OD0"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
+                                                    <fontDescription key="fontDescription" name="RobotoSlab-Regular" family="Roboto Slab" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" horizontalCompressionResistancePriority="757" text="Samantha Marie" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ola-9b-nxn">
-                                                    <rect key="frame" x="30" y="9.5" width="114.5" height="20.5"/>
-                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
-                                                    <color key="textColor" red="0.53978782892227173" green="0.38901713490486145" blue="0.84947699308395386" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <rect key="frame" x="30" y="9" width="118.5" height="21"/>
+                                                    <fontDescription key="fontDescription" name="RobotoSlab-Regular" family="Roboto Slab" pointSize="15"/>
+                                                    <color key="textColor" red="0.0078431372549019607" green="0.40784313725490196" blue="0.54509803921568623" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Cruz" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tDu-qZ-cA3">
-                                                    <rect key="frame" x="227.5" y="9.5" width="33" height="20.5"/>
-                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
-                                                    <color key="textColor" red="0.53978782892227173" green="0.38901713490486145" blue="0.84947699308395386" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <rect key="frame" x="163.5" y="9" width="33" height="21"/>
+                                                    <fontDescription key="fontDescription" name="RobotoSlab-Regular" family="Roboto Slab" pointSize="15"/>
+                                                    <color key="textColor" red="0.0078431372549019607" green="0.40784313725490196" blue="0.54509803921568623" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="2402736898" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="THw-5Z-qFG">
@@ -122,7 +121,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="110" id="W0E-Y8-VMr"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
+                                                    <fontDescription key="fontDescription" name="RobotoSlab-Regular" family="Roboto Slab" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -130,30 +129,28 @@
                                             <constraints>
                                                 <constraint firstItem="0jR-MK-yA8" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="GL9-Hm-E66" secondAttribute="trailing" constant="8" symbolic="YES" id="19z-Vx-d2U"/>
                                                 <constraint firstItem="IrH-Xs-dCb" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="THw-5Z-qFG" secondAttribute="trailing" constant="8" symbolic="YES" id="6Hm-nj-7Si"/>
-                                                <constraint firstItem="tDu-qZ-cA3" firstAttribute="leading" secondItem="lIr-3O-aao" secondAttribute="trailing" constant="15" id="6Jy-jM-tMF"/>
                                                 <constraint firstItem="AUo-Pc-8Ab" firstAttribute="baseline" secondItem="v64-Zf-1sF" secondAttribute="baseline" id="8aW-vA-eI7"/>
                                                 <constraint firstItem="AUo-Pc-8Ab" firstAttribute="firstBaseline" secondItem="GL9-Hm-E66" secondAttribute="firstBaseline" id="917-iX-Ugn"/>
                                                 <constraint firstItem="AUo-Pc-8Ab" firstAttribute="baseline" secondItem="0jR-MK-yA8" secondAttribute="baseline" id="Cki-GM-ktJ"/>
                                                 <constraint firstItem="AUo-Pc-8Ab" firstAttribute="firstBaseline" secondItem="0jR-MK-yA8" secondAttribute="firstBaseline" id="DSG-rG-Wlm"/>
                                                 <constraint firstItem="AUo-Pc-8Ab" firstAttribute="leading" secondItem="51m-Rz-0fG" secondAttribute="leading" constant="30" id="DzG-tK-exw"/>
-                                                <constraint firstItem="lIr-3O-aao" firstAttribute="leading" secondItem="Ola-9b-nxn" secondAttribute="trailing" constant="15" id="EhQ-dM-ApN"/>
-                                                <constraint firstItem="THw-5Z-qFG" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="v64-Zf-1sF" secondAttribute="trailing" constant="8" symbolic="YES" id="Jen-fK-zvZ"/>
+                                                <constraint firstItem="THw-5Z-qFG" firstAttribute="leading" secondItem="v64-Zf-1sF" secondAttribute="trailing" constant="8" symbolic="YES" id="Jen-fK-zvZ"/>
+                                                <constraint firstItem="tDu-qZ-cA3" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Ola-9b-nxn" secondAttribute="trailing" constant="15" id="Mwr-ue-L1E"/>
+                                                <constraint firstItem="v64-Zf-1sF" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="51m-Rz-0fG" secondAttribute="leading" constant="20" symbolic="YES" id="NKa-OE-jXm"/>
                                                 <constraint firstItem="AUo-Pc-8Ab" firstAttribute="firstBaseline" secondItem="v64-Zf-1sF" secondAttribute="firstBaseline" id="QIc-co-zNB"/>
                                                 <constraint firstItem="AUo-Pc-8Ab" firstAttribute="baseline" secondItem="GL9-Hm-E66" secondAttribute="baseline" id="RQ0-jg-c2c"/>
                                                 <constraint firstAttribute="trailing" secondItem="THw-5Z-qFG" secondAttribute="trailing" constant="252" id="VYn-Jv-pSJ"/>
                                                 <constraint firstAttribute="trailing" secondItem="IrH-Xs-dCb" secondAttribute="trailing" constant="15" id="Wmu-uX-dFe"/>
                                                 <constraint firstItem="AUo-Pc-8Ab" firstAttribute="firstBaseline" secondItem="THw-5Z-qFG" secondAttribute="firstBaseline" id="Z8O-uc-Mfw"/>
                                                 <constraint firstItem="tDu-qZ-cA3" firstAttribute="firstBaseline" secondItem="Ola-9b-nxn" secondAttribute="firstBaseline" id="cQQ-lI-mMv"/>
-                                                <constraint firstItem="AUo-Pc-8Ab" firstAttribute="top" secondItem="lIr-3O-aao" secondAttribute="bottom" constant="4" id="cwy-BD-ANv"/>
                                                 <constraint firstItem="AUo-Pc-8Ab" firstAttribute="baseline" secondItem="THw-5Z-qFG" secondAttribute="baseline" id="f2d-1s-Kl6"/>
                                                 <constraint firstItem="tDu-qZ-cA3" firstAttribute="top" secondItem="51m-Rz-0fG" secondAttribute="topMargin" constant="-2" id="ffz-Bi-scr"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="IrH-Xs-dCb" secondAttribute="bottom" constant="2" id="gku-4a-VVg"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="0jR-MK-yA8" secondAttribute="trailing" id="hdz-PB-haN"/>
                                                 <constraint firstItem="tDu-qZ-cA3" firstAttribute="baseline" secondItem="Ola-9b-nxn" secondAttribute="baseline" id="hjY-iP-1xl"/>
-                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="tDu-qZ-cA3" secondAttribute="trailing" constant="20" symbolic="YES" id="l7M-iI-HDb"/>
                                                 <constraint firstItem="0jR-MK-yA8" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="51m-Rz-0fG" secondAttribute="leading" id="li4-m3-Tos"/>
                                                 <constraint firstItem="GL9-Hm-E66" firstAttribute="top" secondItem="tDu-qZ-cA3" secondAttribute="bottom" constant="4" id="mrS-lu-SWa"/>
-                                                <constraint firstItem="GL9-Hm-E66" firstAttribute="leading" secondItem="AUo-Pc-8Ab" secondAttribute="trailing" constant="49" id="oqP-bt-oKn"/>
+                                                <constraint firstItem="GL9-Hm-E66" firstAttribute="trailing" secondItem="v64-Zf-1sF" secondAttribute="leading" constant="-15" id="oqP-bt-oKn"/>
                                                 <constraint firstItem="AUo-Pc-8Ab" firstAttribute="bottom" secondItem="51m-Rz-0fG" secondAttribute="bottomMargin" id="rSo-VT-ML0"/>
                                                 <constraint firstItem="IrH-Xs-dCb" firstAttribute="top" secondItem="51m-Rz-0fG" secondAttribute="topMargin" constant="21" id="vhj-jr-ZpG"/>
                                                 <constraint firstItem="AUo-Pc-8Ab" firstAttribute="leading" secondItem="Ola-9b-nxn" secondAttribute="leading" id="wAG-SA-dRJ"/>
@@ -180,7 +177,6 @@
                                             <outlet property="emailLabel" destination="IrH-Xs-dCb" id="B6h-VW-e90"/>
                                             <outlet property="firstNameLabel" destination="Ola-9b-nxn" id="AcB-3H-prs"/>
                                             <outlet property="lastNameLabel" destination="tDu-qZ-cA3" id="npg-2t-92Z"/>
-                                            <outlet property="middleNameLabel" destination="lIr-3O-aao" id="ij4-VB-6y4"/>
                                             <outlet property="phoneLabel" destination="THw-5Z-qFG" id="xhS-lB-SdC"/>
                                             <outlet property="stateLabel" destination="0jR-MK-yA8" id="qXk-1D-Ysc"/>
                                             <outlet property="zipLabel" destination="v64-Zf-1sF" id="52t-Na-IM2"/>
@@ -188,42 +184,73 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <searchBar contentMode="redraw" fixedFrame="YES" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="fmk-rM-8l7">
+                            <searchBar contentMode="redraw" fixedFrame="YES" searchBarStyle="minimal" translucent="NO" backgroundImage="searchBackgroundBlue" translatesAutoresizingMaskIntoConstraints="NO" id="fmk-rM-8l7">
                                 <rect key="frame" x="379" y="234" width="617" height="56"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <color key="barTintColor" red="0.082352941176470587" green="0.23529411764705882" blue="0.40392156862745099" alpha="1" colorSpace="calibratedRGB"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert" returnKeyType="search" enablesReturnKeyAutomatically="YES" smartInsertDeleteType="no" smartQuotesType="no" textContentType="name"/>
+                                <scopeButtonTitles>
+                                    <string>Title</string>
+                                    <string>Title</string>
+                                </scopeButtonTitles>
                             </searchBar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Search For a Patron" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hwu-6c-zgn">
-                                <rect key="frame" x="29" y="234" width="333" height="56"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Search for a Patron" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hwu-6c-zgn">
+                                <rect key="frame" x="29" y="229" width="333" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="backgroundColor" red="0.40145742230579384" green="0.42245409738928502" blue="0.4431445099375575" alpha="0.0" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="tintColor" red="0.082352941176470587" green="0.23529411764705882" blue="0.40392156862745099" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="RobotoSlab-Regular" family="Roboto Slab" pointSize="20"/>
+                                <color key="textColor" red="0.95686274509803915" green="0.95686274509803915" blue="0.95686274509803915" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
+                                <color key="shadowColor" red="0.082352941176470587" green="0.14360574959150327" blue="0.30713337418300646" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                <size key="shadowOffset" width="0.0" height="0.0"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                        <color key="value" red="0.045860443773388992" green="0.041335664000823745" blue="0.29697099328041077" alpha="0.71594071061643838" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="point" keyPath="shadowOffset">
+                                        <point key="value" x="0.0" y="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </label>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m4d-jO-UTK">
                                 <rect key="frame" x="29" y="56" width="967" height="147"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="   Please describe any bugs experienced." translatesAutoresizingMaskIntoConstraints="NO" id="bLC-2n-WnO">
+                                    <textView opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="   Please describe any bugs experienced." translatesAutoresizingMaskIntoConstraints="NO" id="bLC-2n-WnO">
                                         <rect key="frame" x="8" y="8" width="951" height="79"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.50398227501958226" green="0.4941492321778056" blue="0.580893394794466" alpha="0.17000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="16"/>
+                                        <color key="backgroundColor" red="0.11197064644505277" green="0.21202967511381815" blue="0.35930885003908031" alpha="0.52878852739726023" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="textColor" red="0.95686274509803915" green="0.95686274509803915" blue="0.95686274509803915" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="RobotoSlab-Regular" family="Roboto Slab" pointSize="20"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences" spellCheckingType="no" returnKeyType="done"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="point" keyPath="shadowOffset">
-                                                <point key="value" x="0.0" y="0.0"/>
+                                                <point key="value" x="1" y="1"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
-                                                <real key="value" value="0.0"/>
+                                                <real key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                                <color key="value" red="0.082352941176470587" green="0.073187934027777776" blue="0.30713337418300646" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                                <real key="value" value="5"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </textView>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="avt-GT-D6y">
                                         <rect key="frame" x="757" y="95" width="202" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                        <fontDescription key="fontDescription" name="RobotoSlab-Regular" family="Roboto Slab" pointSize="20"/>
                                         <state key="normal" title="Submit Bug Report">
+                                            <color key="titleColor" red="0.97254901960784312" green="0.70588235294117641" blue="0.074509803921568626" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <color key="titleShadowColor" red="0.30588235289999999" green="0.30588235289999999" blue="0.30588235289999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
@@ -242,39 +269,36 @@
                                         <rect key="frame" x="300" y="182" width="424" height="325"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CuI-8k-jmE">
-                                                <rect key="frame" x="55" y="138" width="311" height="30"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="staff username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CuI-8k-jmE">
+                                                <rect key="frame" x="55" y="163" width="311" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="20"/>
+                                                <fontDescription key="fontDescription" name="RobotoSlab-Regular" family="Roboto Slab" pointSize="20"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert" returnKeyType="next" enablesReturnKeyAutomatically="YES" textContentType="username"/>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vwj-xP-naO">
-                                                <rect key="frame" x="55" y="179" width="311" height="30"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="staff password" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vwj-xP-naO">
+                                                <rect key="frame" x="55" y="200" width="311" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="20"/>
+                                                <fontDescription key="fontDescription" name="RobotoSlab-Regular" family="Roboto Slab" pointSize="20"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert" returnKeyType="done" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
                                             </textField>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Please enter staff credentials" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lsN-Yj-KUW">
-                                                <rect key="frame" x="48" y="55" width="329" height="33"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="25"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DC9-ea-AY9">
-                                                <rect key="frame" x="55" y="104" width="311" height="27"/>
+                                                <rect key="frame" x="55" y="130" width="311" height="27"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="13"/>
+                                                <fontDescription key="fontDescription" name="RobotoSlab-Regular" family="Roboto Slab" pointSize="13"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qxF-tD-cPs" customClass="nextButton" customModule="self_registration" customModuleProvider="target">
-                                                <rect key="frame" x="153" y="235" width="115" height="37"/>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="watermarkArtboard 1@4x" translatesAutoresizingMaskIntoConstraints="NO" id="CBZ-1H-DV8">
+                                                <rect key="frame" x="67" y="26" width="274" height="94"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
-                                                <state key="normal" title="Submit"/>
+                                            </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qxF-tD-cPs" customClass="nextButton" customModule="self_registration" customModuleProvider="target">
+                                                <rect key="frame" x="121" y="258" width="167" height="37"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" name="RobotoSlab-Regular" family="Roboto Slab" pointSize="20"/>
+                                                <state key="normal" title="Log-In"/>
                                                 <connections>
                                                     <action selector="logInPressed:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="JeT-Fb-3sf"/>
                                                 </connections>
@@ -283,16 +307,16 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
-                                                <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="point" keyPath="shadowOffset">
-                                                <point key="value" x="1" y="1"/>
+                                                <point key="value" x="2" y="2"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
-                                                <real key="value" value="9"/>
+                                                <real key="value" value="8"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
-                                                <real key="value" value="7"/>
+                                                <real key="value" value="15"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
@@ -309,7 +333,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="tabs5Artboard 2" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="" image="tabStaff" id="cPa-gy-q4n"/>
                     <connections>
                         <outlet property="logInResponse" destination="DC9-ea-AY9" id="AKl-8e-d3P"/>
                         <outlet property="logInSubview" destination="U3Y-t6-gfk" id="fGC-4P-vS2"/>
@@ -337,64 +361,54 @@
                                 <rect key="frame" x="300" y="193" width="424" height="325"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Branch Log-In" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5q1-jm-kzQ">
-                                        <rect key="frame" x="48" y="54" width="311" height="37"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="25"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TeB-Eu-AHt">
-                                        <rect key="frame" x="66" y="141" width="311" height="30"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="branch username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TeB-Eu-AHt">
+                                        <rect key="frame" x="66" y="159" width="311" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="20"/>
+                                        <fontDescription key="fontDescription" name="RobotoSlab-Regular" family="Roboto Slab" pointSize="20"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert" returnKeyType="next" enablesReturnKeyAutomatically="YES" textContentType="username"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ajw-OV-IdF">
-                                        <rect key="frame" x="65" y="179" width="311" height="30"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="branch password" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ajw-OV-IdF">
+                                        <rect key="frame" x="65" y="195" width="311" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="20"/>
+                                        <fontDescription key="fontDescription" name="RobotoSlab-Regular" family="Roboto Slab" pointSize="20"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert" returnKeyType="done" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
                                     </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Harris County Public Library" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LXl-kF-hMc">
-                                        <rect key="frame" x="48" y="25" width="329" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="25"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AaS-B9-9rS">
-                                        <rect key="frame" x="57" y="115" width="311" height="27"/>
+                                        <rect key="frame" x="64" y="127" width="311" height="27"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="13"/>
+                                        <fontDescription key="fontDescription" name="RobotoSlab-Regular" family="Roboto Slab" pointSize="13"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C6G-hx-SUs" customClass="nextButton" customModule="self_registration" customModuleProvider="target">
-                                        <rect key="frame" x="137" y="247" width="150" height="36"/>
+                                        <rect key="frame" x="137" y="258" width="150" height="36"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
-                                        <state key="normal" title="Submit"/>
+                                        <fontDescription key="fontDescription" name="RobotoSlab-Regular" family="Roboto Slab" pointSize="20"/>
+                                        <state key="normal" title="Log-In"/>
                                         <connections>
                                             <action selector="submitPressed:" destination="pP7-1h-meO" eventType="touchUpInside" id="Ww8-wY-Rh9"/>
                                         </connections>
                                     </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="watermarkArtboard 1@4x" translatesAutoresizingMaskIntoConstraints="NO" id="g7k-wk-KUb">
+                                        <rect key="frame" x="75" y="24" width="274" height="94"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
-                                        <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="point" keyPath="shadowOffset">
-                                        <point key="value" x="1" y="1"/>
+                                        <point key="value" x="2" y="2"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
-                                        <real key="value" value="9"/>
+                                        <real key="value" value="8"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
-                                        <real key="value" value="7"/>
+                                        <real key="value" value="15"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
@@ -420,10 +434,27 @@
         <scene sceneID="yl2-sM-qoP">
             <objects>
                 <tabBarController id="49e-Tb-3d3" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
+                    <tabBar key="tabBar" opaque="NO" contentMode="scaleToFill" barStyle="black" translucent="NO" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" red="0.23529411764705882" green="0.23529411764705882" blue="0.25882352941176467" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.23529411764705882" green="0.23529411764705882" blue="0.25882352941176467" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="selectedImageTintColor" red="0.95686274509803915" green="0.95686274509803915" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                <color key="value" cocoaTouchSystemColor="darkTextColor"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                <real key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="point" keyPath="shadowOffset">
+                                <point key="value" x="1" y="1"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                <real key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </tabBar>
                     <connections>
                         <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
@@ -436,7 +467,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="tabs4Artboard 1" width="160" height="38"/>
-        <image name="tabs5Artboard 2" width="92" height="43"/>
+        <image name="searchBackgroundBlue" width="1652" height="204"/>
+        <image name="tabRegisterNow" width="160" height="38"/>
+        <image name="tabStaff" width="92" height="43"/>
+        <image name="watermarkArtboard 1@4x" width="648" height="216"/>
     </resources>
 </document>

@@ -14,7 +14,6 @@ import Realm
 class userCell: UITableViewCell {
     
     @IBOutlet weak var firstNameLabel: UILabel!
-    @IBOutlet weak var middleNameLabel: UILabel!
     @IBOutlet weak var lastNameLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var cityLabel: UILabel!
@@ -25,7 +24,6 @@ class userCell: UITableViewCell {
     
     func configure(with user: user) {
         firstNameLabel.text = user.firstName
-        middleNameLabel.text = user.middleName
         lastNameLabel.text = user.lastName
         addressLabel.text = user.address1
         cityLabel.text = user.city

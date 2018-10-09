@@ -20,6 +20,22 @@ enum ValueKey: String {
     case twilioSecret
     case fromNumber
     case lookupUserID
+    
+    //updated remote config values
+    case twilioResendURL
+    case twilioFromNumber
+    case twilioCreationURL
+    case restartTextColor
+    case restartButtonColor
+    case tabActiveTextColor
+    case tabInactiveTextColor
+    case tabActiveBackgroundColor
+    case tabInactiveBackgroundColor
+    case submitTextColor
+    case submitButtonColor
+    case fieldTextInputColor
+    case fieldTextPlaceholderColor
+    case headerTextColor
 }
 
 class RCValues {
@@ -42,7 +58,19 @@ class RCValues {
             ValueKey.twilioSID.rawValue: "ACa43dc90666f387df600823974501aff3" as NSObject,
             ValueKey.twilioSecret.rawValue: "637608f493bdbc2cd06a940a0aa39955" as NSObject,
             ValueKey.fromNumber.rawValue: "%212408234654" as NSObject,
-            ValueKey.lookupUserID.rawValue: "http://10.116.15.70:8080/symws/rest/circulation/getUser?userID=" as NSObject
+            ValueKey.lookupUserID.rawValue: "http://10.116.15.70:8080/symws/rest/circulation/getUser?userID=" as NSObject,
+            //updated remote config values
+            ValueKey.twilioResendURL.rawValue: "https://ACa43dc90666f387df600823974501aff3:637608f493bdbc2cd06a940a0aa39955@studio.twilio.com/v1/Flows/FWfa26cbd339fad504144930937933507d/Engagements" as NSObject,
+            ValueKey.twilioFromNumber.rawValue: "3462201122" as NSObject,
+            ValueKey.twilioCreationURL.rawValue: "https://ACa43dc90666f387df600823974501aff3:637608f493bdbc2cd06a940a0aa39955@studio.twilio.com/v1/Flows/FWb60760aec344167841cf04896e0d51c5/Engagements" as NSObject,
+            ValueKey.restartTextColor.rawValue: "#111777" as NSObject,
+            ValueKey.restartButtonColor.rawValue: "#111777" as NSObject,
+            ValueKey.tabActiveTextColor.rawValue: "#111777" as NSObject,
+            ValueKey.tabInactiveTextColor.rawValue: "#111777" as NSObject,
+            ValueKey.tabActiveBackgroundColor.rawValue: "#111777" as NSObject,
+            ValueKey.tabInactiveBackgroundColor.rawValue: "#111777" as NSObject,
+            ValueKey.submitTextColor.rawValue: "#111777" as NSObject,
+            ValueKey.submitButtonColor.rawValue: "#111777" as NSObject
         ]
         RemoteConfig.remoteConfig().setDefaults(appDefaults)
     }
@@ -62,17 +90,7 @@ class RCValues {
             Firebase.RemoteConfig.remoteConfig().activateFetched()
             print ("Retrieved values from the cloud!")
             print("Our app's primary color is \(Firebase.RemoteConfig.remoteConfig().configValue(forKey: "headerTextPrimaryColor").stringValue ?? "")")
-            print("Our app's sync user server location is \(Firebase.RemoteConfig.remoteConfig().configValue(forKey: "syncUserServer").stringValue ?? "")")
-            print("Our app's sync config server location is \(Firebase.RemoteConfig.remoteConfig().configValue(forKey: "syncConfigServer").stringValue ?? "")")
-            print("Our app's sessionTokenRequestURL is \(Firebase.RemoteConfig.remoteConfig().configValue(forKey: "sessionTokenRequestURL").stringValue ?? "")")
-            print("Our app's creationURL is \(Firebase.RemoteConfig.remoteConfig().configValue(forKey: "creationURL").stringValue ?? "")")
-            print("Our app's firebase storage reference is \(Firebase.RemoteConfig.remoteConfig().configValue(forKey: "firebaseStorageReference").stringValue ?? "")")
-            print("Our app's Twilio SID is \(Firebase.RemoteConfig.remoteConfig().configValue(forKey: "twilioSID").stringValue ?? "")")
-            print("Our app's Twilio Secret is \(Firebase.RemoteConfig.remoteConfig().configValue(forKey: "twilioSecret").stringValue ?? "")")
-            print("Our app's from number is \(Firebase.RemoteConfig.remoteConfig().configValue(forKey: "fromNumber").stringValue ?? "")")
-            print("Our app's lookup user ID url is \(Firebase.RemoteConfig.remoteConfig().configValue(forKey: "lookupUserID").stringValue ?? "")")
-            print(constants.console.databaseDidUpdate)
-            
+           
         })
     }
     

@@ -21,7 +21,7 @@ class logInController: UIViewController {
     override func viewDidLoad() {
         //Set background image
         let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
-        backgroundImage.image = UIImage(named: "GradientArtboard")
+        backgroundImage.image = UIImage(named: "backgroundArtboard")
         backgroundImage.contentMode = UIViewContentMode.scaleAspectFill
         self.view.insertSubview(backgroundImage, at: 0)
         

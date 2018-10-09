@@ -50,19 +50,23 @@ class detailPatronXib: UIView {
         contentView.frame = .init(x: 0, y: 0, width: 900, height: 353)
         contentView.clipsToBounds = false
         contentView.shadowColor = .black
-        contentView.shadowOpacity = 0.20
-        contentView.shadowOffset = CGPoint(x: 0, y: 0)
+        contentView.shadowOpacity = 0.60
+        contentView.shadowOffset = CGPoint(x: 2, y: 2)
         contentView.shadowRadius = 14
     }
     
     @IBAction func resendText(_ sender: Any) {
+        
+        doesAccountExistTwilio(libraryCardNumber: userIDLabel.text!, phone: phoneLabel.text!)
+        
+        /*
         if userStandingLabel.text != "Account Not In Sirsi" {
             //resend text to patron
             if profileType.text == "A" {
-                sendTextToSMS(toNumber: phoneLabel.text!, name: firstLabel.text!, number: userIDLabel.text!)
+                //sendTextToSMS(toNumber: phoneLabel.text!, name: firstLabel.text!, number: userIDLabel.text!)
             }
             else {
-                retext(cardNumber: userIDLabel.text!, name: firstLabel.text!, toNumber: phoneLabel.text!)
+                //retext(cardNumber: userIDLabel.text!, name: firstLabel.text!, toNumber: phoneLabel.text!)
             }
             //after button is pressed, change text so staff know button was pressed
             resendButton.setTitle("Resending Text", for: .normal)
@@ -78,7 +82,7 @@ class detailPatronXib: UIView {
                 self.resendButton.setTitle("Recreating Account", for: .normal)
                 self.userStandingLabel.text = "OK"
             }
-        }
+        */
     }
     
 }

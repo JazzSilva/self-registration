@@ -41,7 +41,6 @@ class homeXib: UIView {
     var userDict = Dictionary<Int, String>()
     var userInformation = Dictionary<String, [String]>()
     var newLibraryCard = libraryCard()
-    var lottieAnimation: LOTAnimationView?
     weak var lilitab = LilitabSDK.singleton()
     let animationView = LOTAnimationView(name: "account_success")
     
@@ -67,8 +66,8 @@ class homeXib: UIView {
         contentView.clipsToBounds = false
         contentView.frame = .init(x: 0, y: 0, width: 800, height: 500)
         contentView.shadowColor = .black
-        contentView.shadowOpacity = 0.20
-        contentView.shadowOffset = CGPoint(x: 0, y: 0)
+        contentView.shadowOpacity = 0.80
+        contentView.shadowOffset = CGPoint(x: 2, y: 2)
         contentView.shadowRadius = 14
         lilitab?.scanForConnectedAccessories()
         lilitab?.enableSwipe = true

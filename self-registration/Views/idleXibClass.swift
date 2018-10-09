@@ -15,9 +15,8 @@ class idleXib: UIView {
     
     @IBOutlet var contentView: UIView!
 
-    @IBOutlet weak var topLabel: UILabel!
-    @IBOutlet weak var isValid: nextButton!
-    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var isValid: UIButton!
+    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -35,21 +34,14 @@ class idleXib: UIView {
         contentView.clipsToBounds = false
         contentView.frame = .init(x: 0, y: 0, width: 800, height: 500)
         contentView.shadowColor = .black
-        contentView.shadowOpacity = 0.20
+        contentView.shadowOpacity = 0.80
         contentView.shadowOffset = CGPoint(x: 0, y: 0)
-        contentView.shadowRadius = 14
-        addImageToUIImageView()
-        isValid.enableSettings()
+        contentView.shadowRadius = 15
+        isValid.layer.cornerRadius = 4
     }
     
     @objc func removeButton(sender: AnyObject) {
         self.isValid.removeFromSuperview()
     }
     
-    // call this function where you want to set image.
-    func addImageToUIImageView() {
-        let image: UIImage = UIImage(named: "idleArtboard")!
-        imageView.image = image
-    }
-
 }

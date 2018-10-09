@@ -43,28 +43,8 @@ extension homeXib {
 
             newLibraryCard.fourteenDigitLicense = self.userInformation["DL Number"]?.first!
             
-            getSessionToken { (success) -> Void in
-                if success {
-                    print("got session token", NSDate())
-                    // do second task if success
-                    doesAccountExist(self.newLibraryCard.driversLicenseWithCorrectedPrefix) { (success, string) -> Void in
-                        if success {
-                            //The license is already associated with an account
-                            self.animateAccountExistsView()
-                        }
-                        else {
-                            //The license is not associated with an account
-                            self.animateSuccessfulSwipeView()
-                        }
-                    }
-                }
-                else {
-                    //We could not get the session token to look-Up the license
-                    sessionTokenError()
-                    //Temporary Fix: trigger unable to read license function
-                    self.animateUnableToReadSwipeView()
-                }
-            }
+            //Need to update workflow in twilio for checking if account exists
+            self.animateSuccessfulSwipeView()
         }
         else {
             //If the swipe cannot read the card data, trigger this function
